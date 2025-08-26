@@ -782,17 +782,17 @@ prebuilt_etc {
 // Module Loading Optimization
 // =============================================
 
-//genrule {
-//    name: "generate_combined_modules_load",
-//    tools: ["grep"],
-//    cmd: "grep -h -v ^# $(location proprietary/vendor_dlkm/lib/modules/modules.load) $(location proprietary/vendor_dlkm/lib/modules/modules.load.cali) > $(out)",
-//    srcs: [
-//        "proprietary/vendor_dlkm/lib/modules/modules.load",
-//        "proprietary/vendor_dlkm/lib/modules/modules.load.cali",
-//    ],
-//    out: ["modules.load.combined"],
-//    vendor: true,
-// }
+genrule {
+    name: "generate_combined_modules_load",
+    tools: ["grep"],
+    cmd: "grep -h -v ^# $(location proprietary/vendor_dlkm/lib/modules/modules.load) $(location proprietary/vendor_dlkm/lib/modules/modules.load.cali) > $(out)",
+    srcs: [
+        "proprietary/vendor_dlkm/lib/modules/modules.load",
+        "proprietary/vendor_dlkm/lib/modules/modules.load.cali",
+    ],
+    out: ["modules.load.combined"],
+    vendor: true,
+ }
 
 // =============================================
 // SELinux Configuration
@@ -809,9 +809,9 @@ prebuilt_etc {
 // =============================================
 // License
 // =============================================
-// license {
-//    name: "realme-proprietary-license",
-//    license_kinds: ["proprietary"],
-//    license_text: ["licenses/realme_proprietary_license.txt"],
-//    visibility: ["//vendor/realme/RE58C2:__subpackages__"],
-// }
+ license {
+    name: "realme-proprietary-license",
+    license_kinds: ["proprietary"],
+    license_text: ["licenses/realme_proprietary_license.txt"],
+    visibility: ["//vendor/realme/RE58C2:__subpackages__"],
+ }
