@@ -1,6 +1,4 @@
-<!--
-    Cleaned Vendor Device Manifest
--->
+<?xml version="1.0" encoding="utf-8"?>
 <manifest version="5.0" type="device" target-level="7">
 
     <!-- Audio HALs -->
@@ -202,20 +200,16 @@
         </interface>
         <fqname>@1.0::IWcnVendorInterface/default</fqname>
     </hal>
-    <!-- Framework HAL: android.hardware.thermal@2.0 -->
+
+    <!-- Thermal HAL -->
     <hal format="hidl">
         <name>android.hardware.thermal</name>
         <version>2.0</version>
         <transport>hwbinder</transport>
         <instance>default</instance>
-        <!-- Map to vendor SPRD HAL -->
-        <interface>
-            <name>vendor.sprd.hardware.thermal</name>
-            <version>2.0</version>
-        </interface>
     </hal>
 
-    <!-- Optionally include the older HALs for compatibility -->
+    <!-- Vendor Thermal HALs -->
     <hal format="hidl">
         <name>vendor.sprd.hardware.thermal</name>
         <version>1.0</version>
