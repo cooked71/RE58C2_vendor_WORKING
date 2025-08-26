@@ -201,6 +201,7 @@
         <fqname>@1.0::IWcnVendorInterface/default</fqname>
     </hal>
     <!-- Thermal HAL -->
+<!-- Thermal HAL -->
 <hal format="hidl">
     <name>android.hardware.thermal</name>
     <version>2.0</version>
@@ -221,12 +222,6 @@
         <instance>default</instance>
     </interface>
 </hal>
-    <hal format="hidl">
-        <name>vendor.sprd.hardware.thermal</name>
-        <version>2.0</version>
-        <transport>hwbinder</transport>
-        <instance>default</instance>
-    </hal>
 
     <!-- SELinux -->
     <sepolicy>
