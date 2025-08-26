@@ -200,22 +200,27 @@
         </interface>
         <fqname>@1.0::IWcnVendorInterface/default</fqname>
     </hal>
-
     <!-- Thermal HAL -->
-    <hal format="hidl">
-        <name>android.hardware.thermal</name>
-        <version>2.0</version>
-        <transport>hwbinder</transport>
+<hal format="hidl">
+    <name>android.hardware.thermal</name>
+    <version>2.0</version>
+    <transport>hwbinder</transport>
+    <interface>
+        <name>IThermal</name>
         <instance>default</instance>
-    </hal>
+    </interface>
+</hal>
 
-    <!-- Vendor Thermal HALs -->
-    <hal format="hidl">
-        <name>vendor.sprd.hardware.thermal</name>
-        <version>1.0</version>
-        <transport>hwbinder</transport>
+<!-- Vendor Thermal HALs -->
+<hal format="hidl">
+    <name>vendor.sprd.hardware.thermal</name>
+    <version>1.0</version>
+    <transport>hwbinder</transport>
+    <interface>
+        <name>IThermal</name>
         <instance>default</instance>
-    </hal>
+    </interface>
+</hal>
     <hal format="hidl">
         <name>vendor.sprd.hardware.thermal</name>
         <version>2.0</version>
