@@ -809,9 +809,9 @@ prebuilt_etc {
 // =============================================
 // License
 // =============================================
-license {
-    name: "realme-proprietary-license",
-    license_kinds: ["proprietary"],
-    license_text: ["licenses/realme_proprietary_license.txt"],
-    visibility: ["//vendor/realme/RE58C2:__subpackages__"],
-}
+// license {
+//    name: "realme-proprietary-license",
+//    license_kinds: ["proprietary"],
+//    license_text: ["licenses/realme_proprietary_license.txt"],
+//    visibility: ["//vendor/realme/RE58C2:__subpackages__"],
+// }
