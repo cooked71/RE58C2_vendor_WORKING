@@ -359,33 +359,31 @@
             <instance>slot2</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-    <name>vendor.nxp.nxpnfc</name>
-    <version>2.0</version>
-    <interface>
-        <name>INxpNfc</name>
-        <instance>default</instance>
-    </interface>
-</hal>
-
-<hal format="hidl" optional="true">
-    <name>vendor.nxp.nxpnfclegacy</name>
-    <version>1.0</version>
-    <interface>
-        <name>INxpNfcLegacy</name>
-        <instance>default</instance>
-    </interface>
-</hal>
-    </hal>
-    <hal format="hidl">
-    <name>android.hardware.thermal</name>
-    <version>2.0</version>
-    <transport>hwbinder</transport>
-    <instance>default</instance>
-    <!-- Map to vendor SPRD HAL -->
-    <interface>
-        <name>vendor.sprd.hardware.thermal</name>
+    <    <hal format="hidl" optional="true">
+        <name>vendor.nxp.nxpnfc</name>
         <version>2.0</version>
-    </interface>
-</hal>
+        <interface>
+            <name>INxpNfc</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
+    <hal format="hidl" optional="true">
+        <name>vendor.nxp.nxpnfclegacy</name>
+        <version>1.0</version>
+        <interface>
+            <name>INxpNfcLegacy</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
+    <hal format="hidl" optional="true">
+        <name>android.hardware.thermal</name>
+        <version>2.0</version>
+        <transport>hwbinder</transport>
+        <interface>
+            <name>IThermal</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>
