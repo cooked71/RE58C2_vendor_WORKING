@@ -5,14 +5,14 @@
 // ===== SERVICE BINARIES =====
 cc_prebuilt_binary {
     name: "android.hardware.boot@1.2-service",
-    srcs: "proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service",
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service"],
     vendor: true,
     relative_install_path: "bin/hw",
 }
 
 cc_prebuilt_binary {
     name: "android.hardware.boot@1.2-service.recovery",
-    srcs: "proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service_2",
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service_2"],
     vendor: true,
     relative_install_path: "recovery/root/vendor/bin/hw",
 }
