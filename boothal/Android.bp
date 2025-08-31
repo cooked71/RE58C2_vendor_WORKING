@@ -1,99 +1,132 @@
-// =============================================================================
-// RE58C2 Boot HAL and Bootctrl Prebuilts
-// =============================================================================
-
-// ===== SERVICE BINARIES =====
-prebuilt_binary {
+// SERVICE BINARIES
+filegroup {
     name: "android.hardware.boot@1.2-service",
-    src: "vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service",
+    srcs: ["vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service"],
     vendor: true,
-    relative_install_path: "bin/hw",
+    installable: true,
+    path: "bin/hw",
 }
 
-prebuilt_binary {
+filegroup {
     name: "android.hardware.boot@1.2-service.recovery",
-    src: "vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service_2",
+    srcs: ["vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service_2"],
     vendor: true,
-    relative_install_path: "recovery/root/vendor/bin/hw",
+    installable: true,
+    path: "recovery/root/vendor/bin/hw",
 }
 
-// ===== IMPLEMENTATION LIBRARIES =====
-prebuilt_shared_library {
+// IMPLEMENTATION LIBRARIES
+cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.2-impl",
+    vendor: true,
     srcs: [
         "vendor/realme/RE58C2/proprietary/vendor/lib64/hw/android.hardware.boot@1.0-impl-1.2.so",
         "vendor/realme/RE58C2/proprietary/vendor/lib/hw/android.hardware.boot@1.0-impl-1.2.so"
     ],
-    vendor: true,
+    installable: true,
     compile_multilib: "both",
-    relative_install_path: "lib/hw",
+    shared_libs: [],
+    stl: "none",
+    strip: {
+        none: true,
+    },
 }
 
-prebuilt_shared_library {
+cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.2-impl.recovery",
+    vendor: true,
     srcs: [
         "vendor/realme/RE58C2/proprietary/vendor_boot/ramdisk/system/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"
     ],
-    vendor: true,
+    installable: true,
     compile_multilib: "64",
-    relative_install_path: "recovery/root/vendor/lib64/hw",
+    shared_libs: [],
+    stl: "none",
+    strip: {
+        none: true,
+    },
 }
 
-// ===== INTERFACE LIBRARIES (VENDOR_BOOT) =====
-prebuilt_shared_library {
+// INTERFACE LIBRARIES (VENDOR_BOOT)
+cc_prebuilt_library_shared {
     name: "android.hardware.boot.iface",
+    vendor: true,
     srcs: [
         "vendor/realme/RE58C2/proprietary/vendor_boot/ramdisk/system/lib64/android.hardware.boot@1.2.so",
         "vendor/realme/RE58C2/proprietary/vendor_boot/ramdisk/system/lib64/android.hardware.boot@1.1.so",
         "vendor/realme/RE58C2/proprietary/vendor_boot/ramdisk/system/lib64/android.hardware.boot@1.0.so",
         "vendor/realme/RE58C2/proprietary/vendor_boot/ramdisk/system/lib64/vendor.sprd.hardware.boot@1.2.so"
     ],
-    vendor: true,
+    installable: true,
     compile_multilib: "64",
-    relative_install_path: "recovery/root/system/lib64",
+    shared_libs: [],
+    stl: "none",
+    strip: {
+        none: true,
+    },
 }
 
-// ===== BOOTCTRL LIBRARIES =====
-prebuilt_shared_library {
+// BOOTCTRL LIBRARIES
+cc_prebuilt_library_shared {
     name: "bootctrl.default",
+    vendor: true,
     srcs: [
         "vendor/realme/RE58C2/proprietary/vendor/lib64/hw/bootctrl.default.so",
         "vendor/realme/RE58C2/proprietary/vendor/lib/hw/bootctrl.default.so"
     ],
-    vendor: true,
+    installable: true,
     compile_multilib: "both",
-    relative_install_path: "lib/hw",
+    shared_libs: [],
+    stl: "none",
+    strip: {
+        none: true,
+    },
 }
 
-prebuilt_shared_library {
+cc_prebuilt_library_shared {
     name: "bootctrl.default.recovery",
+    vendor: true,
     srcs: [
         "vendor/realme/RE58C2/proprietary/vendor/lib64/hw/bootctrl.default.so",
         "vendor/realme/RE58C2/proprietary/vendor/lib/hw/bootctrl.default.so"
     ],
-    vendor: true,
+    installable: true,
     compile_multilib: "both",
-    relative_install_path: "recovery/root/vendor/lib/hw",
+    shared_libs: [],
+    stl: "none",
+    strip: {
+        none: true,
+    },
 }
 
-prebuilt_shared_library {
+cc_prebuilt_library_shared {
     name: "unisoc.bootctrl",
+    vendor: true,
     srcs: [
         "vendor/realme/RE58C2/proprietary/vendor/lib64/hw/unisoc.bootctrl.so",
         "vendor/realme/RE58C2/proprietary/vendor/lib/hw/unisoc.bootctrl.so"
     ],
-    vendor: true,
+    installable: true,
     compile_multilib: "both",
-    relative_install_path: "lib/hw",
+    shared_libs: [],
+    stl: "none",
+    strip: {
+        none: true,
+    },
 }
 
-prebuilt_shared_library {
+cc_prebuilt_library_shared {
     name: "unisoc.bootctrl.recovery",
+    vendor: true,
     srcs: [
         "vendor/realme/RE58C2/proprietary/vendor/lib64/hw/unisoc.bootctrl.so",
         "vendor/realme/RE58C2/proprietary/vendor/lib/hw/unisoc.bootctrl.so"
     ],
-    vendor: true,
+    installable: true,
     compile_multilib: "both",
-    relative_install_path: "recovery/root/vendor/lib/hw",
+    shared_libs: [],
+    stl: "none",
+    strip: {
+        none: true,
+    },
 }
