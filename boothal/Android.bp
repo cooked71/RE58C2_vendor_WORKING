@@ -3,18 +3,18 @@
 // =============================================================================
 
 // ===== SERVICE BINARIES =====
-cc_prebuilt_binary {
+prebuilt_binary {
     name: "android.hardware.boot@1.2-service",
-    vendor: true,
     src: "vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service",
-    sub_dir: "bin/hw",
+    vendor: true,
+    relative_install_path: "bin/hw",
 }
 
-cc_prebuilt_binary {
+prebuilt_binary {
     name: "android.hardware.boot@1.2-service.recovery",
-    vendor: true,
     src: "vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service_2",
-    sub_dir: "recovery/root/vendor/bin/hw",
+    vendor: true,
+    relative_install_path: "recovery/root/vendor/bin/hw",
 }
 
 // ===== IMPLEMENTATION LIBRARIES =====
