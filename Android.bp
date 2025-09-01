@@ -895,6 +895,7 @@ cc_prebuilt_library_shared {
     stl: "none",
     strip: { none: true },
     relative_install_path: "lib64",
+    check_elf_files: false, // Add this
 }
 
 cc_prebuilt_library_shared {
@@ -905,6 +906,7 @@ cc_prebuilt_library_shared {
     stl: "none",
     strip: { none: true },
     relative_install_path: "lib",
+    check_elf_files: false, // Add this
 }
 
 cc_prebuilt_library_shared {
@@ -922,6 +924,102 @@ cc_prebuilt_library_shared {
     },
     stl: "none",
     strip: { none: true },
+    check_elf_files: false, // Add this
+}
+
+// ===== Boot HAL service binary =====
+cc_prebuilt_binary {
+    name: "android.hardware.boot@1.2-service",
+    vendor: true,
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service"],
+    relative_install_path: "bin/hw",
+    stl: "none",
+    strip: { none: true },
+    check_elf_files: false, // Add this
+}
+
+// ===== Implementation libraries (vendor) =====
+cc_prebuilt_library_shared {
+    name: "android.hardware.boot@1.2-impl_64",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
+    compile_multilib: "64",
+    stl: "none",
+    strip: { none: true },
+    relative_install_path: "lib64/hw",
+    check_elf_files: false, // Add this
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.boot@1.2-impl_32",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib/hw/android.hardware.boot@1.0-impl-1.2.so"],
+    compile_multilib: "32",
+    stl: "none",
+    strip: { none: true },
+    relative_install_path: "lib/hw",
+    check_elf_files: false, // Add this
+}
+
+// Main impl module that selects 32/64 bit automatically
+cc_prebuilt_library_shared {
+    name: "android.hardware.boot@1.2-impl",
+    vendor: true,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
+            relative_install_path: "lib64/hw",
+        },
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/android.hardware.boot@1.0-impl-1.2.so"],
+            relative_install_path: "lib/hw",
+        },
+    },
+    stl: "none",
+    strip: { none: true },
+    check_elf_files: false, // Add this
+}
+
+// ===== Bootctrl libraries (vendor) =====
+cc_prebuilt_library_shared {
+    name: "bootctrl.default_64",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/hw/bootctrl.default.so"],
+    compile_multilib: "64",
+    stl: "none",
+    strip: { none: true },
+    relative_install_path: "lib64/hw",
+    check_elf_files: false, // Add this
+}
+
+cc_prebuilt_library_shared {
+    name: "bootctrl.default_32",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib/hw/bootctrl.default.so"],
+    compile_multilib: "32",
+    stl: "none",
+    strip: { none: true },
+    relative_install_path: "lib/hw",
+    check_elf_files: false, // Add this
+}
+
+// Main bootctrl module that selects 32/64 bit automatically
+cc_prebuilt_library_shared {
+    name: "bootctrl.default",
+    vendor: true,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/bootctrl.default.so"],
+            relative_install_path: "lib64/hw",
+        },
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/bootctrl.default.so"],
+            relative_install_path: "lib/hw",
+        },
+    },
+    stl: "none",
+    strip: { none: true },
+    check_elf_files: false, // Add this
 }
 
 // ===== Unisoc Bootctrl =====
@@ -933,17 +1031,7 @@ cc_prebuilt_library_shared {
     stl: "none",
     strip: { none: true },
     relative_install_path: "lib64/hw",
-    shared_libs: [
-        "android.hardware.boot@1.0",
-        "android.hardware.boot@1.1",
-        "android.hardware.boot@1.2",
-        "vendor.sprd.hardware.boot@1.2", // Now this module exists
-        "libbase",
-        "libc++",
-        "libhardware",
-        "liblog",
-    ],
-    check_elf_files: false,
+    check_elf_files: false, // Add this
 }
 
 cc_prebuilt_library_shared {
@@ -954,17 +1042,7 @@ cc_prebuilt_library_shared {
     stl: "none",
     strip: { none: true },
     relative_install_path: "lib/hw",
-    shared_libs: [
-        "android.hardware.boot@1.0",
-        "android.hardware.boot@1.1",
-        "android.hardware.boot@1.2",
-        "vendor.sprd.hardware.boot@1.2", // Now this module exists
-        "libbase",
-        "libc++",
-        "libhardware",
-        "liblog",
-    ],
-    check_elf_files: false,
+    check_elf_files: false, // Add this
 }
 
 cc_prebuilt_library_shared {
@@ -982,15 +1060,5 @@ cc_prebuilt_library_shared {
     },
     stl: "none",
     strip: { none: true },
-    shared_libs: [
-        "android.hardware.boot@1.0",
-        "android.hardware.boot@1.1",
-        "android.hardware.boot@1.2",
-        "vendor.sprd.hardware.boot@1.2", // Now this module exists
-        "libbase",
-        "libc++",
-        "libhardware",
-        "liblog",
-    ],
-    check_elf_files: false,
+    check_elf_files: false, // Add this
 }
