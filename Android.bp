@@ -922,26 +922,3 @@ cc_prebuilt_library_shared {
     stl: "none",
     strip: { none: true },
 }
-
-// ===== Implementation libraries (recovery) - 64-bit ONLY =====
-cc_prebuilt_library_shared {
-    name: "android.hardware.boot@1.2-impl_64_recovery",
-    vendor: true,
-    srcs: ["proprietary/vendor_boot/ramdisk/system/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
-    compile_multilib: "64",
-    stl: "none",
-    strip: { none: true },
-    relative_install_path: "recovery/root/vendor/lib64/hw",
-}
-
-// Main recovery impl module - 64-bit ONLY
-cc_prebuilt_library_shared {
-    name: "android.hardware.boot@1.2-impl.recovery",
-    vendor: true,
-    recovery: true,
-    srcs: ["proprietary/vendor_boot/ramdisk/system/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
-    compile_multilib: "64",
-    stl: "none",
-    strip: { none: true },
-    relative_install_path: "recovery/root/vendor/lib64/hw",
-}
