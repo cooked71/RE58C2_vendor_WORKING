@@ -2,7 +2,7 @@
 cc_prebuilt_binary {
     name: "android.hardware.boot@1.2-service",
     vendor: true,
-    srcs: ["vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service"],
+    srcs: ["../../proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service"],
     relative_install_path: "bin/hw",
     stl: "none",
     strip: { none: true },
@@ -12,7 +12,7 @@ cc_prebuilt_binary {
 cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.2-impl_64",
     vendor: true,
-    srcs: ["vendor/realme/RE58C2/proprietary/vendor/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
+    srcs: ["../../proprietary/vendor/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
     compile_multilib: "64",
     stl: "none",
     strip: { none: true },
@@ -22,7 +22,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.2-impl_32",
     vendor: true,
-    srcs: ["vendor/realme/RE58C2/proprietary/vendor/lib/hw/android.hardware.boot@1.0-impl-1.2.so"],
+    srcs: ["../../proprietary/vendor/lib/hw/android.hardware.boot@1.0-impl-1.2.so"],
     compile_multilib: "32",
     stl: "none",
     strip: { none: true },
@@ -33,7 +33,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "bootctrl.default_64",
     vendor: true,
-    srcs: ["vendor/realme/RE58C2/proprietary/vendor/lib64/hw/bootctrl.default.so"],
+    srcs: ["../../proprietary/vendor/lib64/hw/bootctrl.default.so"],
     compile_multilib: "64",
     stl: "none",
     strip: { none: true },
@@ -43,7 +43,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "bootctrl.default_32",
     vendor: true,
-    srcs: ["vendor/realme/RE58C2/proprietary/vendor/lib/hw/bootctrl.default.so"],
+    srcs: ["../../proprietary/vendor/lib/hw/bootctrl.default.so"],
     compile_multilib: "32",
     stl: "none",
     strip: { none: true },
@@ -54,7 +54,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.2-impl_64_recovery",
     vendor: true,
-    srcs: ["vendor/realme/RE58C2/proprietary/vendor_boot/ramdisk/system/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
+    srcs: ["../../proprietary/vendor_boot/ramdisk/system/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
     compile_multilib: "64",
     stl: "none",
     strip: { none: true },
@@ -64,7 +64,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.2-impl_32_recovery",
     vendor: true,
-    srcs: ["vendor/realme/RE58C2/proprietary/vendor_boot/ramdisk/system/lib/hw/android.hardware.boot@1.0-impl-1.2.so"],
+    srcs: ["../../proprietary/vendor_boot/ramdisk/system/lib/hw/android.hardware.boot@1.0-impl-1.2.so"],
     compile_multilib: "32",
     stl: "none",
     strip: { none: true },
@@ -75,7 +75,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "bootctrl.default_64_recovery",
     vendor: true,
-    srcs: ["vendor/realme/RE58C2/proprietary/vendor_boot/ramdisk/system/lib64/hw/bootctrl.default.so"],
+    srcs: ["../../proprietary/vendor_boot/ramdisk/system/lib64/hw/bootctrl.default.so"],
     compile_multilib: "64",
     stl: "none",
     strip: { none: true },
@@ -85,7 +85,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "bootctrl.default_32_recovery",
     vendor: true,
-    srcs: ["vendor/realme/RE58C2/proprietary/vendor_boot/ramdisk/system/lib/hw/bootctrl.default.so"],
+    srcs: ["../../proprietary/vendor_boot/ramdisk/system/lib/hw/bootctrl.default.so"],
     compile_multilib: "32",
     stl: "none",
     strip: { none: true },
