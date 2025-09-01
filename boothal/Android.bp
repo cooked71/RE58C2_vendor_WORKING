@@ -10,43 +10,40 @@ package {
 cc_prebuilt_binary {
     name: "android.hardware.boot@1.2-service",
     vendor: true,
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service"],
+    srcs: ["../proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service"],
     relative_install_path: "bin/hw",
 }
 
 cc_prebuilt_binary {
     name: "android.hardware.boot@1.2-service.recovery",
     vendor: true,
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service_2"],
+    srcs: ["../proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service_2"],
     relative_install_path: "recovery/root/vendor/bin/hw",
 }
 
 // ===================== IMPLEMENTATION LIBRARIES =====================
-// 64-bit vendor
 cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.2-impl_64",
     vendor: true,
-    srcs: ["proprietary/vendor/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
+    srcs: ["../proprietary/vendor/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
     compile_multilib: "64",
     stl: "none",
     strip: { none: true },
 }
 
-// 32-bit vendor
 cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.2-impl_32",
     vendor: true,
-    srcs: ["proprietary/vendor/lib/hw/android.hardware.boot@1.0-impl-1.2.so"],
+    srcs: ["../proprietary/vendor/lib/hw/android.hardware.boot@1.0-impl-1.2.so"],
     compile_multilib: "32",
     stl: "none",
     strip: { none: true },
 }
 
-// 64-bit recovery
 cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.2-impl_64_recovery",
     vendor: true,
-    srcs: ["proprietary/vendor_boot/ramdisk/system/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
+    srcs: ["../proprietary/vendor_boot/ramdisk/system/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
     compile_multilib: "64",
     stl: "none",
     strip: { none: true },
@@ -57,7 +54,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.2_if_64_recovery",
     vendor: true,
-    srcs: ["proprietary/vendor_boot/ramdisk/system/lib64/android.hardware.boot@1.2.so"],
+    srcs: ["../proprietary/vendor_boot/ramdisk/system/lib64/android.hardware.boot@1.2.so"],
     compile_multilib: "64",
     stl: "none",
     strip: { none: true },
@@ -67,7 +64,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.1_if_64_recovery",
     vendor: true,
-    srcs: ["proprietary/vendor_boot/ramdisk/system/lib64/android.hardware.boot@1.1.so"],
+    srcs: ["../proprietary/vendor_boot/ramdisk/system/lib64/android.hardware.boot@1.1.so"],
     compile_multilib: "64",
     stl: "none",
     strip: { none: true },
@@ -77,7 +74,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.0_if_64_recovery",
     vendor: true,
-    srcs: ["proprietary/vendor_boot/ramdisk/system/lib64/android.hardware.boot@1.0.so"],
+    srcs: ["../proprietary/vendor_boot/ramdisk/system/lib64/android.hardware.boot@1.0.so"],
     compile_multilib: "64",
     stl: "none",
     strip: { none: true },
@@ -87,7 +84,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.boot@1.2_recovery",
     vendor: true,
-    srcs: ["proprietary/vendor_boot/ramdisk/system/lib64/vendor.sprd.hardware.boot@1.2.so"],
+    srcs: ["../proprietary/vendor_boot/ramdisk/system/lib64/vendor.sprd.hardware.boot@1.2.so"],
     compile_multilib: "64",
     stl: "none",
     strip: { none: true },
@@ -95,84 +92,76 @@ cc_prebuilt_library_shared {
 }
 
 // ===================== BOOTCTRL LIBRARIES =====================
-// 64-bit vendor
 cc_prebuilt_library_shared {
     name: "bootctrl.default_64",
     vendor: true,
-    srcs: ["proprietary/vendor/lib64/hw/bootctrl.default.so"],
+    srcs: ["../proprietary/vendor/lib64/hw/bootctrl.default.so"],
     compile_multilib: "64",
     stl: "none",
     strip: { none: true },
 }
 
-// 32-bit vendor
 cc_prebuilt_library_shared {
     name: "bootctrl.default_32",
     vendor: true,
-    srcs: ["proprietary/vendor/lib/hw/bootctrl.default.so"],
+    srcs: ["../proprietary/vendor/lib/hw/bootctrl.default.so"],
     compile_multilib: "32",
     stl: "none",
     strip: { none: true },
 }
 
-// 64-bit recovery
 cc_prebuilt_library_shared {
     name: "bootctrl.default_64_recovery",
     vendor: true,
-    srcs: ["proprietary/vendor/lib64/hw/bootctrl.default.so"],
+    srcs: ["../proprietary/vendor/lib64/hw/bootctrl.default.so"],
     compile_multilib: "64",
     stl: "none",
     strip: { none: true },
     relative_install_path: "recovery/root/vendor/lib64/hw",
 }
 
-// 32-bit recovery
 cc_prebuilt_library_shared {
     name: "bootctrl.default_32_recovery",
     vendor: true,
-    srcs: ["proprietary/vendor/lib/hw/bootctrl.default.so"],
+    srcs: ["../proprietary/vendor/lib/hw/bootctrl.default.so"],
     compile_multilib: "32",
     stl: "none",
     strip: { none: true },
     relative_install_path: "recovery/root/vendor/lib/hw",
 }
 
-// UNISOC Bootctrl 64-bit
 cc_prebuilt_library_shared {
     name: "unisoc.bootctrl_64",
     vendor: true,
-    srcs: ["proprietary/vendor/lib64/hw/unisoc.bootctrl.so"],
+    srcs: ["../proprietary/vendor/lib64/hw/unisoc.bootctrl.so"],
     compile_multilib: "64",
     stl: "none",
     strip: { none: true },
 }
 
-// UNISOC Bootctrl 32-bit
 cc_prebuilt_library_shared {
     name: "unisoc.bootctrl_32",
     vendor: true,
-    srcs: ["proprietary/vendor/lib/hw/unisoc.bootctrl.so"],
+    srcs: ["../proprietary/vendor/lib/hw/unisoc.bootctrl.so"],
     compile_multilib: "32",
     stl: "none",
     strip: { none: true },
 }
 
-// UNISOC Bootctrl 64-bit recovery
 cc_prebuilt_library_shared {
     name: "unisoc.bootctrl_64_recovery",
     vendor: true,
-    srcs: ["proprietary/vendor/lib64/hw/unisoc.bootctrl.so"],
+    srcs: ["../proprietary/vendor/lib64/hw/unisoc.bootctrl.so"],
     compile_multilib: "64",
     stl: "none",
     strip: { none: true },
     relative_install_path: "recovery/root/vendor/lib64/hw",
 }
 
-// UNISOC Bootctrl 32-bit recovery
 cc_prebuilt_library_shared {
     name: "unisoc.bootctrl_32_recovery",
     vendor: true,
-    srcs: ["proprietary/vendor/lib/hw/unisoc.bootctrl.so"],
+    srcs: ["../proprietary/vendor/lib/hw/unisoc.bootctrl.so"],
     compile_multilib: "32",
     stl: "none",
     strip: { none: true },
