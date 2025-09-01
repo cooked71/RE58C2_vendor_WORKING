@@ -886,6 +886,45 @@ cc_prebuilt_library_shared {
 }
 
 // ===== Unisoc Bootctrl =====
+// ===== Vendor SPRD Boot HAL Library =====
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.boot@1.2_64",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.boot@1.2.so"],
+    compile_multilib: "64",
+    stl: "none",
+    strip: { none: true },
+    relative_install_path: "lib64",
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.boot@1.2_32",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.boot@1.2.so"],
+    compile_multilib: "32",
+    stl: "none",
+    strip: { none: true },
+    relative_install_path: "lib",
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.boot@1.2",
+    vendor: true,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.boot@1.2.so"],
+            relative_install_path: "lib64",
+        },
+        lib32: {
+            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.boot@1.2.so"],
+            relative_install_path: "lib",
+        },
+    },
+    stl: "none",
+    strip: { none: true },
+}
+
+// ===== Unisoc Bootctrl =====
 cc_prebuilt_library_shared {
     name: "unisoc.bootctrl_64",
     vendor: true,
@@ -896,15 +935,15 @@ cc_prebuilt_library_shared {
     relative_install_path: "lib64/hw",
     shared_libs: [
         "android.hardware.boot@1.0",
-        "android.hardware.boot@1.1", 
+        "android.hardware.boot@1.1",
         "android.hardware.boot@1.2",
-        "vendor.sprd.hardware.boot@1.2",
+        "vendor.sprd.hardware.boot@1.2", // Now this module exists
         "libbase",
         "libc++",
         "libhardware",
         "liblog",
     ],
-    check_elf_files: false, // Add this to bypass strict checking if needed
+    check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
@@ -919,13 +958,13 @@ cc_prebuilt_library_shared {
         "android.hardware.boot@1.0",
         "android.hardware.boot@1.1",
         "android.hardware.boot@1.2",
-        "vendor.sprd.hardware.boot@1.2",
+        "vendor.sprd.hardware.boot@1.2", // Now this module exists
         "libbase",
         "libc++",
         "libhardware",
         "liblog",
     ],
-    check_elf_files: false, // Add this to bypass strict checking if needed
+    check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
@@ -947,11 +986,11 @@ cc_prebuilt_library_shared {
         "android.hardware.boot@1.0",
         "android.hardware.boot@1.1",
         "android.hardware.boot@1.2",
-        "vendor.sprd.hardware.boot@1.2",
+        "vendor.sprd.hardware.boot@1.2", // Now this module exists
         "libbase",
         "libc++",
         "libhardware",
         "liblog",
     ],
-    check_elf_files: false, // Add this to bypass strict checking if needed
+    check_elf_files: false,
 }
