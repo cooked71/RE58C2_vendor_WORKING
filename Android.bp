@@ -797,6 +797,7 @@ prebuilt_etc {
 // Boot HAL service binary 
 // =============================================
 
+// ===== Boot HAL service binary =====
 cc_prebuilt_binary {
     name: "android.hardware.boot@1.2-service",
     vendor: true,
@@ -884,7 +885,7 @@ cc_prebuilt_library_shared {
     strip: { none: true },
 }
 
-// ===== Unisoc Bootctrl (MISSING COMPONENT) =====
+// ===== Unisoc Bootctrl =====
 cc_prebuilt_library_shared {
     name: "unisoc.bootctrl_64",
     vendor: true,
@@ -922,7 +923,7 @@ cc_prebuilt_library_shared {
     strip: { none: true },
 }
 
-// ===== Implementation libraries (recovery) =====
+// ===== Implementation libraries (recovery) - 64-bit ONLY =====
 cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.2-impl_64_recovery",
     vendor: true,
@@ -933,31 +934,14 @@ cc_prebuilt_library_shared {
     relative_install_path: "recovery/root/vendor/lib64/hw",
 }
 
-cc_prebuilt_library_shared {
-    name: "android.hardware.boot@1.2-impl_32_recovery",
-    vendor: true,
-    srcs: ["proprietary/vendor_boot/ramdisk/system/lib/hw/android.hardware.boot@1.0-impl-1.2.so"],
-    compile_multilib: "32",
-    stl: "none",
-    strip: { none: true },
-    relative_install_path: "recovery/root/vendor/lib/hw",
-}
-
-// Main recovery impl module
+// Main recovery impl module - 64-bit ONLY
 cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.2-impl.recovery",
     vendor: true,
     recovery: true,
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor_boot/ramdisk/system/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
-            relative_install_path: "recovery/root/vendor/lib64/hw",
-        },
-        lib32: {
-            srcs: ["proprietary/vendor_boot/ramdisk/system/lib/hw/android.hardware.boot@1.0-impl-1.2.so"],
-            relative_install_path: "recovery/root/vendor/lib/hw",
-        },
-    },
+    srcs: ["proprietary/vendor_boot/ramdisk/system/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
+    compile_multilib: "64",
     stl: "none",
     strip: { none: true },
+    relative_install_path: "recovery/root/vendor/lib64/hw",
 }
