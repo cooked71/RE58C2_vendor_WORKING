@@ -380,7 +380,7 @@ PRODUCT_COPY_FILES += \
 # Realme RE58C2 Vendor Blobs - Complete File List
 # ==================================================
 
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/bin/hw/android.hardware.audio.service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.audio.service \
     vendor/realme/RE58C2/proprietary/vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.biometrics.fingerprint@2.1-service \
     vendor/realme/RE58C2/proprietary/vendor/bin/hw/android.hardware.bluetooth@1.1-service.unisoc:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.bluetooth@1.1-service.unisoc \
@@ -433,7 +433,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/bin/hw/wpa_supplicant:$(TARGET_COPY_OUT_VENDOR)/bin/hw/wpa_supplicant
 
 # etc/audio_config.xml
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/audio_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_config.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
     vendor/realme/RE58C2/proprietary/vendor/etc/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
@@ -441,7 +441,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml
 
 # etc/init/
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.audio.service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.audio.service.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.bluetooth@1.1-service.unisoc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.bluetooth@1.1-service.unisoc.rc \
@@ -454,7 +454,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.thermal@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.thermal@2.0-service.rc
 
 # lib/
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/lib/android.hardware.camera.provider@2.4-external-sprd.so:$(TARGET_COPY_OUT_VENDOR)/lib/android.hardware.camera.provider@2.4-external-sprd.so \
     vendor/realme/RE58C2/proprietary/vendor/lib/android.hardware.camera.provider@2.4-legacy-sprd.so:$(TARGET_COPY_OUT_VENDOR)/lib/android.hardware.camera.provider@2.4-legacy-sprd.so \
     vendor/realme/RE58C2/proprietary/vendor/lib/camera.device@3.4-impl-sprd.so:$(TARGET_COPY_OUT_VENDOR)/lib/camera.device@3.4-impl-sprd.so \
@@ -464,7 +464,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/lib/hw/hwcomposer.unisoc.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/hwcomposer.unisoc.so
 
 # lib64/
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/lib64/android.hardware.camera.provider@2.4-external-sprd.so:$(TARGET_COPY_OUT_VENDOR)/lib64/android.hardware.camera.provider@2.4-external-sprd.so \
     vendor/realme/RE58C2/proprietary/vendor/lib64/android.hardware.camera.provider@2.4-impl-sprd.so:$(TARGET_COPY_OUT_VENDOR)/lib64/android.hardware.camera.provider@2.4-impl-sprd.so \
     vendor/realme/RE58C2/proprietary/vendor/lib64/libGLES_mali.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libGLES_mali.so \
@@ -473,7 +473,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/lib64/hw/hwcomposer.unisoc.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/hwcomposer.unisoc.so
 
 # etc/permissions/
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/permissions/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/permissions/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/permissions/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
