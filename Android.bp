@@ -790,15 +790,13 @@ cc_prebuilt_library_shared {
     multilib: {
         lib32: {
             srcs: [
-                "proprietary/vendor/lib/egl/libGLES_mali.so",
-                "proprietary/vendor/lib/libGLES_mali.so"
+                "proprietary/vendor/lib/egl/libGLES_mali.so"
             ],
             relative_install_path: "egl",
         },
         lib64: {
             srcs: [
-                "proprietary/vendor/lib64/egl/libGLES_mali.so",
-                "proprietary/vendor/lib64/libGLES_mali.so"
+                "proprietary/vendor/lib64/egl/libGLES_mali.so"
             ],
             relative_install_path: "egl",
         },
