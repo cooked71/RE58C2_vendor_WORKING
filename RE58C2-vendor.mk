@@ -7,25 +7,13 @@ $(warning Including RE58C2-vendor.mk)
 
 PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/etc/audio_effects.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_effects.conf \
-    vendor/realme/RE58C2/proprietary/etc/libnfc-nci.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci.conf \
-    vendor/realme/RE58C2/proprietary/etc/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_SYSTEM)/etc/seccomp_policy/mediacodec.policy \
     vendor/realme/RE58C2/proprietary/etc/temperature_profile/sys_high_temperature.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/temperature_profile/sys_high_temperature.xml \
     vendor/realme/RE58C2/proprietary/lib/libois_algorithm_jni.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libois_algorithm_jni.so \
     vendor/realme/RE58C2/proprietary/lib/libremotedisplay.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libremotedisplay.so \
-    vendor/realme/RE58C2/proprietary/lib/libstagefright_bufferpool@2.0.1.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libstagefright_bufferpool@2.0.1.so \
-    vendor/realme/RE58C2/proprietary/lib/libstagefright_codecbase.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libstagefright_codecbase.so \
-    vendor/realme/RE58C2/proprietary/lib/libstagefright_framecapture_utils.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libstagefright_framecapture_utils.so \
     vendor/realme/RE58C2/proprietary/lib/libstagefright_surface.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libstagefright_surface.so \
-    vendor/realme/RE58C2/proprietary/lib/libstagefright_surface_utils.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libstagefright_surface_utils.so \
-    vendor/realme/RE58C2/proprietary/lib/libstagefright_wfd.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libstagefright_wfd.so \
     vendor/realme/RE58C2/proprietary/lib64/libois_algorithm_jni.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libois_algorithm_jni.so \
     vendor/realme/RE58C2/proprietary/lib64/libremotedisplay.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libremotedisplay.so \
-    vendor/realme/RE58C2/proprietary/lib64/libstagefright_bufferpool@2.0.1.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libstagefright_bufferpool@2.0.1.so \
-    vendor/realme/RE58C2/proprietary/lib64/libstagefright_codecbase.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libstagefright_codecbase.so \
-    vendor/realme/RE58C2/proprietary/lib64/libstagefright_framecapture_utils.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libstagefright_framecapture_utils.so \
     vendor/realme/RE58C2/proprietary/lib64/libstagefright_surface.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libstagefright_surface.so \
-    vendor/realme/RE58C2/proprietary/lib64/libstagefright_surface_utils.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libstagefright_surface_utils.so \
-    vendor/realme/RE58C2/proprietary/lib64/libstagefright_wfd.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libstagefright_wfd.so \
     vendor/realme/RE58C2/proprietary/odm/etc/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_ODM)/etc/audio/audio_policy_configuration.xml \
     vendor/realme/RE58C2/proprietary/odm/etc/audio/audio_policy_configuration_a2dp_offload_disabled.xml:$(TARGET_COPY_OUT_ODM)/etc/audio/audio_policy_configuration_a2dp_offload_disabled.xml \
     vendor/realme/RE58C2/proprietary/odm/etc/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_ODM)/etc/audio/audio_policy_volumes.xml \
@@ -518,10 +506,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor_dlkm/etc/build.prop:s$(TARGET_COPY_OUT_VENDOR_DLKM)/etc/build.prop
 
-# Filesystem config
-PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/vendor_dlkm/etc/fs_config_dirs:$(TARGET_COPY_OUT_VENDOR_DLKM)/etc/fs_config_dirs \
-    vendor/realme/RE58C2/proprietary/vendor_dlkm/etc/fs_config_files:$(TARGET_COPY_OUT_VENDOR_DLKM)/etc/fs_config_files
 
 # =============================================
 # Critical Vendor DLKM Binaries

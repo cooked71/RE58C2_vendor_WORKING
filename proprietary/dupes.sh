@@ -240,6 +240,11 @@ vendor/bin/hw/vendor.oppo.engnative.engineer@1.0-service
 
 # Copy each file into dupes/ preserving directory structure
 for f in "${files[@]}"; do
-    mkdir -p "dupes/$(dirname "$f")"
-    mv "$f" "dupes/$f"
+    # Check if file exists before trying to move it
+    if [ -e "$f" ]; then
+        mkdir -p "dupes/$(dirname "$f")"
+        mv -- "$f" "dupes/$f"
+    else
+        echo "Warning: File '$f' does not exist, skipping."
+    fi
 done
