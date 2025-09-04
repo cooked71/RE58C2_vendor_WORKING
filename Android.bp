@@ -645,3 +645,145 @@ cc_prebuilt_library_shared {
     strip: { none: true },
     check_elf_files: false, // Add this
 }
+// Gatekeeper Service
+cc_prebuilt_binary {
+    name: "android.hardware.gatekeeper@1.0-service.trusty",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.gatekeeper@1.0-service.trusty"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.gatekeeper@1.0-service.trusty.rc"],
+}
+
+// Health Service
+cc_prebuilt_binary {
+    name: "android.hardware.health-service.example",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.health-service.example"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.health-service.example.rc"],
+}
+
+// Power Service
+cc_prebuilt_binary {
+    name: "vendor.unisoc.hardware.power-service",
+    srcs: ["proprietary/vendor/bin/hw/vendor.unisoc.hardware.power-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/vendor-power-default.rc"],
+}
+// Gatekeeper Interface
+cc_prebuilt_library_shared {
+    name: "android.hardware.gatekeeper@1.0",
+    srcs: ["proprietary/vendor/lib64/android.hardware.gatekeeper@1.0.so"],
+    vendor: true,
+    compile_multilib: "64",
+}
+
+// Health Interface
+cc_prebuilt_library_shared {
+    name: "android.hardware.health@2.1",
+    srcs: ["proprietary/vendor/lib64/android.hardware.health@2.1.so"],
+    vendor: true,
+    compile_multilib: "64",
+}
+
+// Power Interface
+cc_prebuilt_library_shared {
+    name: "vendor.unisoc.hardware.power@1.0",
+    srcs: ["proprietary/vendor/lib64/vendor.unisoc.hardware.power@1.0.so"],
+    vendor: true,
+    compile_multilib: "64",
+}
+// Power HAL Implementation
+cc_prebuilt_library_shared {
+    name: "power.default",
+    vendor: true,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/power.default.so"],
+            relative_install_path: "lib64/hw",
+        },
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/power.default.so"],
+            relative_install_path: "lib/hw",
+        },
+    },
+}
+
+// Gatekeeper Interface
+cc_prebuilt_library_shared {
+    name: "android.hardware.gatekeeper@1.0",
+    srcs: ["proprietary/vendor/lib64/android.hardware.gatekeeper@1.0.so"],
+    vendor: true,
+    compile_multilib: "64",
+}
+
+// Health Interface
+cc_prebuilt_library_shared {
+    name: "android.hardware.health@2.1",
+    srcs: ["proprietary/vendor/lib64/android.hardware.health@2.1.so"],
+    vendor: true,
+    compile_multilib: "64",
+}
+
+// Power Interface
+cc_prebuilt_library_shared {
+    name: "vendor.unisoc.hardware.power@1.0",
+    srcs: ["proprietary/vendor/lib64/vendor.unisoc.hardware.power@1.0.so"],
+    vendor: true,
+    compile_multilib: "64",
+}
+// VINTF Manifests
+prebuilt_etc {
+    name: "android.hardware.gatekeeper@1.0-service.trusty.manifest",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "android.hardware.health-service.example.manifest",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.health-service.example.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "vendor-power-default.manifest",
+    src: "proprietary/vendor/etc/vintf/manifest/vendor-power-default.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+# Add to your android.bp
+cc_prebuilt_library_shared {
+    name: "libGLES_mali",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/egl/libGLES_mali.so"],
+            relative_install_path: "egl",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/egl/libGLES_mali.so"],
+            relative_install_path: "egl",
+        },
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "gralloc.ums9230",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/gralloc.ums9230.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/gralloc.ums9230.so"],
+            relative_install_path: "hw",
+        },
+    },
+}
