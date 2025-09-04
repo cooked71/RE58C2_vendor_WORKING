@@ -674,29 +674,6 @@ cc_prebuilt_binary {
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/vendor-power-default.rc"],
 }
-// Gatekeeper Interface
-cc_prebuilt_library_shared {
-    name: "android.hardware.gatekeeper@1.0",
-    srcs: ["proprietary/vendor/lib64/android.hardware.gatekeeper@1.0.so"],
-    vendor: true,
-    compile_multilib: "64",
-}
-
-// Health Interface
-cc_prebuilt_library_shared {
-    name: "android.hardware.health@2.1",
-    srcs: ["proprietary/vendor/lib64/android.hardware.health@2.1.so"],
-    vendor: true,
-    compile_multilib: "64",
-}
-
-// Power Interface
-cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.power@1.0",
-    srcs: ["proprietary/vendor/lib64/vendor.unisoc.hardware.power@1.0.so"],
-    vendor: true,
-    compile_multilib: "64",
-}
 // Power HAL Implementation
 cc_prebuilt_library_shared {
     name: "power.default",
