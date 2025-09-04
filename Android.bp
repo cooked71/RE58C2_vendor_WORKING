@@ -757,33 +757,132 @@ prebuilt_etc {
     sub_dir: "vintf/manifest",
     vendor: true,
 }
-# Add to your android.bp
+// =============================================
+// Graphics - Mali GPU Configuration
+// =============================================
+
+// Mali GPU library (both EGL and standalone)
 cc_prebuilt_library_shared {
     name: "libGLES_mali",
     vendor: true,
     multilib: {
         lib32: {
-            srcs: ["proprietary/vendor/lib/egl/libGLES_mali.so"],
+            srcs: [
+                "proprietary/vendor/lib/egl/libGLES_mali.so",
+                "proprietary/vendor/lib/libGLES_mali.so"
+            ],
             relative_install_path: "egl",
         },
         lib64: {
-            srcs: ["proprietary/vendor/lib64/egl/libGLES_mali.so"],
+            srcs: [
+                "proprietary/vendor/lib64/egl/libGLES_mali.so",
+                "proprietary/vendor/lib64/libGLES_mali.so"
+            ],
             relative_install_path: "egl",
         },
     },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libsync",
+        "libc++",
+        "libdl",
+        "libm",
+    ],
 }
 
+// Unisoc Hardware Composer
 cc_prebuilt_library_shared {
-    name: "gralloc.ums9230",
+    name: "hwcomposer.unisoc",
     vendor: true,
     multilib: {
         lib32: {
-            srcs: ["proprietary/vendor/lib/hw/gralloc.ums9230.so"],
+            srcs: ["proprietary/vendor/lib/hw/hwcomposer.unisoc.so"],
             relative_install_path: "hw",
         },
         lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/gralloc.ums9230.so"],
+            srcs: ["proprietary/vendor/lib64/hw/hwcomposer.unisoc.so"],
             relative_install_path: "hw",
         },
     },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libsync",
+        "libc++",
+        "libhardware",
+        "libui",
+        "libgralloctypes",
+    ],
+}
+
+// Gralloc default implementation (you have this too)
+cc_prebuilt_library_shared {
+    name: "gralloc.default",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/gralloc.default.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/gralloc.default.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libsync",
+        "libc++",
+        "libgralloctypes",
+    ],
+}
+
+// Remote display library
+cc_prebuilt_library_shared {
+    name: "libremotedisplay",
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/lib/libremotedisplay.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/lib64/libremotedisplay.so"],
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+}
+
+// Gralloc configuration file
+prebuilt_etc {
+    name: "gralloc_configuration",
+    src: "proprietary/vendor/etc/gralloc/gralloc.xml",
+    sub_dir: "gralloc",
+    vendor: true,
+    owner: "realme",
+}
+
+// Gralloc types library (from system partition)
+cc_prebuilt_library_shared {
+    name: "libgralloctypes",
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/libgralloctypes.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/libgralloctypes.so"],
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
 }
