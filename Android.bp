@@ -645,6 +645,10 @@ cc_prebuilt_library_shared {
     strip: { none: true },
     check_elf_files: false, // Add this
 }
+// =============================================
+// HAL Services (CORRECTED)
+// =============================================
+
 // Gatekeeper Service
 cc_prebuilt_binary {
     name: "android.hardware.gatekeeper@1.0-service.trusty",
@@ -653,6 +657,15 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/android.hardware.gatekeeper@1.0-service.trusty.rc"],
+    shared_libs: [
+        "android.hardware.gatekeeper@1.0",
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
 }
 
 // Health Service
@@ -663,9 +676,52 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/android.hardware.health-service.example.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
 }
 
-// Power Service
+// Power Service - ADDED
+cc_prebuilt_binary {
+    name: "vendor.unisoc.hardware.power-service",
+    srcs: ["proprietary/vendor/bin/hw/vendor.unisoc.hardware.power-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/vendor-power-default.rc"],
+    shared_libs: [
+        "vendor.unisoc.hardware.power-V1-ndk",
+        "power.default",
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+}
+
+// Gatekeeper Interface - KEEP (exists in vendor)
+cc_prebuilt_library_shared {
+    name: "android.hardware.gatekeeper@1.0",
+    srcs: ["proprietary/vendor/lib64/android.hardware.gatekeeper@1.0.so"],
+    vendor: true,
+    compile_multilib: "64",
+    shared_libs: [
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libc++",
+    ],
+}
+
+// Power NDK Interface - KEEP (you have this)
 cc_prebuilt_library_shared {
     name: "vendor.unisoc.hardware.power-V1-ndk",
     srcs: ["proprietary/vendor/lib64/vendor.unisoc.hardware.power-V1-ndk.so"],
@@ -679,7 +735,7 @@ cc_prebuilt_library_shared {
     ],
 }
 
-// Power HAL Implementation
+// Power HAL Implementation - KEEP
 cc_prebuilt_library_shared {
     name: "power.default",
     vendor: true,
@@ -693,31 +749,14 @@ cc_prebuilt_library_shared {
             relative_install_path: "lib/hw",
         },
     },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libc++",
+    ],
 }
 
-// Gatekeeper Interface
-cc_prebuilt_library_shared {
-    name: "android.hardware.gatekeeper@1.0",
-    srcs: ["proprietary/vendor/lib64/android.hardware.gatekeeper@1.0.so"],
-    vendor: true,
-    compile_multilib: "64",
-}
-
-// Health Interface
-// cc_prebuilt_library_shared {
-//    name: "android.hardware.health@2.1",
-//    srcs: ["proprietary/vendor/lib64/android.hardware.health@2.1.so"],
-//    vendor: true,
-//    compile_multilib: "64",
-// }
-
-// Power Interface
-cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.power@1.0",
-    srcs: ["proprietary/vendor/lib64/vendor.unisoc.hardware.power@1.0.so"],
-    vendor: true,
-    compile_multilib: "64",
-}
 // VINTF Manifests
 prebuilt_etc {
     name: "android.hardware.gatekeeper@1.0-service.trusty.manifest",
@@ -739,6 +778,7 @@ prebuilt_etc {
     sub_dir: "vintf/manifest",
     vendor: true,
 }
+
 // =============================================
 // Graphics - Mali GPU Configuration
 // =============================================
@@ -797,10 +837,11 @@ cc_prebuilt_library_shared {
         "libhardware",
         "libui",
         "libgralloctypes",
+        "libhidlbase",  // Added missing dependency
     ],
 }
 
-// Gralloc default implementation (you have this too)
+// Gralloc default implementation
 cc_prebuilt_library_shared {
     name: "gralloc.default",
     vendor: true,
