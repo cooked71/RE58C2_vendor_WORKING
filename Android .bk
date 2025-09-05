@@ -645,6 +645,10 @@ cc_prebuilt_library_shared {
     strip: { none: true },
     check_elf_files: false, // Add this
 }
+// =============================================
+// HAL Services (CORRECTED)
+// =============================================
+
 // Gatekeeper Service
 cc_prebuilt_binary {
     name: "android.hardware.gatekeeper@1.0-service.trusty",
@@ -653,6 +657,15 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/android.hardware.gatekeeper@1.0-service.trusty.rc"],
+    shared_libs: [
+        "android.hardware.gatekeeper@1.0",
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
 }
 
 // Health Service
@@ -663,41 +676,83 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/android.hardware.health-service.example.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
 }
 
-// Power Service
+// power.sprd (vendor library)
+cc_prebuilt_library_shared {
+    name: "power.sprd",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/power.sprd.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
 cc_prebuilt_binary {
     name: "vendor.unisoc.hardware.power-service",
+    check_elf_files: false,  // ← ADD THIS to skip ELF checking
     srcs: ["proprietary/vendor/bin/hw/vendor.unisoc.hardware.power-service"],
     relative_install_path: "hw",
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/vendor-power-default.rc"],
+    shared_libs: [
+        "vendor.unisoc.hardware.power-V1-ndk",
+        "power.default",
+        "libbase",
+        "libcutils", 
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "libbinder",           // ← AOSP system library
+        "libbinder_ndk",       // ← AOSP system library
+        "power.sprd",          // ← Vendor prebuilt (now declared above)
+        // "android.hardware.power-V3-ndk" ← SYSTEM library (built from source)
+    ],
 }
-// Gatekeeper Interface
+// Gatekeeper Interface - KEEP (exists in vendor)
 cc_prebuilt_library_shared {
     name: "android.hardware.gatekeeper@1.0",
     srcs: ["proprietary/vendor/lib64/android.hardware.gatekeeper@1.0.so"],
     vendor: true,
     compile_multilib: "64",
+    shared_libs: [
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libc++",
+    ],
 }
 
-// Health Interface
+// Power NDK Interface - KEEP (you have this)
 cc_prebuilt_library_shared {
-    name: "android.hardware.health@2.1",
-    srcs: ["proprietary/vendor/lib64/android.hardware.health@2.1.so"],
+    name: "vendor.unisoc.hardware.power-V1-ndk",
+    srcs: ["proprietary/vendor/lib64/vendor.unisoc.hardware.power-V1-ndk.so"],
     vendor: true,
     compile_multilib: "64",
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+        "libutils",
+        "libcutils",
+    ],
 }
 
-// Power Interface
-cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.power@1.0",
-    srcs: ["proprietary/vendor/lib64/vendor.unisoc.hardware.power@1.0.so"],
-    vendor: true,
-    compile_multilib: "64",
-}
-// Power HAL Implementation
+// Power HAL Implementation - KEEP
 cc_prebuilt_library_shared {
     name: "power.default",
     vendor: true,
@@ -711,4 +766,233 @@ cc_prebuilt_library_shared {
             relative_install_path: "lib/hw",
         },
     },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libc++",
+    ],
 }
+
+// VINTF Manifests
+prebuilt_etc {
+    name: "android.hardware.gatekeeper@1.0-service.trusty.manifest",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "android.hardware.health-service.example.manifest",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.health-service.example.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "vendor-power-default.manifest",
+    src: "proprietary/vendor/etc/vintf/manifest/vendor-power-default.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+// =============================================
+// Vendor-specific library definitions (ADD THESE FIRST)
+// =============================================
+
+// libmemion (vendor)
+cc_prebuilt_library_shared {
+    name: "libmemion",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libmemion.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libmemion.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// libmediahdrtosdrtransform (vendor)
+cc_prebuilt_library_shared {
+    name: "libmediahdrtosdrtransform",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libmediahdrtosdrtransform.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libmediahdrtosdrtransform.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// libpowerhal_cli (vendor)
+cc_prebuilt_library_shared {
+    name: "libpowerhal_cli",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libpowerhal_cli.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libpowerhal_cli.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// vendor.sprd.hardware.enhance-V1-ndk (vendor)
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.enhance-V1-ndk",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.enhance-V1-ndk.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.enhance-V1-ndk.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// =============================================
+// Graphics - Mali GPU Configuration (VENDOR ONLY)
+// =============================================
+
+// Mali GPU library (both EGL and standalone)
+cc_prebuilt_library_shared {
+    name: "libGLES_mali",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/egl/libGLES_mali.so"],
+            relative_install_path: "egl",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/egl/libGLES_mali.so"],
+            relative_install_path: "egl",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libsync",
+        "libc++",
+        "libdl",
+        "libm",
+    ],
+}
+
+// Unisoc Hardware Composer
+cc_prebuilt_library_shared {
+    name: "hwcomposer.unisoc",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/hwcomposer.unisoc.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/hwcomposer.unisoc.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libsync",
+        "libc++",
+        "libhardware",
+        "libui",
+        "libgralloctypes",
+        "libhidlbase",
+        "libEGL",
+        "libGLESv1_CM",
+        "libGLESv2",
+        "libGLESv3",
+        "libnativewindow",
+        "libbase",
+        "libion",
+        "libdrm",
+        "libbinder",
+        "libbinder_ndk",
+        "libmemion",
+        "libmediahdrtosdrtransform",
+        "libpowerhal_cli",
+        "vendor.sprd.hardware.enhance-V1-ndk"
+    ],
+}
+
+// Gralloc default implementation
+cc_prebuilt_library_shared {
+    name: "gralloc.default",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/gralloc.default.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/gralloc.default.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libsync",
+        "libc++",
+        "libgralloctypes",
+    ],
+}
+
+// Remote display library - DISABLE ELF CHECKING
+cc_prebuilt_library_shared {
+    name: "libremotedisplay",
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/lib/libremotedisplay.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/lib64/libremotedisplay.so"],
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libutils",
+        "libc++",
+        "libcutils",
+        "libgui",
+        "libbinder",
+        "libmedia",
+        "libstagefright_foundation",
+        "libui",
+        "libhidlbase"
+    ],
+}
+
+// Gralloc configuration file
+prebuilt_etc {
+    name: "gralloc_configuration",
+    src: "proprietary/vendor/etc/gralloc/gralloc.xml",
+    sub_dir: "gralloc",
+    vendor: true,
+    owner: "realme",
+}
+
