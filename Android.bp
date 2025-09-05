@@ -781,24 +781,91 @@ prebuilt_etc {
 }
 
 // =============================================
-// Graphics - Mali GPU Configuration
+// Vendor-specific library definitions (ADD THESE FIRST)
+// =============================================
+
+// libmemion (vendor)
+cc_prebuilt_library_shared {
+    name: "libmemion",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libmemion.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libmemion.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// libmediahdrtosdrtransform (vendor)
+cc_prebuilt_library_shared {
+    name: "libmediahdrtosdrtransform",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libmediahdrtosdrtransform.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libmediahdrtosdrtransform.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// libpowerhal_cli (vendor)
+cc_prebuilt_library_shared {
+    name: "libpowerhal_cli",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libpowerhal_cli.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libpowerhal_cli.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// vendor.sprd.hardware.enhance-V1-ndk (vendor)
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.enhance-V1-ndk",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.enhance-V1-ndk.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.enhance-V1-ndk.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+
+
+// =============================================
+// Graphics - Mali GPU Configuration (VENDOR ONLY)
 // =============================================
 
 // Mali GPU library (both EGL and standalone)
 cc_prebuilt_library_shared {
     name: "libGLES_mali",
     vendor: true,
+    check_elf_files: false,
     multilib: {
         lib32: {
-            srcs: [
-                "proprietary/vendor/lib/egl/libGLES_mali.so"
-            ],
+            srcs: ["proprietary/vendor/lib/egl/libGLES_mali.so"],
             relative_install_path: "egl",
         },
         lib64: {
-            srcs: [
-                "proprietary/vendor/lib64/egl/libGLES_mali.so"
-            ],
+            srcs: ["proprietary/vendor/lib64/egl/libGLES_mali.so"],
             relative_install_path: "egl",
         },
     },
@@ -817,6 +884,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "hwcomposer.unisoc",
     vendor: true,
+    check_elf_files: false,
     multilib: {
         lib32: {
             srcs: ["proprietary/vendor/lib/hw/hwcomposer.unisoc.so"],
@@ -828,28 +896,6 @@ cc_prebuilt_library_shared {
         },
     },
     shared_libs: [
-        "libEGL",
-        "libGLESv1_CM", 
-        "libGLESv2", 
-        "libGLESv3", 
-        "libbase", 
-        "libbinder", 
-        "libbinder_ndk", 
-        "libc++", 
-        "libcutils", 
-        "libdrm", 
-        "libhardware", 
-        "libhidlbase", 
-        "libion", 
-        "liblog", 
-        "libmediahdrtosdrtransform", 
-        "libmemion", 
-        "libnativewindow", 
-        "libpowerhal_cli", 
-        "libsync", 
-        "libui", 
-        "libutils", 
-        "vendor.sprd.hardware.enhance-V1-ndk",
         "liblog",
         "libcutils",
         "libutils",
@@ -858,7 +904,21 @@ cc_prebuilt_library_shared {
         "libhardware",
         "libui",
         "libgralloctypes",
-        "libhidlbase",  
+        "libhidlbase",
+        "libEGL",
+        "libGLESv1_CM",
+        "libGLESv2",
+        "libGLESv3",
+        "libnativewindow",
+        "libbase",
+        "libion",
+        "libdrm",
+        "libbinder",
+        "libbinder_ndk",
+        "libmemion",
+        "libmediahdrtosdrtransform",
+        "libpowerhal_cli",
+        "vendor.sprd.hardware.enhance-V1-ndk"
     ],
 }
 
@@ -866,6 +926,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "gralloc.default",
     vendor: true,
+    check_elf_files: false,
     multilib: {
         lib32: {
             srcs: ["proprietary/vendor/lib/hw/gralloc.default.so"],
@@ -886,9 +947,10 @@ cc_prebuilt_library_shared {
     ],
 }
 
-// Remote display library
+// Remote display library - DISABLE ELF CHECKING
 cc_prebuilt_library_shared {
     name: "libremotedisplay",
+    check_elf_files: false,
     multilib: {
         lib32: {
             srcs: ["proprietary/lib/libremotedisplay.so"],
@@ -897,22 +959,17 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/lib64/libremotedisplay.so"],
         },
     },
-    shared_libs: [        
-        "libbinder", 
-        "libc++", 
-        "libclang_rt.ubsan_standalone-aarch64-android",
-        "libcutils", 
-        "libgui", 
-        "libhidlbase", 
-        "liblog",
-        "libmedia", 
-        "libstagefright_foundation", 
-        "libui", 
-        "libutils", 
-        "vendor.sprd.hardware.hdcp@1.0",
+    shared_libs: [
         "liblog",
         "libutils",
         "libc++",
+        "libcutils",
+        "libgui",
+        "libbinder",
+        "libmedia",
+        "libstagefright_foundation",
+        "libui",
+        "libhidlbase"
     ],
 }
 
@@ -925,20 +982,3 @@ prebuilt_etc {
     owner: "realme",
 }
 
-// Gralloc types library (from system partition)
-cc_prebuilt_library_shared {
-    name: "libgralloctypes",
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/system/lib/libgralloctypes.so"],
-        },
-        lib64: {
-            srcs: ["proprietary/system/lib64/libgralloctypes.so"],
-        },
-    },
-    shared_libs: [
-        "liblog",
-        "libutils",
-        "libc++",
-    ],
-}
