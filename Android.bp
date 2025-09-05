@@ -849,7 +849,7 @@ cc_prebuilt_library_shared {
         "libsync", 
         "libui", 
         "libutils", 
-        "vendor.sprd.hardware.enhance-V1-ndk"
+        "vendor.sprd.hardware.enhance-V1-ndk",
         "liblog",
         "libcutils",
         "libutils",
@@ -909,7 +909,7 @@ cc_prebuilt_library_shared {
         "libstagefright_foundation", 
         "libui", 
         "libutils", 
-        "vendor.sprd.hardware.hdcp@1.0"
+        "vendor.sprd.hardware.hdcp@1.0",
         "liblog",
         "libutils",
         "libc++",
