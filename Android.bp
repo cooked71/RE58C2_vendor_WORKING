@@ -686,9 +686,22 @@ cc_prebuilt_binary {
     ],
 }
 
-// Power Service - ADDED
+// power.sprd (vendor library)
+cc_prebuilt_library_shared {
+    name: "power.sprd",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/power.sprd.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
 cc_prebuilt_binary {
     name: "vendor.unisoc.hardware.power-service",
+    check_elf_files: false,  // ← ADD THIS to skip ELF checking
     srcs: ["proprietary/vendor/bin/hw/vendor.unisoc.hardware.power-service"],
     relative_install_path: "hw",
     vendor: true,
@@ -698,14 +711,17 @@ cc_prebuilt_binary {
         "vendor.unisoc.hardware.power-V1-ndk",
         "power.default",
         "libbase",
-        "libcutils",
+        "libcutils", 
         "libhidlbase",
         "liblog",
         "libutils",
         "libc++",
+        "libbinder",           // ← AOSP system library
+        "libbinder_ndk",       // ← AOSP system library
+        "power.sprd",          // ← Vendor prebuilt (now declared above)
+        // "android.hardware.power-V3-ndk" ← SYSTEM library (built from source)
     ],
 }
-
 // Gatekeeper Interface - KEEP (exists in vendor)
 cc_prebuilt_library_shared {
     name: "android.hardware.gatekeeper@1.0",
@@ -847,8 +863,6 @@ cc_prebuilt_library_shared {
     },
     shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
 }
-
-
 
 // =============================================
 // Graphics - Mali GPU Configuration (VENDOR ONLY)
