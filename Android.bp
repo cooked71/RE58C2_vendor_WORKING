@@ -210,3 +210,34 @@ prebuilt_etc {
     sub_dir: "gralloc",
     vendor: true,
 }
+// =============================================
+// VINTF Manifest Declarations
+// =============================================
+
+prebuilt_etc {
+    name: "manifest_android.hardware.gatekeeper",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "manifest_android.hardware.health",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.health-service.example.xml", 
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "manifest_vendor.power",
+    src: "proprietary/vendor/etc/vintf/manifest/vendor-power-default.xml",
+    sub_dir: "vintf/manifest", 
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "manifest_power.stats",
+    src: "proprietary/vendor/etc/vintf/manifest/power.stats-default.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
