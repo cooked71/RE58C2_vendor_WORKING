@@ -158,3 +158,55 @@ prebuilt_etc {
     sub_dir: "vintf/manifest",
     vendor: true,
 }
+// =============================================
+// COMPLETE GRALLOC STACK
+// =============================================
+
+cc_prebuilt_library_shared {
+    name: "gralloc.default",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/gralloc.default.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/gralloc.default.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils", 
+        "libutils",
+        "libc++",
+        "libhardware",
+        "libgralloctypes",  // Add this dependency
+    ],
+}
+
+cc_prebuilt_library_shared {
+    name: "libgralloctypes",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/libgralloctypes.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/libgralloctypes.so"],
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libc++",
+    ],
+}
+
+prebuilt_etc {
+    name: "gralloc_config",
+    src: "proprietary/vendor/etc/gralloc/gralloc.xml",
+    sub_dir: "gralloc",
+    vendor: true,
+}
