@@ -897,8 +897,8 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/lib64/libremotedisplay.so"],
         },
     },
-    shared_libs: 
-        [libbinder", 
+    shared_libs: [        
+        "libbinder", 
         "libc++", 
         "libclang_rt.ubsan_standalone-aarch64-android",
         "libcutils", 
