@@ -728,6 +728,7 @@ cc_prebuilt_library_shared {
     vendor: true,
     compile_multilib: "64",
     shared_libs: [
+        "libbinder_ndk",
         "libc++",
         "liblog",
         "libutils",
@@ -827,6 +828,28 @@ cc_prebuilt_library_shared {
         },
     },
     shared_libs: [
+        "libEGL",
+        "libGLESv1_CM", 
+        "libGLESv2", 
+        "libGLESv3", 
+        "libbase", 
+        "libbinder", 
+        "libbinder_ndk", 
+        "libc++", 
+        "libcutils", 
+        "libdrm", 
+        "libhardware", 
+        "libhidlbase", 
+        "libion", 
+        "liblog", 
+        "libmediahdrtosdrtransform", 
+        "libmemion", 
+        "libnativewindow", 
+        "libpowerhal_cli", 
+        "libsync", 
+        "libui", 
+        "libutils", 
+        "vendor.sprd.hardware.enhance-V1-ndk"
         "liblog",
         "libcutils",
         "libutils",
@@ -835,7 +858,7 @@ cc_prebuilt_library_shared {
         "libhardware",
         "libui",
         "libgralloctypes",
-        "libhidlbase",  // Added missing dependency
+        "libhidlbase",  
     ],
 }
 
@@ -874,7 +897,19 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/lib64/libremotedisplay.so"],
         },
     },
-    shared_libs: [
+    shared_libs: 
+        [libbinder", 
+        "libc++", 
+        "libclang_rt.ubsan_standalone-aarch64-android",
+        "libcutils", 
+        "libgui", 
+        "libhidlbase", 
+        "liblog",
+        "libmedia", 
+        "libstagefright_foundation", 
+        "libui", 
+        "libutils", 
+        "vendor.sprd.hardware.hdcp@1.0"
         "liblog",
         "libutils",
         "libc++",
