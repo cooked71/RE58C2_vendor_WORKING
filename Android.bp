@@ -20,19 +20,7 @@ cc_prebuilt_binary {
     shared_libs: ["libbase", "libcutils", "libhidlbase", "liblog", "libutils", "libc++"],
 }
 
-cc_prebuilt_binary {
-    name: "vendor.unisoc.hardware.power-service",
-    srcs: ["proprietary/vendor/bin/hw/vendor.unisoc.hardware.power-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/vendor-power-default.rc"],
-    shared_libs: [
-        "vendor.unisoc.hardware.power-V1-ndk",
-        "power.default",
-        "libbase", "libcutils", "libhidlbase", "liblog", "libutils", "libc++",
-    ],
-}
+
 
 // =============================================
 // ESSENTIAL GRAPHICS LIBRARIES (SPLASH SCREEN)
@@ -302,42 +290,6 @@ cc_prebuilt_library_shared {
     ],
 }
 
-// Power NDK Interface - KEEP (you have this)
-cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.power-V1-ndk",
-    srcs: ["proprietary/vendor/lib64/vendor.unisoc.hardware.power-V1-ndk.so"],
-    vendor: true,
-    compile_multilib: "64",
-    shared_libs: [
-        "libbinder_ndk",
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-    ],
-}
-
-// Power HAL Implementation - KEEP
-cc_prebuilt_library_shared {
-    name: "power.default",
-    vendor: true,
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/power.default.so"],
-            relative_install_path: "lib64/hw",
-        },
-        lib32: {
-            srcs: ["proprietary/vendor/lib/hw/power.default.so"],
-            relative_install_path: "lib/hw",
-        },
-    },
-    shared_libs: [
-        "liblog",
-        "libcutils",
-        "libutils",
-        "libc++",
-    ],
-}
 
 // VINTF Manifests
 prebuilt_etc {
