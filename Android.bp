@@ -211,33 +211,153 @@ prebuilt_etc {
     vendor: true,
 }
 // =============================================
-// VINTF Manifest Declarations
+// HAL Services (CORRECTED)
 // =============================================
 
+// Gatekeeper Service
+cc_prebuilt_binary {
+    name: "android.hardware.gatekeeper@1.0-service.trusty",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.gatekeeper@1.0-service.trusty"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.gatekeeper@1.0-service.trusty.rc"],
+    shared_libs: [
+        "android.hardware.gatekeeper@1.0",
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+}
+
+// Health Service
+cc_prebuilt_binary {
+    name: "android.hardware.health-service.example",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.health-service.example"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.health-service.example.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+}
+
+// power.sprd (vendor library)
+cc_prebuilt_library_shared {
+    name: "power.sprd",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/power.sprd.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+cc_prebuilt_binary {
+    name: "vendor.unisoc.hardware.power-service",
+    check_elf_files: false,  // ← ADD THIS to skip ELF checking
+    srcs: ["proprietary/vendor/bin/hw/vendor.unisoc.hardware.power-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/vendor-power-default.rc"],
+    shared_libs: [
+        "vendor.unisoc.hardware.power-V1-ndk",
+        "power.default",
+        "libbase",
+        "libcutils", 
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "libbinder",           // ← AOSP system library
+        "libbinder_ndk",       // ← AOSP system library
+        "power.sprd",          // ← Vendor prebuilt (now declared above)
+        // "android.hardware.power-V3-ndk" ← SYSTEM library (built from source)
+    ],
+}
+// Gatekeeper Interface - KEEP (exists in vendor)
+cc_prebuilt_library_shared {
+    name: "android.hardware.gatekeeper@1.0",
+    srcs: ["proprietary/vendor/lib64/android.hardware.gatekeeper@1.0.so"],
+    vendor: true,
+    compile_multilib: "64",
+    shared_libs: [
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libc++",
+    ],
+}
+
+// Power NDK Interface - KEEP (you have this)
+cc_prebuilt_library_shared {
+    name: "vendor.unisoc.hardware.power-V1-ndk",
+    srcs: ["proprietary/vendor/lib64/vendor.unisoc.hardware.power-V1-ndk.so"],
+    vendor: true,
+    compile_multilib: "64",
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+        "libutils",
+        "libcutils",
+    ],
+}
+
+// Power HAL Implementation - KEEP
+cc_prebuilt_library_shared {
+    name: "power.default",
+    vendor: true,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/power.default.so"],
+            relative_install_path: "lib64/hw",
+        },
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/power.default.so"],
+            relative_install_path: "lib/hw",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libc++",
+    ],
+}
+
+// VINTF Manifests
 prebuilt_etc {
-    name: "manifest_android.hardware.gatekeeper",
+    name: "android.hardware.gatekeeper@1.0-service.trusty.manifest",
     src: "proprietary/vendor/etc/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
 }
 
 prebuilt_etc {
-    name: "manifest_android.hardware.health",
-    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.health-service.example.xml", 
+    name: "android.hardware.health-service.example.manifest",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.health-service.example.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
 }
 
 prebuilt_etc {
-    name: "manifest_vendor.power",
+    name: "vendor-power-default.manifest",
     src: "proprietary/vendor/etc/vintf/manifest/vendor-power-default.xml",
-    sub_dir: "vintf/manifest", 
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "manifest_power.stats",
-    src: "proprietary/vendor/etc/vintf/manifest/power.stats-default.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
 }
+
