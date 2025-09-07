@@ -131,7 +131,7 @@ PRODUCT_COPY_FILES += \
 # =============================================
 
 # Vendor SELinux Policy
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_file_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_file_contexts \
     vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_hwservice_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_hwservice_contexts \
     vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_mac_permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_mac_permissions.xml \
@@ -142,7 +142,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vndservice_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vndservice_contexts
 
 # Platform policy version (important!)
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/selinux/plat_sepolicy_vers.txt:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/plat_sepolicy_vers.txt
     
      
