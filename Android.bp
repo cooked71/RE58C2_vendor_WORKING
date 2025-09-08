@@ -311,3 +311,23 @@ prebuilt_etc {
     sub_dir: "vintf/manifest",
     vendor: true,
 }
+prebuilt_etc {
+    name: "android.hardware.gatekeeper@1.0-service.trusty.rc",
+    src: "proprietary/vendor/etc/init/android.hardware.gatekeeper@1.0-service.trusty.rc",
+    sub_dir: "init",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "android.hardware.health-service.example.rc",
+    src: "proprietary/vendor/etc/init/android.hardware.health-service.example.rc",
+    sub_dir: "init",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "vendor-power-default.rc",
+    src: "proprietary/vendor/etc/init/vendor-power-default.rc",
+    sub_dir: "init",
+    vendor: true,
+}
