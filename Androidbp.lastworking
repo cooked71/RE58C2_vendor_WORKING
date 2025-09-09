@@ -1,25 +1,15 @@
 // =============================================
-// LineageOS 20 - RE58C2 ENGINEERING BUILD
-// Android.bp for boot-to-splash minimal setup
+// LineageOS 20 - RE58C2 MINIMAL Android.bp
+// Focus: BOOT TO SPLASH SCREEN ONLY
 // =============================================
-
 soong_namespace {
-    imports: [
-        "hardware/interfaces",
-        "system/core",
-        "system/libbase", 
-        "system/libcutils",
-        "system/libutils",
-        "system/logging",
-        "frameworks/native",
-    ],
+    imports: [],
 }
 
 // =============================================
 // ABSOLUTELY ESSENTIAL SERVICES FOR BOOT
 // =============================================
 
-// Graphics Composer Service
 cc_prebuilt_binary {
     name: "android.hardware.graphics.composer@2.4-service",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.graphics.composer@2.4-service"],
@@ -27,19 +17,81 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/android.hardware.graphics.composer@2.4-service.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils", 
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "libsync",
-        "libdl",
-    ],
+    shared_libs: ["libbase", "libcutils", "libhidlbase", "liblog", "libutils", "libc++"],
 }
 
-// Boot Service
+
+
+// =============================================
+// ESSENTIAL GRAPHICS LIBRARIES (SPLASH SCREEN)
+// =============================================
+
+cc_prebuilt_library_shared {
+    name: "libGLES_mali",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/egl/libGLES_mali.so"],
+            relative_install_path: "egl",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/egl/libGLES_mali.so"],
+            relative_install_path: "egl",
+        },
+    },
+    shared_libs: ["liblog", "libcutils", "libutils", "libc++"],
+}
+
+cc_prebuilt_library_shared {
+    name: "hwcomposer.unisoc",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/hwcomposer.unisoc.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/hwcomposer.unisoc.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: ["liblog", "libcutils", "libutils", "libc++", "libhardware"],
+}
+
+// =============================================
+// ESSENTIAL POWER MANAGEMENT
+// =============================================
+
+cc_prebuilt_library_shared {
+    name: "power.default",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/power.default.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/power.default.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: ["liblog", "libcutils", "libutils", "libc++"],
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.unisoc.hardware.power-V1-ndk",
+    srcs: ["proprietary/vendor/lib64/vendor.unisoc.hardware.power-V1-ndk.so"],
+    vendor: true,
+    compile_multilib: "64",
+    shared_libs: ["libbinder_ndk", "libc++", "liblog", "libutils"],
+}
+
+// =============================================
+// ESSENTIAL BOOT COMPONENTS
+// =============================================
+
 cc_prebuilt_binary {
     name: "android.hardware.boot@1.2-service",
     srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service"],
@@ -47,15 +99,108 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.boot@1.2-service.rc"],
+    shared_libs: ["libbase", "libcutils", "libhidlbase", "liblog", "libutils", "libc++"],
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.boot@1.2-impl",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/android.hardware.boot@1.0-impl-1.2.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: ["liblog", "libcutils", "libutils", "libc++"],
+}
+
+// =============================================
+// ESSENTIAL INIT SCRIPTS
+// =============================================
+
+prebuilt_etc {
+    name: "init_RE58C2",
+    src: "proprietary/vendor/etc/init/hw/init.RE58C2.rc",
+    vendor: true,
+    sub_dir: "hw",
+}
+
+prebuilt_etc {
+    name: "init_ram",
+    src: "proprietary/vendor/etc/init/hw/init.ram.rc",
+    vendor: true,
+    sub_dir: "hw",
+}
+
+// =============================================
+// ABSOLUTE MINIMAL VINTF MANIFESTS
+// =============================================
+
+prebuilt_etc {
+    name: "manifest_vendor.unisoc.power",
+    src: "proprietary/vendor/etc/vintf/manifest/vendor-power-default.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+// =============================================
+// COMPLETE GRALLOC STACK
+// =============================================
+
+cc_prebuilt_library_shared {
+    name: "gralloc.default",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/gralloc.default.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/gralloc.default.so"],
+            relative_install_path: "hw",
+        },
+    },
     shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase", 
         "liblog",
+        "libcutils", 
+        "libutils",
+        "libc++",
+        "libhardware",
+        "libgralloctypes",  // Add this dependency
+    ],
+}
+
+cc_prebuilt_library_shared {
+    name: "libgralloctypes",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/libgralloctypes.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/libgralloctypes.so"],
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
         "libutils",
         "libc++",
     ],
 }
+
+prebuilt_etc {
+    name: "gralloc_config",
+    src: "proprietary/vendor/etc/gralloc/gralloc.xml",
+    sub_dir: "gralloc",
+    vendor: true,
+}
+// =============================================
+// HAL Services (CORRECTED)
+// =============================================
 
 // Gatekeeper Service
 cc_prebuilt_binary {
@@ -94,93 +239,7 @@ cc_prebuilt_binary {
     ],
 }
 
-// Power Service
-cc_prebuilt_binary {
-    name: "vendor.unisoc.hardware.power-service",
-    check_elf_files: false,
-    srcs: ["proprietary/vendor/bin/hw/vendor.unisoc.hardware.power-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/vendor-power-default.rc"],
-    shared_libs: [
-        "vendor.unisoc.hardware.power-V1-ndk",
-        "power.default",
-        "power.sprd",
-        "libbase",
-        "libcutils",
-        "liblog",
-        "libutils",
-        "libc++",
-    ],
-}
-
-// =============================================
-// ESSENTIAL GRAPHICS LIBRARIES (SPLASH SCREEN)
-// =============================================
-
-cc_prebuilt_library_shared {
-    name: "libGLES_mali",
-    vendor: true,
-    check_elf_files: false,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/egl/libGLES_mali.so"],
-            relative_install_path: "egl",
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/egl/libGLES_mali.so"],
-            relative_install_path: "egl",
-        },
-    },
-    shared_libs: ["liblog", "libcutils", "libutils", "libc++", "libdl"],
-}
-
-cc_prebuilt_library_shared {
-    name: "hwcomposer.unisoc",
-    vendor: true,
-    check_elf_files: false,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/hw/hwcomposer.unisoc.so"],
-            relative_install_path: "hw",
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/hwcomposer.unisoc.so"],
-            relative_install_path: "hw",
-        },
-    },
-    shared_libs: ["liblog", "libcutils", "libutils", "libc++", "libhardware", "libsync"],
-}
-
-// =============================================
-// ESSENTIAL POWER MANAGEMENT
-// =============================================
-
-cc_prebuilt_library_shared {
-    name: "power.default",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/hw/power.default.so"],
-            relative_install_path: "hw",
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/power.default.so"],
-            relative_install_path: "hw",
-        },
-    },
-    shared_libs: ["liblog", "libcutils", "libutils", "libc++"],
-}
-
-cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.power-V1-ndk",
-    srcs: ["proprietary/vendor/lib64/vendor.unisoc.hardware.power-V1-ndk.so"],
-    vendor: true,
-    compile_multilib: "64",
-    shared_libs: ["liblog", "libutils", "libc++"],
-}
-
+// power.sprd (vendor library)
 cc_prebuilt_library_shared {
     name: "power.sprd",
     vendor: true,
@@ -193,77 +252,30 @@ cc_prebuilt_library_shared {
     shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
 }
 
-// =============================================
-// ESSENTIAL BOOT COMPONENTS
-// =============================================
-
-cc_prebuilt_library_shared {
-    name: "android.hardware.boot@1.2-impl",
+cc_prebuilt_binary {
+    name: "vendor.unisoc.hardware.power-service",
+    check_elf_files: false,  // ← ADD THIS to skip ELF checking
+    srcs: ["proprietary/vendor/bin/hw/vendor.unisoc.hardware.power-service"],
+    relative_install_path: "hw",
     vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/hw/android.hardware.boot@1.0-impl-1.2.so"],
-            relative_install_path: "hw",
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
-            relative_install_path: "hw",
-        },
-    },
-    shared_libs: ["liblog", "libcutils", "libutils", "libc++"],
-}
-
-// =============================================
-// COMPLETE GRALLOC STACK
-// =============================================
-
-cc_prebuilt_library_shared {
-    name: "gralloc.default",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/hw/gralloc.default.so"],
-            relative_install_path: "hw",
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/gralloc.default.so"],
-            relative_install_path: "hw",
-        },
-    },
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/vendor-power-default.rc"],
     shared_libs: [
+        "vendor.unisoc.hardware.power-V1-ndk",
+        "power.default",
+        "libbase",
+        "libcutils", 
+        "libhidlbase",
         "liblog",
-        "libcutils",
         "libutils",
         "libc++",
-        "libhardware",
-        "libgralloctypes",
-        "libsync",
+        "libbinder",           // ← AOSP system library
+        "libbinder_ndk",       // ← AOSP system library
+        "power.sprd",          // ← Vendor prebuilt (now declared above)
+        // "android.hardware.power-V3-ndk" ← SYSTEM library (built from source)
     ],
 }
-
-cc_prebuilt_library_shared {
-    name: "libgralloctypes",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/system/lib/libgralloctypes.so"],
-        },
-        lib64: {
-            srcs: ["proprietary/system/lib64/libgralloctypes.so"],
-        },
-    },
-    shared_libs: [
-        "liblog",
-        "libcutils",
-        "libutils",
-        "libc++",
-    ],
-}
-
-// =============================================
-// ESSENTIAL SYSTEM LIBRARIES
-// =============================================
-
+// Gatekeeper Interface - KEEP (exists in vendor)
 cc_prebuilt_library_shared {
     name: "android.hardware.gatekeeper@1.0",
     srcs: ["proprietary/vendor/lib64/android.hardware.gatekeeper@1.0.so"],
@@ -278,42 +290,7 @@ cc_prebuilt_library_shared {
     ],
 }
 
-// =============================================
-// ESSENTIAL INIT SCRIPTS & CONFIGS
-// =============================================
-
-prebuilt_etc {
-    name: "init_RE58C2",
-    src: "proprietary/vendor/etc/init/hw/init.RE58C2.rc",
-    vendor: true,
-    sub_dir: "hw",
-}
-
-prebuilt_etc {
-    name: "init_ram",
-    src: "proprietary/vendor/etc/init/hw/init.ram.rc",
-    vendor: true,
-    sub_dir: "hw",
-}
-
-prebuilt_etc {
-    name: "gralloc_config",
-    src: "proprietary/vendor/etc/gralloc/gralloc.xml",
-    sub_dir: "gralloc",
-    vendor: true,
-}
-
-// =============================================
-// VINTF MANIFESTS
-// =============================================
-
-prebuilt_etc {
-    name: "manifest_vendor.unisoc.power",
-    src: "proprietary/vendor/etc/vintf/manifest/vendor-power-default.xml",
-    sub_dir: "vintf/manifest",
-    vendor: true,
-}
-
+// VINTF Manifests
 prebuilt_etc {
     name: "android.hardware.gatekeeper@1.0-service.trusty.manifest",
     src: "proprietary/vendor/etc/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
@@ -328,10 +305,12 @@ prebuilt_etc {
     vendor: true,
 }
 
-// =============================================
-// INIT RC FILES
-// =============================================
-
+prebuilt_etc {
+    name: "vendor-power-default.manifest",
+    src: "proprietary/vendor/etc/vintf/manifest/vendor-power-default.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
 prebuilt_etc {
     name: "android.hardware.gatekeeper@1.0-service.trusty.rc",
     src: "proprietary/vendor/etc/init/android.hardware.gatekeeper@1.0-service.trusty.rc",
@@ -349,20 +328,6 @@ prebuilt_etc {
 prebuilt_etc {
     name: "vendor-power-default.rc",
     src: "proprietary/vendor/etc/init/vendor-power-default.rc",
-    sub_dir: "init",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "android.hardware.graphics.composer@2.4-service.rc",
-    src: "proprietary/vendor/etc/init/android.hardware.graphics.composer@2.4-service.rc",
-    sub_dir: "init",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "vendor.sprd.hardware.boot@1.2-service.rc",
-    src: "proprietary/vendor/etc/init/vendor.sprd.hardware.boot@1.2-service.rc",
     sub_dir: "init",
     vendor: true,
 }
