@@ -18,7 +18,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor_file_contexts",
+    name: "vendor_file_contexts.vendor",
     src: "proprietary/vendor/etc/selinux/vendor_file_contexts",
     sub_dir: "selinux",
     vendor: true,
