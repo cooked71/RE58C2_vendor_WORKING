@@ -10,7 +10,7 @@ soong_namespace {
 // COMPLETE SELINUX POLICY (ABSOLUTE MUST-HAVE)
 // =============================================
 prebuilt_etc {
-    name: "vendor_sepolicy.cil",
+    name: "vendor_sepolicy.cil.vendor",
     src: "proprietary/vendor/etc/selinux/vendor_sepolicy.cil",
     sub_dir: "selinux",
     vendor: true,
@@ -26,7 +26,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor_hwservice_contexts",
+    name: "vendor_hwservice_contexts.vendor",
     src: "proprietary/vendor/etc/selinux/vendor_hwservice_contexts",
     sub_dir: "selinux",
     vendor: true,
@@ -34,7 +34,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor_property_contexts",
+    name: "vendor_property_contexts.vendor",
     src: "proprietary/vendor/etc/selinux/vendor_property_contexts",
     sub_dir: "selinux",
     vendor: true,
@@ -42,7 +42,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor_service_contexts",
+    name: "vendor_service_contexts.vendor",
     src: "proprietary/vendor/etc/selinux/vendor_service_contexts",
     sub_dir: "selinux",
     vendor: true,
@@ -50,7 +50,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vndservice_contexts",
+    name: "vndservice_contexts.vendor",
     src: "proprietary/vendor/etc/selinux/vndservice_contexts",
     sub_dir: "selinux",
     vendor: true,
