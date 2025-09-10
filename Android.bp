@@ -58,8 +58,8 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "plat_sepolicy_vers.txt",
-    src: "proprietary/vendor/etc/selinux/plat_sepolicy_vers.txt.vendor",
+    name: "plat_sepolicy_vers.txt.vendor",
+    src: "proprietary/vendor/etc/selinux/plat_sepolicy_vers.txt",
     sub_dir: "selinux",
     vendor: true,
     owner: "realme",
