@@ -4,6 +4,13 @@
 
 $(warning Including RE58C2-vendor.mk)
 
+
+# Enable Android.bp processing for this vendor directory
+SOONG_CONFIG_NAMESPACES += realme_RE58C2_vendor
+SOONG_CONFIG_realme_RE58C2_vendor += target_uses_vendor_bp
+SOONG_CONFIG_realme_RE58C2_vendor_target_uses_vendor_bp := true
+ 
+
 PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/etc/audio_effects.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_effects.conf \
     vendor/realme/RE58C2/proprietary/etc/temperature_profile/sys_high_temperature.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/temperature_profile/sys_high_temperature.xml \
