@@ -95,7 +95,7 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "android.hardware.security.keymint-V1-ndk",
+        "android.hardware.security.keymint-V1-ndk.realme",
         "libkeymint",
         "libkeymaster_portable",
         "libkeymaster_messages",
@@ -106,7 +106,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.security.keymint-V1-ndk",
+    name: "android.hardware.security.keymint-V1-ndk.realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/android.hardware.security.keymint-V1-ndk.so"],
     compile_multilib: "64",
