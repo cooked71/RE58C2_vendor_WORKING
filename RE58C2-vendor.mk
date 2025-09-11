@@ -5,6 +5,12 @@
 $(warning Including RE58C2-vendor.mk)
 
 
+# Enable Android.bp processing for this vendor directory
+SOONG_CONFIG_NAMESPACES += realme_RE58C2_vendor
+SOONG_CONFIG_realme_RE58C2_vendor += target_uses_vendor_bp
+SOONG_CONFIG_realme_RE58C2_vendor_target_uses_vendor_bp := true
+ 
+
 PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/etc/audio_effects.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_effects.conf \
     vendor/realme/RE58C2/proprietary/etc/temperature_profile/sys_high_temperature.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/temperature_profile/sys_high_temperature.xml \
@@ -13,357 +19,81 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/lib/libstagefright_surface.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libstagefright_surface.so \
     vendor/realme/RE58C2/proprietary/lib64/libois_algorithm_jni.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libois_algorithm_jni.so \
     vendor/realme/RE58C2/proprietary/lib64/libremotedisplay.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libremotedisplay.so \
-    vendor/realme/RE58C2/proprietary/lib64/libstagefright_surface.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libstagefright_surface.so \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_ODM)/etc/audio/audio_policy_configuration.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio/audio_policy_configuration_a2dp_offload_disabled.xml:$(TARGET_COPY_OUT_ODM)/etc/audio/audio_policy_configuration_a2dp_offload_disabled.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_ODM)/etc/audio/audio_policy_volumes.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio/bluetooth_audio_policy_configuration.xml:$(TARGET_COPY_OUT_ODM)/etc/audio/bluetooth_audio_policy_configuration.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio/bluetooth_audio_policy_configuration_disable_offload.xml:$(TARGET_COPY_OUT_ODM)/etc/audio/bluetooth_audio_policy_configuration_disable_offload.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio/default_volume_tables.xml:$(TARGET_COPY_OUT_ODM)/etc/audio/default_volume_tables.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio/primary_audio_policy_configuration.xml:$(TARGET_COPY_OUT_ODM)/etc/audio/primary_audio_policy_configuration.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_ODM)/etc/audio/r_submix_audio_policy_configuration.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_ODM)/etc/audio/usb_audio_policy_configuration.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/audio_pga.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/audio_pga.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/audio_process.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/audio_process.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/audio_structure.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/audio_structure.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/audioparam_config.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/audioparam_config.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/codec.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/codec.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/cvs.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/cvs.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/dsp_vbc.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/dsp_vbc.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/version1/audio_pga.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/version1/audio_pga.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/version1/audio_process.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/version1/audio_process.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/version1/audio_structure.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/version1/audio_structure.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/version1/audioparam_config.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/version1/audioparam_config.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/version1/codec.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/version1/codec.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/version1/cvs.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/version1/cvs.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/version1/dsp_vbc.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/version1/dsp_vbc.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_pcm.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_pcm.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/audio_route.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_route.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_EEA_3760.prop:$(TARGET_COPY_OUT_ODM)/etc/build_EEA_3760.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_EEA_3761.prop:$(TARGET_COPY_OUT_ODM)/etc/build_EEA_3761.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_EEA_3765.prop:$(TARGET_COPY_OUT_ODM)/etc/build_EEA_3765.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_EEA_3830.prop:$(TARGET_COPY_OUT_ODM)/etc/build_EEA_3830.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_EEA_3834.prop:$(TARGET_COPY_OUT_ODM)/etc/build_EEA_3834.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_IN_3834.prop:$(TARGET_COPY_OUT_ODM)/etc/build_IN_3834.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_RU_3760.prop:$(TARGET_COPY_OUT_ODM)/etc/build_RU_3760.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_RU_3761.prop:$(TARGET_COPY_OUT_ODM)/etc/build_RU_3761.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_RU_3762.prop:$(TARGET_COPY_OUT_ODM)/etc/build_RU_3762.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_RU_3763.prop:$(TARGET_COPY_OUT_ODM)/etc/build_RU_3763.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_RU_3765.prop:$(TARGET_COPY_OUT_ODM)/etc/build_RU_3765.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_RU_3830.prop:$(TARGET_COPY_OUT_ODM)/etc/build_RU_3830.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_RU_3831.prop:$(TARGET_COPY_OUT_ODM)/etc/build_RU_3831.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_RU_3834.prop:$(TARGET_COPY_OUT_ODM)/etc/build_RU_3834.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_T2_3760.prop:$(TARGET_COPY_OUT_ODM)/etc/build_T2_3760.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_T2_3761.prop:$(TARGET_COPY_OUT_ODM)/etc/build_T2_3761.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_T2_3762.prop:$(TARGET_COPY_OUT_ODM)/etc/build_T2_3762.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_T2_3763.prop:$(TARGET_COPY_OUT_ODM)/etc/build_T2_3763.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_T2_3765.prop:$(TARGET_COPY_OUT_ODM)/etc/build_T2_3765.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_T2_3830.prop:$(TARGET_COPY_OUT_ODM)/etc/build_T2_3830.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_T2_3831.prop:$(TARGET_COPY_OUT_ODM)/etc/build_T2_3831.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_T2_3834.prop:$(TARGET_COPY_OUT_ODM)/etc/build_T2_3834.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_TELCEL_3760.prop:$(TARGET_COPY_OUT_ODM)/etc/build_TELCEL_3760.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_TELCEL_3765.prop:$(TARGET_COPY_OUT_ODM)/etc/build_TELCEL_3765.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_TELCEL_3834.prop:$(TARGET_COPY_OUT_ODM)/etc/build_TELCEL_3834.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_TR_3760.prop:$(TARGET_COPY_OUT_ODM)/etc/build_TR_3760.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_TR_3765.prop:$(TARGET_COPY_OUT_ODM)/etc/build_TR_3765.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_TR_3830.prop:$(TARGET_COPY_OUT_ODM)/etc/build_TR_3830.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_TR_3834.prop:$(TARGET_COPY_OUT_ODM)/etc/build_TR_3834.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/build_VN_3834.prop:$(TARGET_COPY_OUT_ODM)/etc/build_VN_3834.prop \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/configs/ov13b10_ly:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/configs/ov13b10_ly \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/configs/ov50d40_mipi_raw:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/configs/ov50d40_mipi_raw \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/configs/ov8856_front_ly:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/configs/ov8856_front_ly \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/configs/ov8856_front_seasons:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/configs/ov8856_front_seasons \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/configs/s5k5e9yu05:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/configs/s5k5e9yu05 \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/configs/s5khm6sx03_qt:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/configs/s5khm6sx03_qt \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/configs/s5kjn1_mipi_raw:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/configs/s5kjn1_mipi_raw \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/B1VLf4peM:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/B1VLf4peM \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/B1aMqioxf:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/B1aMqioxf \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/B1nmcmWbG:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/B1nmcmWbG \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/B1si_XbZz:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/B1si_XbZz \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/B612Pretty.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/B612Pretty.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/BJJAwoigM:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/BJJAwoigM \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/BJyKIwqxz:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/BJyKIwqxz \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/BeautyplusMellow-5.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/BeautyplusMellow-5.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/ByW7g4bbf:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/ByW7g4bbf \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/ByYo3If:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/ByYo3If \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/BycYf7WWz:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/BycYf7WWz \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/DL_A_Pacman.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/DL_A_Pacman.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/DL_D_G4.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/DL_D_G4.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/DL_L_B6.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/DL_L_B6.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/Emerald.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/Emerald.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/EyxRbD2UCe:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/EyxRbD2UCe \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/FaceappGrayscale.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/FaceappGrayscale.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/InsClarendon.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/InsClarendon.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/InsJuno.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/InsJuno.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/InsValencia-2.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/InsValencia-2.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/Martin.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/Martin.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/OPLUSR0604.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/OPLUSR0604.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/PP1-soft-2.6.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/PP1-soft-2.6.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/PP2-pop-4.1.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/PP2-pop-4.1.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/PP3-mono-3.3.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/PP3-mono-3.3.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/Radiance.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/Radiance.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/SJ3mbr6ef:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/SJ3mbr6ef \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/Serenity.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/Serenity.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/SkpZ8ebbz:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/SkpZ8ebbz \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/SnapseedBright.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/SnapseedBright.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/SweetSnapAlice-3.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/SweetSnapAlice-3.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/Sy4uLSTgf:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/Sy4uLSTgf \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/Syt2KeZZf:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/Syt2KeZZf \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/V01-landscape-2.6.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/V01-landscape-2.6.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/V02-portrait-2.5.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/V02-portrait-2.5.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/V03-food-2.0.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/V03-food-2.0.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/V04-night-1.3.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/V04-night-1.3.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/V05-mono-3.3.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/V05-mono-3.3.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/YoucamAdorable80.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/YoucamAdorable80.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/b-w-P8.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/b-w-P8.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/black_gold.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/black_gold.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/blackandwhite.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/blackandwhite.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/bowu-2.1.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/bowu-2.1.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/bright_coloured.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/bright_coloured.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/calm-V5.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/calm-V5.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/candy-P7.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/candy-P7.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/cola.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/cola.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/cyberpunk-kitsch-3.1.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/cyberpunk-kitsch-3.1.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/cyberpunk-neoMilitarism-2.4-final.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/cyberpunk-neoMilitarism-2.4-final.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/default:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/default \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/delight-P3.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/delight-P3.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/delight-V1.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/delight-V1.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/drjw1994.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/drjw1994.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/drjw2010.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/drjw2010.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/f_bin_hideaki:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/f_bin_hideaki \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/f_candy_water_weak.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/f_candy_water_weak.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/f_contrast_gray_face_dark:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/f_contrast_gray_face_dark \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/f_fuji_strong.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/f_fuji_strong.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/f_japan_strong.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/f_japan_strong.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/farewell-V7.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/farewell-V7.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/fuji-eterna-v2.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/fuji-eterna-v2.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/fuji.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/fuji.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gourmet.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gourmet.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-24hour-city.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-24hour-city.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-3dcity.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-3dcity.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-after-glow.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-after-glow.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-azure-water.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-azure-water.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-beach.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-beach.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-blue-water.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-blue-water.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-coco-grove.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-coco-grove.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-crisp-fall.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-crisp-fall.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-desert.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-desert.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-earth.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-earth.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-glazed-tile.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-glazed-tile.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-japan.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-japan.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-lake.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-lake.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-mountainous.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-mountainous.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-old-times.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-old-times.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-quietly-ele.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-quietly-ele.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-rosy.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-rosy.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/gt-steaming.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/gt-steaming.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/interstellar_space.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/interstellar_space.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/jiari-2.0.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/jiari-2.0.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/jw_sun.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/jw_sun.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/jw_surprise.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/jw_surprise.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/kodak.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/kodak.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/lvtu-2.0.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/lvtu-2.0.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/meiwei-2.2.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/meiwei-2.2.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/mellow-V3.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/mellow-V3.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/misty-P5.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/misty-P5.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/misty-V4.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/misty-V4.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/mono.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/mono.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/morandi.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/morandi.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/natural-P1.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/natural-P1.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/natural.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/natural.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/neon-2020.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/neon-2020.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus-black-gold.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus-black-gold.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus-cyberpunk.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus-cyberpunk.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus-nightcity.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus-nightcity.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus-r-black-gold-1.1-RGB.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus-r-black-gold-1.1-RGB.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus-r-cyberpunk-RGB.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus-r-cyberpunk-RGB.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus-r-infra-RGB.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus-r-infra-RGB.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus-yellow-blue.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus-yellow-blue.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_SAREK_III.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_SAREK_III.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_VAEROY_III.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_VAEROY_III.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_YLLAAS.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_YLLAAS.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_r4.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_r4.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_r5.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_r5.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_r6.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_r6.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_video_filter_black_and_white:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_video_filter_black_and_white \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_video_filter_highlight:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_video_filter_highlight \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_video_filter_ins:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_video_filter_ins \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_video_filter_natal:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_video_filter_natal \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_video_filter_olympus:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_video_filter_olympus \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_video_filter_plain:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_video_filter_plain \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_video_filter_show:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_video_filter_show \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_video_filter_solar:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_video_filter_solar \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_video_filter_strong:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_video_filter_strong \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oplus_video_filter_west:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oplus_video_filter_west \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oppo_video_filter_black_and_white:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oppo_video_filter_black_and_white \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oppo_video_filter_highlight:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oppo_video_filter_highlight \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oppo_video_filter_ins:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oppo_video_filter_ins \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oppo_video_filter_natal:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oppo_video_filter_natal \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oppo_video_filter_olympus:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oppo_video_filter_olympus \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oppo_video_filter_plain:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oppo_video_filter_plain \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oppo_video_filter_show:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oppo_video_filter_show \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oppo_video_filter_solar:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oppo_video_filter_solar \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oppo_video_filter_strong:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oppo_video_filter_strong \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/oppo_video_filter_west:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/oppo_video_filter_west \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/p4_1.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/p4_1.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/p4_2.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/p4_2.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/p4_3.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/p4_3.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/p4_4.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/p4_4.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/qiuri-2.0.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/qiuri-2.0.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/r1JaFSZZG:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/r1JaFSZZG \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/r1PrfoolG:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/r1PrfoolG \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/rJ5g5vPWG:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/rJ5g5vPWG \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/rJxJtmaez:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/rJxJtmaez \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/red-red.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/red-red.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/rkMhq4ZWf:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/rkMhq4ZWf \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/rkx5u4Zbf:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/rkx5u4Zbf \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/senlin-2.0.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/senlin-2.0.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/serene-P9.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/serene-P9.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/sky-blue.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/sky-blue.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/sweet-P2.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/sweet-P2.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/sweet-V2.CUBE.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/sweet-V2.CUBE.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/tree-green.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/tree-green.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/type_fuji_acros:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/type_fuji_acros \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/type_fuji_astia:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/type_fuji_astia \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/type_fuji_chrome:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/type_fuji_chrome \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/type_fuji_provia:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/type_fuji_provia \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/type_fuji_velvia:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/type_fuji_velvia \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/vivid-cool.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/vivid-cool.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/vivid-lut.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/vivid-lut.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/vivid-warm.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/vivid-warm.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_lut/yuanqi-2.2s.cube.rgb.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_lut/yuanqi-2.2s.cube.rgb.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/.DS_Store:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/.DS_Store \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/film_grain_small.bin:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/film_grain_small.bin \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/lut_all_points.png:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/lut_all_points.png \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/overlay_p4_3_weak.png:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/overlay_p4_3_weak.png \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/pacman.json:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/pacman.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/textures/.DS_Store:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/textures/.DS_Store \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/textures/pac00001.png:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/textures/pac00001.png \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/textures/pac00002.png:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/textures/pac00002.png \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/textures/pac00003.png:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/textures/pac00003.png \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/textures/pac00004.png:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/textures/pac00004.png \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/textures/pac00005.png:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/textures/pac00005.png \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/textures/pacman_01.png:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/textures/pacman_01.png \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/textures/pacman_02.png:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/textures/pacman_02.png \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/textures/pacman_07.png:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/textures/pacman_07.png \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/filters_res/textures/pacman_08.png:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/filters_res/textures/pacman_08.png \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/samplenode/tuning/sample_tuning_1.txt:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/samplenode/tuning/sample_tuning_1.txt \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool/samplenode/tuning/sample_tuning_2.txt:$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool/samplenode/tuning/sample_tuning_2.txt \
+    vendor/realme/RE58C2/proprietary/lib64/libstagefright_surface.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libstagefright_surface.so
+
+# ODM audio configuration files
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*.xml,vendor/realme/RE58C2/proprietary/odm/etc/audio,$(TARGET_COPY_OUT_ODM)/etc/audio) \
+    $(call find-copy-subdir-files,*.xml,vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd,$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd) \
+    $(call find-copy-subdir-files,*.xml,vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/version1,$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/version1)
+
+# ODM build properties
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*.prop,vendor/realme/RE58C2/proprietary/odm/etc,$(TARGET_COPY_OUT_ODM)/etc)
+
+# ODM camera configuration
+PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/odm/etc/camera/CameraHWConfiguration.config:$(TARGET_COPY_OUT_ODM)/etc/camera/CameraHWConfiguration.config \
-    vendor/realme/RE58C2/proprietary/odm/etc/camera/fwk_config.json:$(TARGET_COPY_OUT_ODM)/etc/camera/fwk_config.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/init/init.jiiov.rc:$(TARGET_COPY_OUT_ODM)/etc/init/init.jiiov.rc \
+    vendor/realme/RE58C2/proprietary/odm/etc/camera/fwk_config.json:$(TARGET_COPY_OUT_ODM)/etc/camera/fwk_config.json
+
+# ODM camera filters and LUTs (bulk copy)
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*.,vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool,$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool)
+
+# ODM init scripts
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/odm/etc/init/init.jiiov.rc:$(TARGET_COPY_OUT_ODM)/etc/init/init.jiiov.rc
+
+# ODM ISP pipeline configuration
+PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/odm/etc/isppipeline/Pipeline_Linkage.json:$(TARGET_COPY_OUT_ODM)/etc/isppipeline/Pipeline_Linkage.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/isppipeline/props.xml:$(TARGET_COPY_OUT_ODM)/etc/isppipeline/props.xml \
+    vendor/realme/RE58C2/proprietary/odm/etc/isppipeline/props.xml:$(TARGET_COPY_OUT_ODM)/etc/isppipeline/props.xml
+
+# ODM NFC configuration
+PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/odm/etc/libnfc_accesscard_config.conf:$(TARGET_COPY_OUT_ODM)/etc/libnfc_accesscard_config.conf \
-    vendor/realme/RE58C2/proprietary/odm/etc/libnfc_default_config.conf:$(TARGET_COPY_OUT_ODM)/etc/libnfc_default_config.conf \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/common/DefaultNodeList.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/common/DefaultNodeList.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_App_Yuv_Capture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_App_Yuv_Capture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Async.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Async.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_FaceID_Callback.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_FaceID_Callback.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_FaceID_Preview.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_FaceID_Preview.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Front_Auto_Callback.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Front_Auto_Callback.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Front_Auto_Capture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Front_Auto_Capture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Front_Auto_Preview.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Front_Auto_Preview.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Front_Auto_Video.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Front_Auto_Video.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Front_HighRes_Capture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Front_HighRes_Capture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Front_HighRes_Preview.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Front_HighRes_Preview.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Front_NightPro_Capture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Front_NightPro_Capture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Front_NightPro_Preview.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Front_NightPro_Preview.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Multimode_Callback.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Multimode_Callback.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Multimode_Preview.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Multimode_Preview.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Rear_Auto_Callback.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Rear_Auto_Callback.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Rear_Auto_Capture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Rear_Auto_Capture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Rear_Auto_Debug_Reprocess.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Rear_Auto_Debug_Reprocess.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Rear_Auto_Preview.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Rear_Auto_Preview.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Rear_Auto_Video.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Rear_Auto_Video.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Rear_DualCam_Capture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Rear_DualCam_Capture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Rear_DualCam_Preview.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Rear_DualCam_Preview.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Rear_HighRes_Capture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Rear_HighRes_Capture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Rear_HighRes_Preview.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Rear_HighRes_Preview.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Rear_NightPro_Capture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Rear_NightPro_Capture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Rear_NightPro_Preview.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Rear_NightPro_Preview.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Rear_Professional_Capture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Rear_Professional_Capture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Single_Portrait_Capture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Single_Portrait_Capture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Single_Portrait_Preview.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Single_Portrait_Preview.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Slowmotion.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Slowmotion.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_ThirdParty_Async.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_ThirdParty_Async.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_ThirdParty_Auto_Callback.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_ThirdParty_Auto_Callback.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_ThirdParty_Auto_Capture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_ThirdParty_Auto_Capture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_ThirdParty_Auto_Preview.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_ThirdParty_Auto_Preview.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_ThirdParty_Auto_Video.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_ThirdParty_Auto_Video.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Ultrawide_Capture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Ultrawide_Capture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Ultrawide_Preview.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Ultrawide_Preview.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Ultrawide_Video.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Ultrawide_Video.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Ultrawide_Video_Preview.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Ultrawide_Video_Preview.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/pipeline/Pipeline_Video_Capture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/pipeline/Pipeline_Video_Capture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/plugin/LwpPlugin.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/plugin/LwpPlugin.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Front_AutoDC.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Front_AutoDC.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Front_Auto_Video.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Front_Auto_Video.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Front_HighResolution.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Front_HighResolution.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Front_LargeAperture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Front_LargeAperture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Front_NightPro.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Front_NightPro.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Front_Portrait.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Front_Portrait.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Front_Single_FaceID.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Front_Single_FaceID.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Rear_AutoDC.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Rear_AutoDC.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Rear_Auto_Video.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Rear_Auto_Video.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Rear_DualCamera.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Rear_DualCamera.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Rear_HighResolution.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Rear_HighResolution.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Rear_LargeAperture.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Rear_LargeAperture.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Rear_NightPro.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Rear_NightPro.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Rear_NightVideo.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Rear_NightVideo.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Rear_Panorama.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Rear_Panorama.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Rear_Portrait.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Rear_Portrait.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Rear_Professional.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Rear_Professional.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Rear_Qrcode.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Rear_Qrcode.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Rear_Slowmotion.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Rear_Slowmotion.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Rear_Timelapse.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Rear_Timelapse.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Single_Portrait.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Single_Portrait.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_ThirdParty.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_ThirdParty.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Ultrawide.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Ultrawide.json \
-    vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology/session/Session_Ultrawide_Video.json:$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology/session/Session_Ultrawide_Video.json \
+    vendor/realme/RE58C2/proprietary/odm/etc/libnfc_default_config.conf:$(TARGET_COPY_OUT_ODM)/etc/libnfc_default_config.conf
+
+# ODM LWP topology files (bulk copy)
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*.json,vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology,$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology)
+
+# ODM media codecs
+PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/odm/etc/media_codecs_c2_secure.xml:$(TARGET_COPY_OUT_ODM)/etc/media_codecs_c2_secure.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/media_codecs_performance_c2_secure.xml:$(TARGET_COPY_OUT_ODM)/etc/media_codecs_performance_c2_secure.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/otpdata/input_parameters_values.txt:$(TARGET_COPY_OUT_ODM)/etc/otpdata/input_parameters_values.txt \
-    vendor/realme/RE58C2/proprietary/odm/etc/otpdata/obj_disc.txt:$(TARGET_COPY_OUT_ODM)/etc/otpdata/obj_disc.txt \
-    vendor/realme/RE58C2/proprietary/odm/etc/otpdata/otpgoldendata.txt:$(TARGET_COPY_OUT_ODM)/etc/otpdata/otpgoldendata.txt \
-    vendor/realme/RE58C2/proprietary/odm/etc/otpdata/oz1_input_parameters_values.txt:$(TARGET_COPY_OUT_ODM)/etc/otpdata/oz1_input_parameters_values.txt \
-    vendor/realme/RE58C2/proprietary/odm/etc/otpdata/oz2_input_parameters_values.txt:$(TARGET_COPY_OUT_ODM)/etc/otpdata/oz2_input_parameters_values.txt \
-    vendor/realme/RE58C2/proprietary/odm/etc/otpdata/sale_after_input_parameters_values.txt:$(TARGET_COPY_OUT_ODM)/etc/otpdata/sale_after_input_parameters_values.txt \
-    vendor/realme/RE58C2/proprietary/odm/etc/otpdata/sell_aft_cali.txt:$(TARGET_COPY_OUT_ODM)/etc/otpdata/sell_aft_cali.txt \
-    vendor/realme/RE58C2/proprietary/odm/etc/otpdata/spw_input_parameters_values.txt:$(TARGET_COPY_OUT_ODM)/etc/otpdata/spw_input_parameters_values.txt \
-    vendor/realme/RE58C2/proprietary/odm/etc/otpdata/spw_input_parameters_values_planar.txt:$(TARGET_COPY_OUT_ODM)/etc/otpdata/spw_input_parameters_values_planar.txt \
-    vendor/realme/RE58C2/proprietary/odm/etc/sensor_config.xml:$(TARGET_COPY_OUT_ODM)/etc/sensor_config.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/unipnp/UniFeature.xml:$(TARGET_COPY_OUT_ODM)/etc/unipnp/UniFeature.xml \
-    vendor/realme/RE58C2/proprietary/odm/etc/wifi_board_config.ini:$(TARGET_COPY_OUT_ODM)/etc/wifi_board_config.ini \
-    vendor/realme/RE58C2/proprietary/odm/etc/wifi_board_config_aa.ini:$(TARGET_COPY_OUT_ODM)/etc/wifi_board_config_aa.ini \
-    vendor/realme/RE58C2/proprietary/odm/etc/wifi_board_config_hulk.ini:$(TARGET_COPY_OUT_ODM)/etc/wifi_board_config_hulk.ini \
-    vendor/realme/RE58C2/proprietary/odm/etc/wifi_board_config_hulkbc.ini:$(TARGET_COPY_OUT_ODM)/etc/wifi_board_config_hulkbc.ini \
-    vendor/realme/RE58C2/proprietary/odm/etc/zoom_config.json:$(TARGET_COPY_OUT_ODM)/etc/zoom_config.json \
-    vendor/realme/RE58C2/proprietary/odm/lib/libBokeh2Frames.so:$(TARGET_COPY_OUT_ODM)/lib/libBokeh2Frames.so \
-    vendor/realme/RE58C2/proprietary/odm/lib/libDefog.so:$(TARGET_COPY_OUT_ODM)/lib/libDefog.so \
-    vendor/realme/RE58C2/proprietary/odm/lib/libSegLite.so:$(TARGET_COPY_OUT_ODM)/lib/libSegLite.so \
-    vendor/realme/RE58C2/proprietary/odm/lib/libTfliteWrapper.so:$(TARGET_COPY_OUT_ODM)/lib/libTfliteWrapper.so \
-    vendor/realme/RE58C2/proprietary/odm/lib/libbokeh_gaussian_cap.so:$(TARGET_COPY_OUT_ODM)/lib/libbokeh_gaussian_cap.so \
-    vendor/realme/RE58C2/proprietary/odm/lib/libinfo.so:$(TARGET_COPY_OUT_ODM)/lib/libinfo.so \
-    vendor/realme/RE58C2/proprietary/odm/lib/libinterface.so:$(TARGET_COPY_OUT_ODM)/lib/libinterface.so \
-    vendor/realme/RE58C2/proprietary/odm/lib/libkey.so:$(TARGET_COPY_OUT_ODM)/lib/libkey.so \
-    vendor/realme/RE58C2/proprietary/odm/lib/libsprdbokeh.so:$(TARGET_COPY_OUT_ODM)/lib/libsprdbokeh.so \
-    vendor/realme/RE58C2/proprietary/odm/lib/libverify.so:$(TARGET_COPY_OUT_ODM)/lib/libverify.so \
-    vendor/realme/RE58C2/proprietary/odm/lib64/libBokeh2Frames.so:$(TARGET_COPY_OUT_ODM)/lib64/libBokeh2Frames.so \
-    vendor/realme/RE58C2/proprietary/odm/lib64/libDefog.so:$(TARGET_COPY_OUT_ODM)/lib64/libDefog.so \
-    vendor/realme/RE58C2/proprietary/odm/lib64/libSegLite.so:$(TARGET_COPY_OUT_ODM)/lib64/libSegLite.so \
-    vendor/realme/RE58C2/proprietary/odm/lib64/libTfliteWrapper.so:$(TARGET_COPY_OUT_ODM)/lib64/libTfliteWrapper.so \
-    vendor/realme/RE58C2/proprietary/odm/lib64/libbokeh_gaussian_cap.so:$(TARGET_COPY_OUT_ODM)/lib64/libbokeh_gaussian_cap.so \
-    vendor/realme/RE58C2/proprietary/odm/lib64/libinfo.so:$(TARGET_COPY_OUT_ODM)/lib64/libinfo.so \
-    vendor/realme/RE58C2/proprietary/odm/lib64/libinterface.so:$(TARGET_COPY_OUT_ODM)/lib64/libinterface.so \
-    vendor/realme/RE58C2/proprietary/odm/lib64/libkey.so:$(TARGET_COPY_OUT_ODM)/lib64/libkey.so \
-    vendor/realme/RE58C2/proprietary/odm/lib64/libsprdbokeh.so:$(TARGET_COPY_OUT_ODM)/lib64/libsprdbokeh.so \
-    vendor/realme/RE58C2/proprietary/odm/lib64/libverify.so:$(TARGET_COPY_OUT_ODM)/lib64/libverify.so \
+    vendor/realme/RE58C2/proprietary/odm/etc/media_codecs_performance_c2_secure.xml:$(TARGET_COPY_OUT_ODM)/etc/media_codecs_performance_c2_secure.xml
+
+# ODM OTP data
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*.txt,vendor/realme/RE58C2/proprietary/odm/etc/otpdata,$(TARGET_COPY_OUT_ODM)/etc/otpdata)
+
+# ODM sensor configuration
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/odm/etc/sensor_config.xml:$(TARGET_COPY_OUT_ODM)/etc/sensor_config.xml
+
+# ODM UniPNP configuration
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/odm/etc/unipnp/UniFeature.xml:$(TARGET_COPY_OUT_ODM)/etc/unipnp/UniFeature.xml
+
+# ODM WiFi configuration
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*.ini,vendor/realme/RE58C2/proprietary/odm/etc,$(TARGET_COPY_OUT_ODM)/etc)
+
+# ODM zoom configuration
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/odm/etc/zoom_config.json:$(TARGET_COPY_OUT_ODM)/etc/zoom_config.json
+
+# ODM libraries (both 32-bit and 64-bit)
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*.so,vendor/realme/RE58C2/proprietary/odm/lib,$(TARGET_COPY_OUT_ODM)/lib) \
+    $(call find-copy-subdir-files,*.so,vendor/realme/RE58C2/proprietary/odm/lib64,$(TARGET_COPY_OUT_ODM)/lib64)
+
+# System_ext files
+PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/system_ext/etc/camera/default_cnr3_param.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/camera/default_cnr3_param.txt \
     vendor/realme/RE58C2/proprietary/system_ext/etc/camera/default_ynr_param.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/camera/default_ynr_param.txt \
     vendor/realme/RE58C2/proprietary/system_ext/etc/init/dataLogDaemon.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/dataLogDaemon.rc \
-    vendor/realme/RE58C2/proprietary/system_ext/etc/init/data_rps.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/data_rps.rc \
-
+    vendor/realme/RE58C2/proprietary/system_ext/etc/init/data_rps.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/data_rps.rc
 
 # =============================================
 # Vendor DLKM Modules
@@ -385,7 +115,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor_dlkm/lib/modules/modules.load.cali:$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules/modules.load.cali \
     vendor/realme/RE58C2/proprietary/vendor_dlkm/lib/modules/modules.load.charger:$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules/modules.load.charger
 
-# Critical hardware modules (explicit copies for important modules)
+# Critical hardware modules
 PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor_dlkm/lib/modules/mali_kbase.ko:$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules/mali_kbase.ko \
     vendor/realme/RE58C2/proprietary/vendor_dlkm/lib/modules/sprd_wlan_combo.ko:$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules/sprd_wlan_combo.ko \
@@ -399,44 +129,30 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor_dlkm/etc/build.prop:$(TARGET_COPY_OUT_VENDOR_DLKM)/etc/build.prop
 
-# SELinux contexts (important for LineageOS)
-PRODUCT_COPY_FILES += \
+# SELinux contexts
+#PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor_dlkm/etc/selinux/vendor_file_contexts:$(TARGET_COPY_OUT_VENDOR_DLKM)/etc/selinux/vendor_file_contexts
 
-
 # =============================================
-# Critical Vendor DLKM Binaries
+# Complete Stock Vendor SELinux Stack
 # =============================================
+
+# Vendor SELinux Policy
 #PRODUCT_COPY_FILES += \
-#    vendor/realme/RE58C2/proprietary/vendor_dlkm/bin/modprobe:$(TARGET_COPY_OUT_VENDOR_DLKM)/bin/modprobe
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_file_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_file_contexts \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_hwservice_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_hwservice_contexts \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_mac_permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_mac_permissions.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_property_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_property_contexts \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_seapp_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_seapp_contexts \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_sepolicy.cil:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_sepolicy.cil \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_service_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_service_contexts \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vndservice_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vndservice_contexts
 
-
-#load the loadable
+# Platform policy version (important!)
 #PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor/bin,$(TARGET_COPY_OUT_VENDOR)/bin) \
-    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor/lib,$(TARGET_COPY_OUT_VENDOR)/lib) \
-    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor/lib64,$(TARGET_COPY_OUT_VENDOR)/lib64) \
-    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor/etc/init,$(TARGET_COPY_OUT_VENDOR)/etc/init) \
-
-
-
-
-
-# ========================
-# Core Android HAL Services (From Source)
-# ========================
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service \
-    android.hardware.wifi@1.0-service \
-    android.hardware.renderscript@1.0-impl
-
-# ========================
-# Vendor HAL Implementations (From Source)
-# ========================
-PRODUCT_PACKAGES += \
-    android.hardware.power-service.example \
-    android.hardware.power.stats-service.example
-
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/plat_sepolicy_vers.txt:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/plat_sepolicy_vers.txt
+    
+     
 # ========================
 # Essential System Components
 # ========================
@@ -444,4 +160,3 @@ PRODUCT_PACKAGES += \
     charger \
     charger_res_images \
     watchdogd
-

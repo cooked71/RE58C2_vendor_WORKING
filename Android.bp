@@ -1,5 +1,5 @@
 // =============================================
-// LineageOS 20 - RE58C2 MINIMAL Android.bp
+// LineageOS 20 - RE58C2 Android.bp
 // Focus: BOOT TO SPLASH SCREEN ONLY
 // =============================================
 soong_namespace {
@@ -7,9 +7,67 @@ soong_namespace {
 }
 
 // =============================================
+// COMPLETE SELINUX POLICY (ABSOLUTE MUST-HAVE)
+// =============================================
+prebuilt_etc {
+    name: "vendor_sepolicy.cil.vendor",
+    src: "proprietary/vendor/etc/selinux/vendor_sepolicy.cil",
+    sub_dir: "selinux",
+    vendor: true,
+    owner: "realme",
+}
+
+prebuilt_etc {
+    name: "vendor_file_contexts.vendor",
+    src: "proprietary/vendor/etc/selinux/vendor_file_contexts",
+    sub_dir: "selinux",
+    vendor: true,
+    owner: "realme",
+}
+
+prebuilt_etc {
+    name: "vendor_hwservice_contexts.vendor",
+    src: "proprietary/vendor/etc/selinux/vendor_hwservice_contexts",
+    sub_dir: "selinux",
+    vendor: true,
+    owner: "realme",
+}
+
+prebuilt_etc {
+    name: "vendor_property_contexts.vendor",
+    src: "proprietary/vendor/etc/selinux/vendor_property_contexts",
+    sub_dir: "selinux",
+    vendor: true,
+    owner: "realme",
+}
+
+prebuilt_etc {
+    name: "vendor_service_contexts.vendor",
+    src: "proprietary/vendor/etc/selinux/vendor_service_contexts",
+    sub_dir: "selinux",
+    vendor: true,
+    owner: "realme",
+}
+
+prebuilt_etc {
+    name: "vndservice_contexts.vendor",
+    src: "proprietary/vendor/etc/selinux/vndservice_contexts",
+    sub_dir: "selinux",
+    vendor: true,
+    owner: "realme",
+}
+
+prebuilt_etc {
+    name: "plat_sepolicy_vers.txt.vendor",
+    src: "proprietary/vendor/etc/selinux/plat_sepolicy_vers.txt",
+    sub_dir: "selinux",
+    vendor: true,
+    owner: "realme",
+}
+
+// =============================================
 // ABSOLUTELY ESSENTIAL SERVICES FOR BOOT
 // =============================================
-
 cc_prebuilt_binary {
     name: "android.hardware.graphics.composer@2.4-service",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.graphics.composer@2.4-service"],
@@ -20,24 +78,127 @@ cc_prebuilt_binary {
     shared_libs: ["libbase", "libcutils", "libhidlbase", "liblog", "libutils", "libc++"],
 }
 
+// =============================================
+// KEYMINT STACK (ESSENTIAL FOR ANDROID 13+)
+// =============================================
 cc_prebuilt_binary {
-    name: "vendor.unisoc.hardware.power-service",
-    srcs: ["proprietary/vendor/bin/hw/vendor.unisoc.hardware.power-service"],
+    name: "android.hardware.security.keymint@2.0-unisoc.service.trusty",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.security.keymint@2.0-unisoc.service.trusty"],
     relative_install_path: "hw",
     vendor: true,
     compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/vendor-power-default.rc"],
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.security.keymint@2.0-unisoc.service.trusty.rc"],
     shared_libs: [
-        "vendor.unisoc.hardware.power-V1-ndk",
-        "power.default",
-        "libbase", "libcutils", "libhidlbase", "liblog", "libutils", "libc++",
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "android.hardware.security.keymint-V1-ndk.realme",
+        "libkeymint",
+        "libkeymaster_portable",
+        "libkeymaster_messages",
+        "lib_android_keymaster_keymint_utils",
+        "libpuresoftkeymasterdevice"
     ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.security.keymint-V1-ndk.realme",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/android.hardware.security.keymint-V1-ndk.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libc++",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libkeymint",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/libkeymint.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libc++",
+        "libkeymaster_portable",
+        "libkeymaster_messages",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libkeymaster_portable",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/libkeymaster_portable.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libc++",
+        "libkeymaster_messages",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libkeymaster_messages",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/libkeymaster_messages.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libc++",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "lib_android_keymaster_keymint_utils",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/lib_android_keymaster_keymint_utils.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libc++",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libpuresoftkeymasterdevice",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/libpuresoftkeymasterdevice.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libc++",
+        "libkeymaster_portable",
+        "libkeymaster_messages",
+    ],
+    check_elf_files: false,
+}
+
+prebuilt_etc {
+    name: "android.hardware.security.keymint.manifest",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint@2.0-unisoc.service.trusty.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+    owner: "realme",
 }
 
 // =============================================
 // ESSENTIAL GRAPHICS LIBRARIES (SPLASH SCREEN)
 // =============================================
-
 cc_prebuilt_library_shared {
     name: "libGLES_mali",
     vendor: true,
@@ -75,7 +236,6 @@ cc_prebuilt_library_shared {
 // =============================================
 // ESSENTIAL POWER MANAGEMENT
 // =============================================
-
 cc_prebuilt_library_shared {
     name: "power.default",
     vendor: true,
@@ -103,7 +263,6 @@ cc_prebuilt_library_shared {
 // =============================================
 // ESSENTIAL BOOT COMPONENTS
 // =============================================
-
 cc_prebuilt_binary {
     name: "android.hardware.boot@1.2-service",
     srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service"],
@@ -133,7 +292,6 @@ cc_prebuilt_library_shared {
 // =============================================
 // ESSENTIAL INIT SCRIPTS
 // =============================================
-
 prebuilt_etc {
     name: "init_RE58C2",
     src: "proprietary/vendor/etc/init/hw/init.RE58C2.rc",
@@ -151,7 +309,6 @@ prebuilt_etc {
 // =============================================
 // ABSOLUTE MINIMAL VINTF MANIFESTS
 // =============================================
-
 prebuilt_etc {
     name: "manifest_vendor.unisoc.power",
     src: "proprietary/vendor/etc/vintf/manifest/vendor-power-default.xml",
@@ -159,9 +316,165 @@ prebuilt_etc {
     vendor: true,
 }
 
+// =============================================
+// COMPLETE GRALLOC STACK
+// =============================================
+cc_prebuilt_library_shared {
+    name: "gralloc.default",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/gralloc.default.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/gralloc.default.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils", 
+        "libutils",
+        "libc++",
+        "libhardware",
+        "libgralloctypes",
+    ],
+}
+
+cc_prebuilt_library_shared {
+    name: "libgralloctypes",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/libgralloctypes.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/libgralloctypes.so"],
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libc++",
+    ],
+}
+
 prebuilt_etc {
-    name: "manifest_android.hardware.graphics.composer",
-    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.graphics.composer@2.4-service.xml",
+    name: "gralloc_config",
+    src: "proprietary/vendor/etc/gralloc/gralloc.xml",
+    sub_dir: "gralloc",
+    vendor: true,
+}
+
+// =============================================
+// HAL Services
+// =============================================
+cc_prebuilt_binary {
+    name: "android.hardware.gatekeeper@1.0-service.trusty",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.gatekeeper@1.0-service.trusty"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.gatekeeper@1.0-service.trusty.rc"],
+    shared_libs: [
+        "android.hardware.gatekeeper@1.0",
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+}
+
+cc_prebuilt_binary {
+    name: "android.hardware.health-service.example",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.health-service.example"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.health-service.example.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+}
+
+cc_prebuilt_library_shared {
+    name: "power.sprd",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/power.sprd.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+cc_prebuilt_binary {
+    name: "vendor.unisoc.hardware.power-service",
+    check_elf_files: false,
+    srcs: ["proprietary/vendor/bin/hw/vendor.unisoc.hardware.power-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/vendor-power-default.rc"],
+    shared_libs: [
+        "vendor.unisoc.hardware.power-V1-ndk",
+        "power.default",
+        "libbase",
+        "libcutils", 
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "libbinder",
+        "libbinder_ndk",
+        "power.sprd",
+    ],
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.gatekeeper@1.0",
+    srcs: ["proprietary/vendor/lib64/android.hardware.gatekeeper@1.0.so"],
+    vendor: true,
+    compile_multilib: "64",
+    shared_libs: [
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libc++",
+    ],
+}
+
+// =============================================
+// VINTF Manifests
+// =============================================
+prebuilt_etc {
+    name: "android.hardware.gatekeeper@1.0-service.trusty.manifest",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "android.hardware.health-service.example.manifest",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.health-service.example.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "vendor-power-default.manifest",
+    src: "proprietary/vendor/etc/vintf/manifest/vendor-power-default.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
 }
