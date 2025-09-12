@@ -19,3 +19,5 @@ vendor_dlkm /vendor_dlkm erofs ro wait,avb=vbmeta_system_ext,logical,first_stage
 /dev/block/by-name/blackbox /blackbox ext4 noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc check
 /dev/block/by-name/opporeserve /mnt/vendor/opporeserve ext4 noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc wait,formattable,check
 /dev/block/by-name/blackbox /blackbox f2fs noatime,nosuid,nodev,discard check
+# Bind mount for LineageOS firmware location
+/system/vendor/firmware  /vendor/firmware  none  bind  wait
