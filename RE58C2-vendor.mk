@@ -135,7 +135,7 @@ PRODUCT_COPY_FILES += \
 #----------------------------------------------------------------------
 # Copy all fstab files for hardware-specific mounting
 #----------------------------------------------------------------------
-PRODUCT_COPY_FILES += \
+P#RODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.cali:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.cali \
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.charge_mode:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.charge_mode \
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.enableswap:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.enableswap \
@@ -159,7 +159,7 @@ PRODUCT_COPY_FILES += \
 # This is where the kernel will look for hardware firmware files
 #----------------------------------------------------------------------
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor/firmware,$(TARGET_COPY_OUT_VENDOR)/firmware)
+    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor,$(TARGET_COPY_OUT_VENDOR))
 
 
 # SELinux contexts
