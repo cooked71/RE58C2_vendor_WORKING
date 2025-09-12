@@ -153,6 +153,15 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_nico \
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_zebu
 
+
+#----------------------------------------------------------------------
+# Copy the entire firmware directory
+# This is where the kernel will look for hardware firmware files
+#----------------------------------------------------------------------
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor/firmware,$(TARGET_COPY_OUT_VENDOR)/firmware)
+
+
 # SELinux contexts
 #PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor_dlkm/etc/selinux/vendor_file_contexts:$(TARGET_COPY_OUT_VENDOR_DLKM)/etc/selinux/vendor_file_contexts
