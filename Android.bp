@@ -2,3 +2,134 @@
 soong_namespace {
     imports: [],
 }
+/ =============================================
+// Graphics - Mali GPU Configuration (VENDOR ONLY)
+// =============================================
+
+// Mali GPU library (both EGL and standalone)
+cc_prebuilt_library_shared {
+    name: "libGLES_mali",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/egl/libGLES_mali.so"],
+            relative_install_path: "egl",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/egl/libGLES_mali.so"],
+            relative_install_path: "egl",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libsync",
+        "libc++",
+        "libdl",
+        "libm",
+    ],
+}
+
+// Unisoc Hardware Composer
+cc_prebuilt_library_shared {
+    name: "hwcomposer.unisoc",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/hwcomposer.unisoc.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/hwcomposer.unisoc.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libsync",
+        "libc++",
+        "libhardware",
+        "libui",
+        "libgralloctypes",
+        "libhidlbase",
+        "libEGL",
+        "libGLESv1_CM",
+        "libGLESv2",
+        "libGLESv3",
+        "libnativewindow",
+        "libbase",
+        "libion",
+        "libdrm",
+        "libbinder",
+        "libbinder_ndk",
+        "libmemion",
+        "libmediahdrtosdrtransform",
+        "libpowerhal_cli",
+        "vendor.sprd.hardware.enhance-V1-ndk"
+    ],
+}
+
+// Gralloc default implementation
+cc_prebuilt_library_shared {
+    name: "gralloc.default",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/gralloc.default.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/gralloc.default.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libsync",
+        "libc++",
+        "libgralloctypes",
+    ],
+}
+
+// Remote display library - DISABLE ELF CHECKING
+cc_prebuilt_library_shared {
+    name: "libremotedisplay",
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/lib/libremotedisplay.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/lib64/libremotedisplay.so"],
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libutils",
+        "libc++",
+        "libcutils",
+        "libgui",
+        "libbinder",
+        "libmedia",
+        "libstagefright_foundation",
+        "libui",
+        "libhidlbase"
+    ],
+}
+
+// Gralloc configuration file
+prebuilt_etc {
+    name: "gralloc_configuration",
+    src: "proprietary/vendor/etc/gralloc/gralloc.xml",
+    sub_dir: "gralloc",
+    vendor: true,
+    owner: "realme",
+}
