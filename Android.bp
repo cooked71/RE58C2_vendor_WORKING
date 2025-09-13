@@ -2,6 +2,77 @@
 soong_namespace {
     imports: [],
 }
+
+// =============================================
+// Vendor-specific library definitions (ADD THESE FIRST)
+// =============================================
+
+// libmemion (vendor)
+cc_prebuilt_library_shared {
+    name: "libmemion",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libmemion.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libmemion.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// libmediahdrtosdrtransform (vendor)
+cc_prebuilt_library_shared {
+    name: "libmediahdrtosdrtransform",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libmediahdrtosdrtransform.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libmediahdrtosdrtransform.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// libpowerhal_cli (vendor)
+cc_prebuilt_library_shared {
+    name: "libpowerhal_cli",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libpowerhal_cli.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libpowerhal_cli.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// vendor.sprd.hardware.enhance-V1-ndk (vendor)
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.enhance-V1-ndk",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.enhance-V1-ndk.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.enhance-V1-ndk.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+
+
 // =============================================
 // Graphics - Mali GPU Configuration (VENDOR ONLY)
 // =============================================
