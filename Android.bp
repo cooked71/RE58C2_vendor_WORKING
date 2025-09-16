@@ -936,9 +936,9 @@ cc_prebuilt_library_shared {
     ],
 }
 
-// Gralloc default implementation
+// Gralloc RE58C2 implementation
 cc_prebuilt_library_shared {
-    name: "gralloc.default",
+    name: "gralloc.re58c2",  // ← DEVICE-SPECIFIC NAME
     vendor: true,
     check_elf_files: false,
     multilib: {
@@ -995,4 +995,3 @@ prebuilt_etc {
     vendor: true,
     owner: "realme",
 }
-
