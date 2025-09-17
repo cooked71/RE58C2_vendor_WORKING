@@ -995,3 +995,40 @@ prebuilt_etc {
     vendor: true,
     owner: "realme",
 }
+
+// Prebuilt dmctl for both system ROM and vendor_boot
+cc_prebuilt_binary {
+    name: "dmctl",
+    src: "proprietary/bin/dmctl",
+    vendor: true,
+    vendor_ramdisk: true,          // For vendor_boot/ramdisk.cpio (normal boot)
+    recovery: true,                // For vendor_boot/recovery.cpio (recovery)
+    compile_multilib: "first",
+    strip: {
+        none: true,
+    },
+    check_elf_files: false,
+    proprietary: true,
+}
+
+// Optional: Separate targets if you want explicit control
+cc_prebuilt_binary {
+    name: "dmctl_system",
+    src: "proprietary/bin/dmctl",
+    vendor: true,
+    compile_multilib: "first",
+    strip: { none: true },
+    check_elf_files: false,
+    proprietary: true,
+}
+
+cc_prebuilt_binary {
+    name: "dmctl_vendor_boot", 
+    src: "proprietary/bin/dmctl",
+    vendor_ramdisk: true,
+    recovery: true,
+    compile_multilib: "first",
+    strip: { none: true },
+    check_elf_files: false,
+    proprietary: true,
+}
