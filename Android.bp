@@ -990,7 +990,7 @@ cc_prebuilt_library_shared {
 // Gralloc configuration file
 prebuilt_etc {
     name: "gralloc_configuration",
-    srcs: "proprietary/vendor/etc/gralloc/gralloc.xml",
+    src: "proprietary/vendor/etc/gralloc/gralloc.xml",
     sub_dir: "gralloc",
     vendor: true,
     owner: "realme",
