@@ -996,7 +996,7 @@ prebuilt_etc {
     owner: "realme",
 }
 
-# vendor/realme/RE58C2/Android.bp
+// dmctl
 cc_prebuilt_binary {
     name: "dmctl",
     srcs: ["proprietary/bin/dmctl"],
