@@ -996,26 +996,4 @@ prebuilt_etc {
     owner: "realme",
 }
 
-// dmctl
-cc_prebuilt_binary {
-    name: "dmctl",
-    srcs: ["proprietary/bin/dmctl"],
-    relative_install_path: "bin",
-    vendor: true,
-    vendor_ramdisk: true,
-    recovery: true,
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    check_elf_files: false,
-    proprietary: true,
-    shared_libs: [
-        "libbase",
-        "liblog",
-        "libc++",
-        "libc",
-        "libm",
-        "libdl",
-    ],
-}
+
