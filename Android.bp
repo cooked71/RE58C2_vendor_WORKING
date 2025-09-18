@@ -990,7 +990,7 @@ cc_prebuilt_library_shared {
 // Gralloc configuration file
 prebuilt_etc {
     name: "gralloc_configuration",
-    src: "proprietary/vendor/etc/gralloc/gralloc.xml",
+    srcs: "proprietary/vendor/etc/gralloc/gralloc.xml",
     sub_dir: "gralloc",
     vendor: true,
     owner: "realme",
@@ -999,7 +999,7 @@ prebuilt_etc {
 // Prebuilt dmctl for both system ROM and vendor_boot
 cc_prebuilt_binary {
     name: "dmctl",
-    src: "proprietary/bin/dmctl",
+    srcs: "proprietary/bin/dmctl",
     vendor: true,
     vendor_ramdisk: true,          // For vendor_boot/ramdisk.cpio (normal boot)
     recovery: true,                // For vendor_boot/recovery.cpio (recovery)
@@ -1014,7 +1014,7 @@ cc_prebuilt_binary {
 // Optional: Separate targets if you want explicit control
 cc_prebuilt_binary {
     name: "dmctl_system",
-    src: "proprietary/bin/dmctl",
+    srcs: "proprietary/bin/dmctl",
     vendor: true,
     compile_multilib: "first",
     strip: { none: true },
@@ -1024,7 +1024,7 @@ cc_prebuilt_binary {
 
 cc_prebuilt_binary {
     name: "dmctl_vendor_boot", 
-    src: "proprietary/bin/dmctl",
+    srcs: "proprietary/bin/dmctl",
     vendor_ramdisk: true,
     recovery: true,
     compile_multilib: "first",
