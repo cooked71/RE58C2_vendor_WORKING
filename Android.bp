@@ -996,39 +996,65 @@ prebuilt_etc {
     owner: "realme",
 }
 
-// Prebuilt dmctl for both system ROM and vendor_boot
 cc_prebuilt_binary {
     name: "dmctl",
-    srcs: "proprietary/bin/dmctl",
+    srcs: ["proprietary/bin/dmctl"],
+    relative_install_path: "bin",
     vendor: true,
-    vendor_ramdisk: true,          // For vendor_boot/ramdisk.cpio (normal boot)
-    recovery: true,                // For vendor_boot/recovery.cpio (recovery)
-    compile_multilib: "first",
+    vendor_ramdisk: true,
+    recovery: true,
+    compile_multilib: "64", 
     strip: {
         none: true,
     },
     check_elf_files: false,
     proprietary: true,
+    shared_libs: [
+        "libbase",
+        "liblog", 
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
 }
 
-// Optional: Separate targets if you want explicit control
+// Optional: Separate targets if needed
 cc_prebuilt_binary {
     name: "dmctl_system",
-    srcs: "proprietary/bin/dmctl",
+    srcs: ["proprietary/bin/dmctl"],
+    relative_install_path: "bin",
     vendor: true,
-    compile_multilib: "first",
+    compile_multilib: "64",
     strip: { none: true },
     check_elf_files: false,
     proprietary: true,
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libc++", 
+        "libc",
+        "libm",
+        "libdl",
+    ],
 }
 
 cc_prebuilt_binary {
-    name: "dmctl_vendor_boot", 
-    srcs: "proprietary/bin/dmctl",
+    name: "dmctl_vendor_boot",
+    srcs: ["proprietary/bin/dmctl"],
+    relative_install_path: "bin",
     vendor_ramdisk: true,
     recovery: true,
-    compile_multilib: "first",
+    compile_multilib: "64",
     strip: { none: true },
     check_elf_files: false,
     proprietary: true,
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
 }
