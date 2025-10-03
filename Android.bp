@@ -111,7 +111,7 @@ cc_prebuilt_binary {
         "vendor.sprd.hardware.boot@1.2",
     ],
 }
-}
+
 
 cc_prebuilt_binary {
     name: "android.hardware.gatekeeper@1.0-service.trusty",
