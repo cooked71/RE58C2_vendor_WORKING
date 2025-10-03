@@ -1359,7 +1359,7 @@ cc_prebuilt_library_shared {
         none: true,
     },
 }
-/*
+
 // REMOVE THIS - AOSP thermal service doesn't exist
 cc_prebuilt_binary {
     name: "android.hardware.thermal@2.0-service",
