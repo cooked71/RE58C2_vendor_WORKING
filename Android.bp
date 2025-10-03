@@ -120,30 +120,6 @@ cc_prebuilt_library_shared {
     },
 }
 
-cc_prebuilt_library_shared {
-    name: "android.hardware.memtrack@1.0",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/android.hardware.memtrack@1.0.so"],
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/android.hardware.memtrack@1.0.so"],
-        },
-    },
-    shared_libs: [
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "libc++",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
 // =============================================
 // Prebuilt Binaries with init.rc
 // =============================================
@@ -494,7 +470,7 @@ cc_prebuilt_binary {
 }
 
 // =============================================
-// Simple Vendor Services (FIXED)
+// Simple Vendor Services (FIXED - removed memtrack dependency)
 // =============================================
 
 cc_prebuilt_binary {
@@ -528,7 +504,6 @@ cc_prebuilt_binary {
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/memtrack.rc"],
     shared_libs: [
-        "android.hardware.memtrack@1.0",
         "libbase",
         "libhidlbase",
         "libc++",
@@ -1193,7 +1168,7 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/vendor/lib64/hw/android.hardware.audio.effect@7.0-impl.so"],
             relative_install_path: "hw",
         },
-    },
+    ],
     shared_libs: [
         "libc++",
         "liblog",
