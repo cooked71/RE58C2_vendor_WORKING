@@ -280,7 +280,7 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.gnss@2.2",
+        "vendor.sprd.hardware.gnss@1.0",  // ← CHANGED from @2.2 to @1.0
     ],
 }
 
@@ -289,7 +289,7 @@ cc_prebuilt_binary {
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.thermal@2.0-service"],
     relative_install_path: "hw",
-    vendor: true,
+    vendor: true,   
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.thermal@2.0-service.rc"],
     shared_libs: [
@@ -299,7 +299,7 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.thermal@2.0",
+        "vendor.sprd.hardware.thermal@2.0",  // You have this file
     ],
 }
 
@@ -318,10 +318,9 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.face-V1-ndk",
+        "vendor.sprd.hardware.face-V1-ndk",  // You have this file
     ],
 }
-
 cc_prebuilt_binary {
     name: "android.hardware.audio.service",
     owner: "realme",
@@ -1262,4 +1261,80 @@ prebuilt_etc {
     src: "sepolicy/vendor_dlkm/file_contexts",
     vendor: true,
     sub_dir: "etc/selinux",
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.gnss@1.0",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.gnss@1.0.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.gnss@1.0.so"],
+        },
+    },
+    shared_libs: [
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
+}
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.thermal@2.0",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.thermal@2.0.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.thermal@2.0.so"],
+        },
+    },
+    shared_libs: [
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
+}
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.face-V1-ndk",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.face-V1-ndk.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.face-V1-ndk.so"],
+        },
+    },
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+        "libutils",
+        "libcutils",
+    ],
+    strip: {
+        none: true,
+    },
 }
