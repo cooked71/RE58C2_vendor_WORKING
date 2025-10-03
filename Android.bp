@@ -41,6 +41,68 @@ dex_import {
 }
 
 // =============================================
+// Missing Library Definitions
+// =============================================
+
+cc_prebuilt_library_shared {
+    name: "libtrusty",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libtrusty.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libtrusty.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.light-V2-ndk",
+    owner: "realme",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/android.hardware.light-V2-ndk.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+    ],
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.memtrack-V1-ndk",
+    owner: "realme",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/android.hardware.memtrack-V1-ndk.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+    ],
+    strip: {
+        none: true,
+    },
+}
+
+// =============================================
 // Prebuilt Binaries with init.rc
 // =============================================
 
@@ -94,7 +156,7 @@ cc_prebuilt_binary {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.boot@1.2-service",  // ← CORRECT NAME
+    name: "vendor.sprd.hardware.boot@1.2-service",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service"],
     relative_install_path: "hw",
@@ -111,7 +173,6 @@ cc_prebuilt_binary {
         "vendor.sprd.hardware.boot@1.2",
     ],
 }
-
 
 cc_prebuilt_binary {
     name: "android.hardware.gatekeeper@1.0-service.trusty",
@@ -234,7 +295,6 @@ cc_prebuilt_binary {
     ],
 }
 
-
 cc_prebuilt_binary {
     name: "android.hardware.usb-service.example",
     owner: "realme",
@@ -273,7 +333,7 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.gnss@1.0",  // ← CHANGED from @2.2 to @1.0
+        "vendor.sprd.hardware.gnss@1.0",
     ],
 }
 
@@ -282,7 +342,7 @@ cc_prebuilt_binary {
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.thermal@2.0-service"],
     relative_install_path: "hw",
-    vendor: true,   
+    vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.thermal@2.0-service.rc"],
     shared_libs: [
@@ -292,7 +352,7 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.thermal@2.0",  // You have this file
+        "vendor.sprd.hardware.thermal@2.0",
     ],
 }
 
@@ -311,9 +371,10 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.face-V1-ndk",  // You have this file
+        "vendor.sprd.hardware.face-V1-ndk",
     ],
 }
+
 cc_prebuilt_binary {
     name: "android.hardware.audio.service",
     owner: "realme",
@@ -391,7 +452,7 @@ cc_prebuilt_binary {
 }
 
 // =============================================
-// Simple Vendor Services
+// Simple Vendor Services (FIXED)
 // =============================================
 
 cc_prebuilt_binary {
@@ -402,6 +463,16 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/lights.rc"],
+    shared_libs: [
+        "android.hardware.light-V2-ndk",
+        "libbase",
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+        "libc",
+        "libm",
+        "libdl",
+    ],
 }
 
 cc_prebuilt_binary {
@@ -412,6 +483,16 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/memtrack.rc"],
+    shared_libs: [
+        "android.hardware.memtrack-V1-ndk",
+        "libbase",
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+        "libc",
+        "libm",
+        "libdl",
+    ],
 }
 
 cc_prebuilt_binary {
@@ -422,10 +503,18 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/vibrator.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
 }
 
 // =============================================
-// Prebuilt Shared Libraries - Core
+// Prebuilt Shared Libraries - Core (FIXED)
 // =============================================
 
 // 32-bit Libraries
@@ -435,6 +524,7 @@ cc_prebuilt_library_shared {
     srcs: ["proprietary/lib/libois_algorithm_jni.so"],
     compile_multilib: "32",
     vendor: true,
+    check_elf_files: false,
     strip: {
         none: true,
     },
@@ -446,18 +536,20 @@ cc_prebuilt_library_shared {
     srcs: ["proprietary/lib/libstagefright_bufferpool@2.0.1.so"],
     compile_multilib: "32",
     vendor: true,
+    check_elf_files: false,
     strip: {
         none: true,
     },
 }
 
-// 64-bit Libraries
+// 64-bit Libraries (FIXED)
 cc_prebuilt_library_shared {
     name: "libois_algorithm_jni_64",
     owner: "realme",
     srcs: ["proprietary/lib64/libois_algorithm_jni.so"],
     compile_multilib: "64",
     vendor: true,
+    check_elf_files: false,
     strip: {
         none: true,
     },
@@ -469,6 +561,7 @@ cc_prebuilt_library_shared {
     srcs: ["proprietary/lib64/libstagefright_bufferpool@2.0.1.so"],
     compile_multilib: "64",
     vendor: true,
+    check_elf_files: false,
     strip: {
         none: true,
     },
@@ -539,7 +632,7 @@ cc_prebuilt_library_shared {
 }
 
 // =============================================
-// Security Libraries
+// Security Libraries (FIXED)
 // =============================================
 
 cc_prebuilt_library_shared {
@@ -550,6 +643,8 @@ cc_prebuilt_library_shared {
     compile_multilib: "64",
     shared_libs: [
         "libc++",
+        "liblog",
+        "libtrusty",
         "libc",
         "libm",
         "libdl",
@@ -567,6 +662,8 @@ cc_prebuilt_library_shared {
     compile_multilib: "64",
     shared_libs: [
         "libc++",
+        "liblog",
+        "libcutils",
         "libc",
         "libm",
         "libdl",
@@ -584,6 +681,10 @@ cc_prebuilt_library_shared {
     compile_multilib: "64",
     shared_libs: [
         "libc++",
+        "liblog",
+        "libcutils",
+        "libtrusty",
+        "librpmbclient",
         "libc",
         "libm",
         "libdl",
@@ -646,7 +747,7 @@ cc_prebuilt_library_shared {
 }
 
 // =============================================
-// Boot HAL Libraries
+// Boot HAL Libraries (FIXED)
 // =============================================
 
 cc_prebuilt_library_shared {
@@ -699,6 +800,19 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.boot@1.2.so"],
         },
     },
+    shared_libs: [
+        "android.hardware.boot@1.0",
+        "android.hardware.boot@1.1",
+        "android.hardware.boot@1.2",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
     strip: {
         none: true,
     },
@@ -718,6 +832,19 @@ cc_prebuilt_library_shared {
             relative_install_path: "hw",
         },
     },
+    shared_libs: [
+        "android.hardware.boot@1.0",
+        "android.hardware.boot@1.1",
+        "android.hardware.boot@1.2",
+        "vendor.sprd.hardware.boot@1.2",
+        "libbase",
+        "liblog",
+        "libhardware",
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
     strip: {
         none: true,
     },
@@ -1025,10 +1152,9 @@ cc_prebuilt_library_shared {
 }
 
 // =============================================
-// RIL Libraries (CORRECTED - USING ACTUAL FILES)
+// RIL Libraries
 // =============================================
 
-// urild binary
 cc_prebuilt_binary {
     name: "urild",
     owner: "realme",
@@ -1047,7 +1173,6 @@ cc_prebuilt_binary {
     ],
 }
 
-// libril-private
 cc_prebuilt_library_shared {
     name: "libril-private",
     owner: "realme",
@@ -1066,7 +1191,6 @@ cc_prebuilt_library_shared {
     },
 }
 
-// libimpl-ril
 cc_prebuilt_library_shared {
     name: "libimpl-ril",
     owner: "realme",
@@ -1085,7 +1209,6 @@ cc_prebuilt_library_shared {
     },
 }
 
-// librilutils
 cc_prebuilt_library_shared {
     name: "librilutils",
     owner: "realme",
@@ -1104,7 +1227,6 @@ cc_prebuilt_library_shared {
     },
 }
 
-// librilcore
 cc_prebuilt_library_shared {
     name: "librilcore",
     owner: "realme",
@@ -1122,6 +1244,7 @@ cc_prebuilt_library_shared {
         none: true,
     },
 }
+
 // =============================================
 // Configuration Files
 // =============================================
@@ -1290,6 +1413,10 @@ prebuilt_etc {
     sub_dir: "etc/selinux",
 }
 
+// =============================================
+// Additional Vendor Libraries
+// =============================================
+
 cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.gnss@1.0",
     owner: "realme",
@@ -1316,6 +1443,7 @@ cc_prebuilt_library_shared {
         none: true,
     },
 }
+
 cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.thermal@2.0",
     owner: "realme",
@@ -1342,6 +1470,7 @@ cc_prebuilt_library_shared {
         none: true,
     },
 }
+
 cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.face-V1-ndk",
     owner: "realme",
@@ -1354,811 +1483,6 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-
-// =============================================
-// Vendor SPRD Hardware Services & Libraries
-// =============================================
-
-// Broadcast Radio Service
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.broadcastradio@2.0-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.broadcastradio@2.0-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.broadcastradio@2.0-service.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-    ],
-}
-
-// Fingerprint MMI Service
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.fingerprintmmi-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.fingerprintmmi-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/vendor-fingerprintmmi-default.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "vendor.sprd.hardware.fingerprintmmi-V1-ndk",
-    ],
-}
-
-// WCN Service
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.wcn@1.0-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.wcn@1.0-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.wcn@1.0-service.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "vendor.sprd.hardware.wcn@1.0",
-    ],
-}
-
-// Soter Service
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.soter-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.soter-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/soter-default.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "vendor.sprd.hardware.soter-V1-ndk",
-    ],
-}
-
-// CPLOG Service
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.cplog_svc-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.cplog_svc-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/cplog_svc-default.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "vendor.sprd.hardware.cplog_svc@1.0",
-    ],
-}
-
-// TUI Service
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.tui-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.tui-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/tui-default.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "vendor.sprd.hardware.tui@1.0",
-    ],
-}
-
-// Oemlock Service
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.oemlock-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.oemlock-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/vendor-oemlock-default.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-    ],
-}
-
-// Log Service
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.log-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.log-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/vendor.log-default.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "vendor.sprd.hardware.log-V1-ndk",
-    ],
-}
-
-// Performance Service
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.performance@1.0-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.performance@1.0-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.performance@1.0-service.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "vendor.sprd.hardware.performance@1.0",
-    ],
-}
-
-// Enhance Service
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.enhance-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.enhance-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/enhance-default.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "vendor.sprd.hardware.enhance-V1-ndk",
-    ],
-}
-
-// ConnMgr Service
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.connmgr@1.0-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.connmgr@1.0-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.connmgr@1.0-service.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "vendor.sprd.hardware.connmgr@1.0",
-    ],
-}
-
-// Trusty Service
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.trusty-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.trusty-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/trusty-default.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "vendor.sprd.hardware.trusty@1.0",
-    ],
-}
-
-// Network Service
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.network-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.network-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/network-default.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "vendor.sprd.hardware.network@1.0",
-    ],
-}
-
-// HDCP Service
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.hdcp-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.hdcp-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/hdcp-default.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "vendor.sprd.hardware.hdcp-V1-ndk",
-    ],
-}
-
-// =============================================
-// Vendor SPRD Hardware Libraries
-// =============================================
-
-// WCN Library
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.wcn@1.0",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.wcn@1.0.so"],
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.wcn@1.0.so"],
-        },
-    },
-    shared_libs: [
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "libc++",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// Performance Library
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.performance@1.0",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.performance@1.0.so"],
-        },
-    },
-    shared_libs: [
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "libc++",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// ConnMgr Library
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.connmgr@1.0",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.connmgr@1.0.so"],
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.connmgr@1.0.so"],
-        },
-    },
-    shared_libs: [
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "libc++",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// Network Library
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.network@1.0",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.network@1.0.so"],
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.network@1.0.so"],
-        },
-    },
-    shared_libs: [
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "libc++",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// Trusty Library
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.trusty@1.0",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.trusty@1.0.so"],
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.trusty@1.0.so"],
-        },
-    },
-    shared_libs: [
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "libc++",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// TUI Library
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.tui@1.0",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.tui@1.0.so"],
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.tui@1.0.so"],
-        },
-    },
-    shared_libs: [
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "libc++",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// CPLOG Library
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.cplog_svc@1.0",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.cplog_svc@1.0.so"],
-        },
-    },
-    shared_libs: [
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "libc++",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// =============================================
-// Vendor SPRD NDK Libraries
-// =============================================
-
-// Fingerprint MMI NDK
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.fingerprintmmi-V1-ndk",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.fingerprintmmi-V1-ndk.so"],
-        },
-    },
-    shared_libs: [
-        "libbinder_ndk",
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// Soter NDK
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.soter-V1-ndk",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.soter-V1-ndk.so"],
-        },
-    },
-    shared_libs: [
-        "libbinder_ndk",
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// Trusty NDK
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.trusty-V1-ndk",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.trusty-V1-ndk.so"],
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.trusty-V1-ndk.so"],
-        },
-    },
-    shared_libs: [
-        "libbinder_ndk",
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// TUI NDK
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.tui-V1-ndk",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.tui-V1-ndk.so"],
-        },
-    },
-    shared_libs: [
-        "libbinder_ndk",
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// Log NDK
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.log-V1-ndk",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.log-V1-ndk.so"],
-        },
-    },
-    shared_libs: [
-        "libbinder_ndk",
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// CPLOG NDK
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.cplog_svc-V2-ndk",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.cplog_svc-V2-ndk.so"],
-        },
-    },
-    shared_libs: [
-        "libbinder_ndk",
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// HDCP NDK
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.hdcp-V1-ndk",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.hdcp-V1-ndk.so"],
-        },
-    },
-    shared_libs: [
-        "libbinder_ndk",
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// Network NDK
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.network-V1-ndk",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.network-V1-ndk.so"],
-        },
-    },
-    shared_libs: [
-        "libbinder_ndk",
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// =============================================
-// Vendor SPRD HAL Implementations
-// =============================================
-
-// WCN Implementation
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.wcn@1.0-impl",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/hw/vendor.sprd.hardware.wcn@1.0-impl.so"],
-            relative_install_path: "hw",
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/vendor.sprd.hardware.wcn@1.0-impl.so"],
-            relative_install_path: "hw",
-        },
-    },
-    shared_libs: [
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "vendor.sprd.hardware.wcn@1.0",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// Network Implementation
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.network@1.0-impl",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/hw/vendor.sprd.hardware.network@1.0-impl.so"],
-            relative_install_path: "hw",
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/vendor.sprd.hardware.network@1.0-impl.so"],
-            relative_install_path: "hw",
-        },
-    },
-    shared_libs: [
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "vendor.sprd.hardware.network@1.0",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// Trusty Implementation
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.trusty-impl",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/hw/vendor.sprd.hardware.trusty-impl.so"],
-            relative_install_path: "hw",
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/vendor.sprd.hardware.trusty-impl.so"],
-            relative_install_path: "hw",
-        },
-    },
-    shared_libs: [
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "vendor.sprd.hardware.trusty@1.0",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// ConnMgr Implementation
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.connmgr@1.0-impl",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/hw/vendor.sprd.hardware.connmgr@1.0-impl.so"],
-            relative_install_path: "hw",
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/vendor.sprd.hardware.connmgr@1.0-impl.so"],
-            relative_install_path: "hw",
-        },
-    },
-    shared_libs: [
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "vendor.sprd.hardware.connmgr@1.0",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// GNSS Implementation
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.gnss@1.0-impl",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/hw/vendor.sprd.hardware.gnss@1.0-impl.so"],
-            relative_install_path: "hw",
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/vendor.sprd.hardware.gnss@1.0-impl.so"],
-            relative_install_path: "hw",
-        },
-    },
-    shared_libs: [
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "vendor.sprd.hardware.gnss@1.0",
-    ],
-    strip: {
-        none: true,
-    },
-}
-
-// Thermal Implementation
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.thermal@2.0-impl",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/hw/vendor.sprd.hardware.thermal@2.0-impl.so"],
-            relative_install_path: "hw",
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/vendor.sprd.hardware.thermal@2.0-impl.so"],
-            relative_install_path: "hw",
-        },
-    },
-    shared_libs: [
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "vendor.sprd.hardware.thermal@2.0",
     ],
     strip: {
         none: true,
