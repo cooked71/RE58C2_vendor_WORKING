@@ -223,24 +223,6 @@ cc_prebuilt_binary {
     ],
 }
 
-cc_prebuilt_binary {
-    name: "android.hardware.thermal@2.0-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/android.hardware.thermal@2.0-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/android.hardware.thermal@2.0-service.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "android.hardware.thermal@2.0",
-    ],
-}
 
 cc_prebuilt_binary {
     name: "android.hardware.usb-service.example",
@@ -1366,3 +1348,24 @@ cc_prebuilt_library_shared {
         none: true,
     },
 }
+/*
+// REMOVE THIS - AOSP thermal service doesn't exist
+cc_prebuilt_binary {
+    name: "android.hardware.thermal@2.0-service",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.thermal@2.0-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.thermal@2.0-service.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "android.hardware.thermal@2.0",
+    ],
+}
+*/
