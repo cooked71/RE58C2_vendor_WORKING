@@ -1,0 +1,1499 @@
+// RE58C2 Android.bp - Corrected Vendor Implementation
+soong_namespace {
+    imports: [],
+}
+
+// =============================================
+// Prebuilt APKs
+// =============================================
+android_app_import {
+    name: "SoterService",
+    owner: "realme",
+    apk: "proprietary/system_ext/app/SoterService/SoterService.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+    system_ext_specific: true,
+}
+
+android_app_import {
+    name: "ims",
+    owner: "realme",
+    apk: "proprietary/system_ext/priv-app/ims/ims.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    system_ext_specific: true,
+}
+
+// =============================================
+// Prebuilt JARs
+// =============================================
+dex_import {
+    name: "androidx.camera.extensions.impl",
+    owner: "realme",
+    jars: ["proprietary/vendor/framework/androidx.camera.extensions.impl.jar"],
+    soc_specific: true,
+}
+
+
+// =============================================
+// Prebuilt Shared Libraries (Optimized)
+// =============================================
+
+// 32-bit Libraries
+cc_prebuilt_library_shared {
+    name: "libois_algorithm_jni",
+    owner: "realme",
+    srcs: ["proprietary/lib/libois_algorithm_jni.so"],
+    compile_multilib: "32",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libstagefright_bufferpool@2.0.1",
+    owner: "realme",
+    srcs: ["proprietary/lib/libstagefright_bufferpool@2.0.1.so"],
+    compile_multilib: "32",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+}
+
+// 64-bit Libraries
+cc_prebuilt_library_shared {
+    name: "libois_algorithm_jni_64",
+    owner: "realme",
+    srcs: ["proprietary/lib64/libois_algorithm_jni.so"],
+    compile_multilib: "64",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libstagefright_bufferpool@2.0.1_64",
+    owner: "realme",
+    srcs: ["proprietary/lib64/libstagefright_bufferpool@2.0.1.so"],
+    compile_multilib: "64",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+}
+
+
+// =============================================
+// Prebuilt Binaries with init.rc (Corrected)
+// =============================================
+
+cc_prebuilt_binary {
+    name: "vendor.sprd.hardware.commondcs@1.0-service",
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.commondcs@1.0-service"],
+
+    shared_libs: [
+        "libc++",
+        "libcutils",
+        "libhardware",
+        "libhidlbase",
+        "liblog",
+        "libsysutils",
+        "libutils",
+        "vendor.sprd.hardware.commondcs@1.0",
+    ],
+    vendor: true,
+    compile_multilib: "64", // force 64-bit only for vendor binaries
+}
+
+
+
+cc_prebuilt_binary {
+    name: "vendor.oppo.engnative.engineer@1.0-service",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/hw/vendor.oppo.engnative.engineer@1.0-service"],
+    relative_install_path: "hw",
+    shared_libs: [
+        "vendor.oppo.engnative.engineer@1.0",
+        "libbase",
+        "libcutils",
+        "libdumpstateutil",
+        "libhidlbase",
+        "libhidltransport",
+        "libhwbinder",
+        "liblog",
+        "libutils",
+        "libcrypto",
+        "librpmbclient",
+        "libteeproduction",
+        "libsecrpmbdata",
+        "libc++",
+    ],
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/vendor.oppo.engnative.engineer@1.0-service.rc"],
+}
+
+// =============================================
+// Prebuilt Shared Libraries (Optimized)
+// =============================================
+
+
+
+// NFC Libraries (Multilib pattern)
+cc_prebuilt_library_shared {
+    name: "vendor.nxp.nxpnfclegacy@1.0",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/lib/vendor.nxp.nxpnfclegacy@1.0.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/lib64/vendor.nxp.nxpnfclegacy@1.0.so"],
+        },
+    },
+ shared_libs: [
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.nxp.eventprocessor@1.0",
+    owner: "realme",
+    vendor: true,
+    srcs: ["proprietary/lib64/vendor.nxp.eventprocessor@1.0.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    sanitize: {
+        never: true,
+    },
+    strip: {
+        none: true,
+    },
+}
+
+// Graphics Libraries
+
+
+// Audio Libraries
+cc_prebuilt_library_shared {
+    name: "libsprdaudiohalv7",
+    srcs: ["proprietary/vendor/lib64/libsprdaudiohalv7.so"],
+    // Needed dependencies from ELF check
+    shared_libs: [
+        "libc++",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+    ],
+    vendor: true,
+    compile_multilib: "64", // force 64-bit only
+}
+
+
+// ======================================================
+// vendor.sprd.hardware.commondcs@1.0
+// ======================================================
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.commondcs@1.0",
+    srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.commondcs@1.0.so"],
+    shared_libs: [
+        "libc++",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
+    compile_multilib: "64",
+    check_elf_files: false,
+    vendor: true,
+}
+
+// ======================================================
+// vendor.oppo.engnative.engineer@1.0
+// ======================================================
+cc_prebuilt_library_shared {
+    name: "vendor.oppo.engnative.engineer@1.0",
+    srcs: ["proprietary/vendor/lib64/vendor.oppo.engnative.engineer@1.0.so"],
+    shared_libs: [
+        "libc++",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "librpmbclient",
+        "libteeproduction",
+        "libsecrpmbdata",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
+    compile_multilib: "64",
+    check_elf_files: false,
+    vendor: true,
+}
+
+// ======================================================
+// libsecrpmbdata
+// ======================================================
+cc_prebuilt_library_shared {
+    name: "libsecrpmbdata",
+    srcs: ["proprietary/vendor/lib64/libsecrpmbdata.so"],
+    shared_libs: [
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
+    compile_multilib: "64",
+    check_elf_files: false,
+    vendor: true,
+}
+
+// ======================================================
+// librpmbclient
+// ======================================================
+cc_prebuilt_library_shared {
+    name: "librpmbclient",
+    srcs: ["proprietary/vendor/lib64/librpmbclient.so"],
+    shared_libs: [
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
+    compile_multilib: "64",
+    check_elf_files: false,
+    vendor: true,
+}
+
+// ======================================================
+// libteeproduction
+// ======================================================
+cc_prebuilt_library_shared {
+    name: "libteeproduction",
+    srcs: ["proprietary/vendor/lib64/libteeproduction.so"],
+    shared_libs: [
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
+    compile_multilib: "64",
+    check_elf_files: false,
+    vendor: true,
+}
+
+
+
+
+// =============================================
+// Configuration Files
+// =============================================
+prebuilt_etc {
+    name: "audio_policy_configuration",
+    src: "proprietary/odm/etc/audio/audio_policy_configuration.xml",
+    sub_dir: "audio",
+    owner: "realme",
+}
+
+prebuilt_etc {
+    name: "media_codecs",
+    src: "proprietary/vendor/etc/media_codecs.xml",
+    owner: "realme",
+}
+
+
+// =============================================
+// Vendor DLKM Modules Configuration
+// =============================================
+
+// Main module filegroup
+filegroup {
+    name: "vendor_dlkm_modules_sources",
+    srcs: [
+        "proprietary/vendor_dlkm/lib/modules/*.ko",
+        "proprietary/vendor_dlkm/lib/modules/modules.*",
+    ],
+}
+
+
+// Module loading configuration
+prebuilt_etc {
+    name: "vendor_dlkm_modules_load",
+    src: "proprietary/vendor_dlkm/lib/modules/modules.load",
+    sub_dir: "lib/modules",
+    vendor: true,
+    owner: "realme",
+}
+
+prebuilt_etc {
+    name: "vendor_dlkm_modules_load_cali",
+    src: "proprietary/vendor_dlkm/lib/modules/modules.load.cali",
+    sub_dir: "lib/modules",
+    vendor: true,
+    owner: "realme",
+}
+
+prebuilt_etc {
+    name: "vendor_dlkm_modules_load_charger",
+    src: "proprietary/vendor_dlkm/lib/modules/modules.load.charger",
+    sub_dir: "lib/modules",
+    vendor: true,
+    owner: "realme",
+}
+
+// Individual kernel modules
+cc_prebuilt_library_shared {
+    name: "sprd_wlan_combo",
+    srcs: ["proprietary/vendor_dlkm/lib/modules/sprd_wlan_combo.ko"],
+    vendor: true,
+    relative_install_path: "lib/modules",
+    strip: { none: true },
+}
+
+cc_prebuilt_library_shared {
+    name: "sprd_thermal",
+    srcs: ["proprietary/vendor_dlkm/lib/modules/sprd_thermal.ko"],
+    vendor: true,
+    relative_install_path: "lib/modules",
+    strip: { none: true },
+}
+
+cc_prebuilt_library_shared {
+    name: "mali_kbase",
+    srcs: ["proprietary/vendor_dlkm/lib/modules/mali_kbase.ko"],
+    vendor: true,
+    relative_install_path: "lib/modules",
+    strip: { none: true },
+}
+
+// =============================================
+// Build Properties and Configurations
+// =============================================
+
+prebuilt_etc {
+    name: "vendor_dlkm_build_prop",
+    src: "proprietary/vendor_dlkm/etc/build.prop",
+    vendor: true,
+    sub_dir: "etc",
+    owner: "realme",
+}
+
+prebuilt_etc {
+    name: "vendor_dlkm_fs_config_dirs",
+    src: "proprietary/vendor_dlkm/etc/fs_config_dirs",
+    vendor: true,
+    sub_dir: "etc",
+    owner: "realme",
+}
+
+prebuilt_etc {
+    name: "vendor_dlkm_fs_config_files",
+    src: "proprietary/vendor_dlkm/etc/fs_config_files",
+    vendor: true,
+    sub_dir: "etc",
+    owner: "realme",
+}
+
+prebuilt_etc {
+    name: "init.realme.rc",
+    src: "proprietary/vendor_dlkm/etc/init.realme.rc",
+    vendor: true,
+    sub_dir: "etc",
+    owner: "realme",
+}
+
+prebuilt_etc {
+    name: "init_vendor_dlkm",
+    src: "proprietary/vendor_dlkm/lib/modules/init.insmod.cfg",
+    vendor: true,
+    sub_dir: "lib/modules",
+    owner: "realme",
+}
+
+
+// =============================================
+// SELinux Configuration
+// =============================================
+
+prebuilt_etc {
+    name: "vendor_dlkm_file_contexts",
+    src: "sepolicy/vendor_dlkm/file_contexts",
+    vendor: true,
+    sub_dir: "etc/selinux",
+    owner: "realme",
+}
+
+
+
+// =============================================
+// Boot HAL service binary 
+// =============================================
+
+// ===== Boot HAL service binary =====
+cc_prebuilt_binary {
+    name: "android.hardware.boot@1.2-service",
+    vendor: true,
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service"],
+    relative_install_path: "bin/hw",
+    stl: "none",
+    strip: { none: true },
+}
+
+// ===== Implementation libraries (vendor) =====
+cc_prebuilt_library_shared {
+    name: "android.hardware.boot@1.2-impl_64",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
+    compile_multilib: "64",
+    stl: "none",
+    strip: { none: true },
+    relative_install_path: "lib64/hw",
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.boot@1.2-impl_32",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib/hw/android.hardware.boot@1.0-impl-1.2.so"],
+    compile_multilib: "32",
+    stl: "none",
+    strip: { none: true },
+    relative_install_path: "lib/hw",
+}
+
+// Main impl module that selects 32/64 bit automatically
+cc_prebuilt_library_shared {
+    name: "android.hardware.boot@1.2-impl",
+    vendor: true,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/android.hardware.boot@1.0-impl-1.2.so"],
+            relative_install_path: "lib64/hw",
+        },
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/android.hardware.boot@1.0-impl-1.2.so"],
+            relative_install_path: "lib/hw",
+        },
+    },
+    stl: "none",
+    strip: { none: true },
+}
+
+// ===== Bootctrl libraries (vendor) =====
+cc_prebuilt_library_shared {
+    name: "bootctrl.default_64",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/hw/bootctrl.default.so"],
+    compile_multilib: "64",
+    stl: "none",
+    strip: { none: true },
+    relative_install_path: "lib64/hw",
+}
+
+cc_prebuilt_library_shared {
+    name: "bootctrl.default_32",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib/hw/bootctrl.default.so"],
+    compile_multilib: "32",
+    stl: "none",
+    strip: { none: true },
+    relative_install_path: "lib/hw",
+}
+
+// Main bootctrl module that selects 32/64 bit automatically
+cc_prebuilt_library_shared {
+    name: "bootctrl.default",
+    vendor: true,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/bootctrl.default.so"],
+            relative_install_path: "lib64/hw",
+        },
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/bootctrl.default.so"],
+            relative_install_path: "lib/hw",
+        },
+    },
+    stl: "none",
+    strip: { none: true },
+}
+
+// ===== Unisoc Bootctrl =====
+// ===== Vendor SPRD Boot HAL Library =====
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.boot@1.2_64",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.boot@1.2.so"],
+    compile_multilib: "64",
+    stl: "none",
+    strip: { none: true },
+    relative_install_path: "lib64",
+    check_elf_files: false, // Add this
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.boot@1.2_32",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.boot@1.2.so"],
+    compile_multilib: "32",
+    stl: "none",
+    strip: { none: true },
+    relative_install_path: "lib",
+    check_elf_files: false, // Add this
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.boot@1.2",
+    vendor: true,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.boot@1.2.so"],
+            relative_install_path: "lib64",
+        },
+        lib32: {
+            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.boot@1.2.so"],
+            relative_install_path: "lib",
+        },
+    },
+    stl: "none",
+    strip: { none: true },
+    check_elf_files: false, // Add this
+}
+
+// ===== Boot HAL service binary =====
+
+// ===== Unisoc Bootctrl =====
+cc_prebuilt_library_shared {
+    name: "unisoc.bootctrl_64",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/hw/unisoc.bootctrl.so"],
+    compile_multilib: "64",
+    stl: "none",
+    strip: { none: true },
+    relative_install_path: "lib64/hw",
+    check_elf_files: false, // Add this
+}
+
+cc_prebuilt_library_shared {
+    name: "unisoc.bootctrl_32",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib/hw/unisoc.bootctrl.so"],
+    compile_multilib: "32",
+    stl: "none",
+    strip: { none: true },
+    relative_install_path: "lib/hw",
+    check_elf_files: false, // Add this
+}
+
+cc_prebuilt_library_shared {
+    name: "unisoc.bootctrl",
+    vendor: true,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/unisoc.bootctrl.so"],
+            relative_install_path: "lib64/hw",
+        },
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/unisoc.bootctrl.so"],
+            relative_install_path: "lib/hw",
+        },
+    },
+    stl: "none",
+    strip: { none: true },
+    check_elf_files: false, // Add this
+}
+// =============================================
+// HAL Services (CORRECTED)
+// =============================================
+
+// Gatekeeper Service
+cc_prebuilt_binary {
+    name: "android.hardware.gatekeeper@1.0-service.trusty",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.gatekeeper@1.0-service.trusty"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.gatekeeper@1.0-service.trusty.rc"],
+    shared_libs: [
+        "android.hardware.gatekeeper@1.0",
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+}
+
+// Health Service
+cc_prebuilt_binary {
+    name: "android.hardware.health-service.example",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.health-service.example"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.health-service.example.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+}
+
+// power.sprd (vendor library)
+cc_prebuilt_library_shared {
+    name: "power.sprd",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/power.sprd.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+cc_prebuilt_binary {
+    name: "vendor.unisoc.hardware.power-service",
+    check_elf_files: false,  // ← ADD THIS to skip ELF checking
+    srcs: ["proprietary/vendor/bin/hw/vendor.unisoc.hardware.power-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/vendor-power-default.rc"],
+    shared_libs: [
+        "vendor.unisoc.hardware.power-V1-ndk",
+        "power.default",
+        "libbase",
+        "libcutils", 
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "libbinder",           // ← AOSP system library
+        "libbinder_ndk",       // ← AOSP system library
+        "power.sprd",          // ← Vendor prebuilt (now declared above)
+        // "android.hardware.power-V3-ndk" ← SYSTEM library (built from source)
+    ],
+}
+// Gatekeeper Interface - KEEP (exists in vendor)
+cc_prebuilt_library_shared {
+    name: "android.hardware.gatekeeper@1.0",
+    srcs: ["proprietary/vendor/lib64/android.hardware.gatekeeper@1.0.so"],
+    vendor: true,
+    compile_multilib: "64",
+    shared_libs: [
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libc++",
+    ],
+}
+
+// Power NDK Interface - KEEP (you have this)
+cc_prebuilt_library_shared {
+    name: "vendor.unisoc.hardware.power-V1-ndk",
+    srcs: ["proprietary/vendor/lib64/vendor.unisoc.hardware.power-V1-ndk.so"],
+    vendor: true,
+    compile_multilib: "64",
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+        "libutils",
+        "libcutils",
+    ],
+}
+
+// Power HAL Implementation - KEEP
+cc_prebuilt_library_shared {
+    name: "power.default",
+    vendor: true,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/power.default.so"],
+            relative_install_path: "lib64/hw",
+        },
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/power.default.so"],
+            relative_install_path: "lib/hw",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libc++",
+    ],
+}
+
+// VINTF Manifests
+prebuilt_etc {
+    name: "android.hardware.gatekeeper@1.0-service.trusty.manifest",
+    src: "proprietary/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "android.hardware.health-service.example.manifest",
+    src: "proprietary/vintf/manifest/android.hardware.health-service.example.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "vendor-power-default.manifest",
+    src: "proprietary/vintf/manifest/vendor-power-default.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+// =============================================
+// Vendor-specific library definitions (ADD THESE FIRST)
+// =============================================
+
+// libmemion (vendor)
+cc_prebuilt_library_shared {
+    name: "libmemion",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libmemion.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libmemion.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// libmediahdrtosdrtransform (vendor)
+cc_prebuilt_library_shared {
+    name: "libmediahdrtosdrtransform",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libmediahdrtosdrtransform.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libmediahdrtosdrtransform.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// libpowerhal_cli (vendor)
+cc_prebuilt_library_shared {
+    name: "libpowerhal_cli",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libpowerhal_cli.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libpowerhal_cli.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// vendor.sprd.hardware.enhance-V1-ndk (vendor)
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.enhance-V1-ndk",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.enhance-V1-ndk.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.enhance-V1-ndk.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// =============================================
+// Graphics - Mali GPU Configuration (VENDOR ONLY)
+// =============================================
+
+// Mali GPU library (both EGL and standalone)
+cc_prebuilt_library_shared {
+    name: "libGLES_mali",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/egl/libGLES_mali.so"],
+            relative_install_path: "egl",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/egl/libGLES_mali.so"],
+            relative_install_path: "egl",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libsync",
+        "libc++",
+        "libdl",
+        "libm",
+    ],
+}
+
+// Unisoc Hardware Composer
+cc_prebuilt_library_shared {
+    name: "hwcomposer.unisoc",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/hwcomposer.unisoc.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/hwcomposer.unisoc.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libsync",
+        "libc++",
+        "libhardware",
+        "libui",
+        "libgralloctypes",
+        "libhidlbase",
+        "libEGL",
+        "libGLESv1_CM",
+        "libGLESv2",
+        "libGLESv3",
+        "libnativewindow",
+        "libbase",
+        "libion",
+        "libdrm",
+        "libbinder",
+        "libbinder_ndk",
+        "libmemion",
+        "libmediahdrtosdrtransform",
+        "libpowerhal_cli",
+        "vendor.sprd.hardware.enhance-V1-ndk"
+    ],
+}
+
+// Gralloc RE58C2 implementation
+cc_prebuilt_library_shared {
+    name: "gralloc.re58c2",  // ← DEVICE-SPECIFIC NAME
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/gralloc.default.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/gralloc.default.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libsync",
+        "libc++",
+        "libgralloctypes",
+    ],
+}
+
+// Remote display library - DISABLE ELF CHECKING
+cc_prebuilt_library_shared {
+    name: "libremotedisplay",
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/lib/libremotedisplay.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/lib64/libremotedisplay.so"],
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libutils",
+        "libc++",
+        "libcutils",
+        "libgui",
+        "libbinder",
+        "libmedia",
+        "libstagefright_foundation",
+        "libui",
+        "libhidlbase"
+    ],
+}
+
+// Gralloc configuration file
+prebuilt_etc {
+    name: "gralloc_configuration",
+    src: "proprietary/vendor/etc/gralloc/gralloc.xml",
+    sub_dir: "gralloc",
+    vendor: true,
+    owner: "realme",
+}
+
+
+// =============================================
+// Missing HAL Services (CRITICAL)
+// =============================================
+
+// Biometrics Fingerprint Service
+cc_prebuilt_binary {
+    name: "android.hardware.biometrics.fingerprint@2.1-service",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "android.hardware.biometrics.fingerprint@2.1",
+    ],
+}
+
+// CAS Service
+cc_prebuilt_binary {
+    name: "android.hardware.cas@1.2-service",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.cas@1.2-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.cas@1.2-service.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "android.hardware.cas@1.2",
+    ],
+}
+
+// Sensors Service
+cc_prebuilt_binary {
+    name: "android.hardware.sensors-service.multihal",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.sensors-service.multihal"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.sensors-service-multihal.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "android.hardware.sensors@2.1",
+    ],
+}
+
+// Thermal Service
+cc_prebuilt_binary {
+    name: "android.hardware.thermal@2.0-service",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.thermal@2.0-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.thermal@2.0-service.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "android.hardware.thermal@2.0",
+    ],
+}
+
+// USB Service
+cc_prebuilt_binary {
+    name: "android.hardware.usb-service.example",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.usb-service.example"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.usb-service.example.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "android.hardware.usb@1.3",
+    ],
+}
+
+// =============================================
+// Missing Vendor Services
+// =============================================
+
+// GNSS Service
+cc_prebuilt_binary {
+    name: "vendor.sprd.hardware.gnss@2.2-service",
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.gnss@2.2-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.gnss@2.2-service.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "vendor.sprd.hardware.gnss@2.2",
+    ],
+}
+
+// Thermal Service (SPRD)
+cc_prebuilt_binary {
+    name: "vendor.sprd.hardware.thermal@2.0-service",
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.thermal@2.0-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.thermal@2.0-service.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "vendor.sprd.hardware.thermal@2.0",
+    ],
+}
+
+// Face Service
+cc_prebuilt_binary {
+    name: "vendor.sprd.hardware.biometrics.face-service",
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.biometrics.face-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/face-default.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "vendor.sprd.hardware.face-V1-ndk",
+    ],
+}
+
+// =============================================
+// Missing Audio Services
+// =============================================
+
+// Audio Service
+cc_prebuilt_binary {
+    name: "android.hardware.audio.service",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.audio.service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.audio.service.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "android.hardware.audio@7.1",
+    ],
+}
+
+// Audio HAL Implementation
+cc_prebuilt_library_shared {
+    name: "android.hardware.audio@7.1-impl",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/android.hardware.audio@7.1-impl.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/android.hardware.audio@7.1-impl.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "android.hardware.audio@7.1",
+    ],
+}
+
+// Audio Effect Implementation
+cc_prebuilt_library_shared {
+    name: "android.hardware.audio.effect@7.0-impl",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/android.hardware.audio.effect@7.0-impl.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/android.hardware.audio.effect@7.0-impl.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "android.hardware.audio.effect@7.0",
+    ],
+}
+
+// =============================================
+// Missing Graphics Services
+// =============================================
+
+// Graphics Composer Service
+cc_prebuilt_binary {
+    name: "android.hardware.graphics.composer@2.4-service",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.graphics.composer@2.4-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.graphics.composer@2.4-service.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "android.hardware.graphics.composer@2.4",
+    ],
+}
+
+// Graphics Allocator Service
+cc_prebuilt_binary {
+    name: "android.hardware.graphics.allocator@4.0-service",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.graphics.allocator@4.0-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.graphics.allocator@4.0-service.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "android.hardware.graphics.allocator@4.0",
+    ],
+}
+
+// =============================================
+// Missing Hardware Libraries
+// =============================================
+
+// libmemion
+cc_prebuilt_library_shared {
+    name: "libmemion",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libmemion.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libmemion.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// libmediahdrtosdrtransform
+cc_prebuilt_library_shared {
+    name: "libmediahdrtosdrtransform",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libmediahdrtosdrtransform.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libmediahdrtosdrtransform.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// libpowerhal_cli
+cc_prebuilt_library_shared {
+    name: "libpowerhal_cli",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libpowerhal_cli.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libpowerhal_cli.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// power.sprd
+cc_prebuilt_library_shared {
+    name: "power.sprd",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/power.sprd.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// vendor.sprd.hardware.enhance-V1-ndk
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.enhance-V1-ndk",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.enhance-V1-ndk.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.enhance-V1-ndk.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// =============================================
+// Missing RIL Libraries
+// =============================================
+
+cc_prebuilt_library_shared {
+    name: "libril",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libril.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libril.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libreference-ril",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libreference-ril.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libreference-ril.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libsec-ril",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libsec-ril.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libsec-ril.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libsecril-client",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libsecril-client.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libsecril-client.so"],
+        },
+    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+}
+
+// =============================================
+// Missing Additional Services
+// =============================================
+
+// Lights service
+cc_prebuilt_binary {
+    name: "vendor.sprd.hardware.lights-service",
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.lights-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/lights.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "android.hardware.light@2.0",
+    ],
+}
+
+// Memtrack service
+cc_prebuilt_binary {
+    name: "vendor.sprd.hardware.memtrack-service",
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.memtrack-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/memtrack.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "android.hardware.memtrack@1.0",
+    ],
+}
+
+// Vibrator service
+cc_prebuilt_binary {
+    name: "vendor.sprd.hardware.vibrator-service",
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.vibrator-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/vibrator.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "android.hardware.vibrator@1.3",
+    ],
+}
+
+// =============================================
+// Missing KeyMint Service
+// =============================================
+
+cc_prebuilt_binary {
+    name: "android.hardware.security.keymint@2.0-unisoc.service.trusty",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.security.keymint@2.0-unisoc.service.trusty"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.security.keymint@2.0-unisoc.service.trusty.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "android.hardware.security.keymint-V1-ndk",
+    ],
+}
