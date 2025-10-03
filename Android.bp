@@ -1032,69 +1032,103 @@ cc_prebuilt_library_shared {
 }
 
 // =============================================
-// RIL Libraries
+// RIL Libraries (CORRECTED - USING ACTUAL FILES)
 // =============================================
 
+// urild binary
+cc_prebuilt_binary {
+    name: "urild",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/hw/urild"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/unisoc.rild.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+}
+
+// libril-private
 cc_prebuilt_library_shared {
-    name: "libril",
+    name: "libril-private",
     owner: "realme",
     vendor: true,
     multilib: {
         lib32: {
-            srcs: ["proprietary/vendor/lib/libril.so"],
+            srcs: ["proprietary/vendor/lib/libril-private.so"],
         },
         lib64: {
-            srcs: ["proprietary/vendor/lib64/libril.so"],
+            srcs: ["proprietary/vendor/lib64/libril-private.so"],
         },
     },
     shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+    strip: {
+        none: true,
+    },
 }
 
+// libimpl-ril
 cc_prebuilt_library_shared {
-    name: "libreference-ril",
+    name: "libimpl-ril",
     owner: "realme",
     vendor: true,
     multilib: {
         lib32: {
-            srcs: ["proprietary/vendor/lib/libreference-ril.so"],
+            srcs: ["proprietary/vendor/lib/libimpl-ril.so"],
         },
         lib64: {
-            srcs: ["proprietary/vendor/lib64/libreference-ril.so"],
+            srcs: ["proprietary/vendor/lib64/libimpl-ril.so"],
         },
     },
     shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+    strip: {
+        none: true,
+    },
 }
 
+// librilutils
 cc_prebuilt_library_shared {
-    name: "libsec-ril",
+    name: "librilutils",
     owner: "realme",
     vendor: true,
     multilib: {
         lib32: {
-            srcs: ["proprietary/vendor/lib/libsec-ril.so"],
+            srcs: ["proprietary/vendor/lib/librilutils.so"],
         },
         lib64: {
-            srcs: ["proprietary/vendor/lib64/libsec-ril.so"],
+            srcs: ["proprietary/vendor/lib64/librilutils.so"],
         },
     },
     shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+    strip: {
+        none: true,
+    },
 }
 
+// librilcore
 cc_prebuilt_library_shared {
-    name: "libsecril-client",
+    name: "librilcore",
     owner: "realme",
     vendor: true,
     multilib: {
         lib32: {
-            srcs: ["proprietary/vendor/lib/libsecril-client.so"],
+            srcs: ["proprietary/vendor/lib/librilcore.so"],
         },
         lib64: {
-            srcs: ["proprietary/vendor/lib64/libsecril-client.so"],
+            srcs: ["proprietary/vendor/lib64/librilcore.so"],
         },
     },
     shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+    strip: {
+        none: true,
+    },
 }
-
 // =============================================
 // Configuration Files
 // =============================================
