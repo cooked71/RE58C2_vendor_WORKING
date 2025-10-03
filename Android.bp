@@ -1168,7 +1168,7 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/vendor/lib64/hw/android.hardware.audio.effect@7.0-impl.so"],
             relative_install_path: "hw",
         },
-    ],
+    },
     shared_libs: [
         "libc++",
         "liblog",
