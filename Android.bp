@@ -94,12 +94,23 @@ cc_prebuilt_binary {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "android.hardware.boot@1.2-service",
+    name: "vendor.sprd.hardware.boot@1.2-service",  // ← CORRECT NAME
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service"],
     relative_install_path: "hw",
     vendor: true,
     compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.boot@1.2-service.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "vendor.sprd.hardware.boot@1.2",
+    ],
+}
 }
 
 cc_prebuilt_binary {
