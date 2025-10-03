@@ -96,29 +96,6 @@ cc_prebuilt_library_shared {
     },
 }
 
-cc_prebuilt_library_shared {
-    name: "android.hardware.light@2.0",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/android.hardware.light@2.0.so"],
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/android.hardware.light@2.0.so"],
-        },
-    },
-    shared_libs: [
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "libc++",
-    ],
-    strip: {
-        none: true,
-    },
-}
 
 // =============================================
 // Prebuilt Binaries with init.rc
@@ -482,7 +459,6 @@ cc_prebuilt_binary {
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/lights.rc"],
     shared_libs: [
-        "android.hardware.light@2.0",
         "libbase",
         "libhidlbase",
         "libc++",
