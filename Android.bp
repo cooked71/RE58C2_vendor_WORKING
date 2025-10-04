@@ -2637,10 +2637,7 @@ cc_prebuilt_library_shared {
     multilib: {
         lib32: {
             srcs: ["proprietary/vendor/lib/android.hardware.cas@1.2.so"],
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/android.hardware.cas@1.2.so"],
-        },
+        }
     },
     shared_libs: [
         "libc++",
@@ -2658,10 +2655,7 @@ cc_prebuilt_library_shared {
     multilib: {
         lib32: {
             srcs: ["proprietary/vendor/lib/android.hardware.cas@1.1.so"],
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/android.hardware.cas@1.1.so"],
-        },
+        }
     },
     shared_libs: [
         "libc++",
@@ -2670,4 +2664,4 @@ cc_prebuilt_library_shared {
         "libutils",
         "libhidlbase",
     ],
-}
+}}
