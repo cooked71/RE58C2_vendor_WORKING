@@ -1383,7 +1383,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "gralloc.default",
+    name: "gralloc.RE58C2",
     owner: "realme",
     vendor: true,
     shared_libs: [
@@ -1405,7 +1405,6 @@ cc_prebuilt_library_shared {
         },
     },
 }
-
 cc_prebuilt_library_shared {
     name: "libremotedisplay",
     owner: "realme",
