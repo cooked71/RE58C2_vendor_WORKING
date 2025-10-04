@@ -2660,13 +2660,13 @@ cc_prebuilt_library_shared {
 //    multilib: {
 //        lib32: {
 //            srcs: ["proprietary/vendor/lib/android.hardware.cas@1.1.so"],
-        }
-    },
-    shared_libs: [
-        "libc++",
-        "libcutils",
-        "liblog",
-        "libutils",
-        "libhidlbase",
-    ],
-}
+//        }
+//    },
+//    shared_libs: [
+//        "libc++",
+//        "libcutils",
+//        "liblog",
+//        "libutils",
+//        "libhidlbase",
+//    ],
+//}
