@@ -892,7 +892,15 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/lib64/libois_algorithm_jni.so"],
         },
     },
-    check_elf_files: false,
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libc",
+        "libm",
+        "libdl",
+    ],
     strip: {
         none: true,
     },
@@ -910,12 +918,19 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/lib64/libstagefright_bufferpool@2.0.1.so"],
         },
     },
-    check_elf_files: false,
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libc",
+        "libm",
+        "libdl",
+    ],
     strip: {
         none: true,
     },
 }
-
 // Audio Libraries
 cc_prebuilt_library_shared {
     name: "libsprdaudiohalv7",
@@ -1487,8 +1502,10 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
+        "libc",
+        "libm",
+        "libdl",
     ],
-    check_elf_files: false,  // ADD THIS LINE
     strip: {
         none: true,
     },
@@ -1516,13 +1533,14 @@ cc_prebuilt_library_shared {
         "libnetutils",
         "libhidlbase",
         "libtinyxml2",
+        "libc",
+        "libm",
+        "libdl",
     ],
-    check_elf_files: false,  // ADD THIS LINE
     strip: {
         none: true,
     },
 }
-
 cc_prebuilt_library_shared {
     name: "librilutils",
     owner: "realme",
@@ -1540,8 +1558,10 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
+        "libc",
+        "libm",
+        "libdl",
     ],
-    check_elf_files: false,  // ADD THIS LINE
     strip: {
         none: true,
     },
@@ -1576,13 +1596,14 @@ cc_prebuilt_library_shared {
         "android.hardware.radio@1.2",
         "android.hardware.radio.deprecated@1.0",
         "android.hardware.secure_element@1.0",
+        "libc",
+        "libm",
+        "libdl",
     ],
-        check_elf_files: false,  // ADD THIS LINE
     strip: {
         none: true,
     },
 }
-
 // Additional Vendor Libraries
 cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.gnss@1.0",
