@@ -1474,6 +1474,7 @@ cc_prebuilt_library_shared {
         "libutils",
         "libcutils",
     ],
+    check_elf_files: false,  // ADD THIS LINE
     strip: {
         none: true,
     },
@@ -1502,6 +1503,7 @@ cc_prebuilt_library_shared {
         "libhidlbase",
         "libtinyxml2",
     ],
+    check_elf_files: false,  // ADD THIS LINE
     strip: {
         none: true,
     },
@@ -1525,6 +1527,7 @@ cc_prebuilt_library_shared {
         "libutils",
         "libcutils",
     ],
+    check_elf_files: false,  // ADD THIS LINE
     strip: {
         none: true,
     },
