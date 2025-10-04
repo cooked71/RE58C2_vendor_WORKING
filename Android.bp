@@ -342,7 +342,7 @@ cc_prebuilt_binary {
         "libm",
         "libdl",
         "libstagefright_foundation",
-        "libmedia.vendor", 
+        "vndk_v33:libmedia",  // ✅ use VNDK variant for Android 13
 
     ],
     relative_install_path: "hw",
