@@ -342,8 +342,6 @@ cc_prebuilt_binary {
         "libm",
         "libdl",
         "libstagefright_foundation",
-        "vndk_v33:libmedia",  // ✅ use VNDK variant for Android 13
-
     ],
     relative_install_path: "hw",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.cas@1.2-service"],
