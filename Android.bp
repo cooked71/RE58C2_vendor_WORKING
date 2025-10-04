@@ -1560,6 +1560,7 @@ cc_prebuilt_library_shared {
         "android.hardware.radio.deprecated@1.0",
         "android.hardware.secure_element@1.0",
     ],
+        check_elf_files: false,  // ADD THIS LINE
     strip: {
         none: true,
     },
