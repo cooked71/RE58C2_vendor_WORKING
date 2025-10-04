@@ -1299,7 +1299,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-cc_prebuilt_library_shared {
     name: "gralloc.re58c2",
     owner: "realme",
     vendor: true,
