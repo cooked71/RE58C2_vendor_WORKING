@@ -1950,6 +1950,9 @@ cc_prebuilt_library_shared {
     ],
     system_shared_libs: [
         "android.hardware.common-V2-ndk",
+        "libc",
+        "libm", 
+        "libdl",
     ],
     strip: {
         none: true,
