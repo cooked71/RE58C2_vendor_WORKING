@@ -1410,7 +1410,13 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/vendor/lib64/libril-private.so"],
         },
     },
-    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+    shared_libs: [
+        "libc++",
+        "liblog", 
+        "libutils",
+        "libcutils",
+        "libtinyxml2",  // Add this
+    ],
     strip: {
         none: true,
     },
