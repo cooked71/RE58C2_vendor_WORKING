@@ -1214,14 +1214,9 @@ cc_prebuilt_library_shared {
         "libm",
         "libdl",
     ],
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/hw/power.sprd.so"],
-            relative_install_path: "hw",
-        },
+     multilib: {
         lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/power.sprd.so"],
-            relative_install_path: "hw",
+            srcs: ["proprietary/vendor/lib64/power.sprd.so"],  // Correct path - no hw directory
         },
     },
 }
