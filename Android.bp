@@ -343,7 +343,7 @@ cc_prebuilt_binary {
         "libdl",
     ],
     relative_install_path: "hw",
-    src: "proprietary/vendor/bin/hw/android.hardware.cas@1.2-service",
+    srcs: "proprietary/vendor/bin/hw/android.hardware.cas@1.2-service",
 }
 
 cc_prebuilt_binary {
