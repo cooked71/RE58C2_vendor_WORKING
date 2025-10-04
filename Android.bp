@@ -1400,11 +1400,11 @@ cc_prebuilt_library_shared {
     ],
     multilib: {
         lib32: {
-            srcs: ["proprietary/vendor/lib/hw/gralloc.default.so"],
+            srcs: ["proprietary/vendor/lib/hw/gralloc.RE58C2.so"],
             relative_install_path: "hw",
         },
         lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/gralloc.default.so"],
+            srcs: ["proprietary/vendor/lib64/hw/gralloc.RE58C2.so"],
             relative_install_path: "hw",
         },
     },
