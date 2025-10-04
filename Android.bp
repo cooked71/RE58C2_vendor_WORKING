@@ -341,6 +341,9 @@ cc_prebuilt_binary {
         "libc",
         "libm",
         "libdl",
+        "libstagefright_foundation",
+        "libmedia",
+
     ],
     relative_install_path: "hw",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.cas@1.2-service"],
@@ -604,6 +607,8 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
+        "librilcore",  // ADD THIS LINE
+
     ],
 }
 
@@ -626,6 +631,9 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
+        "libhardware",  // ADD THIS
+        "android.hardware.broadcastradio@2.0",  // ADD THIS
+
     ],
 }
 
@@ -2598,5 +2606,70 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
+    ],
+}
+
+// Broadcast Radio library that's missing
+cc_prebuilt_library_shared {
+    name: "android.hardware.broadcastradio@2.0",
+    owner: "realme", 
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/android.hardware.broadcastradio@2.0.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/android.hardware.broadcastradio@2.0.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "libcutils",
+        "liblog",
+        "libutils",
+        "libhidlbase",
+    ],
+}
+
+// CAS libraries that might be needed
+cc_prebuilt_library_shared {
+    name: "android.hardware.cas@1.2",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/android.hardware.cas@1.2.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/android.hardware.cas@1.2.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "libcutils",
+        "liblog",
+        "libutils",
+        "libhidlbase", 
+    ],
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.cas@1.1", 
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/android.hardware.cas@1.1.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/android.hardware.cas@1.1.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "libcutils",
+        "liblog",
+        "libutils",
+        "libhidlbase",
     ],
 }
