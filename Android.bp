@@ -342,7 +342,7 @@ cc_prebuilt_binary {
         "libm",
         "libdl",
         "libstagefright_foundation",
-        "libmedia",
+        "libmedia.vendor", 
 
     ],
     relative_install_path: "hw",
