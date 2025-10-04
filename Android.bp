@@ -345,6 +345,7 @@ cc_prebuilt_binary {
     relative_install_path: "hw",
     src: "proprietary/vendor/bin/hw/android.hardware.cas@1.2-service",
 }
+
 cc_prebuilt_binary {
     name: "android.hardware.sensors-service.multihal",
     owner: "realme",
@@ -455,8 +456,7 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        // REMOVE: "android.hardware.security.keymint-V1-ndk",  // CONFLICT - REMOVE THIS
-        "android.hardware.security.keymint-V2-ndk",  // KEEP ONLY V2
+        "android.hardware.security.keymint-V2-ndk",
         "android.hardware.security.secureclock-V1-ndk",
         "android.hardware.security.sharedsecret-V1-ndk",
         "lib_android_keymaster_keymint_utils",
@@ -931,6 +931,7 @@ cc_prebuilt_library_shared {
         none: true,
     },
 }
+
 // Audio Libraries
 cc_prebuilt_library_shared {
     name: "libsprdaudiohalv7",
@@ -1208,7 +1209,7 @@ cc_prebuilt_library_shared {
         "libutils",
         "libcutils",
         "libc++",
-        "libxml2",  // Added missing dependency
+        "libxml2",
         "libc",
         "libm",
         "libdl",
@@ -1224,6 +1225,7 @@ cc_prebuilt_library_shared {
         },
     },
 }
+
 cc_prebuilt_library_shared {
     name: "libmemion",
     owner: "realme",
@@ -1269,14 +1271,10 @@ cc_prebuilt_library_shared {
     owner: "realme",
     vendor: true,
     shared_libs: [
-        "android.hardware.power-V3-ndk",
-        "libbinder",
-        "libbinder_ndk",
-        "libc++",
-        "libcutils", 
         "liblog",
         "libutils",
-        "vendor.unisoc.hardware.power-V1-ndk",
+        "libcutils",
+        "libc++",
         "libc",
         "libm",
         "libdl",
@@ -1290,6 +1288,7 @@ cc_prebuilt_library_shared {
         },
     },
 }
+
 cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.enhance-V1-ndk",
     owner: "realme",
@@ -1389,14 +1388,14 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "gralloc.default",  // Match the actual filename
+    name: "gralloc.default",
     owner: "realme",
     vendor: true,
     shared_libs: [
         "liblog",
         "libcutils",
         "libutils",
-        "libsync", 
+        "libsync",
         "libc++",
         "libgralloctypes",
     ],
@@ -1541,6 +1540,7 @@ cc_prebuilt_library_shared {
         none: true,
     },
 }
+
 cc_prebuilt_library_shared {
     name: "librilutils",
     owner: "realme",
@@ -1604,6 +1604,7 @@ cc_prebuilt_library_shared {
         none: true,
     },
 }
+
 // Additional Vendor Libraries
 cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.gnss@1.0",
