@@ -323,28 +323,28 @@ cc_prebuilt_binary {
 cc_prebuilt_binary {
     name: "android.hardware.cas@1.2-service",
     owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/android.hardware.cas@1.2-service"],
-    relative_install_path: "hw",
     vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/android.hardware.cas@1.2-service.rc"],
     shared_libs: [
         "libbase",
         "libcutils",
-        "libhidlbase",
+        "libhidlbase", 
         "liblog",
         "libutils",
-        "libc++",
         "android.hardware.cas@1.2",
-        "android.hardware.cas@1.0",
         "android.hardware.cas@1.1",
+        "android.hardware.cas@1.0",
         "android.hardware.cas.native@1.0",
         "android.hidl.memory@1.0",
         "libbinder",
         "libhidlmemory",
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
     ],
+    relative_install_path: "hw",
+    src: "proprietary/vendor/bin/hw/android.hardware.cas@1.2-service",
 }
-
 cc_prebuilt_binary {
     name: "android.hardware.sensors-service.multihal",
     owner: "realme",
@@ -1185,22 +1185,30 @@ cc_prebuilt_library_shared {
 
 // Vendor-specific Support Libraries
 cc_prebuilt_library_shared {
-    name: "power.sprd",
+    name: "power.sprd", 
     owner: "realme",
     vendor: true,
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/power.sprd.so"],
-        },
-    },
     shared_libs: [
-        "libc++",
         "liblog",
         "libutils",
         "libcutils",
+        "libc++",
+        "libxml2",  // Added missing dependency
+        "libc",
+        "libm",
+        "libdl",
     ],
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/power.sprd.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/power.sprd.so"],
+            relative_install_path: "hw",
+        },
+    },
 }
-
 cc_prebuilt_library_shared {
     name: "libmemion",
     owner: "realme",
@@ -1245,6 +1253,19 @@ cc_prebuilt_library_shared {
     name: "libpowerhal_cli",
     owner: "realme",
     vendor: true,
+    shared_libs: [
+        "android.hardware.power-V3-ndk",
+        "libbinder",
+        "libbinder_ndk",
+        "libc++",
+        "libcutils", 
+        "liblog",
+        "libutils",
+        "vendor.unisoc.hardware.power-V1-ndk",
+        "libc",
+        "libm",
+        "libdl",
+    ],
     multilib: {
         lib32: {
             srcs: ["proprietary/vendor/lib/libpowerhal_cli.so"],
@@ -1253,14 +1274,7 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/vendor/lib64/libpowerhal_cli.so"],
         },
     },
-    shared_libs: [
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-    ],
 }
-
 cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.enhance-V1-ndk",
     owner: "realme",
@@ -1360,9 +1374,17 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "gralloc.re58c2",
+    name: "gralloc.default",  // Match the actual filename
     owner: "realme",
     vendor: true,
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libsync", 
+        "libc++",
+        "libgralloctypes",
+    ],
     multilib: {
         lib32: {
             srcs: ["proprietary/vendor/lib/hw/gralloc.default.so"],
@@ -1373,14 +1395,6 @@ cc_prebuilt_library_shared {
             relative_install_path: "hw",
         },
     },
-    shared_libs: [
-        "liblog",
-        "libcutils",
-        "libutils",
-        "libsync",
-        "libc++",
-        "libgralloctypes",
-    ],
 }
 
 cc_prebuilt_library_shared {
