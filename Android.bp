@@ -324,32 +324,32 @@ cc_prebuilt_binary {
     ],
 }
 
-cc_prebuilt_binary {
-    name: "android.hardware.cas@1.2-service",
-    owner: "realme",
-    vendor: true,
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase", 
-        "liblog",
-        "libutils",
-        "android.hardware.cas@1.2",
-        "android.hardware.cas@1.1",
-        "android.hardware.cas@1.0",
-        "android.hardware.cas.native@1.0",
-        "android.hidl.memory@1.0",
-        "libbinder",
-        "libhidlmemory",
-        "libc++",
-        "libc",
-        "libm",
-        "libdl",
-        "libstagefright_foundation",
-    ],
-    relative_install_path: "hw",
-    srcs: ["proprietary/vendor/bin/hw/android.hardware.cas@1.2-service"],
-}
+//cc_prebuilt_binary {
+//    name: "android.hardware.cas@1.2-service",
+//    owner: "realme",
+//    vendor: true,
+//    shared_libs: [
+//        "libbase",
+//        "libcutils",
+//        "libhidlbase", 
+//        "liblog",
+//        "libutils",
+//        "android.hardware.cas@1.2",
+//        "android.hardware.cas@1.1",
+//        "android.hardware.cas@1.0",
+//        "android.hardware.cas.native@1.0",
+//        "android.hidl.memory@1.0",
+//        "libbinder",
+//        "libhidlmemory",
+//        "libc++",
+//        "libc",
+//        "libm",
+//        "libdl",
+//        "libstagefright_foundation",
+//    ],
+//    relative_install_path: "hw",
+//    srcs: ["proprietary/vendor/bin/hw/android.hardware.cas@1.2-service"],
+//}
 
 cc_prebuilt_binary {
     name: "android.hardware.sensors-service.multihal",
@@ -2635,31 +2635,31 @@ cc_prebuilt_library_shared {
 }
 
 // CAS libraries that might be needed
-cc_prebuilt_library_shared {
-    name: "android.hardware.cas@1.2",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/android.hardware.cas@1.2.so"],
-        }
-    },
-    shared_libs: [
-        "libc++",
-        "libcutils",
-        "liblog",
-        "libutils",
-        "libhidlbase", 
-    ],
-}
+//cc_prebuilt_library_shared {
+//    name: "android.hardware.cas@1.2",
+//    owner: "realme",
+//    vendor: true,
+//    multilib: {
+//        lib32: {
+//            srcs: ["proprietary/vendor/lib/android.hardware.cas@1.2.so"],
+//        }
+//    },
+//    shared_libs: [
+//        "libc++",
+//        "libcutils",
+//        "liblog",
+//        "libutils",
+//        "libhidlbase", 
+//    ],
+//}
 
-cc_prebuilt_library_shared {
-    name: "android.hardware.cas@1.1", 
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/android.hardware.cas@1.1.so"],
+//cc_prebuilt_library_shared {
+//    name: "android.hardware.cas@1.1", 
+//    owner: "realme",
+//    vendor: true,
+//    multilib: {
+//        lib32: {
+//            srcs: ["proprietary/vendor/lib/android.hardware.cas@1.1.so"],
         }
     },
     shared_libs: [
