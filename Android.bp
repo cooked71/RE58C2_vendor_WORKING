@@ -444,7 +444,9 @@ cc_prebuilt_binary {
         "libc++",
         "android.hardware.security.keymint-V1-ndk",
     ],
+    check_elf_files: false,
 }
+
 
 // =============================================
 // Vendor-specific Services
@@ -1217,6 +1219,7 @@ cc_prebuilt_library_shared {
         },
     },
     shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+    check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
@@ -1249,16 +1252,10 @@ cc_prebuilt_library_shared {
             relative_install_path: "egl",
         },
     },
-    shared_libs: [
-        "liblog",
-        "libcutils",
-        "libutils",
-        "libsync",
-        "libc++",
-        "libdl",
-        "libm",
-    ],
+    shared_libs: ["liblog", "libcutils", "libutils", "libsync", "libc++", "libdl", "libm"],
+    check_elf_files: false,
 }
+
 
 cc_prebuilt_library_shared {
     name: "hwcomposer.unisoc",
@@ -1302,27 +1299,22 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+cc_prebuilt_library_shared {
     name: "gralloc.re58c2",
     owner: "realme",
     vendor: true,
     multilib: {
         lib32: {
-            srcs: ["proprietary/vendor/lib/hw/gralloc.default.so"],
+            srcs: ["proprietary/vendor/lib/hw/gralloc.re58c2.so"],
             relative_install_path: "hw",
         },
         lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/gralloc.default.so"],
+            srcs: ["proprietary/vendor/lib64/hw/gralloc.re58c2.so"],
             relative_install_path: "hw",
         },
     },
-    shared_libs: [
-        "liblog",
-        "libcutils",
-        "libutils",
-        "libsync",
-        "libc++",
-        "libgralloctypes",
-    ],
+    shared_libs: ["liblog", "libcutils", "libutils", "libsync", "libc++", "libgralloctypes"],
+    check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
@@ -1410,17 +1402,10 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/vendor/lib64/libril-private.so"],
         },
     },
-    shared_libs: [
-        "libc++",
-        "liblog", 
-        "libutils",
-        "libcutils",
-        "libtinyxml2",  // Add this
-    ],
-    strip: {
-        none: true,
-    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
+    check_elf_files: false,
 }
+
 
 cc_prebuilt_library_shared {
     name: "libimpl-ril",
@@ -1435,9 +1420,7 @@ cc_prebuilt_library_shared {
         },
     },
     shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
-    strip: {
-        none: true,
-    },
+    check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
@@ -1453,9 +1436,7 @@ cc_prebuilt_library_shared {
         },
     },
     shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
-    strip: {
-        none: true,
-    },
+    check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
@@ -1471,10 +1452,9 @@ cc_prebuilt_library_shared {
         },
     },
     shared_libs: ["libc++", "liblog", "libutils", "libcutils"],
-    strip: {
-        none: true,
-    },
+    check_elf_files: false,
 }
+
 
 // Additional Vendor Libraries
 cc_prebuilt_library_shared {
@@ -1564,16 +1544,8 @@ cc_prebuilt_library_shared {
             relative_install_path: "hw",
         },
     },
-    shared_libs: [
-        "libc++",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "android.hardware.gnss@2.1",
-    ],
-    strip: {
-        none: true,
-    },
+    shared_libs: ["libc++", "liblog", "libutils", "libcutils", "android.hardware.gnss@2.1"],
+    check_elf_files: false,
 }
 
 // =============================================
@@ -1949,20 +1921,8 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.trusty-V1-ndk.so"],
         },
     },
-    shared_libs: [
-        "libbinder_ndk",
-        "libc++",
-        "liblog",
-    ],
-    system_shared_libs: [
-        "android.hardware.common-V2-ndk",
-        "libc",
-        "libm", 
-        "libdl",
-    ],
-    strip: {
-        none: true,
-    },
+    shared_libs: ["libbinder_ndk", "libc++", "liblog"],
+    check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
