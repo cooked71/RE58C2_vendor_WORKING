@@ -241,7 +241,7 @@ cc_prebuilt_binary {
         "android.hardware.boot@1.0.so",
         "android.hardware.boot@1.1.so",
         "android.hardware.boot@1.1.so",
-        "libhardware.so
+        "libhardware.so",
     ],
 }
 
