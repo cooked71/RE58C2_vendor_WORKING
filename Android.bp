@@ -531,6 +531,10 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "vendor.sprd.hardware.face-V1-ndk",
+        "libbinder_ndk",
+        "libhardware",
+        "android.hardware.biometrics.face-V2-ndk",
+        "android.hardware.biometrics.common-V2-ndk",
     ],
 }
 
@@ -552,6 +556,8 @@ cc_prebuilt_binary {
         "libc",
         "libm",
         "libdl",
+        "libbinder_ndk",
+        "android.hardware.light-V2-ndk",
     ],
 }
 
@@ -722,6 +728,7 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "vendor.sprd.hardware.fingerprintmmi-V1-ndk",
+        "libbinder_ndk",
     ],
 }
 
@@ -741,6 +748,11 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "vendor.sprd.hardware.hdcp-V1-ndk",
+        "libbinder",
+        "libbinder_ndk",
+        "libstagefright_hdcp",
+        "libclang_rt.ubsan_standalone-aarch64-android",
+
     ],
 }
 
@@ -760,6 +772,10 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "vendor.sprd.hardware.log-V1-ndk",
+        "libsysutils",
+        "libbinder",
+        "libbinder_ndk",
+
     ],
 }
 
@@ -1810,6 +1826,18 @@ cc_prebuilt_library_shared {
         "libutils",
         "libcutils",
         "vendor.sprd.hardware.gnss@1.0",
+        "libhidlbase",
+        "libhardware",
+        "android.hardware.gnss@2.1",
+        "libbinder",
+        "libhardware",
+        "android.hardware.gnss@1.0",
+        "android.hardware.gnss@1.1", 
+        "android.hardware.gnss@2.0",
+        "android.hardware.gnss@2.1",
+        "android.hardware.gnss.measurement_corrections@1.0",
+        "android.hardware.gnss.measurement_corrections@1.1",
+        "android.hardware.gnss.visibility_control@1.0",
     ],
     strip: {
         none: true,
