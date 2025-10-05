@@ -2892,7 +2892,7 @@ cc_prebuilt_library_shared {
         "liblog",
         "libcutils",
         "libutils",
-        "libtrusty",  // Added missing dependency
+        "libtrusty",  
     ],
     strip: {
         none: true,
