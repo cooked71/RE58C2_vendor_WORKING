@@ -807,7 +807,6 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "vendor.sprd.hardware.network@1.0",
-        # ADD MISSING:
         "libhardware",
         "libsysutils",
         "libbinder_ndk",
