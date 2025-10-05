@@ -831,7 +831,6 @@ cc_prebuilt_binary {
         "libc++",
         "libbinder_ndk",
         "oemlock_ca",
-        "android.hardware.oemlock-V1-ndk",
     ],
 }
 
@@ -2957,13 +2956,3 @@ cc_prebuilt_library_shared {
     },
 }
 
-cc_library_shared {
-    name: "android.hardware.oemlock-V1-ndk",
-    vendor: true,
-    shared_libs: [
-        "libbinder_ndk", 
-        "libc++",
-        "liblog",
-    ],
-    stl: "c++_shared",
-}
