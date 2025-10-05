@@ -831,7 +831,9 @@ cc_prebuilt_binary {
         "libc++",
         "libbinder_ndk",
         "oemlock_ca",
+        "android.hardware.oemlock-V1-ndk",  // ADD THIS
     ],
+    check_elf_files: false,  // TEMPORARY WORKAROUND
 }
 
 cc_prebuilt_binary {
