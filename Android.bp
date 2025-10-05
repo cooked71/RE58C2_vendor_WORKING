@@ -2830,6 +2830,7 @@ cc_prebuilt_library_shared {
         "libc",
         "libm",
         "libdl",
+        "libtrusty",
     ],
     strip: {
         none: true,
