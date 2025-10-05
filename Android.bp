@@ -871,6 +871,9 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "vendor.sprd.hardware.soter-V1-ndk",
+        "libbinder_ndk",
+        "libsoter_trusty",
+
     ],
 }
 
