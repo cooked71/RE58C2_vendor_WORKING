@@ -2880,9 +2880,27 @@ cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.thermal@1.0",
     owner: "realme",
     vendor: true,
-    srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.thermal@1.0.so"],
-    compile_multilib: "64",
-    shared_libs: ["libhidlbase", "liblog", "libutils", "libcutils", "libc++"],
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.thermal@1.0.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.thermal@1.0.so"],
+        },
+    },
+    shared_libs: [
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
 }
 
 cc_prebuilt_library_shared {
