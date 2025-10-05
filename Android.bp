@@ -1941,28 +1941,23 @@ cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.trusty-impl",
     owner: "realme",
     vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/hw/vendor.sprd.hardware.trusty-impl.so"],
-            relative_install_path: "hw",
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/vendor.sprd.hardware.trusty-impl.so"],
-            relative_install_path: "hw",
-        },
-    },
+    // REMOVE 32-bit variant since dependency is 64-bit only
+    compile_multilib: "64",
+    srcs: ["proprietary/vendor/lib64/hw/vendor.sprd.hardware.trusty-impl.so"],
+    relative_install_path: "hw",
     shared_libs: [
         "libc++",
         "liblog",
         "libutils",
         "libcutils",
         "vendor.sprd.hardware.trusty@1.0",
-        "libbase",                                   // ADDED
-        "libbinder_ndk",                            // ADDED
-        "libhidlbase",                              // ADDED
-        "libclang_rt.ubsan_standalone-aarch64-android", // ADDED
-        "vendor.sprd.hardware.trusty-V1-ndk",       // ADDED
-        "libtrusty",                                // ADDED
+        "libbase",
+        "libbinder_ndk",
+        "libhidlbase",
+        // REMOVE this line - it's causing the 32/64-bit mismatch
+        // "libclang_rt.ubsan_standalone-aarch64-android",
+        "vendor.sprd.hardware.trusty-V1-ndk",
+        "libtrusty",
     ],
     strip: {
         none: true,
