@@ -831,6 +831,7 @@ cc_prebuilt_binary {
         "libc++",
         "libbinder_ndk",
         "oemlock_ca",
+        "android.hardware.oemlock-V1-ndk",
     ],
 }
 
@@ -850,6 +851,7 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "vendor.sprd.hardware.performance@1.0",
+        "libhardware",
     ],
 }
 
@@ -1732,6 +1734,10 @@ cc_prebuilt_library_shared {
         "libc",
         "libm",
         "libdl",
+        "android.hardware.thermal@1.0",
+        "android.hardware.thermal@2.0",
+        "vendor.sprd.hardware.thermal@1.0",
+
     ],
     strip: {
         none: true,
@@ -1882,6 +1888,10 @@ cc_prebuilt_library_shared {
         "libutils",
         "libcutils",
         "vendor.sprd.hardware.network@1.0",
+        "libhidlbase",
+        "libbase",
+        "libhardware",
+        "libsysutils",
     ],
     strip: {
         none: true,
@@ -2835,4 +2845,51 @@ cc_prebuilt_library_shared {
     strip: {
         none: true,
     },
+}
+# Add these module definitions
+cc_prebuilt_library_shared {
+    name: "android.hardware.oemlock-V1-ndk",
+    owner: "realme",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/android.hardware.oemlock-V1-ndk.so"],
+    compile_multilib: "64",
+    shared_libs: ["libbinder_ndk", "libc++", "liblog"],
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.thermal@1.0",
+    owner: "realme",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/android.hardware.thermal@1.0.so"],
+    compile_multilib: "64",
+    shared_libs: ["libhidlbase", "liblog", "libutils", "libcutils", "libc++"],
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.thermal@2.0",
+    owner: "realme",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/android.hardware.thermal@2.0.so"],
+    compile_multilib: "64",
+    shared_libs: ["libhidlbase", "liblog", "libutils", "libcutils", "libc++"],
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.thermal@1.0",
+    owner: "realme",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.thermal@1.0.so"],
+    compile_multilib: "64",
+    shared_libs: ["libhidlbase", "liblog", "libutils", "libcutils", "libc++"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libsoter_trusty",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: { srcs: ["proprietary/vendor/lib/libsoter_trusty.so"] },
+        lib64: { srcs: ["proprietary/vendor/lib64/libsoter_trusty.so"] },
+    },
+    shared_libs: ["libc++", "liblog", "libcutils", "libutils"],
 }
