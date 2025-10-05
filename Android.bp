@@ -2871,8 +2871,6 @@ cc_prebuilt_library_shared {
         "libc",
         "libm",
         "libdl",
-        "android.hardware.thermal@2.0",
-
     ],
     strip: {
         none: true,
