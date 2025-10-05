@@ -831,7 +831,6 @@ cc_prebuilt_binary {
         "libc++",
         "libbinder_ndk",
         "oemlock_ca",
-        "android.hardware.oemlock-V1-ndk",
     ],
 }
 
