@@ -2678,3 +2678,28 @@ cc_prebuilt_library_shared {
 //        "libhidlbase",
 //    ],
 //}
+cc_prebuilt_library_shared {
+    name: "libliom",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libliom.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libliom.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
+}
