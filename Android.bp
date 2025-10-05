@@ -240,7 +240,7 @@ cc_prebuilt_binary {
         "vendor.sprd.hardware.boot@1.2",
         "android.hardware.boot@1.0",
         "android.hardware.boot@1.1",
-        "android.hardware.boot@1.1",
+        "android.hardware.boot@1.2",
         "libhardware",
     ],
 }
@@ -676,6 +676,12 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "vendor.sprd.hardware.cplog_svc@1.0",
+        "libhardware",
+        "libliom",
+        "libtinyxml2",
+        "libbinder_ndk",
+        "vendor.sprd.hardware.gnss@1.0",
+        "vendor.sprd.hardware.cplog_svc-V2-ndk",
     ],
 }
 
@@ -695,6 +701,8 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "vendor.sprd.hardware.enhance-V1-ndk",
+        "libbinder_ndk
+        libhardware
     ],
 }
 
