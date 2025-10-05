@@ -2754,3 +2754,19 @@ cc_prebuilt_library_shared {
     },
 }
 
+cc_prebuilt_library_shared {
+    name: "libclang_rt.ubsan_standalone-aarch64-android",
+    owner: "realme",
+    vendor: true,
+    srcs: ["proprietary/system/lib64/libclang_rt.ubsan_standalone-aarch64-android.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
+}
