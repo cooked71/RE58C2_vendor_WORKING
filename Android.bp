@@ -2849,14 +2849,14 @@ cc_prebuilt_library_shared {
         none: true,
     },
 }
-cc_prebuilt_library_shared {
-    name: "android.hardware.oemlock-V1-ndk",
-    owner: "realme",
-    vendor: true,
-    srcs: ["proprietary/vendor/lib64/android.hardware.oemlock-V1-ndk.so"],
-    compile_multilib: "64",
-    shared_libs: ["libbinder_ndk", "libc++", "liblog"],
-}
+// cc_prebuilt_library_shared {
+//    name: "android.hardware.oemlock-V1-ndk",
+//    owner: "realme",
+//    vendor: true,
+//    srcs: ["proprietary/vendor/lib64/android.hardware.oemlock-V1-ndk.so"],
+//    compile_multilib: "64",
+//    shared_libs: ["libbinder_ndk", "libc++", "liblog"],
+// }
 
 cc_prebuilt_library_shared {
     name: "android.hardware.thermal@1.0",
