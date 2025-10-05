@@ -2929,7 +2929,6 @@ cc_prebuilt_library_shared {
     },
 }
 
-# Simple wrapper that forces AOSP to build the NDK library
 cc_library_shared {
     name: "android.hardware.oemlock-V1-ndk",
     vendor: true,
