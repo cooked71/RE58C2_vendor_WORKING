@@ -493,6 +493,16 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "vendor.sprd.hardware.gnss@1.0",
+        "libbinder",
+        "libhardware",
+        "android.hardware.gnss@1.0",
+        "android.hardware.gnss@1.1",
+        "android.hardware.gnss@2.0",
+        "android.hardware.gnss@2.1",
+        "android.hardware.gnss.measurement_corrections@1.0",
+        "android.hardware.gnss.measurement_corrections@1.1",
+        "android.hardware.gnss.visibility_control@1.0",
+
     ],
 }
 
@@ -579,6 +589,8 @@ cc_prebuilt_binary {
         "libc",
         "libm",
         "libdl",
+        "libbinder_ndk.so",
+        "android.hardware.memtrack-V1-ndk",
     ],
 }
 
@@ -795,6 +807,11 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "vendor.sprd.hardware.network@1.0",
+        # ADD MISSING:
+        "libhardware",
+        "libsysutils",
+        "libbinder_ndk",
+        "vendor.sprd.hardware.network-V1-ndk",  # Now properly defined
     ],
 }
 
@@ -813,6 +830,8 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
+        "libbinder_ndk",
+        "oemlock_ca",
     ],
 }
 
@@ -2769,6 +2788,49 @@ cc_prebuilt_library_shared {
         "libdl",
         "liblog",
 
+    ],
+    strip: {
+        none: true,
+    },
+}
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.network-V1-ndk",
+    owner: "realme",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.network-V1-ndk.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+        "libutils",
+        "libcutils",
+    ],
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "oemlock_ca",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/oemlock_ca.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/oemlock_ca.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libc",
+        "libm",
+        "libdl",
     ],
     strip: {
         none: true,
