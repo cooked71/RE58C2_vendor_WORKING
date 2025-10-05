@@ -609,6 +609,8 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
+        "libbinder_ndk",  // ADDED - available in system
+        // REMOVED: "android.hardware.vibrator-V2-ndk" - use AOSP version
     ],
 }
 
@@ -892,8 +894,13 @@ cc_prebuilt_binary {
         "libhidlbase",
         "liblog",
         "libutils",
-        "libc++",
         "vendor.sprd.hardware.trusty@1.0",
+        "libc++",
+        "libbinder_ndk",                            // ADDED
+        "libclang_rt.ubsan_standalone-aarch64-android", // ADDED
+        "vendor.sprd.hardware.trusty-V1-ndk",       // ADDED
+        "libtrusty",                                // ADDED
+        "vendor.sprd.hardware.trusty-impl",         // ADDED
     ],
 }
 
@@ -911,8 +918,10 @@ cc_prebuilt_binary {
         "libhidlbase",
         "liblog",
         "libutils",
-        "libc++",
         "vendor.sprd.hardware.tui@1.0",
+        "libc++",
+        "libbinder_ndk",                    // ADDED
+        "vendor.sprd.hardware.tui-V1-ndk",  // ADDED
     ],
 }
 
@@ -1929,6 +1938,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.trusty-impl",
     owner: "realme",
     vendor: true,
@@ -1948,6 +1958,12 @@ cc_prebuilt_library_shared {
         "libutils",
         "libcutils",
         "vendor.sprd.hardware.trusty@1.0",
+        "libbase",                                   // ADDED
+        "libbinder_ndk",                            // ADDED
+        "libhidlbase",                              // ADDED
+        "libclang_rt.ubsan_standalone-aarch64-android", // ADDED
+        "vendor.sprd.hardware.trusty-V1-ndk",       // ADDED
+        "libtrusty",                                // ADDED
     ],
     strip: {
         none: true,
@@ -1974,6 +1990,7 @@ cc_prebuilt_library_shared {
         "libutils",
         "libcutils",
         "vendor.sprd.hardware.wcn@1.0",
+        "libhidlbase", // ADDED
     ],
     strip: {
         none: true,
@@ -2554,6 +2571,7 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
+        "vendor.unisoc.hardware.radio-V1-ndk", // ADDED
     ],
 }
 
