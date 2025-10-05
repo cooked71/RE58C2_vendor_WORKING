@@ -2683,9 +2683,6 @@ cc_prebuilt_library_shared {
     owner: "realme",
     vendor: true,
     multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/libliom.so"],
-        },
         lib64: {
             srcs: ["proprietary/vendor/lib64/libliom.so"],
         },
