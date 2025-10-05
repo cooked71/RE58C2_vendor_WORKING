@@ -238,10 +238,10 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "vendor.sprd.hardware.boot@1.2",
-        "android.hardware.boot@1.0.so",
-        "android.hardware.boot@1.1.so",
-        "android.hardware.boot@1.1.so",
-        "libhardware.so",
+        "android.hardware.boot@1.0",
+        "android.hardware.boot@1.1",
+        "android.hardware.boot@1.1",
+        "libhardware",
     ],
 }
 
@@ -655,8 +655,8 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "vendor.sprd.hardware.connmgr@1.0",
-        "libsysutils.so",
-        "libhardware.so",
+        "libsysutils",
+        "libhardware",
     ],
 }
 
@@ -1775,7 +1775,7 @@ cc_prebuilt_library_shared {
         "libutils",
         "libcutils",
         "vendor.sprd.hardware.connmgr@1.0",
-        "libhidlbase.so",
+        "libhidlbase",
     ],
     strip: {
         none: true,
