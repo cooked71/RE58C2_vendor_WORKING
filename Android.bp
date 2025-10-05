@@ -2892,20 +2892,9 @@ cc_prebuilt_library_shared {
         "liblog",
         "libcutils",
         "libutils",
-        "libtrusty", 
+        "libtrusty",  // Added missing dependency
     ],
     strip: {
         none: true,
     },
-}
-
-cc_prebuilt_library_shared {
-    name: "libsoter_trusty",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: { srcs: ["proprietary/vendor/lib/libsoter_trusty.so"] },
-        lib64: { srcs: ["proprietary/vendor/lib64/libsoter_trusty.so"] },
-    },
-    shared_libs: ["libc++", "liblog", "libcutils", "libutils"],
 }
