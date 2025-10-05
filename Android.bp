@@ -2876,26 +2876,23 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.thermal@1.0",
+    name: "libsoter_trusty",
     owner: "realme",
     vendor: true,
     multilib: {
         lib32: {
-            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.thermal@1.0.so"],
+            srcs: ["proprietary/vendor/lib/libsoter_trusty.so"],
         },
         lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.thermal@1.0.so"],
+            srcs: ["proprietary/vendor/lib64/libsoter_trusty.so"],
         },
     },
     shared_libs: [
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libcutils",
         "libc++",
-        "libc",
-        "libm",
-        "libdl",
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libtrusty", 
     ],
     strip: {
         none: true,
