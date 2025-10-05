@@ -2900,15 +2900,15 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.thermal@2.0",
+    name: "vendor.sprd.hardware.thermal@1.0",
     owner: "realme",
     vendor: true,
     multilib: {
         lib32: {
-            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.thermal@2.0.so"],
+            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.thermal@1.0.so"],
         },
         lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.thermal@2.0.so"],
+            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.thermal@1.0.so"],
         },
     },
     shared_libs: [
@@ -2917,9 +2917,9 @@ cc_prebuilt_library_shared {
         "libutils",
         "libcutils",
         "libc++",
-        "vendor.sprd.hardware.thermal@1.0",  // Now properly defined
-        "android.hardware.thermal@1.0",
-        "android.hardware.thermal@2.0",
+        "libc",
+        "libm",
+        "libdl",
     ],
     strip: {
         none: true,
