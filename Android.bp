@@ -701,8 +701,8 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "vendor.sprd.hardware.enhance-V1-ndk",
-        "libbinder_ndk
-        libhardware
+        "libbinder_ndk",
+        "libhardware",
     ],
 }
 
