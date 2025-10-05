@@ -2849,7 +2849,6 @@ cc_prebuilt_library_shared {
         none: true,
     },
 }
-# Add these module definitions
 cc_prebuilt_library_shared {
     name: "android.hardware.oemlock-V1-ndk",
     owner: "realme",
