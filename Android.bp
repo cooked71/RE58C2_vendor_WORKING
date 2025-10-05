@@ -589,7 +589,7 @@ cc_prebuilt_binary {
         "libc",
         "libm",
         "libdl",
-        "libbinder_ndk.so",
+        "libbinder_ndk",
         "android.hardware.memtrack-V1-ndk",
     ],
 }
