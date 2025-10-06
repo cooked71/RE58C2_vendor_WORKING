@@ -406,6 +406,8 @@ cc_prebuilt_binary {
         "libc++",
         "android.hardware.audio@7.1",
     ],
+        check_elf_files: false,
+
 }
 
 cc_prebuilt_binary {
