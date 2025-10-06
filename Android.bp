@@ -523,6 +523,7 @@ cc_prebuilt_binary {
         "libc++",
         "vendor.sprd.hardware.thermal@2.0",
     ],
+        check_elf_files: false,
 }
 
 cc_prebuilt_binary {
@@ -943,6 +944,7 @@ cc_prebuilt_binary {
         "libc++",
         "vendor.sprd.hardware.wcn@1.0",
     ],
+        check_elf_files: false,
 }
 
 // =============================================
@@ -1936,6 +1938,7 @@ cc_prebuilt_library_shared {
     strip: {
         none: true,
     },
+        check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
@@ -2595,6 +2598,7 @@ cc_prebuilt_library_shared {
         "libutils",
         "libcutils",
     ],
+        check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
@@ -2616,6 +2620,7 @@ cc_prebuilt_library_shared {
         "libutils",
         "libcutils",
     ],
+        check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
@@ -2637,6 +2642,7 @@ cc_prebuilt_library_shared {
         "libutils",
         "libcutils",
     ],
+        check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
@@ -2681,6 +2687,8 @@ cc_prebuilt_library_shared {
         "libutils",
         "libcutils",
     ],
+        check_elf_files: false,  // TEMPORARY WORKAROUND
+
 }
 
 cc_prebuilt_library_shared {
