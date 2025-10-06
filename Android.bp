@@ -303,6 +303,8 @@ cc_prebuilt_binary {
         "libbinder_ndk",
         "power.sprd",
     ],
+        check_elf_files: false,
+
 }
 
 cc_prebuilt_binary {
