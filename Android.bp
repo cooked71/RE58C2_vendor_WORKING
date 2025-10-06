@@ -1515,6 +1515,8 @@ cc_prebuilt_library_shared {
         "libui",
         "libhidlbase"
     ],
+        check_elf_files: false,
+
 }
 
 // Audio HAL Implementations
