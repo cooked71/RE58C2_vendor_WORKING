@@ -2993,3 +2993,48 @@ cc_prebuilt_library_shared {
     },
 }
 
+// =============================================
+// Thermal Stack with VINTF Fix
+// =============================================
+
+// Basic thermal daemon
+cc_prebuilt_binary {
+    name: "thermald",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/thermald"],
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/thermald.rc"],
+    shared_libs: ["libbase", "libcutils", "libhidlbase", "liblog", "libutils", "libc++"],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "thermal.default",
+    owner: "realme",
+    vendor: true,
+    relative_install_path: "hw",
+    multilib: {
+        lib32: { srcs: ["proprietary/vendor/lib/hw/thermal.default.so"] },
+        lib64: { srcs: ["proprietary/vendor/lib64/hw/thermal.default.so"] },
+    },
+    shared_libs: ["libbase", "libcutils", "libhidlbase", "liblog", "libutils", "libc++"],
+    check_elf_files: false,
+}
+
+// VINTF manifest - FIXED VERSION
+prebuilt_etc {
+    name: "android.hardware.thermal@2.0.xml",
+    owner: "realme",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.thermal@2.0.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+// Configuration
+prebuilt_etc {
+    name: "thermal.conf",
+    owner: "realme",
+    src: "proprietary/vendor/etc/thermal.conf",
+    vendor: true,
+}
