@@ -3037,3 +3037,13 @@ prebuilt_etc {
     src: "proprietary/vendor/etc/thermal.conf",
     vendor: true,
 }
+
+// Optional: Add if thermald.rc exists
+prebuilt_etc {
+    name: "thermald.rc",
+    owner: "realme",
+    src: "proprietary/vendor/etc/init/thermald.rc",
+    vendor: true,
+    sub_dir: "init",
+}
+
