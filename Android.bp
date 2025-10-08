@@ -3022,11 +3022,10 @@ cc_prebuilt_library_shared {
     check_elf_files: false,
 }
 
-// VINTF manifest - FIXED VERSION
 prebuilt_etc {
-    name: "android.hardware.thermal@2.0.xml",
+    name: "android.hardware.thermal@2.0-service.xml",
     owner: "realme",
-    src: "proprietary/vintf/manifest/android.hardware.thermal@2.0.xml",
+    src: "proprietary/vintf/manifest/android.hardware.thermal@2.0-service.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
 }
