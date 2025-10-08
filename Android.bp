@@ -3026,7 +3026,7 @@ cc_prebuilt_library_shared {
 prebuilt_etc {
     name: "android.hardware.thermal@2.0.xml",
     owner: "realme",
-    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.thermal@2.0.xml",
+    src: "proprietary/vintf/manifest/android.hardware.thermal@2.0.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
 }
