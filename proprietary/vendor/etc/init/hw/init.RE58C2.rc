@@ -7,6 +7,13 @@ on init
     start watchdogd
     chmod 0660 /sys/power/wakeup_count
 
+    # Logger
+    start boot_log
+    start boot_log_crash
+    start boot_log_kernel
+
+
+
 on post-fs-data
     setprop vold.post_fs_data_done 1
     # setprop debug.sf.latch_unsignaled 1
@@ -37,6 +44,29 @@ on boot
     chmod 660 /sys/class/devfreq/fd-dvfs/fd_governor/set_work_index
     chown cameraserver system /sys/class/devfreq/fd-dvfs/fd_governor/set_work_index
 
+# Logger
+service boot_log /system/bin/logcat -b all -D -f /metadata/boot_log_full.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+service boot_log_crash /system/bin/logcat -b crash -D -f /metadata/boot_log_crash.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+service boot_log_kernel /system/bin/logcat -b kernel -D -f /metadata/boot_log_kernel.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+
 on early-boot
     # Wait for insmod_sh to finish all modules
     # comment out for bringup
@@ -63,3 +93,22 @@ service mmc_ffu /vendor/bin/mmc_ffu do
     user root
     disabled
     oneshot
+
+
+on late-init
+# Logger
+    start boot_log
+    start boot_log_crash
+    start boot_log_kernel
+
+on late-fs
+# Logger
+    start boot_log
+    start boot_log_crash
+    start boot_log_kernel
+
+
+on property:sys.boot_completed=1
+    stop boot_log
+    stop boot_log_crash
+    stop boot_log_kernel
