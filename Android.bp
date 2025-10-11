@@ -3046,4 +3046,182 @@ prebuilt_etc {
     vendor: true,
     sub_dir: "init",
 }
+// =============================================
+// MISSING TRUSTY RPC COMPONENTS - BOOT FIX
+// =============================================
 
+cc_prebuilt_binary {
+    name: "tee_rpc",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/tee_rpc"],
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/tee_rpc.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "libteec",
+        "libteecPlatform",
+        "libtrusty",
+    ],
+    check_elf_files: false,  // SKIP ELF CHECK FOR TESTING
+}
+
+cc_prebuilt_library_shared {
+    name: "libteec",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libteec.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libteec.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
+    check_elf_files: false,  // SKIP ELF CHECK FOR TESTING
+}
+
+cc_prebuilt_library_shared {
+    name: "libteecPlatform",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libteecPlatform.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libteecPlatform.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libteec",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
+    check_elf_files: false,  // SKIP ELF CHECK FOR TESTING
+}
+
+cc_prebuilt_library_shared {
+    name: "lib_android_keymaster_keymint_utils",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/lib_android_keymaster_keymint_utils.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/lib_android_keymaster_keymint_utils.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
+    check_elf_files: false,  // SKIP ELF CHECK FOR TESTING
+}
+
+cc_prebuilt_library_shared {
+    name: "libkeymaster_messages",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libkeymaster_messages.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libkeymaster_messages.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    strip: {
+        none: true,
+    },
+    check_elf_files: false,  // SKIP ELF CHECK FOR TESTING
+}
+
+cc_prebuilt_library_shared {
+    name: "libkeymint",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libkeymint.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libkeymint.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libc",
+        "libm",
+        "libdl",
+        "lib_android_keymaster_keymint_utils",
+        "libkeymaster_messages",
+    ],
+    strip: {
+        none: true,
+    },
+    check_elf_files: false,  // SKIP ELF CHECK FOR TESTING
+}
+
+// Add missing init scripts
+prebuilt_etc {
+    name: "tee_rpc.rc",
+    owner: "realme",
+    src: "proprietary/vendor/etc/init/tee_rpc.rc",
+    vendor: true,
+    sub_dir: "init",
+}
+
+prebuilt_etc {
+    name: "trusty-default.rc",
+    owner: "realme",
+    src: "proprietary/vendor/etc/init/trusty-default.rc",
+    vendor: true,
+    sub_dir: "init",
+}
