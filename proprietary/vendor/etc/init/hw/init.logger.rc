@@ -1,71 +1,62 @@
-# Boot Logger Service
-# Import this file in your main init.rc with: import /system/etc/init/logger.rc
+# Bulletproof Boot Logger Service
+# Uses only rootfs (/dev, /sys, /proc) which are always available
 
 on early-init
-    # Stage 1: Early kernel logging to cache (before data mount)
+    # Stage 1: Early kernel logging to tmpfs (always available)
     start early_kernel_log
+    start boot_progress_log
 
 on post-fs-data
-    # Stage 2: Full logging to /data (after data mount)
-    mkdir /data/boot_logs 0711 system system
-    start boot_log
-    start boot_log_crash  
-    start boot_log_kernel
-    start continuous_kernel_log
-    start log_sync_service
+    # Stage 2: Migrate logs to /data once mounted
+    start migrate_early_logs
+    start main_logging_services
 
 on property:sys.boot_completed=1
-    # Stop continuous logging after successful boot
     stop continuous_kernel_log
     stop log_sync_service
 
-# Early kernel logging to cache (available immediately)
-service early_kernel_log /system/bin/sh /system/bin/early_kernel_log.sh
+# Early kernel logging to tmpfs (ALWAYS available)
+service early_kernel_log /system/system/bin/sh /system/system/bin/early_kernel_log.sh
     class core
     user root
     group root system
     oneshot
     seclabel u:r:init:s0
 
-# Main system logs
-service boot_log /system/bin/logcat -b all -f /data/boot_logs/boot_full.txt -v threadtime -r 16384 -n 10
+# Boot progress tracking
+service boot_progress_log /system/system/bin/sh /system/system/bin/boot_progress_log.sh
+    class core
+    user root
+    group root system
+    oneshot
+    seclabel u:r:init:s0
+
+# Migrate early logs from tmpfs to /data
+service migrate_early_logs /system/system/bin/sh /system/system/bin/migrate_early_logs.sh
+    class main
+    user root
+    group root system
+    oneshot
+    seclabel u:r:init:s0
+
+# Main logging services (after data mount)
+service boot_log /system/system/bin/logcat -b all -f /data/boot_logs/boot_full.txt -v threadtime -r 16384
     class main
     user root
     group root system
     disabled
     oneshot
-    seclabel u:r:logcat:s0
 
-# Crash logs
-service boot_log_crash /system//bin/logcat -b crash -f /data/boot_logs/boot_crash.txt -v threadtime -r 8192 -n 5
-    class main
-    user root
-    group root system
-    disabled
-    oneshot
-    seclabel u:r:logcat:s0
-
-# Kernel logs via logcat
-service boot_log_kernel /system/bin/logcat -b kernel -f /data/boot_logs/boot_kernel.txt -v threadtime -r 16384 -n 10
-    class main
-    user root
-    group root system
-    disabled
-    oneshot
-    seclabel u:r:logcat:s0
-
-# Continuous kernel message capture
-service continuous_kernel_log /system/bin/sh /system/bin/continuous_kernel_log.sh
+service continuous_kernel_log /system/system/bin/sh /system/system/bin/continuous_kernel_log.sh
     class main
     user root
     group root system
     disabled
     seclabel u:r:shell:s0
 
-# Periodic log sync to prevent data loss
-service log_sync_service /system/bin/sh /system/bin/log_sync.sh
-    class main
-    user root
-    group root system
-    disabled
-    seclabel u:r:shell:s0
+on post-fs-data
+    # Enable main logging
+    start boot_log
+    start boot_log_crash
+    start boot_log_kernel
+    start continuous_kernel_log
