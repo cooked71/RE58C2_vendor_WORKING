@@ -3075,11 +3075,14 @@ cc_prebuilt_library_shared {
     name: "libteec",
     owner: "realme",
     vendor: true,
-    multilib: "both",
-    srcs: [
-        "proprietary/vendor/lib/libteec.so",
-        "proprietary/vendor/lib64/libteec.so", 
-    ],
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libteec.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libteec.so"],
+        },
+    },
     shared_libs: [
         "libc++",
         "liblog",
@@ -3097,11 +3100,14 @@ cc_prebuilt_library_shared {
     name: "libteecPlatform",
     owner: "realme", 
     vendor: true,
-    multilib: "both",
-    srcs: [
-        "proprietary/vendor/lib/libteecPlatform.so",
-        "proprietary/vendor/lib64/libteecPlatform.so",
-    ],
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/libteecPlatform.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/libteecPlatform.so"],
+        },
+    },
     shared_libs: [
         "libc++",
         "liblog",
