@@ -3059,7 +3059,7 @@ cc_prebuilt_binary {
     init_rc: ["proprietary/vendor/etc/init/tee_rpc.rc"],
     shared_libs: [
         "libbase",
-        "cutils",
+        "libcutils",
         "libhidlbase",
         "liblog", 
         "libutils",
