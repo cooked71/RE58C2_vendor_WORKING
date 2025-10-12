@@ -3269,7 +3269,7 @@ cc_prebuilt_library_shared {
     name: "libkeystore2_crypto",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libkeystore2_crypto.so"],
-    vendor: true
+    // vendor: true
     compile_multilib: "64",
     shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl", "libcrypto"],
     check_elf_files: false,
