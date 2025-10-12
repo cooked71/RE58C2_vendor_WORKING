@@ -3047,4 +3047,40 @@ prebuilt_etc {
     sub_dir: "init",
 }
 
+// =============================================
+// VENDOR VINTF MANIFESTS
+// =============================================
+prebuilt_etc {
+    name: "android.hardware.security.keymint.unisoc.trusty.manifest",
+    owner: "realme",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint@2.0-unisoc.service.trusty.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
 
+prebuilt_etc {
+    name: "android.hardware.gatekeeper.trusty.manifest", 
+    owner: "realme",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "trusty.default.manifest",
+    owner: "realme",
+    src: "proprietary/vendor/etc/vintf/manifest/trusty-default.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+// =============================================
+// SYSTEM VINTF MANIFESTS
+// =============================================
+prebuilt_etc {
+    name: "android.system.keystore2.manifest",
+    owner: "realme",
+    src: "proprietary/system/etc/vintf/manifest/android.system.keystore2-service.xml",
+    sub_dir: "vintf/manifest",
+    system_ext: true,  // OR use system: true
+}
