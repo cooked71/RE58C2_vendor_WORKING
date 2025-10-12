@@ -2330,13 +2330,6 @@ prebuilt_etc {
 // VINTF Manifests
 // =============================================
 
-prebuilt_etc {
-    name: "android.hardware.gatekeeper@1.0-service.trusty.manifest",
-    owner: "realme",
-    src: "proprietary/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
-    sub_dir: "vintf/manifest",
-    vendor: true,
-}
 
 prebuilt_etc {
     name: "android.hardware.health-service.example.manifest",
@@ -3057,6 +3050,17 @@ prebuilt_etc {
     sub_dir: "vintf/manifest",
     vendor: true,
 }
+
+
+
+prebuilt_etc {
+    name: "android.hardware.gatekeeper@1.0-service.trusty.manifest",
+    owner: "realme",
+    src: "proprietary/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
 
 prebuilt_etc {
     name: "trusty.default.manifest",
