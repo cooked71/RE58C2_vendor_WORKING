@@ -3046,229 +3046,38 @@ prebuilt_etc {
     vendor: true,
     sub_dir: "init",
 }
+
 // =============================================
-// TRUSTY RPC IMPLEMENTATION - BOOT FIX
+// VENDOR VINTF MANIFESTS
 // =============================================
-
-cc_prebuilt_binary {
-    name: "tee_rpc",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/tee_rpc"],
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/tee_rpc.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog", 
-        "libutils",
-        "libc++",
-        "libteec",
-        "libteecPlatform", 
-        "libtrusty",
-    ],
-    check_elf_files: false,
-}
-
-cc_prebuilt_library_shared {
-    name: "libteec",
-    owner: "realme",
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/libteec.so"],
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/libteec.so"],
-        },
-    },
-    shared_libs: [
-        "libc++",
-        "liblog",
-        "libcutils",
-        "libutils",
-        "libc",
-        "libm", 
-        "libdl",
-    ],
-    strip: { none: true },
-    check_elf_files: false,
-}
-
-cc_prebuilt_library_shared {
-    name: "libteecPlatform",
-    owner: "realme", 
-    vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/libteecPlatform.so"],
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/libteecPlatform.so"],
-        },
-    },
-    shared_libs: [
-        "libc++",
-        "liblog",
-        "libcutils",
-        "libutils", 
-        "libteec",
-        "libc",
-        "libm",
-        "libdl",
-    ],
-    strip: { none: true },
-    check_elf_files: false,
-}
-
-cc_prebuilt_library_shared {
-    name: "lib_android_keymaster_keymint_utils",
-    owner: "realme",
-    vendor: true,
-    srcs: ["proprietary/vendor/lib64/lib_android_keymaster_keymint_utils.so"],
-    compile_multilib: "64",
-    shared_libs: [
-        "libc++",
-        "liblog",
-        "libcutils",
-        "libutils",
-        "libc",
-        "libm",
-        "libdl",
-    ],
-    strip: { none: true },
-    check_elf_files: false,
-}
-
-cc_prebuilt_library_shared {
-    name: "libkeymaster_messages", 
-    owner: "realme",
-    vendor: true,
-    srcs: ["proprietary/vendor/lib64/libkeymaster_messages.so"],
-    compile_multilib: "64",
-    shared_libs: [
-        "libc++",
-        "liblog",
-        "libcutils",
-        "libutils",
-        "libc",
-        "libm",
-        "libdl",
-    ],
-    strip: { none: true },
-    check_elf_files: false,
-}
-
-cc_prebuilt_library_shared {
-    name: "libkeymint",
-    owner: "realme",
-    vendor: true, 
-    srcs: ["proprietary/vendor/lib64/libkeymint.so"],
-    compile_multilib: "64",
-    shared_libs: [
-        "libc++",
-        "liblog",
-        "libcutils",
-        "libutils",
-        "libc",
-        "libm", 
-        "libdl",
-        "lib_android_keymaster_keymint_utils",
-        "libkeymaster_messages",
-    ],
-    strip: { none: true },
-    check_elf_files: false,
-}
-
-// Init scripts
 prebuilt_etc {
-    name: "tee_rpc.rc",
+    name: "android.hardware.security.keymint.unisoc.trusty.manifest",
     owner: "realme",
-    src: "proprietary/vendor/etc/init/tee_rpc.rc",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint@2.0-unisoc.service.trusty.xml",
+    sub_dir: "vintf/manifest",
     vendor: true,
-    sub_dir: "init",
 }
 
 prebuilt_etc {
-    name: "trusty-default.rc",
+    name: "android.hardware.gatekeeper.trusty.manifest", 
     owner: "realme",
-    src: "proprietary/vendor/etc/init/trusty-default.rc", 
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
+    sub_dir: "vintf/manifest",
     vendor: true,
-    sub_dir: "init",
 }
 
-// =============================================
-// STOCK KEYSTORE2 WITH COMPATIBILITY LAYER
-// =============================================
-
-cc_prebuilt_binary {
-    name: "keystore2",
+prebuilt_etc {
+    name: "trusty.default.manifest",
     owner: "realme",
-    srcs: ["proprietary/vendor/bin/keystore2"],
+    src: "proprietary/vendor/etc/vintf/manifest/trusty-default.xml",
+    sub_dir: "vintf/manifest",
     vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/keystore2.rc"],
-    shared_libs: [
-        "libbinder_ndk",
-        "libkeystore2_aaid", 
-        "liblog",
-        "libc",
-        "libm",
-        "libkeystore2_apc_compat",
-        "libkeystore2_crypto",
-        "libcrypto",
-        "libkm_compat_service",  // CRITICAL COMPATIBILITY LAYER
-        "libselinux",
-    ],
-    check_elf_files: false,
 }
 
-cc_prebuilt_library_shared {
-    name: "libkm_compat_service",
+prebuilt_etc {
+    name: "android.system.keystore2.manifest",
     owner: "realme",
-    srcs: ["proprietary/vendor/lib64/libkm_compat_service.so"],
-    vendor: true,
-    compile_multilib: "64",
-    shared_libs: [
-        "libc++",
-        "liblog",
-        "libcutils", 
-        "libutils",
-        "libc",
-        "libm",
-        "libdl",
-    ],
-    check_elf_files: false,
-}
-
-// Keystore libraries
-cc_prebuilt_library_shared {
-    name: "libkeystore2_aaid",
-    owner: "realme",
-    srcs: ["proprietary/vendor/lib64/libkeystore2_aaid.so"],
-    vendor: true,
-    compile_multilib: "64",
-    shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl"],
-    check_elf_files: false,
-}
-
-cc_prebuilt_library_shared {
-    name: "libkeystore2_apc_compat", 
-    owner: "realme",
-    srcs: ["proprietary/vendor/lib64/libkeystore2_apc_compat.so"],
-    vendor: true,
-    compile_multilib: "64", 
-    shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl"],
-    check_elf_files: false,
-}
-
-cc_prebuilt_library_shared {
-    name: "libkeystore2_crypto",
-    owner: "realme",
-    srcs: ["proprietary/vendor/lib64/libkeystore2_crypto.so"],
-    vendor: true,
-    compile_multilib: "64",
-    shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl", "libcrypto"],
-    check_elf_files: false,
+    src: "proprietary/system/etc/vintf/manifest/android.system.keystore2-service.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,  // PUT SYSTEM VINTF IN VENDOR TOO!
 }
