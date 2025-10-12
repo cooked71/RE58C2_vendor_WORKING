@@ -3059,7 +3059,7 @@ cc_prebuilt_binary {
     init_rc: ["proprietary/vendor/etc/init/tee_rpc.rc"],
     shared_libs: [
         "libbase",
-        "libcutils",
+        "cutils",
         "libhidlbase",
         "liblog", 
         "libutils",
@@ -3069,6 +3069,8 @@ cc_prebuilt_binary {
         "libtrusty",
     ],
     check_elf_files: false,
+    vendor_available: true,    // ADD THIS
+    product_available: true,   // ADD THIS
 }
 
 cc_prebuilt_library_shared {
@@ -3094,6 +3096,8 @@ cc_prebuilt_library_shared {
     ],
     strip: { none: true },
     check_elf_files: false,
+    vendor_available: true,    // ADD THIS
+    product_available: true,   // ADD THIS
 }
 
 cc_prebuilt_library_shared {
@@ -3120,6 +3124,8 @@ cc_prebuilt_library_shared {
     ],
     strip: { none: true },
     check_elf_files: false,
+    vendor_available: true,    // ADD THIS
+    product_available: true,   // ADD THIS
 }
 
 cc_prebuilt_library_shared {
@@ -3139,6 +3145,8 @@ cc_prebuilt_library_shared {
     ],
     strip: { none: true },
     check_elf_files: false,
+    vendor_available: true,    // ADD THIS
+    product_available: true,   // ADD THIS
 }
 
 cc_prebuilt_library_shared {
@@ -3158,6 +3166,8 @@ cc_prebuilt_library_shared {
     ],
     strip: { none: true },
     check_elf_files: false,
+    vendor_available: true,    // ADD THIS
+    product_available: true,   // ADD THIS
 }
 
 cc_prebuilt_library_shared {
@@ -3179,23 +3189,8 @@ cc_prebuilt_library_shared {
     ],
     strip: { none: true },
     check_elf_files: false,
-}
-
-// Init scripts
-prebuilt_etc {
-    name: "tee_rpc.rc",
-    owner: "realme",
-    src: "proprietary/vendor/etc/init/tee_rpc.rc",
-    vendor: true,
-    sub_dir: "init",
-}
-
-prebuilt_etc {
-    name: "trusty-default.rc",
-    owner: "realme",
-    src: "proprietary/vendor/etc/init/trusty-default.rc", 
-    vendor: true,
-    sub_dir: "init",
+    vendor_available: true,    // ADD THIS
+    product_available: true,   // ADD THIS
 }
 
 // =============================================
@@ -3218,10 +3213,12 @@ cc_prebuilt_binary {
         "libkeystore2_apc_compat",
         "libkeystore2_crypto",
         "libcrypto",
-        "libkm_compat_service",  // CRITICAL COMPATIBILITY LAYER
+        "libkm_compat_service",
         "libselinux",
     ],
     check_elf_files: false,
+    vendor_available: true,    // ADD THIS
+    product_available: true,   // ADD THIS
 }
 
 cc_prebuilt_library_shared {
@@ -3240,9 +3237,10 @@ cc_prebuilt_library_shared {
         "libdl",
     ],
     check_elf_files: false,
+    vendor_available: true,    // ADD THIS
+    product_available: true,   // ADD THIS
 }
 
-// Keystore libraries
 cc_prebuilt_library_shared {
     name: "libkeystore2_aaid",
     owner: "realme",
@@ -3251,6 +3249,8 @@ cc_prebuilt_library_shared {
     compile_multilib: "64",
     shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl"],
     check_elf_files: false,
+    vendor_available: true,    // ADD THIS
+    product_available: true,   // ADD THIS
 }
 
 cc_prebuilt_library_shared {
@@ -3261,6 +3261,8 @@ cc_prebuilt_library_shared {
     compile_multilib: "64", 
     shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl"],
     check_elf_files: false,
+    vendor_available: true,    // ADD THIS
+    product_available: true,   // ADD THIS
 }
 
 cc_prebuilt_library_shared {
@@ -3271,4 +3273,23 @@ cc_prebuilt_library_shared {
     compile_multilib: "64",
     shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl", "libcrypto"],
     check_elf_files: false,
+    vendor_available: true,    // ADD THIS
+    product_available: true,   // ADD THIS
+}
+
+// Init scripts (keep these as is)
+prebuilt_etc {
+    name: "tee_rpc.rc",
+    owner: "realme",
+    src: "proprietary/vendor/etc/init/tee_rpc.rc",
+    vendor: true,
+    sub_dir: "init",
+}
+
+prebuilt_etc {
+    name: "trusty-default.rc",
+    owner: "realme",
+    src: "proprietary/vendor/etc/init/trusty-default.rc", 
+    vendor: true,
+    sub_dir: "init",
 }
