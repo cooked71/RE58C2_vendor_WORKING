@@ -3225,7 +3225,7 @@ cc_prebuilt_library_shared {
     name: "libkm_compat_service",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libkm_compat_service.so"],
-    vendor: true
+    vendor: true,
     compile_multilib: "64",
     shared_libs: [
         "libc++",
@@ -3245,7 +3245,7 @@ cc_prebuilt_library_shared {
     name: "libkeystore2_aaid",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libkeystore2_aaid.so"],
-    vendor: true
+    vendor: true,
     compile_multilib: "64",
     shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl"],
     check_elf_files: false,
@@ -3257,7 +3257,7 @@ cc_prebuilt_library_shared {
     name: "libkeystore2_apc_compat", 
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libkeystore2_apc_compat.so"],
-    vendor: true
+    vendor: true,
     compile_multilib: "64", 
     shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl"],
     check_elf_files: false,
