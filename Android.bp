@@ -3054,7 +3054,7 @@ cc_prebuilt_binary {
     name: "tee_rpc",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/tee_rpc"],
-    vendor: true,
+    // REMOVED: vendor: true
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/tee_rpc.rc"],
     shared_libs: [
@@ -3069,14 +3069,14 @@ cc_prebuilt_binary {
         "libtrusty",
     ],
     check_elf_files: false,
-    vendor_available: true,    // ADD THIS
-    product_available: true,   // ADD THIS
+    vendor_available: true,
+    product_available: true,
 }
 
 cc_prebuilt_library_shared {
     name: "libteec",
     owner: "realme",
-    vendor: true,
+    // REMOVED: vendor: true
     multilib: {
         lib32: {
             srcs: ["proprietary/vendor/lib/libteec.so"],
@@ -3096,14 +3096,14 @@ cc_prebuilt_library_shared {
     ],
     strip: { none: true },
     check_elf_files: false,
-    vendor_available: true,    // ADD THIS
-    product_available: true,   // ADD THIS
+    vendor_available: true,
+    product_available: true,
 }
 
 cc_prebuilt_library_shared {
     name: "libteecPlatform",
     owner: "realme", 
-    vendor: true,
+    // REMOVED: vendor: true
     multilib: {
         lib32: {
             srcs: ["proprietary/vendor/lib/libteecPlatform.so"],
@@ -3124,14 +3124,14 @@ cc_prebuilt_library_shared {
     ],
     strip: { none: true },
     check_elf_files: false,
-    vendor_available: true,    // ADD THIS
-    product_available: true,   // ADD THIS
+    vendor_available: true,
+    product_available: true,
 }
 
 cc_prebuilt_library_shared {
     name: "lib_android_keymaster_keymint_utils",
     owner: "realme",
-    vendor: true,
+    // REMOVED: vendor: true
     srcs: ["proprietary/vendor/lib64/lib_android_keymaster_keymint_utils.so"],
     compile_multilib: "64",
     shared_libs: [
@@ -3145,14 +3145,14 @@ cc_prebuilt_library_shared {
     ],
     strip: { none: true },
     check_elf_files: false,
-    vendor_available: true,    // ADD THIS
-    product_available: true,   // ADD THIS
+    vendor_available: true,
+    product_available: true,
 }
 
 cc_prebuilt_library_shared {
     name: "libkeymaster_messages", 
     owner: "realme",
-    vendor: true,
+    // REMOVED: vendor: true
     srcs: ["proprietary/vendor/lib64/libkeymaster_messages.so"],
     compile_multilib: "64",
     shared_libs: [
@@ -3166,14 +3166,14 @@ cc_prebuilt_library_shared {
     ],
     strip: { none: true },
     check_elf_files: false,
-    vendor_available: true,    // ADD THIS
-    product_available: true,   // ADD THIS
+    vendor_available: true,
+    product_available: true,
 }
 
 cc_prebuilt_library_shared {
     name: "libkeymint",
     owner: "realme",
-    vendor: true, 
+    // REMOVED: vendor: true
     srcs: ["proprietary/vendor/lib64/libkeymint.so"],
     compile_multilib: "64",
     shared_libs: [
@@ -3189,8 +3189,8 @@ cc_prebuilt_library_shared {
     ],
     strip: { none: true },
     check_elf_files: false,
-    vendor_available: true,    // ADD THIS
-    product_available: true,   // ADD THIS
+    vendor_available: true,
+    product_available: true,
 }
 
 // =============================================
@@ -3201,7 +3201,7 @@ cc_prebuilt_binary {
     name: "keystore2",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/keystore2"],
-    vendor: true,
+    // REMOVED: vendor: true
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/keystore2.rc"],
     shared_libs: [
@@ -3217,15 +3217,15 @@ cc_prebuilt_binary {
         "libselinux",
     ],
     check_elf_files: false,
-    vendor_available: true,    // ADD THIS
-    product_available: true,   // ADD THIS
+    vendor_available: true,
+    product_available: true,
 }
 
 cc_prebuilt_library_shared {
     name: "libkm_compat_service",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libkm_compat_service.so"],
-    vendor: true,
+    // REMOVED: vendor: true
     compile_multilib: "64",
     shared_libs: [
         "libc++",
@@ -3237,52 +3237,52 @@ cc_prebuilt_library_shared {
         "libdl",
     ],
     check_elf_files: false,
-    vendor_available: true,    // ADD THIS
-    product_available: true,   // ADD THIS
+    vendor_available: true,
+    product_available: true,
 }
 
 cc_prebuilt_library_shared {
     name: "libkeystore2_aaid",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libkeystore2_aaid.so"],
-    vendor: true,
+    // REMOVED: vendor: true
     compile_multilib: "64",
     shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl"],
     check_elf_files: false,
-    vendor_available: true,    // ADD THIS
-    product_available: true,   // ADD THIS
+    vendor_available: true,
+    product_available: true,
 }
 
 cc_prebuilt_library_shared {
     name: "libkeystore2_apc_compat", 
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libkeystore2_apc_compat.so"],
-    vendor: true,
+    // REMOVED: vendor: true
     compile_multilib: "64", 
     shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl"],
     check_elf_files: false,
-    vendor_available: true,    // ADD THIS
-    product_available: true,   // ADD THIS
+    vendor_available: true,
+    product_available: true,
 }
 
 cc_prebuilt_library_shared {
     name: "libkeystore2_crypto",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libkeystore2_crypto.so"],
-    vendor: true,
+    // REMOVED: vendor: true
     compile_multilib: "64",
     shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl", "libcrypto"],
     check_elf_files: false,
-    vendor_available: true,    // ADD THIS
-    product_available: true,   // ADD THIS
+    vendor_available: true,
+    product_available: true,
 }
 
-// Init scripts (keep these as is)
+// Init scripts - KEEP vendor: true for these
 prebuilt_etc {
     name: "tee_rpc.rc",
     owner: "realme",
     src: "proprietary/vendor/etc/init/tee_rpc.rc",
-    vendor: true,
+    vendor: true,  // KEEP for init scripts
     sub_dir: "init",
 }
 
@@ -3290,6 +3290,6 @@ prebuilt_etc {
     name: "trusty-default.rc",
     owner: "realme",
     src: "proprietary/vendor/etc/init/trusty-default.rc", 
-    vendor: true,
+    vendor: true,  // KEEP for init scripts
     sub_dir: "init",
 }
