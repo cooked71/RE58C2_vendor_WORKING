@@ -3074,13 +3074,10 @@ prebuilt_etc {
     vendor: true,
 }
 
-// =============================================
-// SYSTEM VINTF MANIFESTS
-// =============================================
 prebuilt_etc {
     name: "android.system.keystore2.manifest",
     owner: "realme",
     src: "proprietary/system/etc/vintf/manifest/android.system.keystore2-service.xml",
     sub_dir: "vintf/manifest",
-    system_ext: true,  // OR use system: true
+    vendor: true,  // PUT SYSTEM VINTF IN VENDOR TOO!
 }
