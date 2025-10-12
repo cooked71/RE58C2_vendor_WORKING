@@ -3047,3 +3047,12 @@ prebuilt_etc {
     sub_dir: "init",
 }
 
+// =============================================
+// INJECT SYSTEM VINTF VIA VENDOR
+// =============================================
+
+vintf_fragment {
+    name: "system_keystore2_vintf",
+    vendor: true,
+    manifest: "proprietary/system/etc/vintf/manifest/android.system.keystore2-service.xml",
+}
