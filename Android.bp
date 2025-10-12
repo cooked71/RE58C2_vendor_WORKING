@@ -3225,7 +3225,7 @@ cc_prebuilt_library_shared {
     name: "libkm_compat_service",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libkm_compat_service.so"],
-    // REMOVED: vendor: true
+    vendor: true
     compile_multilib: "64",
     shared_libs: [
         "libc++",
@@ -3237,39 +3237,39 @@ cc_prebuilt_library_shared {
         "libdl",
     ],
     check_elf_files: false,
-    vendor_available: true,
-    product_available: true,
+    // vendor_available: true,
+    // product_available: true,
 }
 
 cc_prebuilt_library_shared {
     name: "libkeystore2_aaid",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libkeystore2_aaid.so"],
-    // REMOVED: vendor: true
+    vendor: true
     compile_multilib: "64",
     shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl"],
     check_elf_files: false,
-    vendor_available: true,
-    product_available: true,
+    // vendor_available: true,
+    // product_available: true,
 }
 
 cc_prebuilt_library_shared {
     name: "libkeystore2_apc_compat", 
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libkeystore2_apc_compat.so"],
-    // REMOVED: vendor: true
+    vendor: true
     compile_multilib: "64", 
     shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl"],
     check_elf_files: false,
-    vendor_available: true,
-    product_available: true,
+    // vendor_available: true,
+    // product_available: true,
 }
-
+ 
 cc_prebuilt_library_shared {
     name: "libkeystore2_crypto",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libkeystore2_crypto.so"],
-    // REMOVED: vendor: true
+    vendor: true
     compile_multilib: "64",
     shared_libs: ["libc++", "liblog", "libcutils", "libutils", "libc", "libm", "libdl", "libcrypto"],
     check_elf_files: false,
