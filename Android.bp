@@ -3047,8 +3047,15 @@ prebuilt_etc {
 cc_prebuilt_library_shared {
     name: "libtinyxml2",
     owner: "realme",
-    srcs: ["proprietary/system/lib64/libtinyxml2.so"],
-    compile_multilib: "64",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/libtinyxml2.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/libtinyxml2.so"],
+        },
+    },
     shared_libs: [
         "libc++",
         "libc",
@@ -3061,8 +3068,15 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libnetutils",
     owner: "realme",
-    srcs: ["proprietary/system/lib64/libnetutils.so"],
-    compile_multilib: "64",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/libnetutils.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/libnetutils.so"],
+        },
+    },
     shared_libs: [
         "libc++",
         "liblog",
@@ -3074,8 +3088,15 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libhardware_legacy",
     owner: "realme",
-    srcs: ["proprietary/system/lib64/libhardware_legacy.so"],
-    compile_multilib: "64",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/libhardware_legacy.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/libhardware_legacy.so"],
+        },
+    },
     shared_libs: [
         "libc++",
         "liblog", 
@@ -3085,13 +3106,19 @@ cc_prebuilt_library_shared {
     check_elf_files: false,
 }
 
-// AOSP Radio NDK Libraries (required by librilcore) - MUST BE VENDOR
+// AOSP Radio NDK Libraries (required by librilcore) - BOTH 32-bit and 64-bit
 cc_prebuilt_library_shared {
     name: "android.hardware.radio-V1-ndk",
     owner: "realme",
     vendor: true,
-    srcs: ["proprietary/system/lib64/android.hardware.radio-V1-ndk.so"],
-    compile_multilib: "64",
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/android.hardware.radio-V1-ndk.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/android.hardware.radio-V1-ndk.so"],
+        },
+    },
     shared_libs: [
         "libbinder_ndk",
         "libc++",
@@ -3104,8 +3131,14 @@ cc_prebuilt_library_shared {
     name: "android.hardware.radio.config-V1-ndk", 
     owner: "realme",
     vendor: true,
-    srcs: ["proprietary/system/lib64/android.hardware.radio.config-V1-ndk.so"],
-    compile_multilib: "64",
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/android.hardware.radio.config-V1-ndk.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/android.hardware.radio.config-V1-ndk.so"],
+        },
+    },
     shared_libs: [
         "libbinder_ndk",
         "libc++",
@@ -3118,8 +3151,14 @@ cc_prebuilt_library_shared {
     name: "android.hardware.radio.data-V1-ndk",
     owner: "realme", 
     vendor: true,
-    srcs: ["proprietary/system/lib64/android.hardware.radio.data-V1-ndk.so"],
-    compile_multilib: "64",
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/android.hardware.radio.data-V1-ndk.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/android.hardware.radio.data-V1-ndk.so"],
+        },
+    },
     shared_libs: [
         "libbinder_ndk",
         "libc++", 
@@ -3132,8 +3171,14 @@ cc_prebuilt_library_shared {
     name: "android.hardware.radio.messaging-V1-ndk",
     owner: "realme",
     vendor: true,
-    srcs: ["proprietary/system/lib64/android.hardware.radio.messaging-V1-ndk.so"],
-    compile_multilib: "64",
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/android.hardware.radio.messaging-V1-ndk.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/android.hardware.radio.messaging-V1-ndk.so"],
+        },
+    },
     shared_libs: [
         "libbinder_ndk",
         "libc++",
@@ -3146,8 +3191,14 @@ cc_prebuilt_library_shared {
     name: "android.hardware.radio.modem-V1-ndk",
     owner: "realme",
     vendor: true,
-    srcs: ["proprietary/system/lib64/android.hardware.radio.modem-V1-ndk.so"],
-    compile_multilib: "64",
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/android.hardware.radio.modem-V1-ndk.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/android.hardware.radio.modem-V1-ndk.so"],
+        },
+    },
     shared_libs: [
         "libbinder_ndk",
         "libc++",
@@ -3160,8 +3211,14 @@ cc_prebuilt_library_shared {
     name: "android.hardware.radio.network-V1-ndk",
     owner: "realme",
     vendor: true,
-    srcs: ["proprietary/system/lib64/android.hardware.radio.network-V1-ndk.so"],
-    compile_multilib: "64",
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/android.hardware.radio.network-V1-ndk.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/android.hardware.radio.network-V1-ndk.so"],
+        },
+    },
     shared_libs: [
         "libbinder_ndk",
         "libc++",
@@ -3174,8 +3231,14 @@ cc_prebuilt_library_shared {
     name: "android.hardware.radio.sim-V1-ndk",
     owner: "realme",
     vendor: true,
-    srcs: ["proprietary/system/lib64/android.hardware.radio.sim-V1-ndk.so"],
-    compile_multilib: "64",
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/android.hardware.radio.sim-V1-ndk.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/android.hardware.radio.sim-V1-ndk.so"],
+        },
+    },
     shared_libs: [
         "libbinder_ndk",
         "libc++",
@@ -3188,8 +3251,14 @@ cc_prebuilt_library_shared {
     name: "android.hardware.radio.voice-V1-ndk",
     owner: "realme",
     vendor: true,
-    srcs: ["proprietary/system/lib64/android.hardware.radio.voice-V1-ndk.so"],
-    compile_multilib: "64",
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/android.hardware.radio.voice-V1-ndk.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/android.hardware.radio.voice-V1-ndk.so"],
+        },
+    },
     shared_libs: [
         "libbinder_ndk",
         "libc++",
@@ -3197,7 +3266,6 @@ cc_prebuilt_library_shared {
     ],
     check_elf_files: false,
 }
-
 // =============================================
 // VENDOR VINTF MANIFESTS
 // =============================================
