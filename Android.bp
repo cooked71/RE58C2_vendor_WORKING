@@ -5,6 +5,18 @@ soong_namespace {
 // =============================================
 // Prebuilt APKs
 // =============================================
+// =============================================
+// Unisoc Framework Overlay
+// =============================================
+
+// unisoc_overlay_frameworks_res.apk
+android_app_import {
+    name: "unisoc_overlay_frameworks_res",
+    apk: "vendor/overlay/unisoc_overlay_frameworks_res.apk",
+    certificate: "platform",
+    product_specific: true,
+}
+
 
 android_app_import {
     name: "SoterService",
