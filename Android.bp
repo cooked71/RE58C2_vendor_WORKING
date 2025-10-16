@@ -3283,7 +3283,7 @@ cc_prebuilt_library_shared {
 }
 
 // =============================================
-// UNISOC Framework APKs (Skip ELF checks)
+// UNISOC Framework APKs
 // =============================================
 
 // unisoc-framework.jar
@@ -3292,7 +3292,6 @@ android_app_import {
     apk: "system_ext/framework/unisoc-framework.jar",
     certificate: "PRESIGNED",
     system_ext_specific: true,
-    check_elf_files: false,  // Skip ELF validation
 }
 
 // unipnp-framework.jar  
@@ -3301,7 +3300,6 @@ android_app_import {
     apk: "system_ext/framework/unipnp-framework.jar",
     certificate: "PRESIGNED", 
     system_ext_specific: true,
-    check_elf_files: false,  // Skip ELF validation
 }
 
 // =============================================
@@ -3314,6 +3312,5 @@ android_app_import {
     apk: "vendor/overlay/unisoc_overlay_frameworks_res.apk",
     certificate: "PRESIGNED",
     product_specific: true,
-    check_elf_files: false,  // Skip ELF validation
 }
 
