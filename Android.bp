@@ -3041,6 +3041,156 @@ prebuilt_etc {
 }
 
 // =============================================
+// CRITICAL MISSING SYSTEM LIBRARIES
+// =============================================
+
+cc_prebuilt_library_shared {
+    name: "libtinyxml2",
+    owner: "realme",
+    srcs: ["proprietary/system/lib64/libtinyxml2.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libc++",
+        "libc",
+        "libm", 
+        "libdl",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libnetutils",
+    owner: "realme",
+    srcs: ["proprietary/system/lib64/libnetutils.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libcutils",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libhardware_legacy",
+    owner: "realme",
+    srcs: ["proprietary/system/lib64/libhardware_legacy.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libc++",
+        "liblog", 
+        "libcutils",
+        "libutils",
+    ],
+    check_elf_files: false,
+}
+
+// AOSP Radio NDK Libraries (required by librilcore)
+cc_prebuilt_library_shared {
+    name: "android.hardware.radio-V1-ndk",
+    owner: "realme",
+    srcs: ["proprietary/system/lib64/android.hardware.radio-V1-ndk.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.radio.config-V1-ndk", 
+    owner: "realme",
+    srcs: ["proprietary/system/lib64/android.hardware.radio.config-V1-ndk.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.radio.data-V1-ndk",
+    owner: "realme", 
+    srcs: ["proprietary/system/lib64/android.hardware.radio.data-V1-ndk.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++", 
+        "liblog",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.radio.messaging-V1-ndk",
+    owner: "realme",
+    srcs: ["proprietary/system/lib64/android.hardware.radio.messaging-V1-ndk.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.radio.modem-V1-ndk",
+    owner: "realme",
+    srcs: ["proprietary/system/lib64/android.hardware.radio.modem-V1-ndk.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.radio.network-V1-ndk",
+    owner: "realme",
+    srcs: ["proprietary/system/lib64/android.hardware.radio.network-V1-ndk.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.radio.sim-V1-ndk",
+    owner: "realme",
+    srcs: ["proprietary/system/lib64/android.hardware.radio.sim-V1-ndk.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.radio.voice-V1-ndk",
+    owner: "realme",
+    srcs: ["proprietary/system/lib64/android.hardware.radio.voice-V1-ndk.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbinder_ndk",
+        "libc++",
+        "liblog",
+    ],
+    check_elf_files: false,
+}
+
+// =============================================
 // VENDOR VINTF MANIFESTS
 // =============================================
 // prebuilt_etc {
