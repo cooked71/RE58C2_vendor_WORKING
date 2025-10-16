@@ -3289,7 +3289,7 @@ cc_prebuilt_library_shared {
 // unisoc-framework.jar
 android_app_import {
     name: "unisoc-framework",
-    apk: "system_ext/framework/unisoc-framework.jar",
+    apk: "proprietary/system_ext/framework/unisoc-framework.jar",
     certificate: "PRESIGNED",
     system_ext_specific: true,
 }
@@ -3297,7 +3297,7 @@ android_app_import {
 // unipnp-framework.jar  
 android_app_import {
     name: "unipnp-framework", 
-    apk: "system_ext/framework/unipnp-framework.jar",
+    apk: "proprietary/system_ext/framework/unipnp-framework.jar",
     certificate: "PRESIGNED", 
     system_ext_specific: true,
 }
@@ -3309,7 +3309,7 @@ android_app_import {
 // unisoc_overlay_frameworks_res.apk
 android_app_import {
     name: "unisoc_overlay_frameworks_res",
-    apk: "vendor/overlay/unisoc_overlay_frameworks_res.apk",
+    apk: "proprietary/vendor/overlay/unisoc_overlay_frameworks_res.apk",
     certificate: "PRESIGNED",
     product_specific: true,
 }
