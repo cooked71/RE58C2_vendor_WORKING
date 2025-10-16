@@ -3143,3 +3143,39 @@ cc_prebuilt_library_shared {
 //    sub_dir: "vintf/manifest",
 //    vendor: true,  // PUT SYSTEM VINTF IN VENDOR TOO!
 // }
+
+// =============================================
+// VINTF MANIFEST FRAGMENTS
+// =============================================
+
+prebuilt_etc {
+    name: "vendor.sprd.hardware.thermal@2.0-service.xml",
+    owner: "realme",
+    src: "proprietary/vintf/manifest/vendor.sprd.hardware.thermal@2.0-service.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "vendor-power-default.xml",
+    owner: "realme",
+    src: "proprietary/vintf/manifest/vendor-power-default.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "power.stats-default.xml",
+    owner: "realme",
+    src: "proprietary/vintf/manifest/power.stats-default.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "android.hardware.thermal@2.0-service.xml",
+    owner: "realme",
+    src: "proprietary/vintf/manifest/android.hardware.thermal@2.0-service.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
