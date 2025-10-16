@@ -3195,4 +3195,79 @@ cc_prebuilt_binary {
     ],
     check_elf_files: false,
 }
+// Missing packages that were causing build failures
+cc_prebuilt_binary {
+    name: "android.hardware.bluetooth@1.1-service.unisoc",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.bluetooth@1.1-service.unisoc"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.bluetooth@1.1-service.unisoc.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+    check_elf_files: false,
+}
 
+cc_prebuilt_binary {
+    name: "hostapd",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/hw/hostapd"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/hostapd.android.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_binary {
+    name: "wpa_supplicant",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/hw/wpa_supplicant"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "sensors.unisoc",
+    owner: "realme",
+    srcs: ["proprietary/vendor/lib64/hw/sensors.unisoc.so"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "sensors.unisoc",
+    owner: "realme",
+    srcs: ["proprietary/vendor/lib/hw/sensors.unisoc.so"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "32",
+    check_elf_files: false,
+}
