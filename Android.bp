@@ -3179,3 +3179,92 @@ prebuilt_etc {
     sub_dir: "vintf/manifest",
     vendor: true,
 }
+
+// =============================================
+// POWER & THERMAL SERVICES
+// =============================================
+
+// Power Service
+cc_prebuilt_binary {
+    name: "vendor.unisoc.hardware.power-service",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/hw/vendor.unisoc.hardware.power-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/vendor-power-default.rc"],
+    shared_libs: [
+        "vendor.unisoc.hardware.power-V1-ndk",
+        "power.default",
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "libbinder",
+        "libbinder_ndk",
+        "power.sprd",
+    ],
+    check_elf_files: false,
+}
+
+// Thermal Service
+cc_prebuilt_binary {
+    name: "vendor.sprd.hardware.thermal@2.0-service",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.thermal@2.0-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.thermal@2.0-service.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "vendor.sprd.hardware.thermal@2.0",
+    ],
+    check_elf_files: false,
+}
+
+// Power Stats Service
+cc_prebuilt_binary {
+    name: "android.hardware.power.stats-service.example",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.power.stats-service.example"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/power.stats-default.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+    check_elf_files: false,
+}
+
+// Thermal Daemon
+cc_prebuilt_binary {
+    name: "thermald",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/thermald"],
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/thermald.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+    check_elf_files: false,
+}
