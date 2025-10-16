@@ -158,7 +158,7 @@ P#RODUCT_COPY_FILES += \
 # Copy the entire firmware directory
 # This is where the kernel will look for hardware firmware files
 #----------------------------------------------------------------------
-PRODUCT_COPY_FILES += \
+# PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor,$(TARGET_COPY_OUT_VENDOR))
 
 
@@ -182,7 +182,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vndservice_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vndservice_contexts
 
 # Platform policy version (important!)
-#PRODUCT_COPY_FILES += \
+# PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/selinux/plat_sepolicy_vers.txt:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/plat_sepolicy_vers.txt
     
      
