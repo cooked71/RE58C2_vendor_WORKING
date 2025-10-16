@@ -3255,19 +3255,16 @@ cc_prebuilt_binary {
 cc_prebuilt_library_shared {
     name: "sensors.unisoc",
     owner: "realme",
-    srcs: ["proprietary/vendor/lib64/hw/sensors.unisoc.so"],
-    relative_install_path: "hw",
     vendor: true,
-    compile_multilib: "64",
+    relative_install_path: "hw",
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/sensors.unisoc.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/sensors.unisoc.so"],
+        },
+    },
     check_elf_files: false,
 }
 
-cc_prebuilt_library_shared {
-    name: "sensors.unisoc",
-    owner: "realme",
-    srcs: ["proprietary/vendor/lib/hw/sensors.unisoc.so"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "32",
-    check_elf_files: false,
-}
