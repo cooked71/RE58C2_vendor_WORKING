@@ -6,6 +6,20 @@ soong_namespace {
 // Prebuilt APKs
 // =============================================
 
+// Root symlinks for vendor_ramdisk - located in ramdisk folder
+cc_binary {
+    name: "vendor_ramdisk_root_symlinks",
+    vendor_ramdisk: true,
+    
+    symlinks: [
+        "init:system/bin/init",
+        "bin:system/bin", 
+        "etc:system/etc",
+        "lib:system/lib",
+        "lib64:system/lib64",
+    ],
+}
+
 android_app_import {
     name: "SoterService",
     owner: "realme",
@@ -3041,6 +3055,72 @@ prebuilt_etc {
 }
 
 // =============================================
+// KEEP ONLY THESE - NOT PROVIDED BY AOSP
+// =============================================
+
+cc_prebuilt_library_shared {
+    name: "libtinyxml2",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/libtinyxml2.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/libtinyxml2.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "libc",
+        "libm", 
+        "libdl",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libnetutils",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/libnetutils.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/libnetutils.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libcutils",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libhardware_legacy",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system/lib/libhardware_legacy.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system/lib64/libhardware_legacy.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "liblog", 
+        "libcutils",
+        "libutils",
+    ],
+    check_elf_files: false,
+}
+
+// =============================================
 // VENDOR VINTF MANIFESTS
 // =============================================
 // prebuilt_etc {
@@ -3077,3 +3157,160 @@ prebuilt_etc {
 //    sub_dir: "vintf/manifest",
 //    vendor: true,  // PUT SYSTEM VINTF IN VENDOR TOO!
 // }
+
+// =============================================
+// VINTF MANIFEST FRAGMENTS
+// =============================================
+
+prebuilt_etc {
+    name: "vendor.sprd.hardware.thermal@2.0-service.xml",
+    owner: "realme",
+    src: "proprietary/vintf/manifest/vendor.sprd.hardware.thermal@2.0-service.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "vendor-power-default.xml",
+    owner: "realme",
+    src: "proprietary/vintf/manifest/vendor-power-default.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "power.stats-default.xml",
+    owner: "realme",
+    src: "proprietary/vintf/manifest/power.stats-default.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
+
+// =============================================
+// POWER & THERMAL SERVICES
+// =============================================
+
+// Power Stats Service
+cc_prebuilt_binary {
+    name: "android.hardware.power.stats-service.example",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.power.stats-service.example"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/power.stats-default.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+    check_elf_files: false,
+}
+// Missing packages that were causing build failures
+cc_prebuilt_binary {
+    name: "android.hardware.bluetooth@1.1-service.unisoc",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/hw/android.hardware.bluetooth@1.1-service.unisoc"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/android.hardware.bluetooth@1.1-service.unisoc.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_binary {
+    name: "hostapd",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/hw/hostapd"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/hostapd.android.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_binary {
+    name: "wpa_supplicant",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/hw/wpa_supplicant"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "sensors.unisoc",
+    owner: "realme",
+    vendor: true,
+    relative_install_path: "hw",
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/sensors.unisoc.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/sensors.unisoc.so"],
+        },
+    },
+    check_elf_files: false,
+}
+
+// =============================================
+// UNISOC Framework APKs
+// =============================================
+
+// unisoc-framework.jar
+android_app_import {
+    name: "unisoc-framework",
+    apk: "system_ext/framework/unisoc-framework.jar",
+    certificate: "PRESIGNED",
+    system_ext_specific: true,
+}
+
+// unipnp-framework.jar  
+android_app_import {
+    name: "unipnp-framework", 
+    apk: "system_ext/framework/unipnp-framework.jar",
+    certificate: "PRESIGNED", 
+    system_ext_specific: true,
+}
+
+// =============================================
+// Unisoc Framework Overlay
+// =============================================
+
+// unisoc_overlay_frameworks_res.apk
+android_app_import {
+    name: "unisoc_overlay_frameworks_res",
+    apk: "vendor/overlay/unisoc_overlay_frameworks_res.apk",
+    certificate: "PRESIGNED",
+    product_specific: true,
+}
+
