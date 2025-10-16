@@ -6,20 +6,6 @@ soong_namespace {
 // Prebuilt APKs
 // =============================================
 
-// Root symlinks for vendor_ramdisk - located in ramdisk folder
-cc_prebuilt_binary {
-    name: "vendor_ramdisk_root_symlinks",
-    vendor_ramdisk: true,
-    symlinks: [
-        "init:system/bin/init",
-        "bin:system/bin", 
-        "etc:system/etc",
-        "lib:system/lib", 
-        "lib64:system/lib64",
-    ],
-}
-
-
 android_app_import {
     name: "SoterService",
     owner: "realme",
