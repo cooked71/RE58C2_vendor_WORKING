@@ -3284,7 +3284,7 @@ cc_prebuilt_library_shared {
 
 // Stock vold from stock ROM
 cc_prebuilt_binary {
-    name: "vold_unisoc",
+    name: "vold",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/bin/vold"],
