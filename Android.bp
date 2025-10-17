@@ -3291,7 +3291,8 @@ cc_prebuilt_binary {
     init_rc: ["proprietary/etc/init/vold.rc"],
     relative_install_path: "hw",
     compile_multilib: "64",
-}
+    overrides: ["vold"],
+     }
 
 // vold prepare script  
 cc_prebuilt_binary {
