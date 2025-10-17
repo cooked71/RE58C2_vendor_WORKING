@@ -3333,23 +3333,23 @@ cc_prebuilt_binary {
 }
 
 // odrefresh - SYSTEM service
-cc_prebuilt_binary {
-    name: "odrefresh",
-    owner: "realme",
-    // NO vendor: true
-    srcs: ["proprietary/system/bin/odrefresh"],
-    relative_install_path: "hw",
-    compile_multilib: "64",
-    shared_libs: [
-        "libbase",
-        "liblog",
-        "libcutils",
-        "libutils",
-        "libcrypto",
-        "libc++",
-    ],
-    check_elf_files: false,
-}
+// cc_prebuilt_binary {
+//    name: "odrefresh",
+//    owner: "realme",
+//    // NO vendor: true
+//    srcs: ["proprietary/system/bin/odrefresh"],
+//    relative_install_path: "hw",
+//    compile_multilib: "64",
+//    shared_libs: [
+//        "libbase",
+//        "liblog",
+//        "libcutils",
+//        "libutils",
+//        "libcrypto",
+//        "libc++",
+//    ],
+//    check_elf_files: false,
+// }
 
 // installd - SYSTEM service
 cc_prebuilt_binary {
