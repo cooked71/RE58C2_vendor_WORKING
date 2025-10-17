@@ -3285,11 +3285,34 @@ cc_prebuilt_library_shared {
 // MISSING BOOT STACK - ADD THESE
 // =============================================
 
-// keystore2 - CRITICAL (PID 443 in stock boot)
+// odsign - SYSTEM service, not vendor
+cc_prebuilt_binary {
+    name: "odsign",
+    owner: "realme",
+    // REMOVE: vendor: true,  // This is a system service
+    srcs: ["proprietary/system/bin/odsign"],
+    relative_install_path: "hw",
+    compile_multilib: "64",
+    shared_libs: [
+        "android.system.keystore2-V1-cpp",
+        "android.hardware.security.keymint-V1-cpp",
+        "libbase",
+        "libbinder",
+        "libcrypto",
+        "libcrypto_utils",
+        "libfsverity",
+        "liblogwrap",  // Now this will work in system
+        "libprotobuf-cpp-lite",
+        "libutils",
+    ],
+    check_elf_files: false,
+}
+
+// keystore2 - SYSTEM service, not vendor
 cc_prebuilt_binary {
     name: "keystore2",
     owner: "realme",
-    vendor: true,
+    // REMOVE: vendor: true,  // This is a system service
     srcs: ["proprietary/system/bin/keystore2"],
     init_rc: ["proprietary/system/etc/init/keystore2.rc"],
     relative_install_path: "hw",
@@ -3305,29 +3328,6 @@ cc_prebuilt_binary {
         "libcrypto",
         "libkm_compat_service",
         "libselinux",
-    ],
-    check_elf_files: false,
-}
-
-// odsign - On-Device Signing (PID 607 in stock)
-cc_prebuilt_binary {
-    name: "odsign",
-    owner: "realme",
-    vendor: true,
-    srcs: ["proprietary/system/bin/odsign"],
-    relative_install_path: "hw",
-    compile_multilib: "64",
-    shared_libs: [
-        "android.system.keystore2-V1-cpp",
-        "android.hardware.security.keymint-V1-cpp",
-        "libbase",
-        "libbinder",
-        "libcrypto",
-        "libcrypto_utils",
-        "libfsverity",
-        "liblogwrap",
-        "libprotobuf-cpp-lite",
-        "libutils",
     ],
     check_elf_files: false,
 }
@@ -3351,11 +3351,11 @@ cc_prebuilt_binary {
     check_elf_files: false,
 }
 
-// installd - Package Installation Daemon (PID 769 in stock)
+// installd - SYSTEM service, not vendor
 cc_prebuilt_binary {
     name: "installd",
     owner: "realme",
-    vendor: true,
+    // REMOVE: vendor: true,  // This is a system service
     srcs: ["proprietary/system/bin/installd"],
     init_rc: ["proprietary/system/etc/init/installd.rc"],
     relative_install_path: "hw",
@@ -3366,7 +3366,7 @@ cc_prebuilt_binary {
         "libcrypto",
         "libcutils",
         "liblog",
-        "liblogwrap",
+        "liblogwrap",  // Now this will work in system
         "libprocessgroup",
         "libselinux",
         "libutils",
