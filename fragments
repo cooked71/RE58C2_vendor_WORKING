@@ -1,0 +1,47 @@
+// Stock vold from stock ROM
+cc_prebuilt_binary {
+    name: "vold",
+    owner: "realme",
+    vendor: true,
+    srcs: ["proprietary/bin/vold"],
+    init_rc: ["proprietary/etc/init/vold.rc"],
+    relative_install_path: "hw",
+    compile_multilib: "64",
+    overrides: ["vold"],
+     }
+
+// vold prepare script  
+cc_prebuilt_binary {
+    name: "vold_prepare_subdirs_unisoc",
+    owner: "realme",
+    vendor: true,
+    srcs: ["proprietary/bin/vold_prepare_subdirs"],
+    relative_install_path: "hw", 
+    compile_multilib: "64",
+}
+
+// Unisoc vold library
+cc_prebuilt_library_shared {
+    name: "libunisocvold",
+    owner: "realme",
+    vendor: true,
+    srcs: ["proprietary/system_ext/lib64/libunisocvold.so"],
+    compile_multilib: "64",
+    check_elf_files: false,
+}
+
+// Phoenix native library
+cc_prebuilt_library_shared {
+    name: "libphoenix_native",
+    owner: "realme", 
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/system_ext/lib/libphoenix_native.so"],
+        },
+        lib64: {
+            srcs: ["proprietary/system_ext/lib64/libphoenix_native.so"],
+        },
+    },
+    check_elf_files: false,
+}
