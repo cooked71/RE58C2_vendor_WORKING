@@ -3285,11 +3285,11 @@ cc_prebuilt_library_shared {
 // MISSING BOOT STACK - ADD THESE
 // =============================================
 
-// odsign - SYSTEM service, not vendor
+// odsign - SYSTEM service
 cc_prebuilt_binary {
     name: "odsign",
     owner: "realme",
-    // REMOVE: vendor: true,  // This is a system service
+    // NO vendor: true
     srcs: ["proprietary/system/bin/odsign"],
     relative_install_path: "hw",
     compile_multilib: "64",
@@ -3301,18 +3301,18 @@ cc_prebuilt_binary {
         "libcrypto",
         "libcrypto_utils",
         "libfsverity",
-        "liblogwrap",  // Now this will work in system
+        "liblogwrap",
         "libprotobuf-cpp-lite",
         "libutils",
     ],
     check_elf_files: false,
 }
 
-// keystore2 - SYSTEM service, not vendor
+// keystore2 - SYSTEM service
 cc_prebuilt_binary {
     name: "keystore2",
     owner: "realme",
-    // REMOVE: vendor: true,  // This is a system service
+    // NO vendor: true
     srcs: ["proprietary/system/bin/keystore2"],
     init_rc: ["proprietary/system/etc/init/keystore2.rc"],
     relative_install_path: "hw",
@@ -3332,11 +3332,11 @@ cc_prebuilt_binary {
     check_elf_files: false,
 }
 
-// odrefresh - ART Optimization (PID 609 in stock)
+// odrefresh - SYSTEM service
 cc_prebuilt_binary {
     name: "odrefresh",
     owner: "realme",
-    vendor: true,
+    // NO vendor: true
     srcs: ["proprietary/system/bin/odrefresh"],
     relative_install_path: "hw",
     compile_multilib: "64",
@@ -3351,11 +3351,11 @@ cc_prebuilt_binary {
     check_elf_files: false,
 }
 
-// installd - SYSTEM service, not vendor
+// installd - SYSTEM service
 cc_prebuilt_binary {
     name: "installd",
     owner: "realme",
-    // REMOVE: vendor: true,  // This is a system service
+    // NO vendor: true
     srcs: ["proprietary/system/bin/installd"],
     init_rc: ["proprietary/system/etc/init/installd.rc"],
     relative_install_path: "hw",
@@ -3366,7 +3366,7 @@ cc_prebuilt_binary {
         "libcrypto",
         "libcutils",
         "liblog",
-        "liblogwrap",  // Now this will work in system
+        "liblogwrap",
         "libprocessgroup",
         "libselinux",
         "libutils",
@@ -3375,11 +3375,11 @@ cc_prebuilt_binary {
     check_elf_files: false,
 }
 
-// wificond - WiFi Condition Daemon (PID 784 in stock)
+// wificond - SYSTEM service
 cc_prebuilt_binary {
     name: "wificond",
     owner: "realme",
-    vendor: true,
+    // NO vendor: true
     srcs: ["proprietary/system/bin/wificond"],
     relative_install_path: "hw",
     compile_multilib: "64",
