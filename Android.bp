@@ -3585,3 +3585,21 @@ cc_prebuilt_binary {
 //     check_elf_files: false,
 // }
 
+// WiFi HAL library
+cc_prebuilt_library_shared {
+    name: "libwifi-hal",
+    owner: "realme",
+    vendor: true,
+    srcs: ["proprietary/vendor/lib64/libwifi-hal.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libcutils",
+        "libc++",
+        "libnl",
+    ],
+    check_elf_files: false,
+}
+
+
