@@ -3288,7 +3288,7 @@ cc_prebuilt_binary {
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/bin/vold"],
-    init_rc: ["proprietary/etc/init/vold_unisoc.rc"],
+    init_rc: ["proprietary/etc/init/vold.rc"],
     relative_install_path: "hw",
     compile_multilib: "64",
 }
@@ -3326,25 +3326,6 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/system_ext/lib64/libphoenix_native.so"],
         },
     },
-    check_elf_files: false,
-}
-
-// Storage HALs
-cc_prebuilt_library_shared {
-    name: "android.hardware.health.storage@1.0",
-    owner: "realme",
-    vendor: true,
-    srcs: ["proprietary/system/lib64/android.hardware.health.storage@1.0.so"],
-    compile_multilib: "64",
-    check_elf_files: false,
-}
-
-cc_prebuilt_library_shared {
-    name: "android.hardware.health.storage-V1-ndk",
-    owner: "realme",
-    vendor: true, 
-    srcs: ["proprietary/system/lib64/android.hardware.health.storage-V1-ndk.so"],
-    compile_multilib: "64",
     check_elf_files: false,
 }
 
