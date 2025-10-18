@@ -3419,7 +3419,58 @@ cc_prebuilt_binary {
     ],
     check_elf_files: false,
 }
+// =============================================
+// MINIMAL: Use LineageOS libkeystore2 + Stock credstore
+// =============================================
 
+// credstore service only
+cc_prebuilt_binary {
+    name: "credstore",
+    owner: "realme",
+    srcs: ["proprietary/system/bin/credstore"],
+    init_rc: ["proprietary/system/etc/init/credstore.rc"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbase",
+        "libbinder",
+        "libbinder_ndk", 
+        "libcredstore_aidl",
+        "libcrypto",
+        "libcutils",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+    check_elf_files: false,
+}
+
+// libcredstore_aidl only  
+cc_prebuilt_library_shared {
+    name: "libcredstore_aidl",
+    owner: "realme",
+    srcs: ["proprietary/system/lib64/libcredstore_aidl.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbase",
+        "libbinder",
+        "libcrypto",
+        "libcutils", 
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+    strip: {
+        none: true,
+    },
+}
+
+// VINTF manifest only
+prebuilt_etc {
+    name: "android.system.keystore2-service.manifest",
+    owner: "realme",
+    src: "proprietary/system/etc/vintf/manifest/android.system.keystore2-service.xml",
+    sub_dir: "vintf/manifest",
+}
 // =============================================
 // UNCOMMENT THESE - THEY SHOULD BE ACTIVE
 // =============================================
