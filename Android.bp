@@ -3449,32 +3449,32 @@ cc_prebuilt_binary {
 // }
 
 // UNCOMMENT THIS - CAS service
-cc_prebuilt_binary {
-   name: "android.hardware.cas@1.2-service",
-   owner: "realme",
-   vendor: true,
-   shared_libs: [
-       "libbase",
-       "libcutils",
-       "libhidlbase",
-       "liblog",
-       "libutils",
-       "android.hardware.cas@1.2",
-       "android.hardware.cas@1.1",
-       "android.hardware.cas@1.0",
-       "android.hardware.cas.native@1.0",
-       "android.hidl.memory@1.0",
-       "libbinder",
-       "libhidlmemory",
-       "libc++",
-       "libc",
-       "libm",
-       "libdl",
-       "libstagefright_foundation",
-   ],
-   relative_install_path: "hw",
-   srcs: ["proprietary/vendor/bin/hw/android.hardware.cas@1.2-service"],
-}
+//cc_prebuilt_binary {
+//   name: "android.hardware.cas@1.2-service",
+//   owner: "realme",
+//   vendor: true,
+//   shared_libs: [
+//       "libbase",
+//       "libcutils",
+//       "libhidlbase",
+//       "liblog",
+//       "libutils",
+//       "android.hardware.cas@1.2",
+//       "android.hardware.cas@1.1",
+//       "android.hardware.cas@1.0",
+//       "android.hardware.cas.native@1.0",
+//       "android.hidl.memory@1.0",
+//       "libbinder",
+//       "libhidlmemory",
+//       "libc++",
+//       "libc",
+//       "libm",
+//       "libdl",
+//       "libstagefright_foundation",
+//   ],
+//   relative_install_path: "hw",
+//   srcs: ["proprietary/vendor/bin/hw/android.hardware.cas@1.2-service"],
+// }
 
 // =============================================
 // MISSING LIBRARIES FOR BOOT STACK
