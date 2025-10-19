@@ -1533,7 +1533,7 @@ cc_prebuilt_library_shared {
 
 }
 
-# Graphics Mapper Implementation
+// Graphics Mapper Implementation
 cc_prebuilt_library_shared {
     name: "android.hardware.graphics.mapper@4.0-impl-arm",
     owner: "realme",
