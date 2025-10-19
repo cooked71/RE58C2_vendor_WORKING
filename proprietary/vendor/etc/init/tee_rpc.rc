@@ -2,4 +2,4 @@ service vendor.tee_rpc /vendor/bin/tee_rpc
     class core
     user system
     group system
-    seclabel u:r:tee:s0
+    seclabel u:r:vendor_init:s0  # Use vendor_init instead of tee
