@@ -3652,61 +3652,36 @@ prebuilt_etc {
 //     ],
 //     check_elf_files: false,
 // }
-// =============================================
-// COMPLETE TEE STACK TRANSPLANT
-// =============================================
 
-// tee_rpc binary - STANDALONE TEE SERVICE
+// tee_rpc service
 cc_prebuilt_binary {
     name: "tee_rpc",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/tee_rpc"],
     vendor: true,
-    compile_multilib: "64",
+    compile_multilib: "64", 
     init_rc: ["proprietary/vendor/etc/init/tee_rpc.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils", 
-        "liblog",
-        "libutils",
-        "libc++",
-        // Add any TEE-specific libraries if needed
-    ],
+    shared_libs: ["libbase", "libcutils", "liblog", "libutils", "libc++"],
     check_elf_files: false,
 }
 
-// Missing KeyMint libraries
+// KeyMint libraries
 cc_prebuilt_library_shared {
     name: "libkeymint_support",
-    owner: "realme",
+    owner: "realme", 
     srcs: ["proprietary/system/lib64/libkeymint_support.so"],
     compile_multilib: "64",
-    shared_libs: [
-        "libbase",
-        "liblog",
-        "libutils", 
-        "libc++",
-    ],
-    strip: {
-        none: true,
-    },
+    shared_libs: ["libbase", "liblog", "libutils", "libc++"],
+    strip: { none: true },
 }
 
 cc_prebuilt_library_shared {
     name: "libkeymint",
-    owner: "realme", 
-    srcs: ["proprietary/system/lib64/libkeymint.so"],
+    owner: "realme",
+    srcs: ["proprietary/system/lib64/libkeymint.so"], 
     compile_multilib: "64",
-    shared_libs: [
-        "libbase",
-        "liblog",
-        "libutils",
-        "libc++",
-        "libkeymint_support",
-    ],
-    strip: {
-        none: true,
-    },
+    shared_libs: ["libbase", "liblog", "libutils", "libc++", "libkeymint_support"],
+    strip: { none: true },
 }
 
 // VINTF manifests
@@ -3714,14 +3689,6 @@ prebuilt_etc {
     name: "android.hardware.security.keymint.trusty.manifest",
     owner: "realme",
     src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint@2.0-unisoc.service.trusty.xml",
-    sub_dir: "vintf/manifest",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "trusty.default.manifest", 
-    owner: "realme",
-    src: "proprietary/vendor/etc/vintf/manifest/trusty-default.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
 }
