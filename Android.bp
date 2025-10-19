@@ -3419,187 +3419,237 @@ cc_prebuilt_binary {
     ],
     check_elf_files: false,
 }
+// =============================================
+// MINIMAL: Use LineageOS libkeystore2 + Stock credstore
+// =============================================
 
+// credstore service only
+cc_prebuilt_binary {
+    name: "credstore",
+    owner: "realme",
+    srcs: ["proprietary/system/bin/credstore"],
+    init_rc: ["proprietary/system/etc/init/credstore.rc"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbase",
+        "libbinder",
+        "libbinder_ndk", 
+        "libcredstore_aidl",
+        "libcrypto",
+        "libcutils",
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+    check_elf_files: false,
+}
+
+// libcredstore_aidl only  
+cc_prebuilt_library_shared {
+    name: "libcredstore_aidl",
+    owner: "realme",
+    srcs: ["proprietary/system/lib64/libcredstore_aidl.so"],
+    compile_multilib: "64",
+    shared_libs: [
+        "libbase",
+        "libbinder",
+        "libcrypto",
+        "libcutils", 
+        "liblog",
+        "libutils",
+        "libc++",
+    ],
+    strip: {
+        none: true,
+    },
+}
+
+// VINTF manifest only
+prebuilt_etc {
+    name: "android.system.keystore2-service.manifest",
+    owner: "realme",
+    src: "proprietary/system/etc/vintf/manifest/android.system.keystore2-service.xml",
+    sub_dir: "vintf/manifest",
+}
 // =============================================
 // UNCOMMENT THESE - THEY SHOULD BE ACTIVE
 // =============================================
 
 // UNCOMMENT THIS - lights service
-cc_prebuilt_binary {
-   name: "vendor.sprd.hardware.lights-service",
-   owner: "realme",
-   srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.lights-service"],
-   relative_install_path: "hw",
-   vendor: true,
-   compile_multilib: "64",
-   init_rc: ["proprietary/vendor/etc/init/lights.rc"],
-   shared_libs: [
-       "libbase",
-       "libhidlbase",
-       "libc++",
-       "liblog",
-       "libutils",
-       "libcutils",
-       "libc",
-       "libm",
-       "libdl",
-       "libbinder_ndk",
-       "android.hardware.light-V2-ndk",
-   ],
-}
+//cc_prebuilt_binary {
+//   name: "vendor.sprd.hardware.lights-service",
+//   owner: "realme",
+//   srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.lights-service"],
+//   relative_install_path: "hw",
+//   vendor: true,
+//   compile_multilib: "64",
+//   init_rc: ["proprietary/vendor/etc/init/lights.rc"],
+//   shared_libs: [
+//       "libbase",
+//       "libhidlbase",
+//       "libc++",
+//       "liblog",
+//       "libutils",
+//       "libcutils",
+//       "libc",
+//       "libm",
+//       "libdl",
+//       "libbinder_ndk",
+//       "android.hardware.light-V2-ndk",
+//   ],
+// }
 
 // UNCOMMENT THIS - CAS service
-cc_prebuilt_binary {
-   name: "android.hardware.cas@1.2-service",
-   owner: "realme",
-   vendor: true,
-   shared_libs: [
-       "libbase",
-       "libcutils",
-       "libhidlbase",
-       "liblog",
-       "libutils",
-       "android.hardware.cas@1.2",
-       "android.hardware.cas@1.1",
-       "android.hardware.cas@1.0",
-       "android.hardware.cas.native@1.0",
-       "android.hidl.memory@1.0",
-       "libbinder",
-       "libhidlmemory",
-       "libc++",
-       "libc",
-       "libm",
-       "libdl",
-       "libstagefright_foundation",
-   ],
-   relative_install_path: "hw",
-   srcs: ["proprietary/vendor/bin/hw/android.hardware.cas@1.2-service"],
-}
+//cc_prebuilt_binary {
+//   name: "android.hardware.cas@1.2-service",
+//   owner: "realme",
+//   vendor: true,
+//   shared_libs: [
+//       "libbase",
+//       "libcutils",
+//       "libhidlbase",
+//       "liblog",
+//       "libutils",
+//       "android.hardware.cas@1.2",
+//       "android.hardware.cas@1.1",
+//       "android.hardware.cas@1.0",
+//       "android.hardware.cas.native@1.0",
+//       "android.hidl.memory@1.0",
+//       "libbinder",
+//       "libhidlmemory",
+//       "libc++",
+//       "libc",
+//       "libm",
+//       "libdl",
+//       "libstagefright_foundation",
+//   ],
+//   relative_install_path: "hw",
+//   srcs: ["proprietary/vendor/bin/hw/android.hardware.cas@1.2-service"],
+// }
 
 // =============================================
 // MISSING LIBRARIES FOR BOOT STACK
 // =============================================
 
-// keystore2 support libraries
-cc_prebuilt_library_shared {
-    name: "libkeystore2_aaid",
-    owner: "realme",
-    vendor: true,
-    srcs: ["proprietary/system/lib64/libkeystore2_aaid.so"],
-    compile_multilib: "64",
-    shared_libs: [
-        "libbase",
-        "liblog",
-        "libcrypto",
-        "libc++",
-    ],
-    check_elf_files: false,
-}
+// REMOVE THESE - They are already provided by AOSP
+// cc_prebuilt_library_shared {
+//     name: "libkeystore2_aaid",
+//     owner: "realme",
+//     vendor: true,
+//     srcs: ["proprietary/system/system/lib64/libkeystore2_aaid.so"],
+//     compile_multilib: "64",
+//     shared_libs: [
+//         "libbase",
+//         "liblog",
+//         "libcrypto",
+//         "libc++",
+//     ],
+//     check_elf_files: false,
+// }
 
-cc_prebuilt_library_shared {
-    name: "libkeystore2_apc_compat",
-    owner: "realme",
-    vendor: true,
-    srcs: ["proprietary/system/lib64/libkeystore2_apc_compat.so"],
-    compile_multilib: "64",
-    shared_libs: [
-        "libbase",
-        "liblog",
-        "libcrypto",
-        "libc++",
-    ],
-    check_elf_files: false,
-}
+// cc_prebuilt_library_shared {
+//     name: "libkeystore2_apc_compat",
+//     owner: "realme",
+//     vendor: true,
+//     srcs: ["proprietary/system/system/lib64/libkeystore2_apc_compat.so"],
+//     compile_multilib: "64",
+//     shared_libs: [
+//         "libbase",
+//         "liblog",
+//         "libcrypto",
+//         "libc++",
+//     ],
+//     check_elf_files: false,
+// }
 
-cc_prebuilt_library_shared {
-    name: "libkeystore2_crypto",
-    owner: "realme",
-    vendor: true,
-    srcs: ["proprietary/system/lib64/libkeystore2_crypto.so"],
-    compile_multilib: "64",
-    shared_libs: [
-        "libbase",
-        "liblog",
-        "libcrypto",
-        "libc++",
-    ],
-    check_elf_files: false,
-}
+// cc_prebuilt_library_shared {
+//     name: "libkeystore2_crypto",
+//     owner: "realme",
+//     vendor: true,
+//     srcs: ["proprietary/system/system/lib64/libkeystore2_crypto.so"],
+//     compile_multilib: "64",
+//     shared_libs: [
+//         "libbase",
+//         "liblog",
+//         "libcrypto",
+//         "libc++",
+//     ],
+//     check_elf_files: false,
+// }
 
-cc_prebuilt_library_shared {
-    name: "libkm_compat_service",
-    owner: "realme",
-    vendor: true,
-    srcs: ["proprietary/system/lib64/libkm_compat_service.so"],
-    compile_multilib: "64",
-    shared_libs: [
-        "libbase",
-        "liblog",
-        "libcrypto",
-        "libc++",
-    ],
-    check_elf_files: false,
-}
+// cc_prebuilt_library_shared {
+//     name: "libkm_compat_service",
+//     owner: "realme",
+//     vendor: true,
+//     srcs: ["proprietary/system/system/lib64/libkm_compat_service.so"],
+//     compile_multilib: "64",
+//     shared_libs: [
+//         "libbase",
+//         "liblog",
+//         "libcrypto",
+//         "libc++",
+//     ],
+//     check_elf_files: false,
+// }
 
-cc_prebuilt_library_shared {
-    name: "lib_android_keymaster_keymint_utils",
-    owner: "realme",
-    vendor: true,
-    srcs: ["proprietary/system/lib64/lib_android_keymaster_keymint_utils.so"],
-    compile_multilib: "64",
-    shared_libs: [
-        "libbase",
-        "liblog",
-        "libcrypto",
-        "libc++",
-    ],
-    check_elf_files: false,
-}
+// cc_prebuilt_library_shared {
+//     name: "lib_android_keymaster_keymint_utils",
+//     owner: "realme",
+//     vendor: true,
+//     srcs: ["proprietary/system/system/lib64/lib_android_keymaster_keymint_utils.so"],
+//     compile_multilib: "64",
+//     shared_libs: [
+//         "libbase",
+//         "liblog",
+//         "libcrypto",
+//         "libc++",
+//     ],
+//     check_elf_files: false,
+// }
 
-cc_prebuilt_library_shared {
-    name: "libcppbor_external",
-    owner: "realme",
-    vendor: true,
-    srcs: ["proprietary/system/lib64/libcppbor_external.so"],
-    compile_multilib: "64",
-    shared_libs: [
-        "libbase",
-        "liblog",
-        "libc++",
-    ],
-    check_elf_files: false,
-}
+// cc_prebuilt_library_shared {
+//     name: "libcppbor_external",
+//     owner: "realme",
+//     vendor: true,
+//     srcs: ["proprietary/system/system/lib64/libcppbor_external.so"],
+//     compile_multilib: "64",
+//     shared_libs: [
+//         "libbase",
+//         "liblog",
+//         "libc++",
+//     ],
+//     check_elf_files: false,
+// }
 
-cc_prebuilt_library_shared {
-    name: "libwifi-system-iface",
-    owner: "realme",
-    vendor: true,
-    srcs: ["proprietary/system/lib64/libwifi-system-iface.so"],
-    compile_multilib: "64",
-    shared_libs: [
-        "libbase",
-        "liblog",
-        "libcutils",
-        "libc++",
-    ],
-    check_elf_files: false,
-}
+// cc_prebuilt_library_shared {
+//     name: "libwifi-system-iface",
+//     owner: "realme",
+//     vendor: true,
+//     srcs: ["proprietary/system/system/lib64/libwifi-system-iface.so"],
+//     compile_multilib: "64",
+//     shared_libs: [
+//         "libbase",
+//         "liblog",
+//         "libcutils",
+//         "libc++",
+//     ],
+//     check_elf_files: false,
+// }
 
-// WiFi HAL library
-cc_prebuilt_library_shared {
-    name: "libwifi-hal",
-    owner: "realme",
-    vendor: true,
-    srcs: ["proprietary/vendor/lib64/libwifi-hal.so"],
-    compile_multilib: "64",
-    shared_libs: [
-        "libbase",
-        "liblog",
-        "libcutils",
-        "libc++",
-        "libnl",
-    ],
-    check_elf_files: false,
-}
-
+// REMOVE THIS - libwifi-hal is already provided by AOSP
+// cc_prebuilt_library_shared {
+//     name: "libwifi-hal",
+//     owner: "realme",
+//     vendor: true,
+//     srcs: ["proprietary/vendor/lib64/libwifi-hal.so"],
+//     compile_multilib: "64",
+//     shared_libs: [
+//         "libbase",
+//         "liblog",
+//         "libcutils",
+//         "libc++",
+//         "libnl",
+//     ],
+//     check_elf_files: false,
+// }
 
