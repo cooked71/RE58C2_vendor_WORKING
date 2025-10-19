@@ -1533,6 +1533,35 @@ cc_prebuilt_library_shared {
 
 }
 
+# Graphics Mapper Implementation
+cc_prebuilt_library_shared {
+    name: "android.hardware.graphics.mapper@4.0-impl-arm",
+    owner: "realme",
+    vendor: true,
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/android.hardware.graphics.mapper@4.0-impl-arm.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/android.hardware.graphics.mapper@4.0-impl-arm.so"],
+            relative_install_path: "hw",
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libsync",
+        "libc++",
+        "libgralloctypes",
+        "libhidlbase",
+        "libhardware",
+    ],
+         check_elf_files: false,
+
+}
+
 // Audio HAL Implementations
 cc_prebuilt_library_shared {
     name: "android.hardware.audio@7.1-impl",
