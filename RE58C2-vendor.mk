@@ -129,6 +129,24 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor_dlkm/etc/build.prop:$(TARGET_COPY_OUT_VENDOR_DLKM)/etc/build.prop
 
+# Copy all fstab variants from vendor/realme/RE58C2/proprietary/vendor/etc
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.cali:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.cali \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.charge_mode:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.charge_mode \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.enableswap:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.enableswap \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.module:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.module \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.RE58C2:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.RE58C2 \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.RMX3624 \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_1h10 \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_1h10_go:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_1h10_go \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_4h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_4h10 \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_4h10_go:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_4h10_go \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_6h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_6h10 \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_7h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_7h10 \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_haps:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_haps \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_hulk:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_hulk \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_nico \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_zebu
 
 
 
