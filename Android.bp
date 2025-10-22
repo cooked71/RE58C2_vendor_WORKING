@@ -2404,6 +2404,80 @@ prebuilt_etc {
 
 
 // =============================================
+// SELinux Policy Files
+// =============================================
+
+prebuilt_etc {
+    name: "plat_sepolicy_vers.txt.vendor",
+    owner: "realme",
+    src: "proprietary/vendor/etc/selinux/plat_sepolicy_vers.txt",
+    vendor: true,
+    sub_dir: "selinux",
+}
+
+prebuilt_etc {
+    name: "vendor_file_contexts.vendor",
+    owner: "realme",
+    src: "proprietary/vendor/etc/selinux/vendor_file_contexts",
+    vendor: true,
+    sub_dir: "selinux",
+}
+
+prebuilt_etc {
+    name: "vendor_hwservice_contexts.vendor",
+    owner: "realme",
+    src: "proprietary/vendor/etc/selinux/vendor_hwservice_contexts",
+    vendor: true,
+    sub_dir: "selinux",
+}
+
+prebuilt_etc {
+    name: "vendor_property_contexts.vendor",
+    owner: "realme",
+    src: "proprietary/vendor/etc/selinux/vendor_property_contexts",
+    vendor: true,
+    sub_dir: "selinux",
+}
+
+prebuilt_etc {
+    name: "vendor_sepolicy.cil.vendor",
+    owner: "realme",
+    src: "proprietary/vendor/etc/selinux/vendor_sepolicy.cil",
+    vendor: true,
+    sub_dir: "selinux",
+}
+
+prebuilt_etc {
+    name: "vendor_service_contexts.vendor",
+    owner: "realme",
+    src: "proprietary/vendor/etc/selinux/vendor_service_contexts",
+    vendor: true,
+    sub_dir: "selinux",
+}
+
+prebuilt_etc {
+    name: "vndservice_contexts.vendor",
+    owner: "realme",
+    src: "proprietary/vendor/etc/selinux/vndservice_contexts",
+    vendor: true,
+    sub_dir: "selinux",
+}
+
+// =============================================
+// Vendor DLKM Modules
+@@ -2569,13 +2510,6 @@ prebuilt_etc {
+    sub_dir: "lib/modules",
+}
+
+prebuilt_etc {
+    name: "vendor_dlkm_file_contexts",
+    owner: "realme",
+    src: "sepolicy/vendor_dlkm/file_contexts",
+    vendor: true,
+    sub_dir: "etc/selinux",
+}
+
+// =============================================
 // Vendor DLKM Modules
 // =============================================
 
