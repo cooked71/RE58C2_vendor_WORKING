@@ -2465,20 +2465,6 @@ prebuilt_etc {
 
 // =============================================
 // Vendor DLKM Modules
-@@ -2569,13 +2510,6 @@ prebuilt_etc {
-    sub_dir: "lib/modules",
-}
-
-prebuilt_etc {
-    name: "vendor_dlkm_file_contexts",
-    owner: "realme",
-    src: "sepolicy/vendor_dlkm/file_contexts",
-    vendor: true,
-    sub_dir: "etc/selinux",
-}
-
-// =============================================
-// Vendor DLKM Modules
 // =============================================
 
 filegroup {
