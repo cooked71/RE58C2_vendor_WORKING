@@ -2402,7 +2402,6 @@ prebuilt_etc {
     sub_dir: "init",
 }
 
-
 // =============================================
 // SELinux Policy Files
 // =============================================
@@ -2570,6 +2569,13 @@ prebuilt_etc {
     sub_dir: "lib/modules",
 }
 
+prebuilt_etc {
+    name: "vendor_dlkm_file_contexts",
+    owner: "realme",
+    src: "sepolicy/vendor_dlkm/file_contexts",
+    vendor: true,
+    sub_dir: "etc/selinux",
+}
 
 // Unisoc Radio HAL interfaces
 cc_prebuilt_library_shared {
@@ -3765,4 +3771,3 @@ cc_prebuilt_library_shared {
     ],
     check_elf_files: false,
 }
-
