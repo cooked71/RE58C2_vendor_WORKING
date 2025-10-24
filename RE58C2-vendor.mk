@@ -178,13 +178,6 @@ PRODUCT_COPY_FILES += \
 
 
 
-cd ~/Lineage-20/device/realme/RE58C2
-
-# Remove the incorrect PRODUCT_COPY_FILES we just added
-sed -i '/# MISSING VENDOR BINARIES/,/android\.hardware\.media\.c2@1\.1-unisoc-service/d' device.mk
-
-# Add CORRECT paths
-cat >> device.mk << 'EOF'
 
 # ===========================
 # MISSING VENDOR BINARIES - CORRECT PATHS
