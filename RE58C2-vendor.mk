@@ -153,7 +153,7 @@ PRODUCT_COPY_FILES += \
 #----------------------------------------------------------------------
 # Copy all fstab files for hardware-specific mounting
 #----------------------------------------------------------------------
-P#RODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.cali:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.cali \
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.charge_mode:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.charge_mode \
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.enableswap:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.enableswap \
@@ -177,39 +177,46 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor/etc/init,$(TARGET_COPY_OUT_VENDOR)/etc/init)
 
 
-#----------------------------------------------------------------------
-# Copy the entire firmware directory
-# This is where the kernel will look for hardware firmware files
-#----------------------------------------------------------------------
-# PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor,$(TARGET_COPY_OUT_VENDOR))
 
+# Core vendor binaries
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/bin/charged:$(TARGET_COPY_OUT_VENDOR)/bin/charged \
+    vendor/realme/RE58C2/proprietary/bin/uniber:$(TARGET_COPY_OUT_VENDOR)/bin/uniber \
+    vendor/realme/RE58C2/proprietary/bin/phasecheckserver:$(TARGET_COPY_OUT_VENDOR)/bin/phasecheckserver \
+    vendor/realme/RE58C2/proprietary/bin/refnotify:$(TARGET_COPY_OUT_VENDOR)/bin/refnotify \
+    vendor/realme/RE58C2/proprietary/bin/slogmodem_vendor:$(TARGET_COPY_OUT_VENDOR)/bin/slogmodem_vendor \
+    vendor/realme/RE58C2/proprietary/bin/srtd:$(TARGET_COPY_OUT_VENDOR)/bin/srtd
 
-# SELinux contexts
-#PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/vendor_dlkm/etc/selinux/vendor_file_contexts:$(TARGET_COPY_OUT_VENDOR_DLKM)/etc/selinux/vendor_file_contexts
+# HAL services
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.sprd.hardware.gnss@2.2-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.sprd.hardware.gnss@2.2-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/android.hardware.camera.provider@2.4-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.camera.provider@2.4-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/android.hardware.drm-service.clearkey:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.drm-service.clearkey \
+    vendor/realme/RE58C2/proprietary/bin/hw/android.hardware.gatekeeper@1.0-service.trusty:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.gatekeeper@1.0-service.trusty \
+    vendor/realme/RE58C2/proprietary/bin/hw/android.hardware.nfc@1.2-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.nfc@1.2-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/android.hardware.wifi@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.wifi@1.0-service
 
-# =============================================
-# Complete Stock Vendor SELinux Stack
-# =============================================
+# Sprd HAL services
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.sprd.hardware.cplog_svc-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.sprd.hardware.cplog_svc-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.sprd.hardware.enhance-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.sprd.hardware.enhance-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.sprd.hardware.hdcp-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.sprd.hardware.hdcp-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.sprd.hardware.lights-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.sprd.hardware.lights-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.sprd.hardware.memtrack-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.sprd.hardware.memtrack-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.sprd.hardware.network-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.sprd.hardware.network-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.sprd.hardware.oemlock-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.sprd.hardware.oemlock-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.sprd.hardware.log-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.sprd.hardware.log-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.sprd.hardware.broadcastradio@2.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.sprd.hardware.broadcastradio@2.0-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.sprd.hardware.commondcs@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.sprd.hardware.commondcs@1.0-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.sprd.hardware.network@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.sprd.hardware.network@1.0-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.sprd.hardware.performance@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.sprd.hardware.performance@1.0-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.sprd.hardware.vibrator-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.sprd.hardware.vibrator-service
 
-# Vendor SELinux Policy
-#PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_file_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_file_contexts \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_hwservice_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_hwservice_contexts \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_mac_permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_mac_permissions.xml \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_property_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_property_contexts \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_seapp_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_seapp_contexts \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_sepolicy.cil:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_sepolicy.cil \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_service_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_service_contexts \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vndservice_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vndservice_contexts
-
-# Platform policy version (important!)
-# PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/plat_sepolicy_vers.txt:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/plat_sepolicy_vers.txt
-    
-     
-# ========================
+# Additional services
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/bin/hw/android.hardware.rebootescrow-service.default:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.rebootescrow-service.default \
+    vendor/realme/RE58C2/proprietary/bin/hw/vendor.oppo.engnative.engineer@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.oppo.engnative.engineer@1.0-service \
+    vendor/realme/RE58C2/proprietary/bin/hw/android.hardware.media.c2@1.1-unisoc-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.media.c2@1.1-unisoc-service# ========================
 # Essential System Components
 # ========================
 PRODUCT_PACKAGES += \
