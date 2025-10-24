@@ -172,6 +172,11 @@ P#RODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_zebu
 
 
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor/etc/init,$(TARGET_COPY_OUT_VENDOR)/etc/init)
+
+
 #----------------------------------------------------------------------
 # Copy the entire firmware directory
 # This is where the kernel will look for hardware firmware files
