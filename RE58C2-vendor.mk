@@ -223,6 +223,11 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.oppo.engnative.engineer@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.oppo.engnative.engineer@1.0-service \
     vendor/realme/RE58C2/proprietary/vendor/bin/hw/android.hardware.media.c2@1.1-unisoc-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.media.c2@1.1-unisoc-service
 
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/lib,$(TARGET_COPY_OUT_VENDOR)/lib) \
+    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/lib64,$(TARGET_COPY_OUT_VENDOR)/lib64)
+
+
 # Essential System Components
 # ========================
 PRODUCT_PACKAGES += \
