@@ -1939,11 +1939,11 @@ cc_prebuilt_library_shared {
     vendor: true,
     multilib: {
         lib32: {
-            srcs: ["proprietary/vendor/lib/vendor.sprd.hardware.network@1.0-impl.so"],
+            srcs: ["proprietary/vendor/lib/hw/vendor.sprd.hardware.network@1.0-impl.so"],
             relative_install_path: "hw",
         },
         lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.network@1.0-impl.so"],
+            srcs: ["proprietary/vendor/lib64/hw/vendor.sprd.hardware.network@1.0-impl.so"],
             relative_install_path: "hw",
         },
     },
