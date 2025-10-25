@@ -3771,3 +3771,50 @@ cc_prebuilt_library_shared {
     ],
     check_elf_files: false,
 }
+
+cc_prebuilt_binary {
+    name: "vendor.sprd.hardware.lights-service",
+    owner: "realme",
+    srcs: ["vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.sprd.hardware.lights-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    check_elf_files: false,
+    init_rc: ["vendor/realme/RE58C2/proprietary/vendor/etc/init/lights.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils", 
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "libc++",
+        "libhardware",
+        "libhardware_legacy",
+        "libbinder",
+        "android.hardware.light@2.0",
+    ],
+}
+
+cc_prebuilt_binary {
+    name: "vendor.sprd.hardware.network@1.0-service",
+    owner: "realme", 
+    srcs: ["vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.sprd.hardware.network@1.0-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64", 
+    check_elf_files: false,
+    init_rc: ["vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.network@1.0-service.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase", 
+        "liblog",
+        "libutils",
+        "libc++",
+        "libhardware",
+        "libsysutils",
+        "libbinder_ndk",
+        "vendor.sprd.hardware.network@1.0",
+        "vendor.sprd.hardware.network-V1-ndk",
+    ],
+}
