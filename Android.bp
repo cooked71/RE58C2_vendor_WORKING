@@ -3775,7 +3775,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_binary {
     name: "vendor.sprd.hardware.lights-service",
     owner: "realme",
-    srcs: ["vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.sprd.hardware.lights-service"],
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.lights-service"],
     relative_install_path: "hw",
     vendor: true,
     compile_multilib: "64",
@@ -3798,12 +3798,12 @@ cc_prebuilt_binary {
 cc_prebuilt_binary {
     name: "vendor.sprd.hardware.network@1.0-service",
     owner: "realme", 
-    srcs: ["vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.sprd.hardware.network@1.0-service"],
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.network@1.0-service"],
     relative_install_path: "hw",
     vendor: true,
     compile_multilib: "64", 
     check_elf_files: false,
-    init_rc: ["vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.network@1.0-service.rc"],
+    init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.network@1.0-service.rc"],
     shared_libs: [
         "libbase",
         "libcutils",
