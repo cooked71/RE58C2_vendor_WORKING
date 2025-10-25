@@ -3316,7 +3316,7 @@ cc_prebuilt_library_shared {
 
 // odsign - SYSTEM service
 cc_prebuilt_binary {
-    name: "odsign",
+    name: "odsign_stock",
     owner: "realme",
     // NO vendor: true
     srcs: ["proprietary/system/bin/odsign"],
@@ -3339,7 +3339,7 @@ cc_prebuilt_binary {
 
 // keystore2 - SYSTEM service
 cc_prebuilt_binary {
-    name: "keystore2",
+    name: "keystore2_stock",
     owner: "realme",
     // NO vendor: true
     srcs: ["proprietary/system/bin/keystore2"],
@@ -3363,7 +3363,7 @@ cc_prebuilt_binary {
 
 // odrefresh - SYSTEM service
 // cc_prebuilt_binary {
-//    name: "odrefresh",
+//    name: "odrefresh_stock",
 //    owner: "realme",
 //    // NO vendor: true
 //    srcs: ["proprietary/system/bin/odrefresh"],
@@ -3382,7 +3382,7 @@ cc_prebuilt_binary {
 
 // installd - SYSTEM service
 cc_prebuilt_binary {
-    name: "installd",
+    name: "installd_stock",
     owner: "realme",
     // NO vendor: true
     srcs: ["proprietary/system/bin/installd"],
@@ -3406,7 +3406,7 @@ cc_prebuilt_binary {
 
 // wificond - SYSTEM service
 cc_prebuilt_binary {
-    name: "wificond",
+    name: "wificond_stock",
     owner: "realme",
     // NO vendor: true
     srcs: ["proprietary/system/bin/wificond"],
