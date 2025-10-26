@@ -3429,7 +3429,7 @@ cc_prebuilt_binary {
 
 // ylog - Realme Logging System (PID 618 in stock)
 cc_prebuilt_binary {
-    name: "ylog",
+    name: "ylog_stock",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/system_ext/bin/ylog"],
