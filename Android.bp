@@ -186,7 +186,7 @@ cc_prebuilt_binary {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "android.hardware.audio.service",
+    name: "android.hardware.audio.service_stock",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.audio.service"],
     relative_install_path: "hw",
@@ -435,7 +435,7 @@ cc_prebuilt_binary {
 
 
 cc_prebuilt_binary {
-    name: "android.hardware.security.keymint@2.0-unisoc.service.trusty",
+    name: "android.hardware.security.keymint@2.0-unisoc.service.trusty_stock",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.security.keymint@2.0-unisoc.service.trusty"],
     relative_install_path: "hw",
@@ -1027,7 +1027,7 @@ cc_prebuilt_library_shared {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "android.hardware.graphics.composer@2.4-service",
+    name: "android.hardware.graphics.composer@2.4-service_stock",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.graphics.composer@2.4-service"],
     relative_install_path: "hw",
@@ -1046,7 +1046,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_binary {
-    name: "android.hardware.graphics.allocator@4.0-service",
+    name: "android.hardware.graphics.allocator@4.0-service_stock",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.graphics.allocator@4.0-service"],
     relative_install_path: "hw",
@@ -1399,7 +1399,7 @@ cc_prebuilt_binary {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "android.hardware.health-service.example",
+    name: "android.hardware.health-service.example_stock",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.health-service.example"],
     relative_install_path: "hw",
@@ -1645,7 +1645,7 @@ prebuilt_etc {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "urild",
+    name: "urild_stock",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/urild"],
     relative_install_path: "hw",
@@ -1989,7 +1989,7 @@ prebuilt_etc {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "android.hardware.sensors-service.multihal",
+    name: "android.hardware.sensors-service.multihal_stock",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.sensors-service.multihal"],
     relative_install_path: "hw",
@@ -2152,7 +2152,7 @@ cc_prebuilt_library_shared {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "tee_rpc",
+    name: "tee_rpc_stock",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/tee_rpc"],
     vendor: true,
@@ -2537,7 +2537,7 @@ prebuilt_etc {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "android.hardware.usb-service.example",
+    name: "android.hardware.usb-service.example_stock",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.usb-service.example"],
     relative_install_path: "hw",
