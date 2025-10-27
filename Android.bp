@@ -377,7 +377,7 @@ cc_prebuilt_library_shared {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.boot@1.2-service",
+    name: "vendor.sprd.hardware.boot@1.2-service_stock",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service"],
     relative_install_path: "hw",
