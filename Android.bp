@@ -399,6 +399,13 @@ cc_prebuilt_binary {
     ],
 }
 
+prebuilt_etc {
+    name: "vendor.sprd.hardware.boot.manifest", 
+    src: "proprietary/vintf/manifest/vendor.sprd.hardware.boot@1.2.xml",
+    sub_dir: "vintf/manifest", vendor: true,
+}
+
+
 cc_prebuilt_binary {
     name: "android.hardware.gatekeeper@1.0-service.trusty",
     owner: "realme",
