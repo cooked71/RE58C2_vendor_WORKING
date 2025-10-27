@@ -3194,14 +3194,6 @@ cc_prebuilt_library_shared {
 // =============================================
 
 prebuilt_etc {
-    name: "android.hardware.health-service.example.manifest",
-    owner: "realme",
-    src: "proprietary/vintf/manifest/android.hardware.health-service.example.xml",
-    sub_dir: "vintf/manifest",
-    vendor: true,
-}
-
-prebuilt_etc {
     name: "android.hardware.security.keymint.trusty.manifest",
     owner: "realme",
     src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint@2.0-unisoc.service.trusty.xml",
