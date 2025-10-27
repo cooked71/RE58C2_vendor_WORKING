@@ -425,6 +425,15 @@ cc_prebuilt_binary {
     ],
 }
 
+ prebuilt_etc {
+    name: "android.hardware.gatekeeper@1.0-service.trusty.manifest",
+    owner: "realme",
+    src: "proprietary/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+ }
+
+
 cc_prebuilt_binary {
     name: "android.hardware.security.keymint@2.0-unisoc.service.trusty",
     owner: "realme",
