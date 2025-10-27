@@ -587,6 +587,50 @@ cc_prebuilt_library_shared {
     strip: { none: true },
 }
 
+
+
+// Spreadtrum Trusty service with mixed dependencies
+cc_prebuilt_binary {
+    name: "vendor.sprd.hardware.trusty-service_stock",
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.trusty-service"],
+    init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.trusty-service.rc"],
+    required: [
+        "vendor.sprd.hardware.trusty-V1-ndk_stock", 
+        "vendor.sprd.hardware.trusty-impl_stock",
+        "libtrusty_stock",
+        // libclang_rt.ubsan_standalone-aarch64-android.so comes from AOSP
+    ],
+    compile_multilib: "64",
+    vendor: true,
+    proprietary: true,
+    check_elf_files: false,
+}
+
+// Vendor-specific Trusty libraries
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.trusty-V1-ndk_stock",
+    srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.trusty-V1-ndk.so"],
+    compile_multilib: "64",
+    vendor_available: true,
+    proprietary: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.sprd.hardware.trusty-impl_stock",
+    srcs: ["proprietary/vendor/lib64/hw/vendor.sprd.hardware.trusty-impl.so"],
+    compile_multilib: "64",
+    vendor_available: true,
+    proprietary: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libtrusty_stock",
+    srcs: ["proprietary/vendor/lib64/libtrusty.so"],
+    compile_multilib: "64",
+    vendor_available: true,
+    proprietary: true,
+}
+
 // =============================================
 // CAS Service (Commented)
 // =============================================
