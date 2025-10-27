@@ -462,7 +462,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.boot@1.2-impl",
+    name: "android.hardware.boot@1.2-impl_stock",
     owner: "realme",
     vendor: true,
     multilib: {
