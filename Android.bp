@@ -587,23 +587,33 @@ cc_prebuilt_library_shared {
     strip: { none: true },
 }
 
+cc_prebuilt_binary {
+    name: "vendor.sprd.hardware.trusty-service_stock",
+    owner: "realme",
+    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.trusty-service"],
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "64",
+    init_rc: ["proprietary/vendor/etc/init/trusty-default.rc"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "vendor.sprd.hardware.trusty@1.0",
+        "libc++",
+        "libbinder_ndk",
+        "libclang_rt.ubsan_standalone-aarch64-android",
+        "vendor.sprd.hardware.trusty-V1-ndk",
+        "libtrusty",
+        "vendor.sprd.hardware.trusty-impl",
+    ],
+}
+
 
 
 // Spreadtrum Trusty service with mixed dependencies
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.trusty-service_stock",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.trusty-service"],
-    init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.trusty-service.rc"],
-    required: [
-        "vendor.sprd.hardware.trusty-V1-ndk_stock", 
-        "vendor.sprd.hardware.trusty-impl_stock",
-        "libtrusty_stock",
-    ],
-    compile_multilib: "64",
-    vendor: true,
-    proprietary: true,
-    check_elf_files: false,
-}
 
 // Vendor-specific Trusty libraries
 cc_prebuilt_library_shared {
@@ -2458,29 +2468,6 @@ cc_prebuilt_library_shared {
     },
 }
 
-cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.trusty-service",
-    owner: "realme",
-    srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.trusty-service"],
-    relative_install_path: "hw",
-    vendor: true,
-    compile_multilib: "64",
-    init_rc: ["proprietary/vendor/etc/init/trusty-default.rc"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "vendor.sprd.hardware.trusty@1.0",
-        "libc++",
-        "libbinder_ndk",
-        "libclang_rt.ubsan_standalone-aarch64-android",
-        "vendor.sprd.hardware.trusty-V1-ndk",
-        "libtrusty",
-        "vendor.sprd.hardware.trusty-impl",
-    ],
-}
 
 cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.trusty-impl",
