@@ -598,7 +598,6 @@ cc_prebuilt_binary {
         "vendor.sprd.hardware.trusty-V1-ndk_stock", 
         "vendor.sprd.hardware.trusty-impl_stock",
         "libtrusty_stock",
-        // libclang_rt.ubsan_standalone-aarch64-android.so comes from AOSP
     ],
     compile_multilib: "64",
     vendor: true,
@@ -611,7 +610,6 @@ cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.trusty-V1-ndk_stock",
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.trusty-V1-ndk.so"],
     compile_multilib: "64",
-    vendor_available: true,
     proprietary: true,
 }
 
@@ -619,7 +617,6 @@ cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.trusty-impl_stock",
     srcs: ["proprietary/vendor/lib64/hw/vendor.sprd.hardware.trusty-impl.so"],
     compile_multilib: "64",
-    vendor_available: true,
     proprietary: true,
 }
 
@@ -627,7 +624,6 @@ cc_prebuilt_library_shared {
     name: "libtrusty_stock",
     srcs: ["proprietary/vendor/lib64/libtrusty.so"],
     compile_multilib: "64",
-    vendor_available: true,
     proprietary: true,
 }
 
@@ -3599,7 +3595,6 @@ cc_prebuilt_library_shared {
     name: "libunisocvold_stock",
     srcs: ["proprietary/system_ext/lib64/libunisocvold.so"],
     compile_multilib: "64",
-    vendor_available: true,
     proprietary: true,
 }
 
@@ -3610,7 +3605,6 @@ cc_prebuilt_library_shared {
         "proprietary/system_ext/lib/libphoenix_native.so",
     ],
     compile_multilib: "both",
-    vendor_available: true,
     proprietary: true,
 }
 
@@ -3618,7 +3612,6 @@ cc_prebuilt_library_shared {
     name: "android.hardware.health.storage@1.0_stock",
     srcs: ["proprietary/system/lib64/android.hardware.health.storage@1.0.so"],
     compile_multilib: "64", 
-    vendor_available: true,
     proprietary: true,
 }
 
@@ -3626,7 +3619,6 @@ cc_prebuilt_library_shared {
     name: "android.hardware.health.storage-V1-ndk_stock",
     srcs: ["proprietary/system/lib64/android.hardware.health.storage-V1-ndk.so"],
     compile_multilib: "64",
-    vendor_available: true, 
     proprietary: true,
 }
 
@@ -3634,7 +3626,6 @@ cc_prebuilt_library_shared {
     name: "android.system.keystore2-V2-ndk_stock", 
     srcs: ["proprietary/system/lib64/android.system.keystore2-V2-ndk.so"],
     compile_multilib: "64",
-    vendor_available: true,
     proprietary: true,
 }
 
@@ -3642,6 +3633,5 @@ cc_prebuilt_library_shared {
     name: "libkeymint_support_stock",
     srcs: ["proprietary/system/lib64/libkeymint_support.so"],
     compile_multilib: "64",
-    vendor_available: true,
     proprietary: true,
 }
