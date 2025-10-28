@@ -3605,21 +3605,4 @@ cc_prebuilt_library_shared {
     },
 }
 
-prebuilt_etc {
-    name: "android.hardware.security.keymint.trusty.xml",
-    src: "proprietary/vintf/manifest/android.hardware.security.keymint.trusty.xml",
-    sub_dir: "manifest",
-    vendor: true,
-    filename_from_src: true,
-    proprietary: true,
-}
 
-// Trusty default manifest  
-prebuilt_etc {
-    name: "trusty-default.xml",
-    src: "proprietary/vintf/manifest/trusty-default.xml",
-    sub_dir: "manifest",
-    vendor: true,
-    filename_from_src: true,
-    proprietary: true,
-}
