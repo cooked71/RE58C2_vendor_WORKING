@@ -3575,17 +3575,17 @@ cc_prebuilt_library_shared {
     },
 }
 
-cc_prebuilt_library_shared {
-    name: "android.hardware.health.storage-V1-ndk",
-    owner: "realme",
-    vendor: false,
-    check_elf_files: false,
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/system/lib64/android.hardware.health.storage-V1-ndk.so"],
-        },
-    },
-}
+// cc_prebuilt_library_shared {
+//    name: "android.hardware.health.storage-V1-ndk",
+//    owner: "realme",
+//    vendor: false,
+//    check_elf_files: false,
+//    multilib: {
+//        lib64: {
+//            srcs: ["proprietary/system/lib64/android.hardware.health.storage-V1-ndk.so"],
+//        },
+//    },
+// }
 
 cc_prebuilt_library_shared {
     name: "android.system.keystore2-V2-ndk",
