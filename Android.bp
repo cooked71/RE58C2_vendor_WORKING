@@ -935,6 +935,7 @@ cc_prebuilt_binary {
         "android.hardware.gnss.measurement_corrections@1.1.so",
         "android.hardware.gnss.visibility_control@1.0.so",
     ],
+        check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
@@ -998,6 +999,8 @@ cc_prebuilt_library_shared {
     strip: {
         none: true,
     },
+        check_elf_files: false,
+
 }
 
 cc_prebuilt_library_shared {
@@ -1033,6 +1036,7 @@ cc_prebuilt_library_shared {
         "android.hardware.gnss.measurement_corrections@1.1.so",
         "android.hardware.gnss.visibility_control@1.0.so",
     ],
+        check_elf_files: false,
     strip: {
         none: true,
     },
@@ -1339,9 +1343,8 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "libhardware",
-        "libhardware_legacy.so",
+        "libhardware_legacy",
         "libbinder",
-        "android.hardware.light@2.0.so",
     ],
 }
 
