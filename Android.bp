@@ -3576,7 +3576,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.health.storage-V1-ndk",
+    name: "android.hardware.health.storage-V1-ndk_stock",
     owner: "realme",
     vendor: false,
     check_elf_files: false,
