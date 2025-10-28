@@ -564,16 +564,6 @@ cc_prebuilt_library_shared {
     },
 }
 
-cc_prebuilt_library_shared {
-    name: "libkeymint_support.so",
-    owner: "realme", 
-    srcs: ["proprietary/system/lib64/libkeymint_support.so"],
-    compile_multilib: "64",
-    shared_libs: [
-        "libbase", "liblog", "libutils", "libc++", "libcrypto"
-    ],
-    strip: { none: true },
-}
 
 cc_prebuilt_library_shared {
     name: "libkeymint.so",
@@ -611,45 +601,7 @@ cc_prebuilt_binary {
     ],
 }
 
-// Spreadtrum Trusty service with mixed dependencies
 
-// Vendor-specific Trusty libraries
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.trusty-V1-ndk.so",
-    owner: "realme",
-    vendor: true,
-    check_elf_files: false,  
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.trusty-V1-ndk.so"],
-        },
-    },
-}
-
-cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.trusty-impl.so",
-    owner: "realme", 
-    vendor: true,
-    check_elf_files: false,  
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/vendor.sprd.hardware.trusty-impl.so"],
-            relative_install_path: "hw",
-        },
-    },
-}
-
-cc_prebuilt_library_shared {
-    name: "libtrusty.so",
-    owner: "realme",
-    vendor: true,
-    check_elf_files: false,  
-    multilib: {
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/libtrusty.so"],
-        },
-    },
-}
 
 // =============================================
 // CAS Service (Commented)
