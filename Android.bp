@@ -410,7 +410,7 @@ cc_prebuilt_binary {
 }
 
 prebuilt_etc {
-    name: "vendor.sprd.hardware.boot.manifest", 
+    name: "vendor.sprd.hardware.boot@1.2.manifest", 
     src: "proprietary/vintf/manifest/vendor.sprd.hardware.boot@1.2.xml",
     sub_dir: "vintf/manifest", vendor: true,
     filename: "vendor.sprd.hardware.boot@1.2.xml",
@@ -1386,7 +1386,7 @@ cc_prebuilt_library_shared {
 }
 
 prebuilt_etc {
-    name: "gralloc_configuration",
+    name: "gralloc.manifest",
     owner: "realme",
     src: "proprietary/vendor/etc/gralloc/gralloc.xml",
     sub_dir: "gralloc",
@@ -1526,9 +1526,11 @@ prebuilt_etc {
 // =============================================
 
 prebuilt_etc {
-    name: "media_codecs",
+    name: "media_codecs.manifest",
     owner: "realme",
     src: "proprietary/vendor/etc/media_codecs.xml",
+    filename: "media_codecs.xml",
+
 }
 
 // =============================================
