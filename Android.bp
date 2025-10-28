@@ -3612,6 +3612,7 @@ cc_prebuilt_binary {
     compile_multilib: "64",
     vendor: false,
     proprietary: true,
+    check_elf_files: false,
 }
 
 // Available libraries
