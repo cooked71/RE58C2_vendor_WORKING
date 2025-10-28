@@ -966,7 +966,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.gnss@2.1-impl.so",
+    name: "android.hardware.gnss@2.1-impl",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -984,23 +984,16 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-        "android.hardware.gnss@2.1.so",
         "libhardware",
         "libbase",
         "libbinder",
         "libhidlbase",
-        "android.hardware.gnss@1.0.so",
-        "android.hardware.gnss@1.1.so",
-        "android.hardware.gnss@2.0.so",
-        "android.hardware.gnss.measurement_corrections@1.0.so",
-        "android.hardware.gnss.measurement_corrections@1.1.so",
-        "android.hardware.gnss.visibility_control@1.0.so",
     ],
+    check_elf_files: false,
     strip: {
         none: true,
     },
-        check_elf_files: false,
-
+}
 }
 
 cc_prebuilt_library_shared {
