@@ -3522,7 +3522,6 @@ cc_prebuilt_binary {
     compile_multilib: "64",
     vendor: false,
     proprietary: true,
-    override_source: true ,
     check_elf_files: false,
 }
 
@@ -3586,7 +3585,6 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/system/lib64/android.hardware.health.storage-V1-ndk.so"],
         },
     },
-    override_source: true,
 }
 
 cc_prebuilt_library_shared {
