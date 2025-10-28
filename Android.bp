@@ -461,7 +461,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.boot@1.0-impl-1.2.so",
+    name: "android.hardware.boot@1.0-impl-1.2",
     owner: "realme",
     vendor: true,
     check_elf_files: false,
@@ -481,7 +481,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "bootctrl.default.so",
+    name: "bootctrl.default",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -500,7 +500,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.boot@1.2.so",
+    name: "vendor.sprd.hardware.boot@1.2",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -530,7 +530,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "unisoc.bootctrl.so",
+    name: "unisoc.bootctrl",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -566,7 +566,7 @@ cc_prebuilt_library_shared {
 
 
 cc_prebuilt_library_shared {
-    name: "libkeymint.so",
+    name: "libkeymint",
     owner: "realme",
     srcs: ["proprietary/system/lib64/libkeymint.so"], 
     compile_multilib: "64",
@@ -715,7 +715,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.wcn@1.0-impl.so",
+    name: "vendor.sprd.hardware.wcn@1.0-impl",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -742,7 +742,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.wcn@1.0.so",
+    name: "vendor.sprd.hardware.wcn@1.0",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -773,7 +773,7 @@ cc_prebuilt_library_shared {
 // =============================================
 
 cc_prebuilt_library_shared {
-    name: "libcredstore_aidl.so",
+    name: "libcredstore_aidl",
     owner: "realme",
     srcs: ["proprietary/system/lib64/libcredstore_aidl.so"],
     compile_multilib: "64",
@@ -792,7 +792,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libhardware_legacy.so",
+    name: "libhardware_legacy",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -813,7 +813,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libnetutils.so",
+    name: "libnetutils",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -833,7 +833,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libois_algorithm_jni.so",
+    name: "libois_algorithm_jni",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -859,7 +859,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libstagefright_bufferpool@2.0.1.so",
+    name: "libstagefright_bufferpool@2.0.1",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -885,7 +885,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libtinyxml2.so",
+    name: "libtinyxml2",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -939,7 +939,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.gnss@1.0.so",
+    name: "vendor.sprd.hardware.gnss@1.0",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -997,7 +997,7 @@ cc_prebuilt_library_shared {
 
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.gnss@1.0-impl.so",
+    name: "vendor.sprd.hardware.gnss@1.0-impl",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1080,7 +1080,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_library_shared {
-    name: "libGLES_mali.so",
+    name: "libGLES_mali",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1116,7 +1116,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "hwcomposer.unisoc.so",
+    name: "hwcomposer.unisoc",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1157,7 +1157,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "gralloc.RE58C2.so",
+    name: "gralloc.RE58C2",
     owner: "realme",
     vendor: true,
     shared_libs: [
@@ -1181,7 +1181,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.graphics.mapper@4.0-impl-arm.so",
+    name: "android.hardware.graphics.mapper@4.0-impl-arm",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1208,7 +1208,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libhwc2on1adapter.so",
+    name: "libhwc2on1adapter",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1228,7 +1228,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libhwc2onfbadapter.so", 
+    name: "libhwc2onfbadapter", 
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/libhwc2onfbadapter.so"],
@@ -1242,7 +1242,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libmemion.so",
+    name: "libmemion",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1262,7 +1262,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libmediahdrtosdrtransform.so",
+    name: "libmediahdrtosdrtransform",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1282,7 +1282,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libremotedisplay.so",
+    name: "libremotedisplay",
     owner: "realme",
     multilib: {
         lib32: {
@@ -1431,7 +1431,7 @@ prebuilt_etc {
 // =============================================
 
 cc_prebuilt_library_shared {
-    name: "vendor.nxp.nxpnfclegacy@1.0.so",
+    name: "vendor.nxp.nxpnfclegacy@1.0",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1455,7 +1455,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.nxp.eventprocessor@1.0.so",
+    name: "vendor.nxp.eventprocessor@1.0",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/lib64/vendor.nxp.eventprocessor@1.0.so"],
@@ -1526,7 +1526,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.power-V1-ndk.so",
+    name: "vendor.unisoc.hardware.power-V1-ndk",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1547,7 +1547,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "power.default.so",
+    name: "power.default",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1569,7 +1569,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "power.sprd.so", 
+    name: "power.sprd", 
     owner: "realme",
     vendor: true,
     shared_libs: [
@@ -1590,7 +1590,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libpowerhal_cli.so",
+    name: "libpowerhal_cli",
     owner: "realme",
     vendor: true,
     shared_libs: [
@@ -1656,7 +1656,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_library_shared {
-    name: "libril-private.so",
+    name: "libril-private",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1683,7 +1683,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libimpl-ril.so",
+    name: "libimpl-ril",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1714,7 +1714,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "librilutils.so",
+    name: "librilutils",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1740,7 +1740,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "librilcore.so",
+    name: "librilcore",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1794,7 +1794,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio-V1-ndk.so",
+    name: "vendor.unisoc.hardware.radio-V1-ndk",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1815,7 +1815,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio.data-V1-ndk.so",
+    name: "vendor.unisoc.hardware.radio.data-V1-ndk",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1837,7 +1837,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio.sim-V1-ndk.so",
+    name: "vendor.unisoc.hardware.radio.sim-V1-ndk",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1859,7 +1859,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio.network-V1-ndk.so",
+    name: "vendor.unisoc.hardware.radio.network-V1-ndk",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1881,7 +1881,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio.voice-V1-ndk.so",
+    name: "vendor.unisoc.hardware.radio.voice-V1-ndk",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1903,7 +1903,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio.messaging-V1-ndk.so",
+    name: "vendor.unisoc.hardware.radio.messaging-V1-ndk",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1926,7 +1926,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio.modem-V1-ndk.so",
+    name: "vendor.unisoc.hardware.radio.modem-V1-ndk",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1948,7 +1948,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio.ims-V1-ndk.so",
+    name: "vendor.unisoc.hardware.radio.ims-V1-ndk",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2001,7 +2001,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_library_shared {
-    name: "sensors.unisoc.so",
+    name: "sensors.unisoc",
     owner: "realme",
     vendor: true,
     relative_install_path: "hw",
@@ -2021,7 +2021,7 @@ cc_prebuilt_library_shared {
 // =============================================
 
 cc_prebuilt_library_shared {
-    name: "libclang_rt.ubsan_standalone-aarch64-android.so",
+    name: "libclang_rt.ubsan_standalone-aarch64-android",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/system/lib64/libclang_rt.ubsan_standalone-aarch64-android.so"],
@@ -2039,7 +2039,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libliom.so",
+    name: "libliom",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2062,7 +2062,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libstagefright_hdcp.so",
+    name: "libstagefright_hdcp",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2090,7 +2090,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libsoter_trusty.so",
+    name: "libsoter_trusty",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2114,7 +2114,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "oemlock_ca.so",
+    name: "oemlock_ca",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2194,7 +2194,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.thermal@2.0.so",
+    name: "vendor.sprd.hardware.thermal@2.0",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2224,7 +2224,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.thermal@2.0-impl.so",
+    name: "vendor.sprd.hardware.thermal@2.0-impl",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2251,7 +2251,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "thermal.default.so",
+    name: "thermal.default",
     owner: "realme",
     vendor: true,
     relative_install_path: "hw",
@@ -2291,7 +2291,7 @@ prebuilt_etc {
 // =============================================
 
 cc_prebuilt_library_shared {
-    name: "libtrusty.so",
+    name: "libtrusty",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2317,7 +2317,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libtrustyHalHelper.so",
+    name: "libtrustyHalHelper",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2350,7 +2350,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libsecrpmbdata.so",
+    name: "libsecrpmbdata",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libsecrpmbdata.so"],
     vendor: true,
@@ -2370,7 +2370,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "librpmbclient.so",
+    name: "librpmbclient",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/librpmbclient.so"],
     vendor: true,
@@ -2390,7 +2390,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libteeproduction.so",
+    name: "libteeproduction",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libteeproduction.so"],
     vendor: true,
@@ -2412,7 +2412,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.trusty-impl.so",
+    name: "vendor.sprd.hardware.trusty-impl",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2444,7 +2444,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.trusty@1.0.so",
+    name: "vendor.sprd.hardware.trusty@1.0",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2471,7 +2471,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.trusty-V1-ndk.so",
+    name: "vendor.sprd.hardware.trusty-V1-ndk",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2850,7 +2850,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.commondcs@1.0.so",
+    name: "vendor.sprd.hardware.commondcs@1.0",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.commondcs@1.0.so"],
     vendor: true,
@@ -2872,7 +2872,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.connmgr@1.0.so",
+    name: "vendor.sprd.hardware.connmgr@1.0",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2899,7 +2899,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.connmgr@1.0-impl.so",
+    name: "vendor.sprd.hardware.connmgr@1.0-impl",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2926,7 +2926,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.cplog_svc@1.0.so",
+    name: "vendor.sprd.hardware.cplog_svc@1.0",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.cplog_svc@1.0.so"],
@@ -2944,7 +2944,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.cplog_svc-V2-ndk.so",
+    name: "vendor.sprd.hardware.cplog_svc-V2-ndk",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.cplog_svc-V2-ndk.so"],
@@ -2960,7 +2960,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.enhance-V1-ndk.so",
+    name: "vendor.sprd.hardware.enhance-V1-ndk",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2981,7 +2981,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.hdcp-V1-ndk.so",
+    name: "vendor.sprd.hardware.hdcp-V1-ndk",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.hdcp-V1-ndk.so"],
@@ -2997,7 +2997,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.log-V1-ndk.so",
+    name: "vendor.sprd.hardware.log-V1-ndk",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.log-V1-ndk.so"],
@@ -3013,7 +3013,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.network@1.0.so",
+    name: "vendor.sprd.hardware.network@1.0",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3040,7 +3040,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.network-V1-ndk.so",
+    name: "vendor.sprd.hardware.network-V1-ndk",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.network-V1-ndk.so"],
@@ -3058,7 +3058,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.network@1.0-impl.so",
+    name: "vendor.sprd.hardware.network@1.0-impl",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3088,7 +3088,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.performance@1.0.so",
+    name: "vendor.sprd.hardware.performance@1.0",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.performance@1.0.so"],
@@ -3106,7 +3106,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.soter-V1-ndk.so",
+    name: "vendor.sprd.hardware.soter-V1-ndk",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.soter-V1-ndk.so"],
@@ -3122,7 +3122,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.tui@1.0.so",
+    name: "vendor.sprd.hardware.tui@1.0",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3149,7 +3149,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.tui-V1-ndk.so",
+    name: "vendor.sprd.hardware.tui-V1-ndk",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.tui-V1-ndk.so"],
@@ -3165,7 +3165,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.oppo.engnative.engineer@1.0.so",
+    name: "vendor.oppo.engnative.engineer@1.0",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/vendor.oppo.engnative.engineer@1.0.so"],
     vendor: true,
@@ -3212,7 +3212,7 @@ prebuilt_etc {
 // =============================================
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.broadcastradio@2.0.so",
+    name: "android.hardware.broadcastradio@2.0",
     owner: "realme", 
     vendor: true,
     multilib: {
@@ -3230,7 +3230,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.gatekeeper@1.0.so",
+    name: "android.hardware.gatekeeper@1.0",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/android.hardware.gatekeeper@1.0.so"],
     vendor: true,
@@ -3245,7 +3245,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.thermal@1.0.so",
+    name: "android.hardware.thermal@1.0",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3272,7 +3272,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.thermal@2.0.so",
+    name: "android.hardware.thermal@2.0",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3299,7 +3299,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.thermal@1.0.so",
+    name: "vendor.sprd.hardware.thermal@1.0",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3599,7 +3599,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libkeymint_support.so",
+    name: "libkeymint_support",
     owner: "realme",
     vendor: false,
     check_elf_files: false,
@@ -3612,7 +3612,7 @@ cc_prebuilt_library_shared {
 
 // GNSS HAL libraries
 cc_prebuilt_library_shared {
-    name: "android.hardware.gnss@1.0.so",
+    name: "android.hardware.gnss@1.0",
     owner: "realme",
     vendor: true,
     check_elf_files: false,
@@ -3624,7 +3624,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.gnss@1.1.so",
+    name: "android.hardware.gnss@1.1",
     owner: "realme", 
     vendor: true,
     check_elf_files: false,
@@ -3637,7 +3637,7 @@ cc_prebuilt_library_shared {
 
 // Add all missing GNSS dependencies similarly
 cc_prebuilt_library_shared {
-    name: "android.hardware.gnss@2.0.so",
+    name: "android.hardware.gnss@2.0",
     owner: "realme",
     vendor: true,
     check_elf_files: false,
@@ -3649,7 +3649,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.gnss@2.1.so",
+    name: "android.hardware.gnss@2.1",
     owner: "realme",
     vendor: true,
     check_elf_files: false,
