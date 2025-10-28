@@ -3616,8 +3616,8 @@ prebuilt_etc {
 
 // Trusty default manifest  
 prebuilt_etc {
-    name: "trusty.default.xml",
-    src: "proprietary/vintf/manifest/trusty.default.xml",
+    name: "trusty-default.xml",
+    src: "proprietary/vintf/manifest/trusty-default.xml",
     sub_dir: "manifest",
     vendor: true,
     filename_from_src: true,
