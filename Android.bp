@@ -75,7 +75,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_binary {
-    name: "installd_stock",
+    name: "installd",
     owner: "realme",
     srcs: ["proprietary/system/bin/installd"],
     init_rc: ["proprietary/system/etc/init/installd.rc"],
@@ -93,12 +93,11 @@ cc_prebuilt_binary {
         "libutils",
         "libziparchive",
     ],
-    filename: "installd",
     check_elf_files: false,
 }
 
 cc_prebuilt_binary {
-    name: "keystore2_stock",
+    name: "keystore2",
     owner: "realme",
     srcs: ["proprietary/system/bin/keystore2"],
     init_rc: ["proprietary/system/etc/init/keystore2.rc"],
@@ -116,12 +115,11 @@ cc_prebuilt_binary {
         "libkm_compat_service",
         "libselinux",
     ],
-    filename: "keystore2",
     check_elf_files: false,
 }
 
 cc_prebuilt_binary {
-    name: "odsign_stock",
+    name: "odsign",
     owner: "realme",
     srcs: ["proprietary/system/bin/odsign"],
     relative_install_path: "hw",
@@ -139,12 +137,10 @@ cc_prebuilt_binary {
         "libutils",
     ],
     check_elf_files: false,
-        filename: "odsign",
-
 }
 
 cc_prebuilt_binary {
-    name: "wificond_stock",
+    name: "wificond",
     owner: "realme",
     srcs: ["proprietary/system/bin/wificond"],
     relative_install_path: "hw",
@@ -162,12 +158,10 @@ cc_prebuilt_binary {
         "libminijail",
     ],
     check_elf_files: false,
-            filename: "wificond",
-
 }
 
 cc_prebuilt_binary {
-    name: "ylog_stock",
+    name: "ylog",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/system_ext/bin/ylog"],
@@ -185,8 +179,6 @@ cc_prebuilt_binary {
         "libdl",
     ],
     check_elf_files: false,
-    filename: "ylog",
-
 }
 
 // =============================================
@@ -194,7 +186,7 @@ cc_prebuilt_binary {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "android.hardware.audio.service_stock",
+    name: "android.hardware.audio.service",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.audio.service"],
     relative_install_path: "hw",
@@ -211,7 +203,6 @@ cc_prebuilt_binary {
         "android.hardware.audio@7.1",
     ],
     check_elf_files: false,
-    filename: "android.hardware.audio.service",
 }
 
 cc_prebuilt_library_shared {
@@ -275,7 +266,7 @@ cc_prebuilt_library_shared {
 }
 
 prebuilt_etc {
-    name: "audio_policy_configuration",
+    name: "audio_policy_configuration.xml",
     owner: "realme",
     src: "proprietary/odm/etc/audio/audio_policy_configuration.xml",
     sub_dir: "audio",
@@ -386,7 +377,7 @@ cc_prebuilt_library_shared {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.boot@1.2-service_stock",
+    name: "vendor.sprd.hardware.boot@1.2-service",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service"],
     relative_install_path: "hw",
@@ -406,17 +397,14 @@ cc_prebuilt_binary {
         "android.hardware.boot@1.2",
         "libhardware",
     ],
-    filename: "vendor.sprd.hardware.boot@1.2-service",
 }
 
 prebuilt_etc {
-    name: "vendor.sprd.hardware.boot@1.2.manifest", 
+    name: "vendor.sprd.hardware.boot@1.2.xml", 
     src: "proprietary/vintf/manifest/vendor.sprd.hardware.boot@1.2.xml",
-    sub_dir: "vintf/manifest", vendor: true,
-    filename: "vendor.sprd.hardware.boot@1.2.xml",
-
+    sub_dir: "vintf/manifest", 
+    vendor: true,
 }
-
 
 cc_prebuilt_binary {
     name: "android.hardware.gatekeeper@1.0-service.trusty",
@@ -437,18 +425,16 @@ cc_prebuilt_binary {
     ],
 }
 
- prebuilt_etc {
-    name: "android.hardware.gatekeeper@1.0-service.trusty.manifest",
+prebuilt_etc {
+    name: "android.hardware.gatekeeper@1.0-service.trusty.xml",
     owner: "realme",
     src: "proprietary/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
-    filename: "android.hardware.gatekeeper@1.0-service.trusty.xml",
- }
-
+}
 
 cc_prebuilt_binary {
-    name: "android.hardware.security.keymint@2.0-unisoc.service.trusty_stock",
+    name: "android.hardware.security.keymint@2.0-unisoc.service.trusty",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.security.keymint@2.0-unisoc.service.trusty"],
     relative_install_path: "hw",
@@ -472,11 +458,10 @@ cc_prebuilt_binary {
         "libkeymint",
         "libtrusty",
     ],
-    filename: "android.hardware.security.keymint@2.0-unisoc.service.trusty",
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.boot@1.0-1.2-impl_stock",
+    name: "android.hardware.boot@1.0-impl-1.2.so",
     owner: "realme",
     vendor: true,
     check_elf_files: false,
@@ -493,11 +478,10 @@ cc_prebuilt_library_shared {
     strip: {
         none: true,
     },
-    filename: "android.hardware.boot@1.0-impl-1.2.so",
 }
 
 cc_prebuilt_library_shared {
-    name: "bootctrl.default",
+    name: "bootctrl.default.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -516,7 +500,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.boot@1.2",
+    name: "vendor.sprd.hardware.boot@1.2.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -546,7 +530,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "unisoc.bootctrl",
+    name: "unisoc.bootctrl.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -581,7 +565,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libkeymint_support",
+    name: "libkeymint_support.so",
     owner: "realme", 
     srcs: ["proprietary/system/lib64/libkeymint_support.so"],
     compile_multilib: "64",
@@ -592,19 +576,19 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libkeymint",
+    name: "libkeymint.so",
     owner: "realme",
     srcs: ["proprietary/system/lib64/libkeymint.so"], 
     compile_multilib: "64",
     shared_libs: [
-        "libbase", "liblog", "libutils", "libc++", "libkeymint_support",
+        "libbase", "liblog", "libutils", "libc++", "libkeymint_support.so",
         "libcrypto", "libbinder"
     ],
     strip: { none: true },
 }
 
 cc_prebuilt_binary {
-    name: "vendor.sprd.hardware.trusty-service_stock",
+    name: "vendor.sprd.hardware.trusty-service",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.trusty-service"],
     relative_install_path: "hw",
@@ -617,25 +601,21 @@ cc_prebuilt_binary {
         "libhidlbase",
         "liblog",
         "libutils",
-        "vendor.sprd.hardware.trusty@1.0",
+        "vendor.sprd.hardware.trusty@1.0.so",
         "libc++",
         "libbinder_ndk",
-        "libclang_rt.ubsan_standalone-aarch64-android",
-        "vendor.sprd.hardware.trusty-V1-ndk",
-        "libtrusty",
-        "vendor.sprd.hardware.trusty-impl",
+        "libclang_rt.ubsan_standalone-aarch64-android.so",
+        "vendor.sprd.hardware.trusty-V1-ndk.so",
+        "libtrusty.so",
+        "vendor.sprd.hardware.trusty-impl.so",
     ],
-        filename: "vendor.sprd.hardware.trusty-service",
-
 }
-
-
 
 // Spreadtrum Trusty service with mixed dependencies
 
 // Vendor-specific Trusty libraries
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.trusty-V1-ndk_stock",
+    name: "vendor.sprd.hardware.trusty-V1-ndk.so",
     owner: "realme",
     vendor: true,
     check_elf_files: false,  
@@ -644,12 +624,10 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.trusty-V1-ndk.so"],
         },
     },
-    filename: "vendor.sprd.hardware.trusty-V1-ndk.so",
 }
 
-
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.trusty-impl_stock",
+    name: "vendor.sprd.hardware.trusty-impl.so",
     owner: "realme", 
     vendor: true,
     check_elf_files: false,  
@@ -659,11 +637,10 @@ cc_prebuilt_library_shared {
             relative_install_path: "hw",
         },
     },
-    filename: "vendor.sprd.hardware.trusty-impl.so",
 }
 
 cc_prebuilt_library_shared {
-    name: "libtrusty_stock",
+    name: "libtrusty.so",
     owner: "realme",
     vendor: true,
     check_elf_files: false,  
@@ -672,9 +649,7 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/vendor/lib64/libtrusty.so"],
         },
     },
-    filename: "libtrusty.so",
 }
-
 
 // =============================================
 // CAS Service (Commented)
@@ -726,7 +701,7 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.wcn@1.0",
+        "vendor.sprd.hardware.wcn@1.0.so",
     ],
     check_elf_files: false,
 }
@@ -788,7 +763,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.wcn@1.0-impl",
+    name: "vendor.sprd.hardware.wcn@1.0-impl.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -806,7 +781,7 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-        "vendor.sprd.hardware.wcn@1.0",
+        "vendor.sprd.hardware.wcn@1.0.so",
         "libhidlbase",
     ],
     strip: {
@@ -815,7 +790,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.wcn@1.0",
+    name: "vendor.sprd.hardware.wcn@1.0.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -846,7 +821,7 @@ cc_prebuilt_library_shared {
 // =============================================
 
 cc_prebuilt_library_shared {
-    name: "libcredstore_aidl",
+    name: "libcredstore_aidl.so",
     owner: "realme",
     srcs: ["proprietary/system/lib64/libcredstore_aidl.so"],
     compile_multilib: "64",
@@ -865,7 +840,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libhardware_legacy",
+    name: "libhardware_legacy.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -886,7 +861,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libnetutils",
+    name: "libnetutils.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -906,7 +881,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libois_algorithm_jni",
+    name: "libois_algorithm_jni.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -932,7 +907,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libstagefright_bufferpool@2.0.1",
+    name: "libstagefright_bufferpool@2.0.1.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -958,7 +933,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libtinyxml2",
+    name: "libtinyxml2.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -997,21 +972,21 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.gnss@1.0",
+        "vendor.sprd.hardware.gnss@1.0.so",
         "libbinder",
         "libhardware",
-        "android.hardware.gnss@1.0",
-        "android.hardware.gnss@1.1",
-        "android.hardware.gnss@2.0",
-        "android.hardware.gnss@2.1",
-        "android.hardware.gnss.measurement_corrections@1.0",
-        "android.hardware.gnss.measurement_corrections@1.1",
-        "android.hardware.gnss.visibility_control@1.0",
+        "android.hardware.gnss@1.0.so",
+        "android.hardware.gnss@1.1.so",
+        "android.hardware.gnss@2.0.so",
+        "android.hardware.gnss@2.1.so",
+        "android.hardware.gnss.measurement_corrections@1.0.so",
+        "android.hardware.gnss.measurement_corrections@1.1.so",
+        "android.hardware.gnss.visibility_control@1.0.so",
     ],
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.gnss@1.0",
+    name: "vendor.sprd.hardware.gnss@1.0.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1038,7 +1013,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.gnss@2.1-impl",
+    name: "android.hardware.gnss@2.1-impl.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1056,17 +1031,17 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-        "android.hardware.gnss@2.1",
+        "android.hardware.gnss@2.1.so",
         "libhardware",
         "libbase",
         "libbinder",
         "libhidlbase",
-        "android.hardware.gnss@1.0",
-        "android.hardware.gnss@1.1",
-        "android.hardware.gnss@2.0",
-        "android.hardware.gnss.measurement_corrections@1.0",
-        "android.hardware.gnss.measurement_corrections@1.1",
-        "android.hardware.gnss.visibility_control@1.0",
+        "android.hardware.gnss@1.0.so",
+        "android.hardware.gnss@1.1.so",
+        "android.hardware.gnss@2.0.so",
+        "android.hardware.gnss.measurement_corrections@1.0.so",
+        "android.hardware.gnss.measurement_corrections@1.1.so",
+        "android.hardware.gnss.visibility_control@1.0.so",
     ],
     strip: {
         none: true,
@@ -1074,7 +1049,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.gnss@1.0-impl",
+    name: "vendor.sprd.hardware.gnss@1.0-impl.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1092,19 +1067,19 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-        "vendor.sprd.hardware.gnss@1.0",
+        "vendor.sprd.hardware.gnss@1.0.so",
         "libhidlbase",
         "libhardware",
-        "android.hardware.gnss@2.1",
+        "android.hardware.gnss@2.1.so",
         "libbinder",
         "libhardware",
-        "android.hardware.gnss@1.0",
-        "android.hardware.gnss@1.1", 
-        "android.hardware.gnss@2.0",
-        "android.hardware.gnss@2.1",
-        "android.hardware.gnss.measurement_corrections@1.0",
-        "android.hardware.gnss.measurement_corrections@1.1",
-        "android.hardware.gnss.visibility_control@1.0",
+        "android.hardware.gnss@1.0.so",
+        "android.hardware.gnss@1.1.so", 
+        "android.hardware.gnss@2.0.so",
+        "android.hardware.gnss@2.1.so",
+        "android.hardware.gnss.measurement_corrections@1.0.so",
+        "android.hardware.gnss.measurement_corrections@1.1.so",
+        "android.hardware.gnss.visibility_control@1.0.so",
     ],
     strip: {
         none: true,
@@ -1116,7 +1091,7 @@ cc_prebuilt_library_shared {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "android.hardware.graphics.composer@2.4-service_stock",
+    name: "android.hardware.graphics.composer@2.4-service",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.graphics.composer@2.4-service"],
     relative_install_path: "hw",
@@ -1133,11 +1108,10 @@ cc_prebuilt_binary {
         "libc++",
         "android.hardware.graphics.composer@2.4",
     ],
-    filename: "android.hardware.graphics.composer@2.4-service",
 }
 
 cc_prebuilt_binary {
-    name: "android.hardware.graphics.allocator@4.0-service_stock",
+    name: "android.hardware.graphics.allocator@4.0-service",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.graphics.allocator@4.0-service"],
     relative_install_path: "hw",
@@ -1154,11 +1128,10 @@ cc_prebuilt_binary {
         "libc++",
         "android.hardware.graphics.allocator@4.0",
     ],
-    filename: "android.hardware.graphics.allocator@4.0-service",
 }
 
 cc_prebuilt_library_shared {
-    name: "libGLES_mali",
+    name: "libGLES_mali.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1194,7 +1167,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "hwcomposer.unisoc",
+    name: "hwcomposer.unisoc.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1230,12 +1203,12 @@ cc_prebuilt_library_shared {
         "libmemion",
         "libmediahdrtosdrtransform",
         "libpowerhal_cli",
-        "vendor.sprd.hardware.enhance-V1-ndk"
+        "vendor.sprd.hardware.enhance-V1-ndk.so"
     ],
 }
 
 cc_prebuilt_library_shared {
-    name: "gralloc.RE58C2",
+    name: "gralloc.RE58C2.so",
     owner: "realme",
     vendor: true,
     shared_libs: [
@@ -1259,7 +1232,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.graphics.mapper@4.0-impl-arm",
+    name: "android.hardware.graphics.mapper@4.0-impl-arm.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1286,7 +1259,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libhwc2on1adapter",
+    name: "libhwc2on1adapter.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1306,7 +1279,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libhwc2onfbadapter", 
+    name: "libhwc2onfbadapter.so", 
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/libhwc2onfbadapter.so"],
@@ -1320,7 +1293,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libmemion",
+    name: "libmemion.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1340,7 +1313,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libmediahdrtosdrtransform",
+    name: "libmediahdrtosdrtransform.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1360,7 +1333,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libremotedisplay",
+    name: "libremotedisplay.so",
     owner: "realme",
     multilib: {
         lib32: {
@@ -1386,7 +1359,7 @@ cc_prebuilt_library_shared {
 }
 
 prebuilt_etc {
-    name: "gralloc.manifest",
+    name: "gralloc.xml",
     owner: "realme",
     src: "proprietary/vendor/etc/gralloc/gralloc.xml",
     sub_dir: "gralloc",
@@ -1396,29 +1369,6 @@ prebuilt_etc {
 // =============================================
 // Hardware Services Stack (Lights, Vibrator, Memtrack)
 // =============================================
-
-//cc_prebuilt_binary {
-//   name: "vendor.sprd.hardware.lights-service",
-//   owner: "realme",
-//   srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.lights-service"],
-//   relative_install_path: "hw",
-//   vendor: true,
-//   compile_multilib: "64",
-//   init_rc: ["proprietary/vendor/etc/init/lights.rc"],
-//   shared_libs: [
-//       "libbase",
-//       "libhidlbase",
-//       "libc++",
-//       "liblog",
-//       "libutils",
-//       "libcutils",
-//       "libc",
-//       "libm",
-//       "libdl",
-//       "libbinder_ndk",
-//       "android.hardware.light-V2-ndk",
-//   ],
-//}
 
 cc_prebuilt_binary {
     name: "vendor.sprd.hardware.lights-service",
@@ -1437,9 +1387,9 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "libhardware",
-        "libhardware_legacy",
+        "libhardware_legacy.so",
         "libbinder",
-        "android.hardware.light@2.0",
+        "android.hardware.light@2.0.so",
     ],
 }
 
@@ -1492,7 +1442,7 @@ cc_prebuilt_binary {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "android.hardware.health-service.example_stock",
+    name: "android.hardware.health-service.example",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.health-service.example"],
     relative_install_path: "hw",
@@ -1508,17 +1458,14 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
     ],
-    filename: "android.hardware.health-service.example",
 }
 
 prebuilt_etc {
-    name: "android.hardware.health-service.example.manifest",
+    name: "android.hardware.health-service.example.xml",
     owner: "realme",
     src: "proprietary/vintf/manifest/android.hardware.health-service.example.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
-    filename: "android.hardware.health-service.example.xml",
-
 }
 
 // =============================================
@@ -1526,11 +1473,9 @@ prebuilt_etc {
 // =============================================
 
 prebuilt_etc {
-    name: "media_codecs.manifest",
+    name: "media_codecs.xml",
     owner: "realme",
     src: "proprietary/vendor/etc/media_codecs.xml",
-    filename: "media_codecs.xml",
-
 }
 
 // =============================================
@@ -1538,7 +1483,7 @@ prebuilt_etc {
 // =============================================
 
 cc_prebuilt_library_shared {
-    name: "vendor.nxp.nxpnfclegacy@1.0",
+    name: "vendor.nxp.nxpnfclegacy@1.0.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1562,7 +1507,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.nxp.eventprocessor@1.0",
+    name: "vendor.nxp.eventprocessor@1.0.so",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/lib64/vendor.nxp.eventprocessor@1.0.so"],
@@ -1598,8 +1543,8 @@ cc_prebuilt_binary {
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/vendor-power-default.rc"],
     shared_libs: [
-        "vendor.unisoc.hardware.power-V1-ndk",
-        "power.default",
+        "vendor.unisoc.hardware.power-V1-ndk.so",
+        "power.default.so",
         "libbase",
         "libcutils",
         "libhidlbase",
@@ -1608,7 +1553,7 @@ cc_prebuilt_binary {
         "libc++",
         "libbinder",
         "libbinder_ndk",
-        "power.sprd",
+        "power.sprd.so",
     ],
     check_elf_files: false,
 }
@@ -1633,7 +1578,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.power-V1-ndk",
+    name: "vendor.unisoc.hardware.power-V1-ndk.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1654,7 +1599,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "power.default",
+    name: "power.default.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1676,7 +1621,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "power.sprd", 
+    name: "power.sprd.so", 
     owner: "realme",
     vendor: true,
     shared_libs: [
@@ -1697,7 +1642,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libpowerhal_cli",
+    name: "libpowerhal_cli.so",
     owner: "realme",
     vendor: true,
     shared_libs: [
@@ -1708,7 +1653,7 @@ cc_prebuilt_library_shared {
         "libcutils", 
         "liblog",
         "libutils",
-        "vendor.unisoc.hardware.power-V1-ndk",
+        "vendor.unisoc.hardware.power-V1-ndk.so",
         "libc",
         "libm",
         "libdl",
@@ -1724,22 +1669,19 @@ cc_prebuilt_library_shared {
 }
 
 prebuilt_etc {
-    name: "vendor-power-default.manifest",
+    name: "vendor-power-default.xml",
     owner: "realme",
     src: "proprietary/vintf/manifest/vendor-power-default.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
-    filename: "vendor-power-default.xml",
-
 }
 
 prebuilt_etc {
-    name: "power.stats-default.manifest",
+    name: "power.stats-default.xml",
     owner: "realme",
     src: "proprietary/vintf/manifest/power.stats-default.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
-    filename: "power.stats-default.xml",
 }
 
 // =============================================
@@ -1747,7 +1689,7 @@ prebuilt_etc {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "urild_stock",
+    name: "urild",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/urild"],
     relative_install_path: "hw",
@@ -1761,13 +1703,12 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "librilcore",
+        "librilcore.so",
     ],
-    filename: "urild",
 }
 
 cc_prebuilt_library_shared {
-    name: "libril-private",
+    name: "libril-private.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1783,7 +1724,7 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-        "libtinyxml2",
+        "libtinyxml2.so",
         "libc",
         "libm",
         "libdl",
@@ -1794,7 +1735,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libimpl-ril",
+    name: "libimpl-ril.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1810,11 +1751,11 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-        "librilcore",
-        "librilutils",
-        "libnetutils",
+        "librilcore.so",
+        "librilutils.so",
+        "libnetutils.so",
         "libhidlbase",
-        "libtinyxml2",
+        "libtinyxml2.so",
         "libc",
         "libm",
         "libdl",
@@ -1825,7 +1766,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "librilutils",
+    name: "librilutils.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1851,7 +1792,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "librilcore",
+    name: "librilcore.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1867,18 +1808,18 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-        "libhardware_legacy",
-        "librilutils",
+        "libhardware_legacy.so",
+        "librilutils.so",
         "libhidlbase",
         "libhwbinder",
         "libbase",
         "libbinder",
         "libbinder_ndk",
-        "android.hardware.radio@1.0",
-        "android.hardware.radio@1.1",
-        "android.hardware.radio@1.2",
-        "android.hardware.radio.deprecated@1.0",
-        "android.hardware.secure_element@1.0",
+        "android.hardware.radio@1.0.so",
+        "android.hardware.radio@1.1.so",
+        "android.hardware.radio@1.2.so",
+        "android.hardware.radio.deprecated@1.0.so",
+        "android.hardware.secure_element@1.0.so",
         "android.hardware.radio-V1-ndk",
         "android.hardware.radio.modem-V1-ndk",
         "android.hardware.radio.config-V1-ndk",
@@ -1887,14 +1828,14 @@ cc_prebuilt_library_shared {
         "android.hardware.radio.network-V1-ndk",
         "android.hardware.radio.voice-V1-ndk",
         "android.hardware.radio.messaging-V1-ndk",
-        "vendor.unisoc.hardware.radio-V1-ndk",
-        "vendor.unisoc.hardware.radio.data-V1-ndk",
-        "vendor.unisoc.hardware.radio.sim-V1-ndk",
-        "vendor.unisoc.hardware.radio.network-V1-ndk",
-        "vendor.unisoc.hardware.radio.voice-V1-ndk",
-        "vendor.unisoc.hardware.radio.messaging-V1-ndk",
-        "vendor.unisoc.hardware.radio.modem-V1-ndk",
-        "vendor.unisoc.hardware.radio.ims-V1-ndk",
+        "vendor.unisoc.hardware.radio-V1-ndk.so",
+        "vendor.unisoc.hardware.radio.data-V1-ndk.so",
+        "vendor.unisoc.hardware.radio.sim-V1-ndk.so",
+        "vendor.unisoc.hardware.radio.network-V1-ndk.so",
+        "vendor.unisoc.hardware.radio.voice-V1-ndk.so",
+        "vendor.unisoc.hardware.radio.messaging-V1-ndk.so",
+        "vendor.unisoc.hardware.radio.modem-V1-ndk.so",
+        "vendor.unisoc.hardware.radio.ims-V1-ndk.so",
         "libc",
         "libm",
         "libdl",
@@ -1905,7 +1846,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio-V1-ndk",
+    name: "vendor.unisoc.hardware.radio-V1-ndk.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1926,7 +1867,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio.data-V1-ndk",
+    name: "vendor.unisoc.hardware.radio.data-V1-ndk.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1943,12 +1884,12 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-        "vendor.unisoc.hardware.radio-V1-ndk",
+        "vendor.unisoc.hardware.radio-V1-ndk.so",
     ],
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio.sim-V1-ndk",
+    name: "vendor.unisoc.hardware.radio.sim-V1-ndk.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1970,7 +1911,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio.network-V1-ndk",
+    name: "vendor.unisoc.hardware.radio.network-V1-ndk.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -1992,7 +1933,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio.voice-V1-ndk",
+    name: "vendor.unisoc.hardware.radio.voice-V1-ndk.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2014,7 +1955,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio.messaging-V1-ndk",
+    name: "vendor.unisoc.hardware.radio.messaging-V1-ndk.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2031,13 +1972,13 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-        "vendor.unisoc.hardware.radio-V1-ndk",
+        "vendor.unisoc.hardware.radio-V1-ndk.so",
     ],
     check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio.modem-V1-ndk",
+    name: "vendor.unisoc.hardware.radio.modem-V1-ndk.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2059,7 +2000,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.unisoc.hardware.radio.ims-V1-ndk",
+    name: "vendor.unisoc.hardware.radio.ims-V1-ndk.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2092,7 +2033,7 @@ prebuilt_etc {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "android.hardware.sensors-service.multihal_stock",
+    name: "android.hardware.sensors-service.multihal",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.sensors-service.multihal"],
     relative_install_path: "hw",
@@ -2109,11 +2050,10 @@ cc_prebuilt_binary {
         "libc++",
         "android.hardware.sensors@2.1",
     ],
-    filename: "android.hardware.sensors-service.multihal",
 }
 
 cc_prebuilt_library_shared {
-    name: "sensors.unisoc",
+    name: "sensors.unisoc.so",
     owner: "realme",
     vendor: true,
     relative_install_path: "hw",
@@ -2133,7 +2073,7 @@ cc_prebuilt_library_shared {
 // =============================================
 
 cc_prebuilt_library_shared {
-    name: "libclang_rt.ubsan_standalone-aarch64-android",
+    name: "libclang_rt.ubsan_standalone-aarch64-android.so",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/system/lib64/libclang_rt.ubsan_standalone-aarch64-android.so"],
@@ -2151,7 +2091,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libliom",
+    name: "libliom.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2174,7 +2114,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libstagefright_hdcp",
+    name: "libstagefright_hdcp.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2202,7 +2142,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libsoter_trusty",
+    name: "libsoter_trusty.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2218,7 +2158,7 @@ cc_prebuilt_library_shared {
         "liblog",
         "libcutils",
         "libutils",
-        "libtrusty",  
+        "libtrusty.so",  
     ],
     strip: {
         none: true,
@@ -2226,7 +2166,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "oemlock_ca",
+    name: "oemlock_ca.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2245,7 +2185,7 @@ cc_prebuilt_library_shared {
         "libc",
         "libm",
         "libdl",
-        "libtrusty",
+        "libtrusty.so",
     ],
     strip: {
         none: true,
@@ -2257,7 +2197,7 @@ cc_prebuilt_library_shared {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "tee_rpc_stock",
+    name: "tee_rpc",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/tee_rpc"],
     vendor: true,
@@ -2265,9 +2205,8 @@ cc_prebuilt_binary {
     init_rc: ["proprietary/vendor/etc/init/tee_rpc.rc"],
     shared_libs: [
         "libbase", "libcutils", "liblog", "libutils", "libc++",
-        "libbinder", "libhardware", "libtrusty"
+        "libbinder", "libhardware", "libtrusty.so"
     ],
-    filename: "tee_rpc",
     check_elf_files: false,
 }
 
@@ -2290,7 +2229,7 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.thermal@2.0",
+        "vendor.sprd.hardware.thermal@2.0.so",
     ],
     check_elf_files: false,
 }
@@ -2307,7 +2246,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.thermal@2.0",
+    name: "vendor.sprd.hardware.thermal@2.0.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2327,9 +2266,9 @@ cc_prebuilt_library_shared {
         "libc",
         "libm",
         "libdl",
-        "android.hardware.thermal@1.0",
-        "android.hardware.thermal@2.0",
-        "vendor.sprd.hardware.thermal@1.0",
+        "android.hardware.thermal@1.0.so",
+        "android.hardware.thermal@2.0.so",
+        "vendor.sprd.hardware.thermal@1.0.so",
     ],
     strip: {
         none: true,
@@ -2337,7 +2276,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.thermal@2.0-impl",
+    name: "vendor.sprd.hardware.thermal@2.0-impl.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2355,7 +2294,7 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-        "vendor.sprd.hardware.thermal@2.0",
+        "vendor.sprd.hardware.thermal@2.0.so",
     ],
     strip: {
         none: true,
@@ -2364,7 +2303,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "thermal.default",
+    name: "thermal.default.so",
     owner: "realme",
     vendor: true,
     relative_install_path: "hw",
@@ -2384,21 +2323,19 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor.sprd.hardware.thermal@2.0-service.manifest",
+    name: "vendor.sprd.hardware.thermal@2.0-service.xml",
     owner: "realme",
     src: "proprietary/vintf/manifest/vendor.sprd.hardware.thermal@2.0-service.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
-    filename: "vendor.sprd.hardware.thermal@2.0-service.xml",
 }
 
 prebuilt_etc {
-    name: "android.hardware.thermal@2.0-service.manifest",
+    name: "android.hardware.thermal@2.0-service.xml",
     owner: "realme",
     src: "proprietary/vintf/manifest/android.hardware.thermal@2.0-service.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
-    filename: "android.hardware.thermal@2.0-service.xml",
 }
 
 // =============================================
@@ -2406,7 +2343,7 @@ prebuilt_etc {
 // =============================================
 
 cc_prebuilt_library_shared {
-    name: "libtrusty",
+    name: "libtrusty.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2432,7 +2369,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libtrustyHalHelper",
+    name: "libtrustyHalHelper.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2454,10 +2391,10 @@ cc_prebuilt_library_shared {
         "libbase",
         "libhidlbase",
         "libhidlmemory",
-        "vendor.sprd.hardware.trusty@1.0",
+        "vendor.sprd.hardware.trusty@1.0.so",
         "libbinder",
         "libbinder_ndk",
-        "vendor.sprd.hardware.trusty-V1-ndk",
+        "vendor.sprd.hardware.trusty-V1-ndk.so",
     ],
     strip: {
         none: true,
@@ -2465,7 +2402,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libsecrpmbdata",
+    name: "libsecrpmbdata.so",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libsecrpmbdata.so"],
     vendor: true,
@@ -2473,8 +2410,8 @@ cc_prebuilt_library_shared {
     shared_libs: [
         "libc++",
         "liblog",
-        "libtrusty",
-        "libtrustyHalHelper",
+        "libtrusty.so",
+        "libtrustyHalHelper.so",
         "libc",
         "libm",
         "libdl",
@@ -2485,7 +2422,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "librpmbclient",
+    name: "librpmbclient.so",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/librpmbclient.so"],
     vendor: true,
@@ -2494,7 +2431,7 @@ cc_prebuilt_library_shared {
         "libc++",
         "liblog",
         "libcutils",
-        "libtrusty",
+        "libtrusty.so",
         "libc",
         "libm",
         "libdl",
@@ -2505,7 +2442,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libteeproduction",
+    name: "libteeproduction.so",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/libteeproduction.so"],
     vendor: true,
@@ -2514,9 +2451,9 @@ cc_prebuilt_library_shared {
         "libc++",
         "liblog",
         "libcutils",
-        "libtrusty",
-        "libtrustyHalHelper",
-        "librpmbclient",
+        "libtrusty.so",
+        "libtrustyHalHelper.so",
+        "librpmbclient.so",
         "libc",
         "libm",
         "libdl",
@@ -2526,9 +2463,8 @@ cc_prebuilt_library_shared {
     },
 }
 
-
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.trusty-impl",
+    name: "vendor.sprd.hardware.trusty-impl.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2546,12 +2482,12 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-        "vendor.sprd.hardware.trusty@1.0",
+        "vendor.sprd.hardware.trusty@1.0.so",
         "libbase",
         "libbinder_ndk",
         "libhidlbase",
-        "vendor.sprd.hardware.trusty-V1-ndk",
-        "libtrusty",
+        "vendor.sprd.hardware.trusty-V1-ndk.so",
+        "libtrusty.so",
     ],
     check_elf_files: false,
     strip: {
@@ -2560,7 +2496,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.trusty@1.0",
+    name: "vendor.sprd.hardware.trusty@1.0.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2587,7 +2523,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.trusty-V1-ndk",
+    name: "vendor.sprd.hardware.trusty-V1-ndk.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -2610,12 +2546,11 @@ cc_prebuilt_library_shared {
 }
 
 prebuilt_etc {
-    name: "trusty.default.manifest",
+    name: "trusty-default.xml",
     owner: "realme",
     src: "proprietary/vendor/etc/vintf/manifest/trusty-default.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
-    filename: "trusty-default.xml",
 }
 
 // =============================================
@@ -2623,7 +2558,7 @@ prebuilt_etc {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "android.hardware.usb-service.example_stock",
+    name: "android.hardware.usb-service.example",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.usb-service.example"],
     relative_install_path: "hw",
@@ -2640,7 +2575,6 @@ cc_prebuilt_binary {
         "libc++",
         "android.hardware.usb@1.3",
     ],
-    filename: "android.hardware.usb-service.example",
 }
 
 // =============================================
@@ -2664,7 +2598,7 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "libhardware",
-        "android.hardware.broadcastradio@2.0",
+        "android.hardware.broadcastradio@2.0.so",
     ],
 }
 
@@ -2684,7 +2618,7 @@ cc_prebuilt_binary {
         "liblog",
         "libsysutils",
         "libutils",
-        "vendor.sprd.hardware.commondcs@1.0",
+        "vendor.sprd.hardware.commondcs@1.0.so",
     ],
 }
 
@@ -2704,7 +2638,7 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.connmgr@1.0",
+        "vendor.sprd.hardware.connmgr@1.0.so",
         "libsysutils",
         "libhardware",
     ],
@@ -2726,13 +2660,13 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.cplog_svc@1.0",
+        "vendor.sprd.hardware.cplog_svc@1.0.so",
         "libhardware",
-        "libliom",
-        "libtinyxml2",
+        "libliom.so",
+        "libtinyxml2.so",
         "libbinder_ndk",
-        "vendor.sprd.hardware.gnss@1.0",
-        "vendor.sprd.hardware.cplog_svc-V2-ndk",
+        "vendor.sprd.hardware.gnss@1.0.so",
+        "vendor.sprd.hardware.cplog_svc-V2-ndk.so",
     ],
 }
 
@@ -2752,7 +2686,7 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.enhance-V1-ndk",
+        "vendor.sprd.hardware.enhance-V1-ndk.so",
         "libbinder_ndk",
         "libhardware",
     ],
@@ -2774,11 +2708,11 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.hdcp-V1-ndk",
+        "vendor.sprd.hardware.hdcp-V1-ndk.so",
         "libbinder",
         "libbinder_ndk",
-        "libstagefright_hdcp",
-        "libclang_rt.ubsan_standalone-aarch64-android",
+        "libstagefright_hdcp.so",
+        "libclang_rt.ubsan_standalone-aarch64-android.so",
     ],
 }
 
@@ -2798,7 +2732,7 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.log-V1-ndk",
+        "vendor.sprd.hardware.log-V1-ndk.so",
         "libsysutils",
         "libbinder",
         "libbinder_ndk",
@@ -2821,11 +2755,11 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.network@1.0",
+        "vendor.sprd.hardware.network@1.0.so",
         "libhardware",
         "libsysutils",
         "libbinder_ndk",
-        "vendor.sprd.hardware.network-V1-ndk",  
+        "vendor.sprd.hardware.network-V1-ndk.so",  
     ],
 }
 
@@ -2848,8 +2782,8 @@ cc_prebuilt_binary {
         "libhardware",
         "libsysutils",
         "libbinder_ndk",
-        "vendor.sprd.hardware.network@1.0",
-        "vendor.sprd.hardware.network-V1-ndk",
+        "vendor.sprd.hardware.network@1.0.so",
+        "vendor.sprd.hardware.network-V1-ndk.so",
     ],
 }
 
@@ -2869,7 +2803,7 @@ cc_prebuilt_binary {
         "libutils",
         "libc++",
         "libbinder_ndk",
-        "oemlock_ca",
+        "oemlock_ca.so",
         "android.hardware.oemlock-V1-ndk",
     ],
     check_elf_files: false,
@@ -2885,7 +2819,7 @@ cc_prebuilt_binary {
     init_rc: ["proprietary/vendor/etc/init/vendor.oppo.engnative.engineer@1.0-service.rc"],
     check_elf_files: false,
     shared_libs: [
-        "vendor.oppo.engnative.engineer@1.0",
+        "vendor.oppo.engnative.engineer@1.0.so",
         "libbase",
         "libcutils",
         "libdumpstateutil",
@@ -2895,9 +2829,9 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libcrypto",
-        "librpmbclient",
-        "libteeproduction",
-        "libsecrpmbdata",
+        "librpmbclient.so",
+        "libteeproduction.so",
+        "libsecrpmbdata.so",
         "libc++",
     ],
 }
@@ -2918,7 +2852,7 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.performance@1.0",
+        "vendor.sprd.hardware.performance@1.0.so",
         "libhardware",
     ],
 }
@@ -2939,9 +2873,9 @@ cc_prebuilt_binary {
         "liblog",
         "libutils",
         "libc++",
-        "vendor.sprd.hardware.soter-V1-ndk",
+        "vendor.sprd.hardware.soter-V1-ndk.so",
         "libbinder_ndk",
-        "libsoter_trusty",
+        "libsoter_trusty.so",
     ],
 }
 
@@ -2960,15 +2894,15 @@ cc_prebuilt_binary {
         "libhidlbase",
         "liblog",
         "libutils",
-        "vendor.sprd.hardware.tui@1.0",
+        "vendor.sprd.hardware.tui@1.0.so",
         "libc++",
         "libbinder_ndk",
-        "vendor.sprd.hardware.tui-V1-ndk",
+        "vendor.sprd.hardware.tui-V1-ndk.so",
     ],
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.commondcs@1.0",
+    name: "vendor.sprd.hardware.commondcs@1.0.so",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.commondcs@1.0.so"],
     vendor: true,
@@ -2990,7 +2924,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.connmgr@1.0",
+    name: "vendor.sprd.hardware.connmgr@1.0.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3017,7 +2951,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.connmgr@1.0-impl",
+    name: "vendor.sprd.hardware.connmgr@1.0-impl.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3035,7 +2969,7 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-        "vendor.sprd.hardware.connmgr@1.0",
+        "vendor.sprd.hardware.connmgr@1.0.so",
         "libhidlbase",
     ],
     strip: {
@@ -3044,7 +2978,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.cplog_svc@1.0",
+    name: "vendor.sprd.hardware.cplog_svc@1.0.so",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.cplog_svc@1.0.so"],
@@ -3062,7 +2996,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.cplog_svc-V2-ndk",
+    name: "vendor.sprd.hardware.cplog_svc-V2-ndk.so",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.cplog_svc-V2-ndk.so"],
@@ -3078,7 +3012,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.enhance-V1-ndk",
+    name: "vendor.sprd.hardware.enhance-V1-ndk.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3099,7 +3033,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.hdcp-V1-ndk",
+    name: "vendor.sprd.hardware.hdcp-V1-ndk.so",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.hdcp-V1-ndk.so"],
@@ -3115,7 +3049,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.log-V1-ndk",
+    name: "vendor.sprd.hardware.log-V1-ndk.so",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.log-V1-ndk.so"],
@@ -3131,7 +3065,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.network@1.0",
+    name: "vendor.sprd.hardware.network@1.0.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3158,7 +3092,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.network-V1-ndk",
+    name: "vendor.sprd.hardware.network-V1-ndk.so",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.network-V1-ndk.so"],
@@ -3176,7 +3110,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.network@1.0-impl",
+    name: "vendor.sprd.hardware.network@1.0-impl.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3194,7 +3128,7 @@ cc_prebuilt_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-        "vendor.sprd.hardware.network@1.0",
+        "vendor.sprd.hardware.network@1.0.so",
         "libhidlbase",
         "libbase",
         "libhardware",
@@ -3206,7 +3140,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.performance@1.0",
+    name: "vendor.sprd.hardware.performance@1.0.so",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.performance@1.0.so"],
@@ -3224,7 +3158,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.soter-V1-ndk",
+    name: "vendor.sprd.hardware.soter-V1-ndk.so",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.soter-V1-ndk.so"],
@@ -3240,7 +3174,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.tui@1.0",
+    name: "vendor.sprd.hardware.tui@1.0.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3267,7 +3201,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.tui-V1-ndk",
+    name: "vendor.sprd.hardware.tui-V1-ndk.so",
     owner: "realme",
     vendor: true,
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.tui-V1-ndk.so"],
@@ -3283,7 +3217,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.oppo.engnative.engineer@1.0",
+    name: "vendor.oppo.engnative.engineer@1.0.so",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/vendor.oppo.engnative.engineer@1.0.so"],
     vendor: true,
@@ -3294,9 +3228,9 @@ cc_prebuilt_library_shared {
         "libhidlbase",
         "liblog",
         "libutils",
-        "librpmbclient",
-        "libteeproduction",
-        "libsecrpmbdata",
+        "librpmbclient.so",
+        "libteeproduction.so",
+        "libsecrpmbdata.so",
         "libc",
         "libm",
         "libdl",
@@ -3311,22 +3245,18 @@ cc_prebuilt_library_shared {
 // =============================================
 
 prebuilt_etc {
-    name: "android.hardware.security.keymint.trusty.manifest",
+    name: "android.hardware.security.keymint@2.0-unisoc.service.trusty.xml",
     owner: "realme",
     src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint@2.0-unisoc.service.trusty.xml",
     sub_dir: "vintf/manifest",
     vendor: true,
-        filename: "android.hardware.security.keymint@2.0-unisoc.service.trusty.xml",
-
 }
 
 prebuilt_etc {
-    name: "android.system.keystore2-service.manifest",
+    name: "android.system.keystore2-service.xml",
     owner: "realme",
     src: "proprietary/system/etc/vintf/manifest/android.system.keystore2-service.xml",
     sub_dir: "vintf/manifest",
-    filename: "android.system.keystore2-service.xml",
-
 }
 
 // =============================================
@@ -3334,7 +3264,7 @@ prebuilt_etc {
 // =============================================
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.broadcastradio@2.0",
+    name: "android.hardware.broadcastradio@2.0.so",
     owner: "realme", 
     vendor: true,
     multilib: {
@@ -3352,7 +3282,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.gatekeeper@1.0",
+    name: "android.hardware.gatekeeper@1.0.so",
     owner: "realme",
     srcs: ["proprietary/vendor/lib64/android.hardware.gatekeeper@1.0.so"],
     vendor: true,
@@ -3367,7 +3297,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.thermal@1.0",
+    name: "android.hardware.thermal@1.0.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3394,7 +3324,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.thermal@2.0",
+    name: "android.hardware.thermal@2.0.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3421,7 +3351,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.sprd.hardware.thermal@1.0",
+    name: "vendor.sprd.hardware.thermal@1.0.so",
     owner: "realme",
     vendor: true,
     multilib: {
@@ -3441,8 +3371,8 @@ cc_prebuilt_library_shared {
         "libc",
         "libm",
         "libdl",
-        "android.hardware.thermal@1.0",
-        "android.hardware.thermal@2.0",
+        "android.hardware.thermal@1.0.so",
+        "android.hardware.thermal@2.0.so",
     ],
     strip: {
         none: true,
@@ -3462,7 +3392,7 @@ filegroup {
 }
 
 prebuilt_etc {
-    name: "vendor_dlkm_modules_load",
+    name: "modules.load",
     owner: "realme",
     src: "proprietary/vendor_dlkm/lib/modules/modules.load",
     sub_dir: "lib/modules",
@@ -3470,7 +3400,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor_dlkm_modules_load_cali",
+    name: "modules.load.cali",
     owner: "realme",
     src: "proprietary/vendor_dlkm/lib/modules/modules.load.cali",
     sub_dir: "lib/modules",
@@ -3478,7 +3408,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor_dlkm_modules_load_charger",
+    name: "modules.load.charger",
     owner: "realme",
     src: "proprietary/vendor_dlkm/lib/modules/modules.load.charger",
     sub_dir: "lib/modules",
@@ -3486,7 +3416,7 @@ prebuilt_etc {
 }
 
 cc_prebuilt_library_shared {
-    name: "sprd_wlan_combo",
+    name: "sprd_wlan_combo.ko",
     owner: "realme",
     srcs: ["proprietary/vendor_dlkm/lib/modules/sprd_wlan_combo.ko"],
     vendor: true,
@@ -3495,7 +3425,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "sprd_thermal",
+    name: "sprd_thermal.ko",
     owner: "realme",
     srcs: ["proprietary/vendor_dlkm/lib/modules/sprd_thermal.ko"],
     vendor: true,
@@ -3504,7 +3434,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "mali_kbase",
+    name: "mali_kbase.ko",
     owner: "realme",
     srcs: ["proprietary/vendor_dlkm/lib/modules/mali_kbase.ko"],
     vendor: true,
@@ -3517,7 +3447,7 @@ cc_prebuilt_library_shared {
 // =============================================
 
 prebuilt_etc {
-    name: "vendor_dlkm_build_prop",
+    name: "build.prop",
     owner: "realme",
     src: "proprietary/vendor_dlkm/etc/build.prop",
     vendor: true,
@@ -3525,7 +3455,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor_dlkm_fs_config_dirs",
+    name: "fs_config_dirs",
     owner: "realme",
     src: "proprietary/vendor_dlkm/etc/fs_config_dirs",
     vendor: true,
@@ -3533,7 +3463,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor_dlkm_fs_config_files",
+    name: "fs_config_files",
     owner: "realme",
     src: "proprietary/vendor_dlkm/etc/fs_config_files",
     vendor: true,
@@ -3549,7 +3479,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init_vendor_dlkm",
+    name: "init.insmod.cfg",
     owner: "realme",
     src: "proprietary/vendor_dlkm/lib/modules/init.insmod.cfg",
     vendor: true,
@@ -3557,7 +3487,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor_dlkm_file_contexts",
+    name: "file_contexts",
     owner: "realme",
     src: "sepolicy/vendor_dlkm/file_contexts",
     vendor: true,
@@ -3569,7 +3499,7 @@ prebuilt_etc {
 // =============================================
 
 prebuilt_etc {
-    name: "plat_sepolicy_vers.txt.vendor",
+    name: "plat_sepolicy_vers.txt",
     owner: "realme",
     src: "proprietary/vendor/etc/selinux/plat_sepolicy_vers.txt",
     vendor: true,
@@ -3577,7 +3507,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor_file_contexts.vendor",
+    name: "vendor_file_contexts",
     owner: "realme",
     src: "proprietary/vendor/etc/selinux/vendor_file_contexts",
     vendor: true,
@@ -3585,7 +3515,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor_hwservice_contexts.vendor",
+    name: "vendor_hwservice_contexts",
     owner: "realme",
     src: "proprietary/vendor/etc/selinux/vendor_hwservice_contexts",
     vendor: true,
@@ -3593,7 +3523,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor_property_contexts.vendor",
+    name: "vendor_property_contexts",
     owner: "realme",
     src: "proprietary/vendor/etc/selinux/vendor_property_contexts",
     vendor: true,
@@ -3601,7 +3531,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor_sepolicy.cil.vendor",
+    name: "vendor_sepolicy.cil",
     owner: "realme",
     src: "proprietary/vendor/etc/selinux/vendor_sepolicy.cil",
     vendor: true,
@@ -3609,7 +3539,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vendor_service_contexts.vendor",
+    name: "vendor_service_contexts",
     owner: "realme",
     src: "proprietary/vendor/etc/selinux/vendor_service_contexts",
     vendor: true,
@@ -3617,7 +3547,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "vndservice_contexts.vendor",
+    name: "vndservice_contexts",
     owner: "realme",
     src: "proprietary/vendor/etc/selinux/vndservice_contexts",
     vendor: true,
@@ -3627,41 +3557,37 @@ prebuilt_etc {
 // =============================================
 // VOLD STACK
 // =============================================
-// System vold module with only available libraries
+
 cc_prebuilt_binary {
-    name: "vold_stock",
+    name: "vold",
     srcs: ["proprietary/system/bin/vold"],
     init_rc: ["proprietary/etc/init/vold.rc"],
     required: [
-        "libunisocvold_stock",
-        "libphoenix_native_stock", 
-        "android.hardware.health.storage@1.0_stock",
-        "android.hardware.health.storage-V1-ndk_stock",
-        "android.system.keystore2-V2-ndk_stock",
-        "libkeymint_support_stock",
-        // android.hardware.boot@1.0.so is missing - using AOSP version
+        "libunisocvold.so",
+        "libphoenix_native.so", 
+        "android.hardware.health.storage@1.0.so",
+        "android.hardware.health.storage-V1-ndk",
+        "android.system.keystore2-V2-ndk",
+        "libkeymint_support.so",
     ],
     compile_multilib: "64",
     vendor: false,
     proprietary: true,
     check_elf_files: false,
-    filename: "vold",
 }
 
 cc_prebuilt_binary {
-    name: "vold_prepare_subdirs_stock", 
+    name: "vold_prepare_subdirs", 
     srcs: ["proprietary/bin/vold_prepare_subdirs"],
     compile_multilib: "64",
     vendor: false,
     proprietary: true,
     check_elf_files: false,
-    filename: "vold_prepare_subdirs",
-
 }
 
 // Available libraries
 cc_prebuilt_library_shared {
-    name: "libunisocvold_stock",
+    name: "libunisocvold.so",
     owner: "realme",
     vendor: false,
     check_elf_files: false,  
@@ -3670,11 +3596,10 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/system_ext/lib64/libunisocvold.so"],
         },
     },
-    filename: "libunisocvold.so",
 }
 
 cc_prebuilt_library_shared {
-    name: "libphoenix_native_stock",
+    name: "libphoenix_native.so",
     owner: "realme",
     vendor: false,
     check_elf_files: false, 
@@ -3686,12 +3611,11 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/system_ext/lib64/libphoenix_native.so"],
         },
     },
-    filename: "libphoenix_native.so",
 }
 
-// HAL dependencies - ADD check_elf_files: false TO ALL
+// HAL dependencies
 cc_prebuilt_library_shared {
-    name: "android.hardware.health.storage@1.0_stock",
+    name: "android.hardware.health.storage@1.0.so",
     owner: "realme",
     vendor: false,
     check_elf_files: false,
@@ -3700,11 +3624,10 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/system/lib64/android.hardware.health.storage@1.0.so"],
         },
     },
-    filename: "android.hardware.health.storage@1.0.so",
 }
 
 cc_prebuilt_library_shared {
-    name: "android.hardware.health.storage-V1-ndk_stock",
+    name: "android.hardware.health.storage-V1-ndk",
     owner: "realme",
     vendor: false,
     check_elf_files: false,
@@ -3713,11 +3636,10 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/system/lib64/android.hardware.health.storage-V1-ndk.so"],
         },
     },
-    filename: "android.hardware.health.storage-V1-ndk.so",
 }
 
 cc_prebuilt_library_shared {
-    name: "android.system.keystore2-V2-ndk_stock",
+    name: "android.system.keystore2-V2-ndk",
     owner: "realme",
     vendor: false,
     check_elf_files: false,
@@ -3726,11 +3648,10 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/system/lib64/android.system.keystore2-V2-ndk.so"],
         },
     },
-    filename: "android.system.keystore2-V2-ndk.so",
 }
 
 cc_prebuilt_library_shared {
-    name: "libkeymint_support_stock",
+    name: "libkeymint_support.so",
     owner: "realme",
     vendor: false,
     check_elf_files: false,
@@ -3739,5 +3660,4 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/system/lib64/libkeymint_support.so"],
         },
     },
-    filename: "libkeymint_support.so",
 }
