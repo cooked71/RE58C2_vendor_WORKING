@@ -989,12 +989,12 @@ cc_prebuilt_library_shared {
         "libbinder",
         "libhidlbase",
     ],
-    check_elf_files: false,
+    check_elf_filesS: false,
     strip: {
         none: true,
     },
 }
-}
+
 
 cc_prebuilt_library_shared {
     name: "vendor.sprd.hardware.gnss@1.0-impl.so",
