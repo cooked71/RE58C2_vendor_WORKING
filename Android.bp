@@ -989,7 +989,7 @@ cc_prebuilt_library_shared {
         "libbinder",
         "libhidlbase",
     ],
-    check_elf_filesS: false,
+    check_elf_files: false,
     strip: {
         none: true,
     },
