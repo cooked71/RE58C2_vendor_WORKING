@@ -54,132 +54,132 @@ dex_import {
 // AOSP System Services
 // =============================================
 
-cc_prebuilt_binary {
-    name: "credstore",
-    owner: "realme",
-    srcs: ["proprietary/system/bin/credstore"],
-    init_rc: ["proprietary/system/etc/init/credstore.rc"],
-    compile_multilib: "64",
-    shared_libs: [
-        "libbase",
-        "libbinder",
-        "libbinder_ndk", 
-        "libcredstore_aidl",
-        "libcrypto",
-        "libcutils",
-        "liblog",
-        "libutils",
-        "libc++",
-    ],
-    check_elf_files: false,
-}
+// cc_prebuilt_binary {
+//     name: "credstore",
+//     owner: "realme",
+//     srcs: ["proprietary/system/bin/credstore"],
+//     init_rc: ["proprietary/system/etc/init/credstore.rc"],
+//     compile_multilib: "64",
+//     shared_libs: [
+//         "libbase",
+//         "libbinder",
+//         "libbinder_ndk", 
+//         "libcredstore_aidl",
+//         "libcrypto",
+//         "libcutils",
+//         "liblog",
+//         "libutils",
+//         "libc++",
+//     ],
+//     check_elf_files: false,
+// }
 
-cc_prebuilt_binary {
-    name: "installd",
-    owner: "realme",
-    srcs: ["proprietary/system/bin/installd"],
-    init_rc: ["proprietary/system/etc/init/installd.rc"],
-    relative_install_path: "hw",
-    compile_multilib: "64",
-    shared_libs: [
-        "libbase",
-        "libbinder",
-        "libcrypto",
-        "libcutils",
-        "liblog",
-        "liblogwrap",
-        "libprocessgroup",
-        "libselinux",
-        "libutils",
-        "libziparchive",
-    ],
-    check_elf_files: false,
-}
+// cc_prebuilt_binary {
+//     name: "installd",
+//     owner: "realme",
+//     srcs: ["proprietary/system/bin/installd"],
+//     init_rc: ["proprietary/system/etc/init/installd.rc"],
+//     relative_install_path: "hw",
+//     compile_multilib: "64",
+//     shared_libs: [
+//         "libbase",
+//         "libbinder",
+//         "libcrypto",
+//         "libcutils",
+//         "liblog",
+//         "liblogwrap",
+//         "libprocessgroup",
+//         "libselinux",
+//         "libutils",
+//         "libziparchive",
+//     ],
+//     check_elf_files: false,
+// }
 
-cc_prebuilt_binary {
-    name: "keystore2",
-    owner: "realme",
-    srcs: ["proprietary/system/bin/keystore2"],
-    init_rc: ["proprietary/system/etc/init/keystore2.rc"],
-    relative_install_path: "hw",
-    compile_multilib: "64",
-    shared_libs: [
-        "libbinder_ndk",
-        "libkeystore2_aaid",
-        "liblog",
-        "libc",
-        "libm",
-        "libkeystore2_apc_compat",
-        "libkeystore2_crypto",
-        "libcrypto",
-        "libkm_compat_service",
-        "libselinux",
-    ],
-    check_elf_files: false,
-}
+// cc_prebuilt_binary {
+//     name: "keystore2",
+//     owner: "realme",
+//     srcs: ["proprietary/system/bin/keystore2"],
+//     init_rc: ["proprietary/system/etc/init/keystore2.rc"],
+//     relative_install_path: "hw",
+//     compile_multilib: "64",
+//     shared_libs: [
+//         "libbinder_ndk",
+//         "libkeystore2_aaid",
+//         "liblog",
+//         "libc",
+//         "libm",
+//         "libkeystore2_apc_compat",
+//         "libkeystore2_crypto",
+//         "libcrypto",
+//         "libkm_compat_service",
+//         "libselinux",
+//     ],
+//     check_elf_files: false,
+// }
 
-cc_prebuilt_binary {
-    name: "odsign",
-    owner: "realme",
-    srcs: ["proprietary/system/bin/odsign"],
-    relative_install_path: "hw",
-    compile_multilib: "64",
-    shared_libs: [
-        "android.system.keystore2-V1-cpp",
-        "android.hardware.security.keymint-V1-cpp",
-        "libbase",
-        "libbinder",
-        "libcrypto",
-        "libcrypto_utils",
-        "libfsverity",
-        "liblogwrap",
-        "libprotobuf-cpp-lite",
-        "libutils",
-    ],
-    check_elf_files: false,
-}
+// cc_prebuilt_binary {
+//     name: "odsign",
+//     owner: "realme",
+//     srcs: ["proprietary/system/bin/odsign"],
+//     relative_install_path: "hw",
+//     compile_multilib: "64",
+//     shared_libs: [
+//         "android.system.keystore2-V1-cpp",
+//         "android.hardware.security.keymint-V1-cpp",
+//         "libbase",
+//         "libbinder",
+//         "libcrypto",
+//         "libcrypto_utils",
+//         "libfsverity",
+//         "liblogwrap",
+//         "libprotobuf-cpp-lite",
+//         "libutils",
+//     ],
+//     check_elf_files: false,
+// }
 
-cc_prebuilt_binary {
-    name: "wificond",
-    owner: "realme",
-    srcs: ["proprietary/system/bin/wificond"],
-    relative_install_path: "hw",
-    compile_multilib: "64",
-    shared_libs: [
-        "android.system.keystore2-V2-ndk",
-        "android.hardware.net.nlinterceptor-V1-ndk",
-        "android.security.legacykeystore-ndk",
-        "libbinder",
-        "libbinder_ndk",
-        "libbase",
-        "libcrypto",
-        "libcutils",
-        "libhidlbase",
-        "libminijail",
-    ],
-    check_elf_files: false,
-}
+// cc_prebuilt_binary {
+//     name: "wificond",
+//     owner: "realme",
+//     srcs: ["proprietary/system/bin/wificond"],
+//     relative_install_path: "hw",
+//     compile_multilib: "64",
+//     shared_libs: [
+//         "android.system.keystore2-V2-ndk",
+//         "android.hardware.net.nlinterceptor-V1-ndk",
+//         "android.security.legacykeystore-ndk",
+//         "libbinder",
+//         "libbinder_ndk",
+//         "libbase",
+//         "libcrypto",
+//         "libcutils",
+//         "libhidlbase",
+//         "libminijail",
+//     ],
+//     check_elf_files: false,
+// }
 
-cc_prebuilt_binary {
-    name: "ylog",
-    owner: "realme",
-    vendor: true,
-    srcs: ["proprietary/system_ext/bin/ylog"],
-    init_rc: ["proprietary/system_ext/etc/init/ylog.rc"],
-    relative_install_path: "hw",
-    compile_multilib: "64",
-    shared_libs: [
-        "libutils",
-        "liblog",
-        "libcutils",
-        "libext2_uuid",
-        "libc++",
-        "libc",
-        "libm",
-        "libdl",
-    ],
-    check_elf_files: false,
-}
+// cc_prebuilt_binary {
+//     name: "ylog",
+//     owner: "realme",
+//     vendor: true,
+//     srcs: ["proprietary/system_ext/bin/ylog"],
+//     init_rc: ["proprietary/system_ext/etc/init/ylog.rc"],
+//     relative_install_path: "hw",
+//     compile_multilib: "64",
+//     shared_libs: [
+//         "libutils",
+//         "liblog",
+//         "libcutils",
+//         "libext2_uuid",
+//         "libc++",
+//         "libc",
+//         "libm",
+//         "libdl",
+//     ],
+//     check_elf_files: false,
+// }
 
 // =============================================
 // Audio Stack
@@ -3603,4 +3603,23 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/vendor/lib64/android.hardware.gnss@2.1.so"],
         },
     },
+}
+
+prebuilt_etc {
+    name: "android.hardware.security.keymint.trusty.xml",
+    src: "proprietary/vintf/manifest/android.hardware.security.keymint.trusty.xml",
+    sub_dir: "manifest",
+    vendor: true,
+    filename_from_src: true,
+    proprietary: true,
+}
+
+// Trusty default manifest  
+prebuilt_etc {
+    name: "trusty.default.xml",
+    src: "proprietary/vintf/manifest/trusty.default.xml",
+    sub_dir: "manifest",
+    vendor: true,
+    filename_from_src: true,
+    proprietary: true,
 }
