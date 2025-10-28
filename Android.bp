@@ -193,6 +193,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/android.hardware.audio.service.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -1103,6 +1104,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/android.hardware.graphics.composer@2.4-service.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -1122,6 +1124,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/android.hardware.graphics.allocator@4.0-service.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -1475,6 +1478,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/android.hardware.health-service.example.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2065,6 +2069,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/android.hardware.sensors-service-multihal.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2590,6 +2595,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/android.hardware.usb-service.example.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2613,6 +2619,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.broadcastradio@2.0-service.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2629,6 +2636,7 @@ cc_prebuilt_binary {
     name: "vendor.sprd.hardware.commondcs@1.0-service",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/vendor.sprd.hardware.commondcs@1.0-service"],
+    check_elf_files: false,
     relative_install_path: "hw",
     vendor: true,
     compile_multilib: "64",
@@ -2652,6 +2660,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.connmgr@1.0-service.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2673,6 +2682,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/cplog_svc-default.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2698,6 +2708,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/enhance-default.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2719,6 +2730,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/hdcp-default.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2742,6 +2754,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/vendor.log-default.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2764,6 +2777,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/network-default.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2788,6 +2802,7 @@ cc_prebuilt_binary {
     compile_multilib: "64", 
     check_elf_files: false,
     init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.network@1.0-service.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2811,6 +2826,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/vendor-oemlock-default.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2833,6 +2849,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/vendor.oppo.engnative.engineer@1.0-service.rc"],
+    check_elf_files: false,
     shared_libs: [
         "vendor.oppo.engnative.engineer@1.0",
         "libbase",
@@ -2859,6 +2876,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/vendor.sprd.hardware.performance@1.0-service.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2879,6 +2897,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/soter-default.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2900,6 +2919,7 @@ cc_prebuilt_binary {
     vendor: true,
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/tui-default.rc"],
+    check_elf_files: false,
     shared_libs: [
         "libbase",
         "libcutils",
@@ -2919,6 +2939,7 @@ cc_prebuilt_library_shared {
     srcs: ["proprietary/vendor/lib64/vendor.sprd.hardware.commondcs@1.0.so"],
     vendor: true,
     compile_multilib: "64",
+    check_elf_files: false,
     shared_libs: [
         "libc++",
         "libcutils",
