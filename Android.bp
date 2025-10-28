@@ -3609,3 +3609,53 @@ cc_prebuilt_library_shared {
         },
     },
 }
+
+// GNSS HAL libraries
+cc_prebuilt_library_shared {
+    name: "android.hardware.gnss@1.0.so",
+    owner: "realme",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/android.hardware.gnss@1.0.so"],
+        },
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.gnss@1.1.so",
+    owner: "realme", 
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/android.hardware.gnss@1.1.so"],
+        },
+    },
+}
+
+// Add all missing GNSS dependencies similarly
+cc_prebuilt_library_shared {
+    name: "android.hardware.gnss@2.0.so",
+    owner: "realme",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/android.hardware.gnss@2.0.so"],
+        },
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.gnss@2.1.so",
+    owner: "realme",
+    vendor: true,
+    check_elf_files: false,
+    multilib: {
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/android.hardware.gnss@2.1.so"],
+        },
+    },
+}
