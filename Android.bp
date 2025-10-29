@@ -458,7 +458,7 @@ cc_prebuilt_binary {
 //         "libkeymint",
 //         "libtrusty",
 //     ],
-// }
+// / }
 
 cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.0-impl-1.2",
