@@ -433,7 +433,7 @@ prebuilt_etc {
     vendor: true,
 }
 
-cc_prebuilt_binary {
+// cc_prebuilt_binary {
 //     name: "android.hardware.security.keymint@2.0-unisoc.service.trusty",
 //     owner: "realme",
 //     srcs: ["proprietary/vendor/bin/hw/android.hardware.security.keymint@2.0-unisoc.service.trusty"],
@@ -458,7 +458,7 @@ cc_prebuilt_binary {
 //         "libkeymint",
 //         "libtrusty",
 //     ],
-// / }
+// s }
 
 cc_prebuilt_library_shared {
     name: "android.hardware.boot@1.0-impl-1.2",
