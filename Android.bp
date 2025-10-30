@@ -1069,8 +1069,7 @@ cc_prebuilt_binary {
     compile_multilib: "64",
     init_rc: ["proprietary/vendor/etc/init/android.hardware.graphics.allocator@4.0-service.rc"],
     check_elf_files: false,
-    shared_libs: [external/mesa3d/Android.mk:88: warning: invalid GPU driver: proprietary
-
+    shared_libs: [
         "libbase",
         "libcutils",
         "libhidlbase",
@@ -1162,24 +1161,24 @@ cc_prebuilt_library_shared {
     name: "gralloc.default.vendor",
     owner: "realme",
     vendor: true,
-    multilib: {
-        lib32: {
-            srcs: ["proprietary/vendor/lib/hw/gralloc.default.so"],
-            relative_install_path: "hw",
-        },
-        lib64: {
-            srcs: ["proprietary/vendor/lib64/hw/gralloc.default.so"],
-            relative_install_path: "hw",
-        },
-    },
     shared_libs: [
         "liblog",
-        "libcutils", 
+        "libcutils",
         "libutils",
         "libsync",
         "libc++",
         "libgralloctypes",
     ],
+    multilib: {
+        lib32: {
+            srcs: ["proprietary/vendor/lib/hw/gralloc.RE58C2.so"],
+            relative_install_path: "hw",
+        },
+        lib64: {
+            srcs: ["proprietary/vendor/lib64/hw/gralloc.RE58C2.so"],
+            relative_install_path: "hw",
+        },
+    },
 }
 
 cc_prebuilt_library_shared {
