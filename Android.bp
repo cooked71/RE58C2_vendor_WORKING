@@ -399,12 +399,12 @@ cc_prebuilt_binary {
     ],
 }
 
-prebuilt_etc {
-    name: "vendor.sprd.hardware.boot@1.2.xml", 
-    src: "proprietary/vintf/manifest/vendor.sprd.hardware.boot@1.2.xml",
-    sub_dir: "vintf/manifest", 
-    vendor: true,
-}
+//prebuilt_etc {
+//    name: "vendor.sprd.hardware.boot@1.2.xml", 
+//    src: "proprietary/vintf/manifest/vendor.sprd.hardware.boot@1.2.xml",
+//    sub_dir: "vintf/manifest", 
+//    vendor: true,
+// }
 
 cc_prebuilt_binary {
     name: "android.hardware.gatekeeper@1.0-service.trusty",
@@ -425,13 +425,13 @@ cc_prebuilt_binary {
     ],
 }
 
-prebuilt_etc {
-    name: "android.hardware.gatekeeper@1.0-service.trusty.xml",
-    owner: "realme",
-    src: "proprietary/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
-    sub_dir: "vintf/manifest",
-    vendor: true,
-}
+//prebuilt_etc {
+//    name: "android.hardware.gatekeeper@1.0-service.trusty.xml",
+//    owner: "realme",
+//    src: "proprietary/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml",
+//    sub_dir: "vintf/manifest",
+//    vendor: true,
+//}
 
 // cc_prebuilt_binary {
 //     name: "android.hardware.security.keymint@2.0-unisoc.service.trusty",
@@ -1409,13 +1409,13 @@ cc_prebuilt_binary {
     ],
 }
 
-prebuilt_etc {
-    name: "android.hardware.health-service.example.xml",
-    owner: "realme",
-    src: "proprietary/vintf/manifest/android.hardware.health-service.example.xml",
-    sub_dir: "vintf/manifest",
-    vendor: true,
-}
+//prebuilt_etc {
+//    name: "android.hardware.health-service.example.xml",
+//    owner: "realme",
+//    src: "proprietary/vintf/manifest/android.hardware.health-service.example.xml",
+//    sub_dir: "vintf/manifest",
+//    vendor: true,
+//}
 
 // =============================================
 // Media Stack
@@ -1617,21 +1617,21 @@ cc_prebuilt_library_shared {
     },
 }
 
-prebuilt_etc {
-    name: "vendor-power-default.xml",
-    owner: "realme",
-    src: "proprietary/vintf/manifest/vendor-power-default.xml",
-    sub_dir: "vintf/manifest",
-    vendor: true,
-}
+//prebuilt_etc {
+//    name: "vendor-power-default.xml",
+//    owner: "realme",
+//    src: "proprietary/vintf/manifest/vendor-power-default.xml",
+//    sub_dir: "vintf/manifest",
+//    vendor: true,
+//}
 
-prebuilt_etc {
-    name: "power.stats-default.xml",
-    owner: "realme",
-    src: "proprietary/vintf/manifest/power.stats-default.xml",
-    sub_dir: "vintf/manifest",
-    vendor: true,
-}
+//prebuilt_etc {
+//    name: "power.stats-default.xml",
+//    owner: "realme",
+//    src: "proprietary/vintf/manifest/power.stats-default.xml",
+//    sub_dir: "vintf/manifest",
+//    vendor: true,
+//}
 
 // =============================================
 // RIL & Telephony Stack
@@ -2271,21 +2271,21 @@ prebuilt_etc {
     vendor: true,
 }
 
-prebuilt_etc {
-    name: "vendor.sprd.hardware.thermal@2.0-service.xml",
-    owner: "realme",
-    src: "proprietary/vintf/manifest/vendor.sprd.hardware.thermal@2.0-service.xml",
-    sub_dir: "vintf/manifest",
-    vendor: true,
-}
+//prebuilt_etc {
+//    name: "vendor.sprd.hardware.thermal@2.0-service.xml",
+//    owner: "realme",
+//    src: "proprietary/vintf/manifest/vendor.sprd.hardware.thermal@2.0-service.xml",
+//    sub_dir: "vintf/manifest",
+//    vendor: true,
+//}
 
-prebuilt_etc {
-    name: "android.hardware.thermal@2.0-service.xml",
-    owner: "realme",
-    src: "proprietary/vintf/manifest/android.hardware.thermal@2.0-service.xml",
-    sub_dir: "vintf/manifest",
-    vendor: true,
-}
+//prebuilt_etc {
+//    name: "android.hardware.thermal@2.0-service.xml",
+//    owner: "realme",
+//    src: "proprietary/vintf/manifest/android.hardware.thermal@2.0-service.xml",
+//    sub_dir: "vintf/manifest",
+//    vendor: true,
+// }
 
 // =============================================
 // Trusty Security Stack
@@ -2494,13 +2494,13 @@ cc_prebuilt_library_shared {
     },
 }
 
-prebuilt_etc {
-    name: "trusty-default.xml",
-    owner: "realme",
-    src: "proprietary/vendor/etc/vintf/manifest/trusty-default.xml",
-    sub_dir: "vintf/manifest",
-    vendor: true,
-}
+//prebuilt_etc {
+//    name: "trusty-default.xml",
+//    owner: "realme",
+//    src: "proprietary/vendor/etc/vintf/manifest/trusty-default.xml",
+//    sub_dir: "vintf/manifest",
+//    vendor: true,
+//}
 
 // =============================================
 // USB Stack
@@ -3193,20 +3193,20 @@ cc_prebuilt_library_shared {
 // VINTF Manifests
 // =============================================
 
-prebuilt_etc {
-    name: "android.hardware.security.keymint@2.0-unisoc.service.trusty.xml",
-    owner: "realme",
-    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint@2.0-unisoc.service.trusty.xml",
-    sub_dir: "vintf/manifest",
-    vendor: true,
-}
+//prebuilt_etc {
+//    name: "android.hardware.security.keymint@2.0-unisoc.service.trusty.xml",
+//    owner: "realme",
+//    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint@2.0-unisoc.service.trusty.xml",
+//    sub_dir: "vintf/manifest",
+//    vendor: true,
+//}
 
-prebuilt_etc {
-    name: "android.system.keystore2-service.xml",
-    owner: "realme",
-    src: "proprietary/system/etc/vintf/manifest/android.system.keystore2-service.xml",
-    sub_dir: "vintf/manifest",
-}
+//prebuilt_etc {
+//    name: "android.system.keystore2-service.xml",
+//    owner: "realme",
+//    src: "proprietary/system/etc/vintf/manifest/android.system.keystore2-service.xml",
+//    sub_dir: "vintf/manifest",
+//}
 
 // =============================================
 // Additional AOSP HAL Libraries
