@@ -24,8 +24,7 @@ PRODUCT_COPY_FILES += \
 # ODM audio configuration files
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*.xml,vendor/realme/RE58C2/proprietary/odm/etc/audio,$(TARGET_COPY_OUT_ODM)/etc/audio) \
-    $(call find-copy-subdir-files,*.xml,vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd,$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd) \
-    $(call find-copy-subdir-files,*.xml,vendor/realme/RE58C2/proprietary/odm/etc/audio_params/sprd/version1,$(TARGET_COPY_OUT_ODM)/etc/audio_params/sprd/version1)
+    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/odm/etc/audio_params,$(TARGET_COPY_OUT_ODM)/etc/audio_params)
 
 # ODM build properties
 PRODUCT_COPY_FILES += \
@@ -36,9 +35,18 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/odm/etc/camera/CameraHWConfiguration.config:$(TARGET_COPY_OUT_ODM)/etc/camera/CameraHWConfiguration.config \
     vendor/realme/RE58C2/proprietary/odm/etc/camera/fwk_config.json:$(TARGET_COPY_OUT_ODM)/etc/camera/fwk_config.json
 
-# ODM camera filters and LUTs (bulk copy)
+# ODM camera filters and LUTs (fixed bulk copy)
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*.,vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool,$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool)
+    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/odm/etc/camera/3rdpool,$(TARGET_COPY_OUT_ODM)/etc/camera/3rdpool)
+
+# ODM binaries
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/odm/bin/CamDevSim:$(TARGET_COPY_OUT_ODM)/bin/CamDevSim \
+    vendor/realme/RE58C2/proprietary/odm/bin/fm_tools:$(TARGET_COPY_OUT_ODM)/bin/fm_tools
+
+# ODM firmware
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/odm/firmware,$(TARGET_COPY_OUT_ODM)/firmware)
 
 # ODM init scripts
 PRODUCT_COPY_FILES += \
@@ -56,20 +64,24 @@ PRODUCT_COPY_FILES += \
 
 # ODM LWP topology files (bulk copy)
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*.json,vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology,$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology)
+    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/odm/etc/lwp/Topology,$(TARGET_COPY_OUT_ODM)/etc/lwp/Topology)
 
 # ODM media codecs
 PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/odm/etc/media_codecs_c2_secure.xml:$(TARGET_COPY_OUT_ODM)/etc/media_codecs_c2_secure.xml \
     vendor/realme/RE58C2/proprietary/odm/etc/media_codecs_performance_c2_secure.xml:$(TARGET_COPY_OUT_ODM)/etc/media_codecs_performance_c2_secure.xml
 
-# ODM OTP data
+# ODM OTP data (fixed to include all files)
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*.txt,vendor/realme/RE58C2/proprietary/odm/etc/otpdata,$(TARGET_COPY_OUT_ODM)/etc/otpdata)
+    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/odm/etc/otpdata,$(TARGET_COPY_OUT_ODM)/etc/otpdata)
 
 # ODM sensor configuration
 PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/odm/etc/sensor_config.xml:$(TARGET_COPY_OUT_ODM)/etc/sensor_config.xml
+
+# ODM VINTF manifests
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/odm/etc/vintf,$(TARGET_COPY_OUT_ODM)/etc/vintf)
 
 # ODM UniPNP configuration
 PRODUCT_COPY_FILES += \
@@ -82,6 +94,10 @@ PRODUCT_COPY_FILES += \
 # ODM zoom configuration
 PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/odm/etc/zoom_config.json:$(TARGET_COPY_OUT_ODM)/etc/zoom_config.json
+
+# ODM logo files
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/odm/logo,$(TARGET_COPY_OUT_ODM)/logo)
 
 # ODM libraries (both 32-bit and 64-bit)
 PRODUCT_COPY_FILES += \
