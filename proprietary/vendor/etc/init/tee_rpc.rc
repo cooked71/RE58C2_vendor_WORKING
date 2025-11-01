@@ -1,4 +1,3 @@
-# This is CORRECT - vendor.tee_rpc runs in vendor domain
 service vendor.tee_rpc /vendor/bin/tee_rpc
     class core
     user system
