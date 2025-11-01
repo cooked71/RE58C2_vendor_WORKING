@@ -173,10 +173,95 @@ PRODUCT_COPY_FILES += \
 
 
 
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor/etc/init,$(TARGET_COPY_OUT_VENDOR)/etc/init)
 
-
+# RC Files product_copy_files
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.audio.service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.audio.service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.bluetooth@1.1-service.unisoc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.bluetooth@1.1-service.unisoc.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.camera.provider@2.4-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.camera.provider@2.4-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.cas@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.cas@1.2-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.graphics.allocator@4.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.allocator@4.0-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.graphics.composer@2.4-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.composer@2.4-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.drm-service.clearkey.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.drm-service.clearkey.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.drm-service.widevine.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.drm-service.widevine.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.gatekeeper@1.0-service.trusty.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.gatekeeper@1.0-service.trusty.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.health-service.example.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.health-service.example.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.media.c2@1.1-unisoc-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.media.c2@1.1-unisoc-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.media.omx@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.media.omx@1.0-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.neuralnetworks@1.3-service-armnn-gpu.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.neuralnetworks@1.3-service-armnn-gpu.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.nfc@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.nfc@1.2-service.rc \
+    vendor/realme/RE58C2/proprietary/system_ext/etc/init/dataLogDaemon.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/dataLogDaemon.rc \
+    vendor/realme/RE58C2/proprietary/system_ext/etc/init/data_rps.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/data_rps.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/unisoc.rild.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/unisoc.rild.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.security.keymint@2.0-unisoc.service.trusty.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.security.keymint@2.0-unisoc.service.trusty.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.sensors-service-multihal.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.sensors-service-multihal.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.usb-service.example.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.usb-service.example.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.wifi.supplicant-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.wifi.supplicant-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.wifi@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.wifi@1.0-service.rc \
+    vendor/realme/RE58C2/proprietary/odm/etc/init/init.jiiov.rc:$(TARGET_COPY_OUT_ODM)/etc/init/init.jiiov.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/ai_engine-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/ai_engine-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/autotest.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/autotest.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/boringssl_self_test.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/boringssl_self_test.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/charge.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/charge.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/charged.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/charged.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/connmgr.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/connmgr.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/cp_diskserver.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cp_diskserver.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/cplog_svc-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cplog_svc-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/dcxsrv.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dcxsrv.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/engpc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/engpc.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/enhance-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/enhance-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/face-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/face-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/hdcp-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hdcp-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/hostapd.android.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hostapd.android.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/init.guid.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.guid.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/init.md.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.md.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/init.ums9230_hulk_Natv.nfc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.ums9230_hulk_Natv.nfc.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/lights.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/lights.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/memtrack.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/memtrack.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/modem_control.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/modem_control.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/network-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/network-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/phasecheckserver.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/phasecheckserver.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/power.stats-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/power.stats-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/rebootescrow-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/rebootescrow-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/refnotify.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/refnotify.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/remosaic.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/remosaic.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/rpmbserver.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/rpmbserver.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/slogmodem_vendor.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/slogmodem_vendor.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/soter-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/soter-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/srtd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/srtd.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/storageproxyd_android.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/storageproxyd_android.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/systemDebuggerd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/systemDebuggerd.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/tee_rpc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/tee_rpc.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/thermald.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/thermald.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/trusty-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/trusty-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/tsupplicant.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/tsupplicant.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/tui-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/tui-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor-fingerprintmmi-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor-fingerprintmmi-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor-oemlock-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor-oemlock-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor-power-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor-power-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.log-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.log-default.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.oppo.engnative.engineer@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.oppo.engnative.engineer@1.0-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.boot@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.boot@1.2-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.broadcastradio@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.broadcastradio@2.0-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.commondcs@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.commondcs@1.0-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.connmgr@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.connmgr@1.0-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.gnss@2.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.gnss@2.2-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.network@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.network@1.0-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.performance@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.performance@1.0-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.thermal@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.thermal@2.0-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.wcn@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.wcn@1.0-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor_engineermode.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor_engineermode.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vibrator.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vibrator.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vndservicemanager.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vndservicemanager.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vowifi.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vowifi.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/wcn.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/wcn.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/wcn_chr.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/wcn_chr.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/yloglite.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/yloglite.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/.rc/vibrator.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/.rc/vibrator.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc
 
 
 # ===========================
