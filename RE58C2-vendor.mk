@@ -260,7 +260,6 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/wcn.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/wcn.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/wcn_chr.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/wcn_chr.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/yloglite.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/yloglite.rc \
-    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/.rc/vibrator.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/.rc/vibrator.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc
 
 
