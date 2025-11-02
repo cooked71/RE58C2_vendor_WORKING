@@ -80,7 +80,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/odm/etc/sensor_config.xml:$(TARGET_COPY_OUT_ODM)/etc/sensor_config.xml
 
 # ODM VINTF manifests
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/odm/etc/vintf,$(TARGET_COPY_OUT_ODM)/etc/vintf)
 
 # ODM UniPNP configuration
