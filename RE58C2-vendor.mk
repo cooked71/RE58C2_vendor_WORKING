@@ -105,27 +105,18 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*.so,vendor/realme/RE58C2/proprietary/odm/lib64,$(TARGET_COPY_OUT_ODM)/lib64)
 
 # ODM SELinux policies and precompiled policy
-<<<<<<< Updated upstream
-#PRODUCT_COPY_FILES += \
-=======
 # PRODUCT_COPY_FILES += \
->>>>>>> Stashed changes
     vendor/realme/RE58C2/proprietary/odm/etc/selinux/precompiled_sepolicy:$(TARGET_COPY_OUT_ODM)/etc/selinux/precompiled_sepolicy \
     vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_file_contexts:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_file_contexts \
     vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_sepolicy.cil:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_sepolicy.cil \
-    vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_mac_permissions.xml:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_mac_permissions.xml
-
+    vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_mac_permissions.xml:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_mac_permissions.xml\
     # vendor/realme/RE58C2/proprietary/odm/etc/selinux/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256:$(TARGET_COPY_OUT_ODM)/etc/selinux/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256 \
     # vendor/realme/RE58C2/proprietary/odm/etc/selinux/precompiled_sepolicy.system_ext_sepolicy_and_mapping.sha256:$(TARGET_COPY_OUT_ODM)/etc/selinux/precompiled_sepolicy.system_ext_sepolicy_and_mapping.sha256 \
 
 
 
 # Optional ODM context files (empty files, but include for completeness)
-<<<<<<< Updated upstream
-#PRODUCT_COPY_FILES += \
-=======
 # PRODUCT_COPY_FILES += \
->>>>>>> Stashed changes
     vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_hwservice_contexts:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_hwservice_contexts \
     vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_property_contexts:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_property_contexts \
     vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_seapp_contexts:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_seapp_contexts
