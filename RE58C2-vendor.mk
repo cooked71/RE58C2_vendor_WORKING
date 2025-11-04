@@ -104,6 +104,22 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*.so,vendor/realme/RE58C2/proprietary/odm/lib,$(TARGET_COPY_OUT_ODM)/lib) \
     $(call find-copy-subdir-files,*.so,vendor/realme/RE58C2/proprietary/odm/lib64,$(TARGET_COPY_OUT_ODM)/lib64)
 
+# ODM SELinux policies and precompiled policy
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/odm/etc/selinux/precompiled_sepolicy:$(TARGET_COPY_OUT_ODM)/etc/selinux/precompiled_sepolicy \
+    vendor/realme/RE58C2/proprietary/odm/etc/selinux/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256:$(TARGET_COPY_OUT_ODM)/etc/selinux/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256 \
+    vendor/realme/RE58C2/proprietary/odm/etc/selinux/precompiled_sepolicy.system_ext_sepolicy_and_mapping.sha256:$(TARGET_COPY_OUT_ODM)/etc/selinux/precompiled_sepolicy.system_ext_sepolicy_and_mapping.sha256 \
+    vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_file_contexts:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_file_contexts \
+    vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_sepolicy.cil:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_sepolicy.cil \
+    vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_mac_permissions.xml:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_mac_permissions.xml
+
+# Optional ODM context files (empty files, but include for completeness)
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_hwservice_contexts:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_hwservice_contexts \
+    vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_property_contexts:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_property_contexts \
+    vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_seapp_contexts:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_seapp_contexts
+
+
 # System_ext files
 PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/system_ext/etc/camera/default_cnr3_param.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/camera/default_cnr3_param.txt \
@@ -322,6 +338,18 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/bin/hw/android.hardware.rebootescrow-service.default:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.rebootescrow-service.default \
     vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.oppo.engnative.engineer@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.oppo.engnative.engineer@1.0-service \
     vendor/realme/RE58C2/proprietary/vendor/bin/hw/android.hardware.media.c2@1.1-unisoc-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.media.c2@1.1-unisoc-service
+
+# Vendor SELinux policies (complete stock versions)
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_sepolicy.cil:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_sepolicy.cil \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_file_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_file_contexts \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_property_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_property_contexts \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_service_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_service_contexts \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_hwservice_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_hwservice_contexts \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vndservice_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vndservice_contexts \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_mac_permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_mac_permissions.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_seapp_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_seapp_contexts
+
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/lib,$(TARGET_COPY_OUT_VENDOR)/lib) \
