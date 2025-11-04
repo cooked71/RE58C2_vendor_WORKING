@@ -105,7 +105,7 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*.so,vendor/realme/RE58C2/proprietary/odm/lib64,$(TARGET_COPY_OUT_ODM)/lib64)
 
 # ODM SELinux policies and precompiled policy
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/odm/etc/selinux/precompiled_sepolicy:$(TARGET_COPY_OUT_ODM)/etc/selinux/precompiled_sepolicy \
     vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_file_contexts:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_file_contexts \
     vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_sepolicy.cil:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_sepolicy.cil \
@@ -117,7 +117,7 @@ PRODUCT_COPY_FILES += \
 
 
 # Optional ODM context files (empty files, but include for completeness)
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_hwservice_contexts:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_hwservice_contexts \
     vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_property_contexts:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_property_contexts \
     vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_seapp_contexts:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_seapp_contexts
@@ -343,7 +343,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/bin/hw/android.hardware.media.c2@1.1-unisoc-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.media.c2@1.1-unisoc-service
 
 # Vendor SELinux policies (complete stock versions)
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_sepolicy.cil:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_sepolicy.cil \
     vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_file_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_file_contexts \
     vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_property_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_property_contexts \
