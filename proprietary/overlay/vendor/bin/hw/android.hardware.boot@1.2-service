@@ -1,0 +1,3 @@
+#!/system/bin/sh
+# Redirect android.hardware.boot to vendor.sprd.hardware.boot
+exec /vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service "$@"
