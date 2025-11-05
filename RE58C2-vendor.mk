@@ -359,9 +359,9 @@ PRODUCT_COPY_FILES += \
 # Boot HAL overlay - redirect android.boot to sprd.boot
 PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/overlay/vendor/bin/hw/android.hardware.boot@1.2-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.boot@1.2-service \
-    vendor/realme/RE58C2/proprietary/overlay/vendor/etc/init/android.hardware.boot@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.boot@1.2-service.rc 
-    # vendor/realme/RE58C2/proprietary/overlay/vendor/etc/vintf/manifest/android.hardware.boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/android.hardware.boot.xml
-
+    vendor/realme/RE58C2/proprietary/overlay/vendor/etc/init/android.hardware.boot@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.boot@1.2-service.rc \
+    vendor/realme/RE58C2/proprietary/overlay/vendor/bin/hw/android.hardware.keymaster@4.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.keymaster@4.0-service \
+    vendor/realme/RE58C2/proprietary/overlay/vendor/etc/init/android.hardware.keymaster@4.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.keymaster@4.0-service.rc
 
 
 
