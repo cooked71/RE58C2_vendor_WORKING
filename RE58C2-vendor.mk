@@ -312,7 +312,12 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/bin/phasecheckserver:$(TARGET_COPY_OUT_VENDOR)/bin/phasecheckserver \
     vendor/realme/RE58C2/proprietary/vendor/bin/refnotify:$(TARGET_COPY_OUT_VENDOR)/bin/refnotify \
     vendor/realme/RE58C2/proprietary/vendor/bin/slogmodem_vendor:$(TARGET_COPY_OUT_VENDOR)/bin/slogmodem_vendor \
-    vendor/realme/RE58C2/proprietary/vendor/bin/srtd:$(TARGET_COPY_OUT_VENDOR)/bin/srtd
+    vendor/realme/RE58C2/proprietary/vendor/bin/srtd:$(TARGET_COPY_OUT_VENDOR)/bin/srtd \
+    vendor/realme/RE58C2/proprietary/vendor/bin/vndservice:$(TARGET_COPY_OUT_VENDOR)/bin/vndservice \
+    vendor/realme/RE58C2/proprietary/vendor/bin/vndservicemanager:$(TARGET_COPY_OUT_VENDOR)/bin/vndservicemanager
+
+
+
 
 # HAL services
 PRODUCT_COPY_FILES += \
@@ -369,13 +374,13 @@ PRODUCT_COPY_FILES += \
 
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/lib,$(TARGET_COPY_OUT_VENDOR)/lib) \
-    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/lib64,$(TARGET_COPY_OUT_VENDOR)/lib64)
+    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor/lib,$(TARGET_COPY_OUT_VENDOR)/lib) \
+    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor/lib64,$(TARGET_COPY_OUT_VENDOR)/lib64)
 
 
 # Essential System Components
 # ========================
 PRODUCT_PACKAGES += \
-    charger \
+    charger \vendor
     charger_res_images \
     watchdogd
