@@ -381,6 +381,6 @@ PRODUCT_COPY_FILES += \
 # Essential System Components
 # ========================
 PRODUCT_PACKAGES += \
-    charger \vendor
+    charger \
     charger_res_images \
     watchdogd
