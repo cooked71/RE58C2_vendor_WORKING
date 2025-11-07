@@ -404,7 +404,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/system/etc/init/hw/init.storage.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/hw/init.storage.rc \
 
 PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/system/etc/init/hw/init.rc:/init.rc 
+    vendor/realme/RE58C2/proprietary/system/etc/init/hw/init.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/hw/init.rc 
 
 
 
