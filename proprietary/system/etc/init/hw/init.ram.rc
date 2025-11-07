@@ -1,0 +1,3 @@
+import /syatem/etc/init/hw/init.ram.gms.rc
+import /system/etc/init/hw/init.ram.native.rc
+import /system/etc/init/hw/init.zramwb.rc
