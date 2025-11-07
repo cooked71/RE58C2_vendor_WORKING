@@ -387,6 +387,37 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.storage.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.storage.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.cali.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.cali.rc
 
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.ums9230_hulk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.ums9230_hulk.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.ums9230_hulk.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.ums9230_hulk.usb.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.ram.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.ram.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.storage.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.storage.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.cali.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.cali.rc    
+
+# Vold stack binaries and libraries
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/system/bin/vold:$(TARGET_COPY_OUT_SYSTEM)/bin/vold \
+    vendor/realme/RE58C2/proprietary/system/bin/vold_prepare_subdirs:$(TARGET_COPY_OUT_SYSTEM)/bin/vold_prepare_subdirs \
+    vendor/realme/RE58C2/proprietary/system_ext/lib64/libunisocvold.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/libunisocvold.so
+
+# Vold init files
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/system/etc/init/vold.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/vold.rc 
+
+# Storage-related binaries
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/bin/sprdstorageproxyd:$(TARGET_COPY_OUT_VENDOR)/bin/sprdstorageproxyd \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/storageproxyd_android.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/storageproxyd_android.rc
+
+# Storage HAL libraries
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/system/lib64/android.hardware.health.storage@1.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.hardware.health.storage@1.0.so \
+    vendor/realme/RE58C2/proprietary/system/lib64/android.hardware.health.storage-V1-ndk.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.hardware.health.storage-V1-ndk.so
+
+# Fstab files (include your device-specific one)
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_hulk:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(ro.hardware) \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.RE58C2:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.RE58C2
 
 
 # Essential System Components
