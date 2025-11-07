@@ -395,10 +395,10 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.cali.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.cali.rc  
 
 
-# Copy ALL vendor init files to system
+# Copy ALL vendor init files o system
 PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.ums9230_hulk.rc:$(TARGET_COPY_OUT_SYSTEM)/init.ums9230_hulk.rc \
-    vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.ums9230_hulk.usb.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/hw/init.ums9230_hulk.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.ums9230_hulk.rc:/init.ums9230_hulk.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.ums9230_hulk.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/hw/init.ums9230_hulk.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.ums9230_hulk.usb.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/hw/init.ums9230_hulk.usb.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.ram.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/hw/init.ram.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.storage.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/hw/init.storage.rc \
