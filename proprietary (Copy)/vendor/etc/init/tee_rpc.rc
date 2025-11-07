@@ -1,6 +1,0 @@
-# This is CORRECT - vendor.tee_rpc runs in vendor domain
-service vendor.tee_rpc /vendor/bin/tee_rpc
-    class core
-    user system
-    group system
-    seclabel u:r:tee:s0
