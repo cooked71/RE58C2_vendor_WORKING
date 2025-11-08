@@ -296,7 +296,7 @@ PRODUCT_COPY_FILES += \
 
 # Additional services
 PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/vendor/bin/hw/android.hardware.rebootescrow-service.default:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.rebootescrow-service.default \
+    vendor/realme/RE58C2/proprietary/vendor/bin/hw/android.hardware.rebootescrow-service.default:$(TARGET_COPY_OUT_VENDOR)/bin/hw/anCAIdroid.hardware.rebootescrow-service.default \
     vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.oppo.engnative.engineer@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.oppo.engnative.engineer@1.0-service \
     vendor/realme/RE58C2/proprietary/vendor/bin/hw/android.hardware.media.c2@1.1-unisoc-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.media.c2@1.1-unisoc-service
 
@@ -549,7 +549,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/deviceidle.xml:$(TARGET_COPY_OUT_VENDOR)/etc/deviceidle.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/dynamic_debug_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dynamic_debug_config.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.RMX3624 \
-    vendor/realme/RE58C2/proprietary/vendor/etc/:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.cali \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.cali:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.cali \
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.charge_mode:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.charge_mode \
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.enableswap:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.enableswap \
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.module:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.module \
