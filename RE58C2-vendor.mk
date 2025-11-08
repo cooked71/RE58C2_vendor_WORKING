@@ -288,7 +288,6 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.wcn@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.wcn@1.0-service.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor_engineermode.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor_engineermode.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/vibrator.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vibrator.rc \
-    vendor/realme/RE58C2/proprietary/vendor/etc/init/vndservicemanager.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vndservicemanager.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/vowifi.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vowifi.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/wcn.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/wcn.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/wcn_chr.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/wcn_chr.rc \
@@ -296,7 +295,8 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.boot@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.boot@1.2-service.rc \
 
-    #device/realme/RE58C2/vendor/etc/init/vendor.sprd.hardware.boot@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.boot@1.2-service.rc
+    # device/realme/RE58C2/vendor/etc/init/vendor.sprd.hardware.boot@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.boot@1.2-service.rc
+    # vendor/realme/RE58C2/proprietary/vendor/etc/init/vndservicemanager.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vndservicemanager.rc 
 
 
 
@@ -312,7 +312,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/bin/phasecheckserver:$(TARGET_COPY_OUT_VENDOR)/bin/phasecheckserver \
     vendor/realme/RE58C2/proprietary/vendor/bin/refnotify:$(TARGET_COPY_OUT_VENDOR)/bin/refnotify \
     vendor/realme/RE58C2/proprietary/vendor/bin/slogmodem_vendor:$(TARGET_COPY_OUT_VENDOR)/bin/slogmodem_vendor \
-    vendor/realme/RE58C2/proprietary/vendor/bin/srtd:$(TARGET_COPY_OUT_VENDOR)/bin/srtd 
+    vendor/realme/RE58C2/proprietary/vendor/bin/srtd:$(TARGET_COPY_OUT_VENDOR)/bin/srtd \
     vendor/realme/RE58C2/proprietary/vendor/bin/vndservice:$(TARGET_COPY_OUT_VENDOR)/bin/vndservice 
    # vendor/realme/RE58C2/proprietary/vendor/bin/vndservicemanager:$(TARGET_COPY_OUT_VENDOR)/bin/vndservicemanager
 
@@ -430,7 +430,7 @@ PRODUCT_COPY_FILES += \
 
 # Fstab files (include your device-specific one)
 PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_hulk:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(ro.hardware) \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_hulk:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_hulk\
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.RE58C2:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.RE58C2
 
 
