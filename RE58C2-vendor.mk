@@ -122,12 +122,6 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/odm/etc/selinux/odm_seapp_contexts:$(TARGET_COPY_OUT_ODM)/etc/selinux/odm_seapp_contexts
 
 
-# System_ext files
-PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/system_ext/etc/camera/default_cnr3_param.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/camera/default_cnr3_param.txt \
-    vendor/realme/RE58C2/proprietary/system_ext/etc/camera/default_ynr_param.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/camera/default_ynr_param.txt \
-    vendor/realme/RE58C2/proprietary/system_ext/etc/init/dataLogDaemon.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/dataLogDaemon.rc \
-    vendor/realme/RE58C2/proprietary/system_ext/etc/init/data_rps.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/data_rps.rc
 
 # =============================================
 # Vendor DLKM Modules
@@ -163,52 +157,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor_dlkm/etc/build.prop:$(TARGET_COPY_OUT_VENDOR_DLKM)/etc/build.prop
 
-# Copy all fstab variants from vendor/realme/RE58C2/proprietary/vendor/etc
-PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.cali:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.cali \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.charge_mode:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.charge_mode \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.enableswap:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.enableswap \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.module:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.module \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.RE58C2:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.RE58C2 \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.RMX3624 \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_1h10 \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_1h10_go:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_1h10_go \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_4h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_4h10 \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_4h10_go:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_4h10_go \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_6h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_6h10 \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_7h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_7h10 \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_haps:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_haps \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_hulk:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_hulk \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_nico \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_zebu
-
-
-
-#----------------------------------------------------------------------
-# Copy all fstab files for hardware-specific mounting
-#----------------------------------------------------------------------
-PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.cali:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.cali \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.charge_mode:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.charge_mode \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.enableswap:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.enableswap \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.module:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.module \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.RE58C2:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.RE58C2 \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.RMX3624 \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_1h10 \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_1h10_go:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_1h10_go \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_4h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_4h10 \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_4h10_go:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_4h10_go \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_6h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_6h10 \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_7h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_7h10 \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_haps:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_haps \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_hulk:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_hulk \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_nico \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_zebu
-
-
-
-#PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,vendor/realme/RE58C2/proprietary/vendor/etc/init,$(TARGET_COPY_OUT_VENDOR)/etc/init)
 
 # RC Files product_copy_files
 PRODUCT_COPY_FILES += \
@@ -228,6 +176,8 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.neuralnetworks@1.3-service-armnn-gpu.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.neuralnetworks@1.3-service-armnn-gpu.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.nfc@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.nfc@1.2-service.rc \
     vendor/realme/RE58C2/proprietary/system_ext/etc/init/dataLogDaemon.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/dataLogDaemon.rc \
+    vendor/realme/RE58C2/proprietary/system_ext/etc/camera/default_cnr3_param.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/camera/default_cnr3_param.txt \
+    vendor/realme/RE58C2/proprietary/system_ext/etc/camera/default_ynr_param.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/camera/default_ynr_param.txt \
     vendor/realme/RE58C2/proprietary/system_ext/etc/init/data_rps.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/data_rps.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/unisoc.rild.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/unisoc.rild.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.security.keymint@2.0-unisoc.service.trusty.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.security.keymint@2.0-unisoc.service.trusty.rc \
@@ -350,27 +300,6 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/bin/hw/vendor.oppo.engnative.engineer@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.oppo.engnative.engineer@1.0-service \
     vendor/realme/RE58C2/proprietary/vendor/bin/hw/android.hardware.media.c2@1.1-unisoc-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.media.c2@1.1-unisoc-service
 
-# Vendor SELinux policies (complete stock versions)
-#PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_sepolicy.cil:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_sepolicy.cil \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_file_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_file_contexts \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_property_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_property_contexts \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_service_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_service_contexts \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_hwservice_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_hwservice_contexts \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vndservice_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vndservice_contexts \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_mac_permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_mac_permissions.xml \
-    vendor/realme/RE58C2/proprietary/vendor/etc/selinux/vendor_seapp_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_seapp_contexts
-
-# Boot HAL overlay - redirect android.boot to sprd.boot
-#PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/overlay/vendor/bin/hw/android.hardware.boot@1.2-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.boot@1.2-service \
-    vendor/realme/RE58C2/proprietary/overlay/vendor/etc/init/android.hardware.boot@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.boot@1.2-service.rc 
-    
-    
-    #vendor/realme/RE58C2/proprietary/overlay/vendor/bin/hw/android.hardware.keymaster@4.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.keymaster@4.0-service \
-   # vendor/realme/RE58C2/proprietary/overlay/vendor/etc/init/android.hardware.keymaster@4.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.keymaster@4.0-service.rc
-
-
 
 
 PRODUCT_COPY_FILES += \
@@ -387,24 +316,6 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.storage.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.storage.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.cali.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.cali.rc
 
-#PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.ums9230_hulk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.ums9230_hulk.rc \
-    vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.ums9230_hulk.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.ums9230_hulk.usb.rc \
-    vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.ram.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.ram.rc \
-    vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.storage.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.storage.rc \
-    vendor/realme/RE58C2/proprietary/vendor/etc/init/hw/init.cali.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.cali.rc  
-
-
-# Copy ALL vendor init files o system
-#PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/system/etc/init/hw/init.ums9230_hulk.rc:/init.ums9230_hulk.rc \
-    vendor/realme/RE58C2/proprietary/system/etc/init/hw/init.ums9230_hulk.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/hw/init.ums9230_hulk.rc \
-    vendor/realme/RE58C2/proprietary/system/etc/init/hw/init.ums9230_hulk.usb.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/hw/init.ums9230_hulk.usb.rc \
-    vendor/realme/RE58C2/proprietary/system/etc/init/hw/init.ram.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/hw/init.ram.rc \
-    vendor/realme/RE58C2/proprietary/system/etc/init/hw/init.storage.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/hw/init.storage.rc \
-
-#PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/system/etc/init/hw/init.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/hw/init.rc 
 
 
 
@@ -430,8 +341,271 @@ PRODUCT_COPY_FILES += \
 
 # Fstab files (include your device-specific one)
 PRODUCT_COPY_FILES += \
-    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_hulk:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_hulk\
     vendor/realme/RE58C2/proprietary/vendor/etc/fstab.RE58C2:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.RE58C2
+
+
+# Audio
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/audio_policy_apm_configuration_configurable.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_apm_configuration_configurable.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/audio_policy_configuration_a2dp_offload_disabled.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_a2dp_offload_disabled.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/audio_policy_configuration_bluetooth_legacy_hal.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_bluetooth_legacy_hal.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/audio_policy_engine_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_configuration.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/audio_policy_engine_criterion_types.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_criterion_types.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/audio_policy_engine_default_stream_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_default_stream_volumes.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/audio_policy_engine_product_strategies.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_product_strategies.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/audio_policy_engine_stream_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_engine_stream_volumes.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/bluetooth_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/bluetooth_audio_policy_configuration_disable_offload.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration_disable_offload.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/primary_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/primary_audio_policy_configuration.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/sprd_audio_policy_engine_criteria.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sprd_audio_policy_engine_criteria.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
+
+# Camera
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/camera/engineer_camera_config:$(TARGET_COPY_OUT_VENDOR)/etc/camera/engineer_camera_config
+
+# Media Codecs
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/media_codecs_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/media_codecs_performance_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_c2.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/media_profiles_turnkey.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_turnkey.xml
+
+# NFC
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
+
+# Sensors
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
+
+# WiFi
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/wifi/vendor_hals/unisoc_wifi_hal_arm64.xml:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/vendor_hals/unisoc_wifi_hal_arm64.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
+
+# Audio Test Files
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/AudioTest_hq/audio_1.mp3:$(TARGET_COPY_OUT_VENDOR)/etc/AudioTest_hq/audio_1.mp3 \
+    vendor/realme/RE58C2/proprietary/vendor/etc/AudioTest_hq/receiver.wav:$(TARGET_COPY_OUT_VENDOR)/etc/AudioTest_hq/receiver.wav \
+    vendor/realme/RE58C2/proprietary/vendor/etc/AudioTest_hq/spk.wav:$(TARGET_COPY_OUT_VENDOR)/etc/AudioTest_hq/spk.wav
+
+# Dirac Audio
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/dirac/diracmobile.config:$(TARGET_COPY_OUT_VENDOR)/etc/dirac/diracmobile.config \
+    vendor/realme/RE58C2/proprietary/vendor/etc/dirac/diracvdd.bin:$(TARGET_COPY_OUT_VENDOR)/etc/dirac/diracvdd.bin \
+    vendor/realme/RE58C2/proprietary/vendor/etc/dirac/interfacedb:$(TARGET_COPY_OUT_VENDOR)/etc/dirac/interfacedb
+
+# Engineering PC Configs
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/engpc/chnl/autotest.conf:$(TARGET_COPY_OUT_VENDOR)/etc/engpc/chnl/autotest.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/engpc/chnl/cali.conf:$(TARGET_COPY_OUT_VENDOR)/etc/engpc/chnl/cali.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/engpc/chnl/normal.conf:$(TARGET_COPY_OUT_VENDOR)/etc/engpc/chnl/normal.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/engpc/chnl/normal_lite.conf:$(TARGET_COPY_OUT_VENDOR)/etc/engpc/chnl/normal_lite.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/engpc/dev/agdsp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/engpc/dev/agdsp.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/engpc/dev/ap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/engpc/dev/ap.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/engpc/dev/cp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/engpc/dev/cp.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/engpc/dev/pc.conf:$(TARGET_COPY_OUT_VENDOR)/etc/engpc/dev/pc.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/engpc/dev/sensorhub.conf:$(TARGET_COPY_OUT_VENDOR)/etc/engpc/dev/sensorhub.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/engpc/dev/wcn.conf:$(TARGET_COPY_OUT_VENDOR)/etc/engpc/dev/wcn.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/engpc/engpc.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/engpc/engpc.cfg
+
+# Display Enhancement
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/3d_lut.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/3d_lut.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/abc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/abc.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/bld.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/bld.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/cms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/cms.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/dci.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/dci.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/flash.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/flash.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/gamma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/gamma.xml
+
+# LCD Display Profiles
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_ft8057p_ld_mipi_hd_3d_lut.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_ft8057p_ld_mipi_hd_3d_lut.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_ft8057p_ld_mipi_hd_abc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_ft8057p_ld_mipi_hd_abc.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_ft8057p_ld_mipi_hd_bld.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_ft8057p_ld_mipi_hd_bld.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_ft8057p_ld_mipi_hd_cms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_ft8057p_ld_mipi_hd_cms.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_ft8057p_ld_mipi_hd_gamma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_ft8057p_ld_mipi_hd_gamma.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_boe_mipi_hd_3d_lut.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_boe_mipi_hd_3d_lut.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_boe_mipi_hd_abc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_boe_mipi_hd_abc.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_boe_mipi_hd_bld.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_boe_mipi_hd_bld.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_boe_mipi_hd_cms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_boe_mipi_hd_cms.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_boe_mipi_hd_gamma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_boe_mipi_hd_gamma.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_lce_mipi_hd_3d_lut.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_lce_mipi_hd_3d_lut.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_lce_mipi_hd_abc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_lce_mipi_hd_abc.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_lce_mipi_hd_bld.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_lce_mipi_hd_bld.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_lce_mipi_hd_cms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_lce_mipi_hd_cms.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_lce_mipi_hd_gamma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_lce_mipi_hd_gamma.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_lce_new_mipi_hd_3d_lut.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_lce_new_mipi_hd_3d_lut.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_lce_new_mipi_hd_abc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_lce_new_mipi_hd_abc.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_lce_new_mipi_hd_bld.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_lce_new_mipi_hd_bld.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_lce_new_mipi_hd_cms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_lce_new_mipi_hd_cms.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_hx83108a_lce_new_mipi_hd_gamma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_hx83108a_lce_new_mipi_hd_gamma.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_hjc_cd_mipi_hd_3d_lut.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_hjc_cd_mipi_hd_3d_lut.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_hjc_cd_mipi_hd_abc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_hjc_cd_mipi_hd_abc.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_hjc_cd_mipi_hd_bld.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_hjc_cd_mipi_hd_bld.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_hjc_cd_mipi_hd_cms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_hjc_cd_mipi_hd_cms.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_hjc_cd_mipi_hd_gamma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_hjc_cd_mipi_hd_gamma.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_inx_mipi_hd_3d_lut.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_inx_mipi_hd_3d_lut.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_inx_mipi_hd_abc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_inx_mipi_hd_abc.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_inx_mipi_hd_bld.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_inx_mipi_hd_bld.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_inx_mipi_hd_cms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_inx_mipi_hd_cms.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_inx_mipi_hd_gamma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_inx_mipi_hd_gamma.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_ld_hjc_mipi_hd_3d_lut.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_ld_hjc_mipi_hd_3d_lut.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_ld_hjc_mipi_hd_abc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_ld_hjc_mipi_hd_abc.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_ld_hjc_mipi_hd_bld.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_ld_hjc_mipi_hd_bld.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_ld_hjc_mipi_hd_cms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_ld_hjc_mipi_hd_cms.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_icnl9916c_ld_hjc_mipi_hd_gamma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_icnl9916c_ld_hjc_mipi_hd_gamma.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_td4160_cw_new_mipi_hd_3d_lut.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_td4160_cw_new_mipi_hd_3d_lut.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_td4160_cw_new_mipi_hd_abc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_td4160_cw_new_mipi_hd_abc.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_td4160_cw_new_mipi_hd_bld.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_td4160_cw_new_mipi_hd_bld.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_td4160_cw_new_mipi_hd_cms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_td4160_cw_new_mipi_hd_cms.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_td4160_cw_new_mipi_hd_gamma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_td4160_cw_new_mipi_hd_gamma.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_td4160_cw_old_mipi_hd_3d_lut.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_td4160_cw_old_mipi_hd_3d_lut.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_td4160_cw_old_mipi_hd_abc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_td4160_cw_old_mipi_hd_abc.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_td4160_cw_old_mipi_hd_bld.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_td4160_cw_old_mipi_hd_bld.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_td4160_cw_old_mipi_hd_cms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_td4160_cw_old_mipi_hd_cms.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/enhance/lcd_td4160_cw_old_mipi_hd_gamma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/lcd_td4160_cw_old_mipi_hd_gamma.xml
+
+# Graphics
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/gralloc/gralloc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gralloc/gralloc.xml
+
+# ICAP
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/icap/control/scenes/Type_ISS.xml:$(TARGET_COPY_OUT_VENDOR)/etc/icap/control/scenes/Type_ISS.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/icap/control/IcapSwitchs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/icap/control/IcapSwitchs.xml
+
+# AI Models
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/models/noahark/gesture/tsn_gesture:$(TARGET_COPY_OUT_VENDOR)/etc/models/noahark/gesture/tsn_gesture \
+    vendor/realme/RE58C2/proprietary/vendor/etc/models/noahark/imageClassify/README.md:$(TARGET_COPY_OUT_VENDOR)/etc/models/noahark/imageClassify/README.md \
+    vendor/realme/RE58C2/proprietary/vendor/etc/models/noahark/imageClassify/cv_imageClassify:$(TARGET_COPY_OUT_VENDOR)/etc/models/noahark/imageClassify/cv_imageClassify \
+    vendor/realme/RE58C2/proprietary/vendor/etc/models/noahark/imageClassify/imageclassify_labels.txt:$(TARGET_COPY_OUT_VENDOR)/etc/models/noahark/imageClassify/imageclassify_labels.txt
+
+# Operator Configs
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/operator_config/au_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/operator_config/au_config.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/operator_config/in_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/operator_config/in_config.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/operator_config/jp_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/operator_config/jp_config.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/operator_config/pl_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/operator_config/pl_config.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/operator_config/tw_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/operator_config/tw_config.xml
+
+# Parameter Framework
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/parameter-framework/Settings/Policy/PolicyConfigurableDomains.xml:$(TARGET_COPY_OUT_VENDOR)/etc/parameter-framework/Settings/Policy/PolicyConfigurableDomains.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/parameter-framework/Structure/Policy/ProductStrategies.xml:$(TARGET_COPY_OUT_VENDOR)/etc/parameter-framework/Structure/Policy/ProductStrategies.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/parameter-framework/Structure/Policy/audio_PolicyClass.xml:$(TARGET_COPY_OUT_VENDOR)/etc/parameter-framework/Structure/Policy/audio_PolicyClass.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/parameter-framework/Structure/Policy/audio_PolicySubsystem-CommonTypes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/parameter-framework/Structure/Policy/audio_PolicySubsystem-CommonTypes.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/parameter-framework/Structure/Policy/audio_PolicySubsystem.xml:$(TARGET_COPY_OUT_VENDOR)/etc/parameter-framework/Structure/Policy/audio_PolicySubsystem.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/parameter-framework/ParameterFrameworkConfigurationPolicy.xml:$(TARGET_COPY_OUT_VENDOR)/etc/parameter-framework/ParameterFrameworkConfigurationPolicy.xml
+
+# Camera MFNR
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/raw_mfnr/raw_mfnr/const_file.txt:$(TARGET_COPY_OUT_VENDOR)/etc/raw_mfnr/raw_mfnr/const_file.txt \
+    vendor/realme/RE58C2/proprietary/vendor/etc/raw_mfnr/raw_mfnr/raw_mfnr_tuning.txt:$(TARGET_COPY_OUT_VENDOR)/etc/raw_mfnr/raw_mfnr/raw_mfnr_tuning.txt
+
+# Boot/Charging Images
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/res/images/colon_1080X1920.png:$(TARGET_COPY_OUT_VENDOR)/etc/res/images/colon_1080X1920.png \
+    vendor/realme/RE58C2/proprietary/vendor/etc/res/images/colon_1440X2560.png:$(TARGET_COPY_OUT_VENDOR)/etc/res/images/colon_1440X2560.png \
+    vendor/realme/RE58C2/proprietary/vendor/etc/res/images/colon_360X640.png:$(TARGET_COPY_OUT_VENDOR)/etc/res/images/colon_360X640.png \
+    vendor/realme/RE58C2/proprietary/vendor/etc/res/images/colon_480X800.png:$(TARGET_COPY_OUT_VENDOR)/etc/res/images/colon_480X800.png \
+    vendor/realme/RE58C2/proprietary/vendor/etc/res/images/colon_720X1280.png:$(TARGET_COPY_OUT_VENDOR)/etc/res/images/colon_720X1280.png
+
+# Seccomp Policies
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/seccomp_policy/android.hardware.media.c2@1.1-unisoc-seccomp_policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/android.hardware.media.c2@1.1-unisoc-seccomp_policy \
+    vendor/realme/RE58C2/proprietary/vendor/etc/seccomp_policy/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+
+# Touch Input
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/sinput/NVTCapacitiveTouchScreen.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sinput/NVTCapacitiveTouchScreen.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/sinput/adaptive_ts.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sinput/adaptive_ts.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/sinput/fts_ts.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sinput/fts_ts.conf
+
+# System Configuration Files
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/BBAT.conf:$(TARGET_COPY_OUT_VENDOR)/etc/BBAT.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/FD_tunning_param.xml:$(TARGET_COPY_OUT_VENDOR)/etc/FD_tunning_param.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/analyzer.py:$(TARGET_COPY_OUT_VENDOR)/etc/analyzer.py \
+    vendor/realme/RE58C2/proprietary/vendor/etc/audio_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_config.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/blackAppList.xml:$(TARGET_COPY_OUT_VENDOR)/etc/blackAppList.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/config.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/cp_dump_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/cp_dump_info.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/deviceidle.xml:$(TARGET_COPY_OUT_VENDOR)/etc/deviceidle.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/dynamic_debug_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dynamic_debug_config.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.RMX3624 \
+    vendor/realme/RE58C2/proprietary/vendor/etc/:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.cali \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.charge_mode:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.charge_mode \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.enableswap:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.enableswap \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.module:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.module \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_1h10 \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_1h10_go:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_1h10_go \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_4h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_4h10 \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_4h10_go:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_4h10_go \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_6h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_6h10 \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_7h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_7h10 \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_haps:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_haps \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_hulk:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_hulk \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_nico \
+    vendor/realme/RE58C2/proprietary/vendor/etc/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_zebu \
+    vendor/realme/RE58C2/proprietary/vendor/etc/imsUserAgent.xml:$(TARGET_COPY_OUT_VENDOR)/etc/imsUserAgent.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/lmkd_param.conf:$(TARGET_COPY_OUT_VENDOR)/etc/lmkd_param.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/log_settings.xml:$(TARGET_COPY_OUT_VENDOR)/etc/log_settings.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/log_settings_autotest.xml:$(TARGET_COPY_OUT_VENDOR)/etc/log_settings_autotest.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/log_settings_cali.xml:$(TARGET_COPY_OUT_VENDOR)/etc/log_settings_cali.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/log_settings_factory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/log_settings_factory.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/log_settings_lite.xml:$(TARGET_COPY_OUT_VENDOR)/etc/log_settings_lite.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/mkshrc:$(TARGET_COPY_OUT_VENDOR)/etc/mkshrc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/modem_cp_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/modem_cp_info.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/modem_sp_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/modem_sp_info.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/numeric_operator.xml:$(TARGET_COPY_OUT_VENDOR)/etc/numeric_operator.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/nvmerge.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/nvmerge.cfg \
+    vendor/realme/RE58C2/proprietary/vendor/etc/power_info.db:$(TARGET_COPY_OUT_VENDOR)/etc/power_info.db \
+    vendor/realme/RE58C2/proprietary/vendor/etc/power_resource_file_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/power_resource_file_info.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/power_resource_id_define.txt:$(TARGET_COPY_OUT_VENDOR)/etc/power_resource_id_define.txt \
+    vendor/realme/RE58C2/proprietary/vendor/etc/power_scene_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/power_scene_config.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/power_scene_id_define.txt:$(TARGET_COPY_OUT_VENDOR)/etc/power_scene_id_define.txt \
+    vendor/realme/RE58C2/proprietary/vendor/etc/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt \
+    vendor/realme/RE58C2/proprietary/vendor/etc/pwctl_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/pwctl_config.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/scenario.conf:$(TARGET_COPY_OUT_VENDOR)/etc/scenario.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/sixth_param.txt:$(TARGET_COPY_OUT_VENDOR)/etc/sixth_param.txt \
+    vendor/realme/RE58C2/proprietary/vendor/etc/sixth_param_voip.txt:$(TARGET_COPY_OUT_VENDOR)/etc/sixth_param_voip.txt \
+    vendor/realme/RE58C2/proprietary/vendor/etc/slog_modem.conf:$(TARGET_COPY_OUT_VENDOR)/etc/slog_modem.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/slog_modem_autotest.conf:$(TARGET_COPY_OUT_VENDOR)/etc/slog_modem_autotest.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/slog_modem_cali.conf:$(TARGET_COPY_OUT_VENDOR)/etc/slog_modem_cali.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/slog_modem_factory.conf:$(TARGET_COPY_OUT_VENDOR)/etc/slog_modem_factory.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/spirentroot.cer:$(TARGET_COPY_OUT_VENDOR)/etc/spirentroot.cer \
+    vendor/realme/RE58C2/proprietary/vendor/etc/sprd_hdr_tuning.param:$(TARGET_COPY_OUT_VENDOR)/etc/sprd_hdr_tuning.param \
+    vendor/realme/RE58C2/proprietary/vendor/etc/supl.xml:$(TARGET_COPY_OUT_VENDOR)/etc/supl.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json \
+    vendor/realme/RE58C2/proprietary/vendor/etc/thermal.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/uniber.conf:$(TARGET_COPY_OUT_VENDOR)/etc/uniber.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/wcn_chr.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wcn_chr.ini \
+    vendor/realme/RE58C2/proprietary/vendor/etc/wifisar.xml:$(TARGET_COPY_OUT_VENDOR)/etc/wifisar.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/ylog.conf.custom:$(TARGET_COPY_OUT_VENDOR)/etc/ylog.conf.custom \
+    vendor/realme/RE58C2/proprietary/vendor/etc/ylog.conf.debug:$(TARGET_COPY_OUT_VENDOR)/etc/ylog.conf.debug \
+    vendor/realme/RE58C2/proprietary/vendor/etc/ylog.conf.factorytest:$(TARGET_COPY_OUT_VENDOR)/etc/ylog.conf.factorytest \
+    vendor/realme/RE58C2/proprietary/vendor/etc/ylog.conf.user:$(TARGET_COPY_OUT_VENDOR)/etc/ylog.conf.user \
+    vendor/realme/RE58C2/proprietary/vendor/etc/yloglite.conf:$(TARGET_COPY_OUT_VENDOR)/etc/yloglite.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/yloglitesource.conf:$(TARGET_COPY_OUT_VENDOR)/etc/yloglitesource.conf \
+    vendor/realme/RE58C2/proprietary/vendor/etc/ylogsource.conf:$(TARGET_COPY_OUT_VENDOR)/etc/ylogsource.conf
+
 
 
 # Essential System Components
@@ -440,3 +614,5 @@ PRODUCT_PACKAGES += \
     charger \
     charger_res_images \
     watchdogd
+
+
