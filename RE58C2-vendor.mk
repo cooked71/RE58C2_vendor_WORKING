@@ -312,9 +312,9 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/bin/phasecheckserver:$(TARGET_COPY_OUT_VENDOR)/bin/phasecheckserver \
     vendor/realme/RE58C2/proprietary/vendor/bin/refnotify:$(TARGET_COPY_OUT_VENDOR)/bin/refnotify \
     vendor/realme/RE58C2/proprietary/vendor/bin/slogmodem_vendor:$(TARGET_COPY_OUT_VENDOR)/bin/slogmodem_vendor \
-    vendor/realme/RE58C2/proprietary/vendor/bin/srtd:$(TARGET_COPY_OUT_VENDOR)/bin/srtd \
-    vendor/realme/RE58C2/proprietary/vendor/bin/vndservice:$(TARGET_COPY_OUT_VENDOR)/bin/vndservice \
-    vendor/realme/RE58C2/proprietary/vendor/bin/vndservicemanager:$(TARGET_COPY_OUT_VENDOR)/bin/vndservicemanager
+    vendor/realme/RE58C2/proprietary/vendor/bin/srtd:$(TARGET_COPY_OUT_VENDOR)/bin/srtd 
+    vendor/realme/RE58C2/proprietary/vendor/bin/vndservice:$(TARGET_COPY_OUT_VENDOR)/bin/vndservice 
+   # vendor/realme/RE58C2/proprietary/vendor/bin/vndservicemanager:$(TARGET_COPY_OUT_VENDOR)/bin/vndservicemanager
 
 
 
