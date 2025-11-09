@@ -243,7 +243,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/wcn_chr.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/wcn_chr.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/init/yloglite.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/yloglite.rc \
     vendor/realme/RE58C2/proprietary/vendor/etc/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
-    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.boot@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.boot@1.2-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/vendor.sprd.hardware.boot@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.boot@1.2-service.rc 
 
     # device/realme/RE58C2/vendor/etc/init/vendor.sprd.hardware.boot@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.boot@1.2-service.rc
     # vendor/realme/RE58C2/proprietary/vendor/etc/init/vndservicemanager.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vndservicemanager.rc 
@@ -605,6 +605,11 @@ PRODUCT_COPY_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/yloglite.conf:$(TARGET_COPY_OUT_VENDOR)/etc/yloglite.conf \
     vendor/realme/RE58C2/proprietary/vendor/etc/yloglitesource.conf:$(TARGET_COPY_OUT_VENDOR)/etc/yloglitesource.conf \
     vendor/realme/RE58C2/proprietary/vendor/etc/ylogsource.conf:$(TARGET_COPY_OUT_VENDOR)/etc/ylogsource.conf
+
+#FAKED PACKAGES
+PRODUCT_COPY_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/init/android.hardware.boot@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.boot@1.0-service.rc \
+    vendor/realme/RE58C2/proprietary/vendor/bin/hw/android.hardware.boot@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.boot@1.0-service
 
 
 
