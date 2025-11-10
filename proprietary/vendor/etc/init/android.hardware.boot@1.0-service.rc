@@ -1,4 +1,0 @@
-service android.hardware.boot@1.0-service /vendor/bin/hw/android.hardware.boot@1.0-service
-    class early_hal
-    user root
-    group root
