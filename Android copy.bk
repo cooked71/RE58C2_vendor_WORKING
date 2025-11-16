@@ -1041,7 +1041,7 @@ cc_prebuilt_library_shared {
 // =============================================
 
 cc_prebuilt_binary {
-    name: "android.hardware.graphics.composer@2.4-service",
+    name: "android.hardware.graphics.composer@2.4-service.unisoc",
     owner: "realme",
     srcs: ["proprietary/vendor/bin/hw/android.hardware.graphics.composer@2.4-service"],
     relative_install_path: "hw",
